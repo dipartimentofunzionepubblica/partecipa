@@ -23,17 +23,11 @@
 }
 
 .main-nav__link--active a {
-    box-shadow: inset 0 4px 0 0 #3CB371; //MediumSeaGreen  	
+    box-shadow: inset 0 4px 0 0 white; //#3CB371; //MediumSeaGreen  	
 }
 
 .home-bullet__icon svg {
     fill: #3CB371; //MediumSeaGreen  	
-}
-
-.home-bullet__icon svg:hover, .home-bullet__icon svg:focus {
-    fill: #3CB371; //MediumSeaGreen  	
-	-webkit-filter: brightness(120%);
-    filter: brightness(120%);
 }
 
 .button.hollow {
@@ -66,6 +60,16 @@
     color: #3D3940;
 }
 
+.topbar__search svg {
+	color: #3D3940;
+    position: absolute;
+    top: 50%;
+    left: 0.5rem;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    opacity: .5;
+}
+
 .main-footer {
     background-color: #0066CC; // blu italia guidelines
     position: relative;
@@ -77,3 +81,55 @@
     padding: 1rem 0;
     background-color: #3399ff; // blu italia guidelines schiarito -20%
 }
+
+.main-footer a {
+    color: #3399ff; // blu italia guidelines schiarito -20%
+}
+
+.mini-footer a {
+	color: #cce6ff; // blu italia guidelines schiarito -50%
+}
+
+.button.secondary {
+    background-color: #3CB371; //MediumSeaGreen
+    color: #1a181d;
+}
+
+.section-heading::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: .8em;
+    background-color: #3CB371; //MediumSeaGreen
+    margin-right: .5rem;
+    margin-bottom: -.1rem;
+}
+
+title.is-active > [role="tab"], .side-panel__tabs .tabs-title.is-active > a {
+    color: #599aa6;
+    box-shadow: inset 4px 0 0 #3CB371; //MediumSeaGreen
+}
+
+.card__link {
+    color: #3399ff; // blu italia guidelines schiarito -20%
+}
+
+#profile-tabs.tabs .tabs-title a:focus, #profile-tabs.tabs .tabs-title a[aria-selected="true"] {
+    background: transparent;
+    color: #3399ff; // blu italia guidelines schiarito -20%
+    font-weight: 600;
+    border-bottom: 3px solid #3CB371; //MediumSeaGreen
+}
+
+/*
+a {
+    line-height: inherit;
+    color: #3399ff; // blu italia guidelines schiarito -20%
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover, a:focus {
+    color: #3399ff; // blu italia guidelines schiarito -20%
+}
+*/
