@@ -35,3 +35,7 @@ public/uploads
 
 # Ignore public assets
 public/assets/**
+
+# Ignore application.yml
+config/application.yml
+
