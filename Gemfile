@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "decidim", "~> 0.17.0"
+gem "decidim", "~> 0.17.1"
 gem "bootsnap", "~> 1.3"
 gem "puma", "~> 3.0"
 gem "uglifier", "~> 4.1"
@@ -17,7 +17,7 @@ gem "pg"
 
 group :development, :test do
   gem "byebug", "~> 10.0", platform: :mri
-  gem "decidim-dev", "0.17.0"
+  gem "decidim-dev", "0.17.1"
 end
 
 group :development do
