@@ -37,6 +37,10 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # Use the lowest log level to ensure availability of diagnostic information
+  # when problems arise.
+  config.log_level = :debug
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -63,4 +67,8 @@ Rails.application.configure do
 
   # No precompilation on demand on first request
   config.assets.check_precompiled_asset = false
+
+  # Enable locale fallbacks for I18n (makes lookups for any locale fall back to end
+  # the I18n.default_locale when a translation cannot be found).
+  config.i18n.fallbacks = true
 end
