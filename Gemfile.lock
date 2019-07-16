@@ -180,6 +180,11 @@ GEM
     decidim-comments (0.17.1)
       decidim-core (= 0.17.1)
       jquery-rails (~> 4.0)
+    decidim-conferences (0.17.1)
+      decidim-core (= 0.17.1)
+      decidim-meetings (= 0.17.1)
+      wicked_pdf
+      wkhtmltopdf-binary
     decidim-core (0.17.1)
       active_link_to (~> 1.0)
       autoprefixer-rails (~> 8.0)
@@ -723,8 +728,11 @@ GEM
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
+    wicked_pdf (1.4.0)
+      activesupport
     wisper (2.0.0)
     wisper-rspec (1.1.0)
+    wkhtmltopdf-binary (0.12.4)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -736,6 +744,7 @@ DEPENDENCIES
   byebug (~> 10.0)
   daemons
   decidim (~> 0.17.1)
+  decidim-conferences (~> 0.17.1)
   decidim-dev (= 0.17.1)
   delayed_job_active_record
   faker (~> 1.9)
