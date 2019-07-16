@@ -6,7 +6,9 @@ class CopyUpdatedLocales
 	LOCAL_REPO_FOLDER = Rails.root.join("tmp", "decidim_repo") 
 	LAST_VERSION = "0.17.1"
 	LOCALES_RELATIVE_PATH = "config/locales"
-	YML_FILENAME = "it.yml"
+	ITALIAN_YML_FILENAME = "it.yml"
+	ENGLISH_YML_FILENAME = "en.yml"
+	LOCALES_YML_FILES = [ITALIAN_YML_FILENAME, ENGLISH_YML_FILENAME]
 
 	def initialize
 		decidim_engines =
@@ -31,14 +33,13 @@ class CopyUpdatedLocales
 			"decidim-system",
 			"decidim-verifications"
 		]
-		decidim_engines.each  do |engine|
-			result = rename_file(GEM_FOLDER + "/" + engine + "-" + LAST_VERSION + "/" + LOCALES_RELATIVE_PATH + "/" + YML_FILENAME)
-			if !result then
-				decidim_engines.delete(engine)
+		LOCALES_YML_FILES.each do |locale_yml_file|
+			decidim_engines.each  do |engine|
+				result = rename_file(GEM_FOLDER + "/" + engine + "-" + LAST_VERSION + "/" + LOCALES_RELATIVE_PATH + "/" + locale_yml_file)
+				if result then
+					copy_file(LOCAL_REPO_FOLDER.to_s + "/" + engine + "/" + LOCALES_RELATIVE_PATH + "/" + locale_yml_file,  GEM_FOLDER + "/" + engine + "-" + LAST_VERSION + "/" + LOCALES_RELATIVE_PATH + "/" + locale_yml_file)
+				end
 			end
-		end
-		decidim_engines.each  do |engine|
-			copy_file(LOCAL_REPO_FOLDER.to_s + "/" + engine + "/" + LOCALES_RELATIVE_PATH + "/" + YML_FILENAME,  GEM_FOLDER + "/" + engine + "-" + LAST_VERSION + "/" + LOCALES_RELATIVE_PATH + "/" + YML_FILENAME)
 		end
 	end
 

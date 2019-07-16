@@ -1,0 +1,21 @@
+
+<div class="p-xs flex--sbc">
+  <div class="mr-s">
+    <div class="card__header collapse">
+      <%= cell("decidim/user_profile", raw_model).user_data %>
+    </div>
+    <div class="card__text card--picture-offset">
+    </div>
+  </div>
+  <div class="ml-s">
+    <%= cell "decidim/follow_button", raw_model %>
+    <div>
+        <strong><%= model.followers_count %></strong> <%= t("decidim.profiles.show.followers") %>
+    </div>
+    <% if model.can_follow? %>
+      <div>
+        <strong><%= model.following_count %></strong> <%= t("decidim.profiles.show.following") %>
+      </div>
+    <% end %>
+  </div>
+</div>

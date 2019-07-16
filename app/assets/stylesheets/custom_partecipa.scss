@@ -131,3 +131,27 @@ title.is-active > [role="tab"], .side-panel__tabs .tabs-title.is-active > a {
 .floating-helper-container{
 	display: none;
 }
+
+.hero::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    //background-color: rgba(26, 24, 29, 0.6);
+	background-color: transparent;
+}
+
+.process-header__main::after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    //background-color: rgba(26, 24, 29, 0.6);
+	background-color: transparent;
+}
