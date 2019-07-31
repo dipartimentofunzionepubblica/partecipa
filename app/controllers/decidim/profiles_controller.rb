@@ -69,7 +69,7 @@ module Decidim
     end
 	
 	def ensure_profile_holder_is_current_user
-      raise ActionController::RoutingError, "Not Found" if current_user != @profile_holder
+      raise ActionController::RoutingError, "Not Found" if current_user != @profile_holder 
 	end
 	
     def profile_holder
