@@ -4,7 +4,7 @@ require File.expand_path('../../config/environment', __FILE__)
 class CopyUpdatedLocales
 	GEM_FOLDER = Gem.dir + "/gems"
 	LOCAL_REPO_FOLDER = Rails.root.join("tmp", "decidim_repo") 
-	LAST_VERSION = "0.17.1"
+	LAST_VERSION = "0.18.0"
 	LOCALES_RELATIVE_PATH = "config/locales"
 	ITALIAN_YML_FILENAME = "it.yml"
 	ENGLISH_YML_FILENAME = "en.yml"
