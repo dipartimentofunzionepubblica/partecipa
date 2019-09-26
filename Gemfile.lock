@@ -49,8 +49,10 @@ GEM
       activerecord (>= 3.0)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
+    aes_key_wrap (1.0.1)
     arel (9.0.0)
     ast (2.4.0)
+    attr_required (1.0.1)
     autoprefixer-rails (8.6.5)
       execjs
     axiom-types (0.1.1)
@@ -71,6 +73,7 @@ GEM
       html_tokenizer (~> 0.0.6)
       parser (>= 2.4)
       smart_properties
+    bindata (2.4.4)
     bindex (0.5.0)
     bootsnap (1.3.2)
       msgpack (~> 1.0)
@@ -401,6 +404,7 @@ GEM
     httparty (0.16.4)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
+    httpclient (2.8.3)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     i18n-tasks (0.9.29)
@@ -427,6 +431,10 @@ GEM
     jquery-tmpl-rails (1.1.0)
       rails (>= 3.1.0)
     json (2.2.0)
+    json-jwt (1.10.2)
+      activesupport (>= 4.2)
+      aes_key_wrap
+      bindata
     jwt (2.2.1)
     kaminari (1.1.1)
       activesupport (>= 4.1.0)
@@ -511,6 +519,21 @@ GEM
     omniauth-twitter (1.4.0)
       omniauth-oauth (~> 1.1)
       rack
+    omniauth_openid_connect (0.1)
+      addressable (~> 2.5)
+      omniauth (~> 1.3)
+      openid_connect (~> 0.12.0)
+    openid_connect (0.12.0)
+      activemodel
+      attr_required (>= 1.0.0)
+      json (>= 1.4.3)
+      json-jwt (>= 1.5.0)
+      rack-oauth2 (>= 1.3.1)
+      swd (>= 1.0.0)
+      tzinfo
+      validate_email
+      validate_url
+      webfinger (>= 1.0.1)
     orm_adapter (0.5.0)
     paper_trail (9.2.0)
       activerecord (>= 4.2, < 5.3)
@@ -541,6 +564,12 @@ GEM
     rack-attack (5.4.2)
       rack (>= 1.0, < 3)
     rack-cors (1.0.3)
+    rack-oauth2 (1.10.0)
+      activesupport
+      attr_required
+      httpclient
+      json-jwt (>= 1.9.0)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.3)
@@ -643,6 +672,8 @@ GEM
       rubocop (>= 0.58.0)
     ruby-ole (1.2.12.2)
     ruby-progressbar (1.10.1)
+    ruby-saml (1.8.0)
+      nokogiri (>= 1.5.10)
     ruby_dep (1.5.0)
     rubyzip (1.2.3)
     safe_yaml (1.0.5)
@@ -669,6 +700,17 @@ GEM
     smart_properties (1.15.0)
     social-share-button (1.2.0)
       coffee-rails
+    spid (0.19.0)
+      activesupport (>= 3.0.0, < 5.3)
+      listen
+      rack (>= 1, < 3)
+      rake (>= 10.0, < 13)
+      xmldsig (>= 0.6.6)
+    spid-rails (0.2.0)
+      rails (~> 5.1, >= 5.1.4)
+      rails-html-sanitizer (~> 1.0, >= 1.0.4)
+      ruby-saml (~> 1.8.0)
+      spid (>= 0.18.0)
     spreadsheet (1.2.4)
       ruby-ole (>= 1.0)
     spring (2.0.2)
@@ -687,6 +729,10 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    swd (1.1.2)
+      activesupport (>= 3)
+      attr_required (>= 0.0.5)
+      httpclient (>= 2.4)
     system_test_html_screenshots (0.1.2)
       actionpack (>= 5.2, < 6.0.a)
     temple (0.8.1)
@@ -711,6 +757,12 @@ GEM
     valid_email2 (2.3.1)
       activemodel (>= 3.2)
       mail (~> 2.5)
+    validate_email (0.1.6)
+      activemodel (>= 3.0)
+      mail (>= 2.2.5)
+    validate_url (1.0.8)
+      activemodel (>= 3.0.0)
+      public_suffix
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -723,6 +775,9 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webfinger (1.1.0)
+      activesupport
+      httpclient (>= 2.4)
     webmock (3.5.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -735,6 +790,8 @@ GEM
     wisper (2.0.0)
     wisper-rspec (1.1.0)
     wkhtmltopdf-binary (0.12.4)
+    xmldsig (0.6.6)
+      nokogiri (>= 1.6.8, < 2.0.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -751,11 +808,16 @@ DEPENDENCIES
   delayed_job_active_record
   faker (~> 1.9)
   figaro
+  jquery-rails
   letter_opener_web (~> 1.3)
   listen (~> 3.1)
+  omniauth
+  omniauth_openid_connect (~> 0.1)
+  openid_connect (~> 0.12.0)
   passenger
   pg
   puma (~> 3.0)
+  spid-rails (>= 0.2.0)
   spring (~> 2.0)
   spring-watcher-listen (~> 2.0)
   uglifier (~> 4.1)
@@ -765,4 +827,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   2.0.1
+   2.0.2
