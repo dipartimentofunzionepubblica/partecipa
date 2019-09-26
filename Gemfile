@@ -5,7 +5,7 @@ source "https://rubygems.org"
 ruby RUBY_VERSION
 
 gem "decidim", "~> 0.18.0"
-gem 'decidim-conferences', "~> 0.18.0"
+gem "decidim-conferences", "~> 0.18.0"
 gem "bootsnap", "~> 1.3"
 gem "puma", "~> 3.0"
 gem "uglifier", "~> 4.1"
@@ -15,6 +15,11 @@ gem "passenger"
 gem 'delayed_job_active_record'
 gem "daemons"
 gem "pg"
+gem "spid-rails", ">=  0.2.0"
+gem "jquery-rails"
+gem "omniauth"
+gem "omniauth_openid_connect", "~> 0.1"
+gem "openid_connect", "~> 0.12.0"
 
 group :development, :test do
   gem "byebug", "~> 10.0", platform: :mri
