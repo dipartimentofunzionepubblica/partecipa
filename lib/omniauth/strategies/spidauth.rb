@@ -15,10 +15,7 @@ module OmniAuth
 		  
 		def request_phase
 			puts ">>>>>>>>>>>>>>>>>>REQUEST_PHASE!!!!<<<<<<<<<<<<<<<<<<<<<"
-			
 			idp_param = request.params["idp_param"]
-			puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>idp_param = " + idp_param
-			
 			redirect spid_login_path(idp_name: idp_param, authn_context: Spid::L1, attribute_service_index: 0)
 		end
 
