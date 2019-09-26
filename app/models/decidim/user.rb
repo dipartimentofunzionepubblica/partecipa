@@ -10,7 +10,7 @@ module Decidim
     include Decidim::DataPortability
     include Decidim::Searchable
 
-    OMNIAUTH_PROVIDERS = [:spidauth, (:developer if Rails.env.development?)].compact
+   OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, :spidauth, (:developer if Rails.env.development?)].compact
 
     class Roles
       def self.all
@@ -223,30 +223,6 @@ module Decidim
     def ensure_encrypted_password
       restore_encrypted_password! if will_save_change_to_encrypted_password? && encrypted_password.blank?
     end
-=begin	
-	def self.from_omniauth(auth)
-		begin
-			puts "DecidimUser.from_omniauth = " + auth.inspect
-			
-			User.where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-				user.email = auth.user_info.email
-				user.password = Devise.friendly_token[0,20]
-				user.provider = auth.provider
-				user.uid = auth.uid
-				#DA INSERIRE SU DECIDIM
-				#user.rolable.firstname = auth.info.firstname   # assuming the user model has a name
-				#user.rolable.lastname = auth.info.lastname
 
-				# If you are using confirmable and the provider(s) you use validate emails, 
-				# uncomment the line below to skip the confirmation emails.
-				# user.skip_confirmation!
-			end
-		rescue StandardError => e
-			puts "DecidimUser.from_omniauth ==============>" + e.message
-			puts "Backtrace:\n\t#{e.backtrace.join("\n\t")}"
-			redirect_to root_url
-		end
-    end
-=end
   end
 end
