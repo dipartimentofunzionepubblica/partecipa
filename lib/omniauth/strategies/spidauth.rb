@@ -6,49 +6,30 @@ module OmniAuth
 		include OmniAuth::Strategy
 		include Spid::Rails::RouteHelper
 		  
-		# receive parameters from the strategy declaration and save them
-		#def initialize(app, secret, auth_redirect, options = {})
-			#@secret = secret
-			#@auth_redirect = auth_redirect
-			#super(app, :spid_auth, options)
-		#end
-		  
 		def request_phase
-			puts ">>>>>>>>>>>>>>>>>>REQUEST_PHASE!!!!<<<<<<<<<<<<<<<<<<<<<"
 			idp_param = request.params["idp_param"]
-			redirect spid_login_path(idp_name: idp_param, authn_context: Spid::L1, attribute_service_index: 0)
+			attribute_service_index_param = request.params["attribute_service_index_param"] || 0
+			redirect spid_login_path(idp_name: idp_param, authn_context: Spid::L1, attribute_service_index: attribute_service_index_param)
 		end
 
-		#uid { @spid_session_attributes[:spid_code] }
-
-		#def extra
-		#  @spid_session_attributes # Return a hash with user data
-		#end
-
 		def callback_phase
-			# Configure Service SDK
-			#@user_details = Session #Service.user_data # Make SDK call to get user details
-			puts ">>>>>>>>>>>>>>>>>>CALLBACK_PHASE!!!!<<<<<<<<<<<<<<<<<<<<<"
 			begin
-				#if !session[:spid].blank?
-					#puts "session[:spid] = " + session[:spid].inspect
-					if !session[:spid]["session_index"].blank? && !session[:spid]['attributes'].blank?
-						#puts "session[:spid]['attributes'] = " + session[:spid]['attributes'].inspect
-						#@spid_session_attributes = session[:spid]['attributes']	
-						#'spid_code','email','name','family_name'
-						@provider = session[:spid]['idp']
-						@uid = session[:spid]['attributes']['spid_code']
-						@email = session[:spid]['attributes']['email']
-						@first_name = session[:spid]['attributes']['name']
-						@last_name = session[:spid]['attributes']['family_name']
-						#session[:spid] = nil
-						auth_hash 
-						super
-					else
-						#puts "session[:spid]['attributes'] = nil" 
-						
-					end
-				#end
+				puts "session[:spid]['session_index'] = " + session[:spid]["session_index"].inspect
+				puts "session[:spid]['attributes'] = " + session[:spid]["attributes"].inspect
+				
+				if !session.nil? && !session[:spid]["session_index"].blank? && !session[:spid]['attributes'].blank?
+					@provider = session[:spid]['idp']
+					@uid = session[:spid]['attributes']['spid_code']
+					@email = session[:spid]['attributes']['email']
+					@first_name = session[:spid]['attributes']['name']
+					@last_name = session[:spid]['attributes']['family_name']
+					#session.delete("spid")
+					auth_hash 
+					super
+				elsif !session[:spid]['errors'].blank?
+					puts "session[:spid]['errors'] = "  + session[:spid]['errors'].inspect
+					@errors = session[:spid]['errors']
+				end
 			rescue StandardError => e
 				puts "Spidauth.callback_phase ==============>" + e.message
 				puts "Backtrace:\n\t#{e.backtrace.join("\n\t")}"
@@ -64,6 +45,9 @@ module OmniAuth
 					'email'	   => @email,
 					'first_name' => @first_name,
 					'last_name' => @last_name,
+				  },
+				  'extra' => {
+					'user_hash' => @errors
 				  }
 				})
 			rescue StandardError => e
@@ -73,7 +57,7 @@ module OmniAuth
 		end
 		
 		def authorize_params
-			super.merge(idp_param: request.params["idp_param"])
+			super.merge(idp_param: request.params["idp_param"], attribute_service_index_param: request.params["attribute_service_index_param"])
 		end
     end
   end
