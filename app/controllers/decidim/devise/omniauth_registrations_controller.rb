@@ -11,7 +11,9 @@ module Decidim
 
 		  def create
 			form_params = user_params_from_oauth_hash || params[:user]
-
+			
+			puts "===========================> form_params = " + form_params.inspect
+			
 			@form = form(OmniauthRegistrationForm).from_params(form_params)
 			@form.email ||= verified_email
 
@@ -71,25 +73,29 @@ module Decidim
 		  private
 
 		  def oauth_data
-			@oauth_data ||= oauth_hash.slice(:provider, :uid, :info)
+			@oauth_data ||= oauth_hash.slice(:provider, :uid, :user_info, :extra)
 		  end
 
 		  # Private: Create form params from omniauth hash
 		  # Since we are using trusted omniauth data we are generating a valid signature.
 		  def user_params_from_oauth_hash
 			return nil if oauth_data.empty?
-
+			puts "oauth_data = " + oauth_data.inspect
 			{
 			  provider: oauth_data[:provider],
 			  uid: oauth_data[:uid],
-			  name: oauth_data[:info][:name],
-			  nickname: oauth_data[:info][:nickname],
+			  name: name,
+			  email: verified_email,
 			  oauth_signature: OmniauthRegistrationForm.create_signature(oauth_data[:provider], oauth_data[:uid])
 			}
 		  end
+		  
+		  def name
+			(oauth_data.dig(:user_info, :first_name) + "_" + oauth_data.dig(:user_info, :last_name)).downcase.underscore
+		  end
 
 		  def verified_email
-			@verified_email ||= oauth_data.dig(:info, :email)
+			@verified_email ||= oauth_data.dig(:user_info, :email)
 		  end
 
 		  def oauth_hash
