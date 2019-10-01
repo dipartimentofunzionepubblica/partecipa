@@ -21,14 +21,13 @@ module OmniAuth
 					@provider = session[:spid]['idp']
 					@uid = session[:spid]['attributes']['spid_code']
 					@email = session[:spid]['attributes']['email']
-					@first_name = session[:spid]['attributes']['name']
-					@last_name = session[:spid]['attributes']['family_name']
-					#session.delete("spid")
 					auth_hash 
 					super
 				elsif !session[:spid]['errors'].blank?
 					puts "session[:spid]['errors'] = "  + session[:spid]['errors'].inspect
 					@errors = session[:spid]['errors']
+					auth_hash 
+					super
 				end
 			rescue StandardError => e
 				puts "Spidauth.callback_phase ==============>" + e.message
@@ -42,12 +41,10 @@ module OmniAuth
 				  'provider' => @provider,
 				  'uid' => @uid,
 				  'user_info' => {
-					'email'	   => @email,
-					'first_name' => @first_name,
-					'last_name' => @last_name,
+					'email'	   => @email
 				  },
 				  'extra' => {
-					'user_hash' => @errors
+					'raw_info' => @errors 
 				  }
 				})
 			rescue StandardError => e

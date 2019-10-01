@@ -18,8 +18,6 @@ gem "pg"
 gem "spid-rails", ">=  0.2.0"
 gem "jquery-rails"
 gem "omniauth"
-gem "omniauth_openid_connect", "~> 0.1"
-gem "openid_connect", "~> 0.12.0"
 
 group :development, :test do
   gem "byebug", "~> 10.0", platform: :mri
