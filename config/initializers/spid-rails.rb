@@ -20,6 +20,6 @@ Spid.configure do |config|
   config.acs_binding = Rails.application.secrets.spid_acs_binding.constantize
   config.slo_binding = Rails.application.secrets.spid_slo_binding.constantize
   config.attribute_services = [
-    { name: 'Decidim', fields: [:spid_code,:name,:family_name,:email] }
+    { name: 'Decidim', fields: [:spid_code, :email] }
   ]
 end
