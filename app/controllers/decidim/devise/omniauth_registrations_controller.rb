@@ -11,6 +11,7 @@ module Decidim
 
 		  def create
 			form_params = user_params_from_oauth_hash || params[:user]
+
 			@form = form(OmniauthRegistrationForm).from_params(form_params)
 			@form.email ||= verified_email
 
@@ -44,10 +45,10 @@ module Decidim
 		  def spidauth
 			form_params = user_params_from_spid_oauth_hash || params[:user]
 			if !form_params[:errors].nil?
-				flash[:errors] = form_params[:errors].values.to_sentence
-				redirect_to decidim.new_user_session_path
+				redirect_to decidim.new_user_session_path, flash: {errors: form_params[:errors].values.to_sentence}
 				return
 			end
+
 			@form = form(OmniauthRegistrationForm).from_params(form_params)
 			@form.email ||= verified_email
 
@@ -110,26 +111,38 @@ module Decidim
 			@oauth_data ||= oauth_hash.slice(:provider, :uid, :user_info, :extra)
 		  end
 
-		  # Private: Create form params from omniauth hash
-		  # Since we are using trusted omniauth data we are generating a valid signature.
 		  def user_params_from_spid_oauth_hash
 			return nil if oauth_data.empty? 
-			puts "=============================> oauth_data = " + oauth_data.inspect
-			if !oauth_data[:provider].nil? || !oauth_data[:uid].nil?
+			if !oauth_data[:provider].nil? && !oauth_data[:uid].nil?
 				{
 					provider: oauth_data[:provider],
 					uid: oauth_data[:uid],
 					email: verified_email,
 					oauth_signature: OmniauthRegistrationForm.create_signature(oauth_data[:provider], oauth_data[:uid])
 				}
-			else
+			elsif !oauth_data[:extra][:raw_info].nil?
 				{
 					errors: oauth_data[:extra][:raw_info]
 				}
 			end
 		  end
 
+		  # Private: Create form params from omniauth hash
+		  # Since we are using trusted omniauth data we are generating a valid signature.
+		  def user_params_from_oauth_hash
+			return nil if oauth_data.empty?
 
+			{
+			  provider: oauth_data[:provider],
+			  uid: oauth_data[:uid],
+			  name: oauth_data[:info][:name],
+			  nickname: oauth_data[:info][:nickname],
+			  oauth_signature: OmniauthRegistrationForm.create_signature(oauth_data[:provider], oauth_data[:uid]),
+			  avatar_url: oauth_data[:info][:image],
+			  raw_data: oauth_hash
+			}
+		  end
+		  
 		  def verified_email
 			@verified_email ||= oauth_data.dig(:user_info, :email)
 		  end
