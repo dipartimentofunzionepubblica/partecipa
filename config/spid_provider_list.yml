@@ -42,7 +42,7 @@ spid_provider_list:
     svg_image_path: /spid/spid-idp-sielteid.svg
   -
     alt: "Spiditalia ID"
-    identity_provider: spiditalia
+    identity_provider: register
     png_image_path: /spid/spid-idp-spiditalia.png
     svg_image_path: /spid/spid-idp-spiditalia.svg
   -
