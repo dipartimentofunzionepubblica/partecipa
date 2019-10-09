@@ -54,38 +54,20 @@ module Decidim
 
 			CreateOmniauthRegistration.call(@form, verified_email) do
 			  on(:ok) do |user|
-				puts "user.confirmed? = " + user.confirmed?.to_s
-				puts "user.email = " + user.email.to_s
-				puts "verified_email = " + verified_email
 				if !user.confirmed? && user.email == verified_email
 					user.skip_confirmation!
 					user.save!
-					puts "=======================> user = " + user.inspect 
 				end
-=begin			  
-				if user.active_for_authentication?
-				  sign_in_and_redirect user, event: :authentication
-				  set_flash_message :notice, :success, kind: @form.provider.capitalize
-				else
-				  expire_data_after_sign_in!
-				  redirect_to root_path
-				  flash[:notice] = t("devise.registrations.signed_up_but_unconfirmed")
-				end
-=end
-				
-				puts "user.active_for_authentication? = " + user.active_for_authentication?.to_s
-				
-				
-				if user.active_for_authentication?
+			  
+				if user.active_for_authentication? && user.confirmed?
 				  sign_in_and_redirect user, event: :authentication
 				  set_flash_message :notice, :success, kind: @form.provider.capitalize
 				else
 				  expire_data_after_sign_in!
 				  user.resend_confirmation_instructions unless user.confirmed?
-				  redirect_to decidim.root_path
+				  redirect_to root_path
 				  flash[:notice] = t("devise.registrations.signed_up_but_unconfirmed")
 				end
-				
 			  end
 
 			  on(:invalid) do
@@ -105,8 +87,10 @@ module Decidim
 
 		  def after_sign_in_path_for(user)
 			if !pending_redirect?(user) && first_login_and_not_authorized?(user)
+			  puts "after_sign_in_path_for = 1"
 			  decidim_verifications.authorizations_path
 			else
+		      puts "after_sign_in_path_for = 2"
 			  super
 			end
 		  end
