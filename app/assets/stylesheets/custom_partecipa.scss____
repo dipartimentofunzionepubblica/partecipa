@@ -4,12 +4,14 @@
 
 .title-bar {
     padding: 1rem 0.5rem;
-    background: #0066CC; // blu italia guidelines
+    //background: #0066CC; // blu italia guidelines
+	background: #003366;
     color: #fff;
 }
 
 .navbar {
-    background: #3399ff; // blu italia guidelines schiarito -20%
+    //background: #3399ff; // blu italia guidelines schiarito -20%
+	background: #0066CC;
 }
 
 .button {
@@ -22,8 +24,11 @@
     filter: brightness(120%);
 }
 
+.main-nav__link{
+}
+
 .main-nav__link--active a {
-    box-shadow: inset 0 4px 0 0 white; //#3CB371; //MediumSeaGreen
+    box-shadow: inset 0 4px 0 0 white;
 }
 
 .home-bullet__icon svg {
@@ -56,6 +61,19 @@
     background: #FAFAFA;
 }
 
+//.topbar a:hover{
+//	-webkit-filter: brightness(120%);
+//    filter: brightness(120%);
+//}
+
+a {
+    line-height: inherit;
+    color: #599aa6;
+    text-decoration: none;
+	font-weight: 550;
+    cursor: pointer;
+}
+
 .m-none, .m-none::placeholder{
     color: #3D3940;
 }
@@ -77,8 +95,10 @@
     box-shadow: none;
 }
 
+
 .main-footer {
-    background-color: #0066CC; // blu italia guidelines
+    //background-color: #0066CC; // blu italia guidelines
+	background: #003366;
     position: relative;
     padding: 1rem 0;
     min-height: 76px;
@@ -86,14 +106,11 @@
 
 .mini-footer {
     padding: 1rem 0;
-    background-color: #3399ff; // blu italia guidelines schiarito -20%
+    //background-color: #3399ff; // blu italia guidelines schiarito -20%
+	background: #0066CC;
 }
 
 .main-footer a {
-	color: #cce6ff; // blu italia guidelines schiarito -50%
-}
-
-.mini-footer a {
 	color: #cce6ff; // blu italia guidelines schiarito -50%
 }
 
@@ -118,12 +135,14 @@ title.is-active > [role="tab"], .side-panel__tabs .tabs-title.is-active > a {
 }
 
 .card__link {
-    color: #3399ff; // blu italia guidelines schiarito -20%
+    //color: #3399ff; // blu italia guidelines schiarito -20%
+	color: #0066CC;
 }
 
 #profile-tabs.tabs .tabs-title a:focus, #profile-tabs.tabs .tabs-title a[aria-selected="true"] {
     background: transparent;
-    color: #3399ff; // blu italia guidelines schiarito -20%
+    //color: #3399ff; // blu italia guidelines schiarito -20%
+	color: #0066CC;
     font-weight: 600;
     border-bottom: 3px solid #3CB371; //MediumSeaGreen
 }
