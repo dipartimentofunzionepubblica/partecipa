@@ -1,5 +1,9 @@
 @import "../variables";
 
+.logo-wrapper img {
+    max-height: 65px;
+}
+
 .title-bar {
     padding: 1rem 0.5rem;
 	background: $par-blue;
