@@ -1,0 +1,11 @@
+@import "../variables";
+
+.card__link {
+	color: $par-medium-sea-green;
+}
+
+.card__link:hover, .card__link:focus {
+	color: $par-medium-sea-green;
+    -webkit-filter: brightness(120%);
+    filter: brightness(120%);
+}

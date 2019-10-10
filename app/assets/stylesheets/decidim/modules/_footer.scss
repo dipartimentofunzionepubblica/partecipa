@@ -1,0 +1,17 @@
+@import "../variables";
+
+.main-footer {
+	background: $par-blue;
+    position: relative;
+    padding: 1rem 0;
+    min-height: 76px;
+}
+
+.mini-footer {
+    padding: 1rem 0;
+	background: $par-light-blue;
+}
+
+.main-footer a {
+	color: $par-white; 
+}
