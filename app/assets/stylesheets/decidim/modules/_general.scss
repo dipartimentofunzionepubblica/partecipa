@@ -7,3 +7,25 @@ a {
 	font-weight: 500;
     cursor: pointer;
 }
+
+.section-heading::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: .8em;
+    background-color: $par-medium-sea-green;
+    margin-right: .5rem;
+    margin-bottom: -.1rem;
+}
+
+#profile-tabs.tabs .tabs-title a:focus, #profile-tabs.tabs .tabs-title a[aria-selected="true"] {
+    background: transparent;
+	color: $par-light-blue;
+    font-weight: 600;
+    border-bottom: 3px solid $par-medium-sea-green;
+}
+
+title.is-active > [role="tab"], .side-panel__tabs .tabs-title.is-active > a {
+    color: #599aa6;
+    box-shadow: inset 4px 0 0 $par-medium-sea-green;
+}

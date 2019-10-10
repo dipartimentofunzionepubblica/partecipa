@@ -1,6 +1,6 @@
 // Variables
 
-$par-medium-sea-green:		#3CB371;
+$par-medium-sea-green:		#297a4d;
 $par-medium-sea-green-rgb:  60,179,113;
 $par-white: 				#fff;
 $par-white-rgb:				255,255,255;			
@@ -13,10 +13,10 @@ $par-dark-violet-rgb:		61,57,64;
 $par-black:					#000000;
 $par-black-rgb:				0,0,0;
 
-$primary: $par-medium-sea-green !default;
-$primary-rgb: $par-medium-sea-green-rgb !default;
-$secondary: $par-medium-sea-green !default;
-$secondary-rgb: $par-medium-sea-green-rgb !default;
+$primary: $par-medium-sea-green;
+$primary-rgb: $par-medium-sea-green-rgb;
+$secondary: $par-medium-sea-green;
+$secondary-rgb: $par-medium-sea-green-rgb;
 $success: #57d685 !default;
 $success-rgb: 87,214,133 !default;
 $warning: #ffae00 !default;
