@@ -1,0 +1,40 @@
+@import "../variables";
+
+.title-bar {
+    padding: 1rem 0.5rem;
+	background: $par-blue;
+    color: #fff;
+}
+
+.navbar {
+	background: $par-light-blue;
+}
+
+.topbar__search input, .topbar__search input:focus {
+    background: $par-white;
+}
+
+.topbar__search svg {
+    color: $par-dark-violet;
+    position: absolute;
+    top: 50%;
+    left: 0.5rem;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    opacity: .5;
+}
+
+.topbar__search input, .topbar__search input:focus {
+    color: $par-black;
+    border: 0;
+    padding-left: 2rem;
+    box-shadow: none;
+}
+
+.main-nav__link--active a {
+    box-shadow: inset 0 4px 0 0 $par-white;
+}
+
+.m-none, .m-none::placeholder{
+    color: $par-dark-violet;
+}
