@@ -144,7 +144,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
       return this._renderAuthor();
     }
 
-    return <a href={author.profilePath}>{this._renderAuthor()}</a>;
+    return <div>{this._renderAuthor()}</div>;
   }
 
   /**
@@ -197,26 +197,27 @@ class Comment extends React.Component<CommentProps, CommentState> {
         <span className="author__avatar">
           <img src={author.avatarUrl} alt="author-avatar" />
         </span>
-        <span className="author__name">{author.name}</span>
+        
+		<span className="author__name">{author.name}</span>
         { author.badge === "" ||
           <span className="author__badge">
             <Icon name={`icon-${author.badge}`} />
           </span>
         }
-        <span className="author__nickname">{author.nickname}</span>
       </div>
     );
   }
 
+  
   /**
    * Render reply button if user can reply the comment
    * @private
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
   private _renderReplyButton() {
-    const { comment: { acceptsNewComments, userAllowedToComment }, session } = this.props;
+    const { comment: { acceptsNewComments }, session } = this.props;
 
-    if (session && acceptsNewComments && userAllowedToComment) {
+    if (session && acceptsNewComments) {
       return (
         <button
           className="comment__reply muted-link"
@@ -237,9 +238,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
   private _renderAdditionalReplyButton() {
-    const { comment: { acceptsNewComments, hasComments, userAllowedToComment  }, session, isRootComment } = this.props;
+    const { comment: { acceptsNewComments, hasComments }, session, isRootComment } = this.props;
 
-    if (session && acceptsNewComments && userAllowedToComment) {
+    if (session && acceptsNewComments) {
       if (hasComments && isRootComment) {
         return (
           <div className="comment__additionalreply">
@@ -264,9 +265,8 @@ class Comment extends React.Component<CommentProps, CommentState> {
    */
   private _renderVoteButtons() {
     const { session, comment, votable, rootCommentable, orderBy } = this.props;
-    const { comment: { userAllowedToComment  } } = this.props;
 
-    if (votable && userAllowedToComment) {
+    if (votable) {
       return (
         <div className="comment__votes">
           <UpVoteButton session={session} comment={comment} rootCommentable={rootCommentable} orderBy={orderBy} />
@@ -322,9 +322,8 @@ class Comment extends React.Component<CommentProps, CommentState> {
   private _renderReplyForm() {
     const { session, comment, rootCommentable, orderBy } = this.props;
     const { showReplyForm } = this.state;
-    const { comment: { userAllowedToComment  } } = this.props;
 
-    if (session && showReplyForm && userAllowedToComment) {
+    if (session && showReplyForm) {
       return (
         <AddCommentForm
           session={session}
@@ -380,14 +379,14 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @return {Void|DOMElement} - The comment's report modal or not.
    */
   private _renderFlagModal() {
-    const { session, comment: { id, sgid, alreadyReported, userAllowedToComment } } = this.props;
+    const { session, comment: { id, sgid, alreadyReported } } = this.props;
     const authenticityToken = this._getAuthenticityToken();
 
     const closeModal = () => {
       window.$(`#flagModalComment${id}`).foundation("close");
     };
 
-    if (session && session.user && userAllowedToComment) {
+    if (session && session.user) {
       return (
         <div className="reveal flag-modal" id={`flagModalComment${id}`} data-reveal={true}>
           <div className="reveal__header">
