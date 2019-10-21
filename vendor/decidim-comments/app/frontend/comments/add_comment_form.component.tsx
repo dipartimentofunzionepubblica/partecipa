@@ -26,7 +26,7 @@ interface AddCommentFormProps {
   submitButtonClassName?: string;
   autoFocus?: boolean;
   arguable?: boolean;
-  userAllowedToComment?: boolean;
+  userAllowedToComment?: boolean;								 
   addComment?: (data: { body: string, alignment: number, userGroupId?: string }) => void;
   onCommentAdded?: () => void;
   orderBy: string;
@@ -378,7 +378,7 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
                 comments: [],
                 hasComments: false,
                 acceptsNewComments: false,
-                userAllowedToComment: false,
+				userAllowedToComment: false,							
                 upVotes: 0,
                 upVoted: false,
                 downVotes: 0,

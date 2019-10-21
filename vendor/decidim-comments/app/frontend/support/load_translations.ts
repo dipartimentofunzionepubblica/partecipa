@@ -17,11 +17,7 @@ const loadTranslations = () => {
 
     if (match) {
       const locale = match[1];
-      const translationKeys = translationFiles[index][locale];
-
-      if (translationKeys && translationKeys.decidim) {
-        acc[locale] = translationKeys.decidim;
-      }
+      acc[locale] = translationFiles[index][locale].decidim;
     }
 
     return acc;

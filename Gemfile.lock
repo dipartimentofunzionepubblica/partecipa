@@ -761,6 +761,7 @@ DEPENDENCIES
   byebug (~> 10.0)
   daemons
   decidim (~> 0.18.0)
+  decidim-comments
   decidim-conferences (~> 0.18.0)
   decidim-dev (= 0.18.0)
   delayed_job_active_record
