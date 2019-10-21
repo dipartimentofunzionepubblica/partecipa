@@ -22,6 +22,7 @@ gem "omniauth"
 group :development, :test do
   gem "byebug", "~> 10.0", platform: :mri
   gem "decidim-dev", "0.18.0"
+  gem 'decidim-comments'
 end
 
 group :development do

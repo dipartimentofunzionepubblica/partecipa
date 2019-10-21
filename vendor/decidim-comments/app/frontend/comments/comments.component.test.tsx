@@ -33,7 +33,6 @@ describe("<Comments />", () => {
         },
         commentable: {
           acceptsNewComments: true,
-          userAllowedToComment: true,
           commentsHaveAlignment: true,
           commentsHaveVotes: true,
           totalCommentsCount: 15,
@@ -103,7 +102,6 @@ describe("<Comments />", () => {
   describe("when the commentable cannot accept new comments", () => {
     beforeEach(() => {
       commentable.acceptsNewComments = false;
-      commentable.userAllowedToComment = false;
     });
 
     it("doesn't render an AddCommentForm component", () => {
@@ -114,22 +112,6 @@ describe("<Comments />", () => {
     it("renders a callout message to inform the user that comments are blocked", () => {
       const wrapper = shallow(<Comments commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
       expect(wrapper.find(".callout.warning").text()).toContain("disabled");
-    });
-  });
-
-  describe("when the commentable can accept new comments but user is not allowed to comment", () => {
-    beforeEach(() => {
-      commentable.userAllowedToComment = false;
-    });
-
-    it("doesn't render an AddCommentForm component", () => {
-      const wrapper = shallow(<Comments commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
-      expect(wrapper.find(AddCommentForm).exists()).toBeFalsy();
-    });
-
-    it("renders a callout message to inform the user that comments are blocked", () => {
-      const wrapper = shallow(<Comments commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
-      expect(wrapper.find(".callout.warning").text()).toContain("not able");
     });
   });
 
