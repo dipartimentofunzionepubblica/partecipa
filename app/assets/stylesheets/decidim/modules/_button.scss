@@ -17,39 +17,39 @@
     line-height: 1;
     text-align: center;
     cursor: pointer;
-    background-color: $par-medium-sea-green;
+    background-color: $par-medium-green;
     color: #fff;
 }
 
 .button.hollow {
-    border: 1px solid $par-medium-sea-green; 
-    color: $par-medium-sea-green; 
+    border: 1px solid $par-medium-green; 
+    color: $par-medium-green; 
 }
 
 .button.hollow:hover, .button.hollow:focus{
-    border: 1px solid $par-medium-sea-green; 
-    color: $par-medium-sea-green; 
+    border: 1px solid $par-medium-green; 
+    color: $par-medium-green; 
 	-webkit-filter: brightness(120%);
     filter: brightness(120%);
 }
 
 .button.secondary {
-    background-color: $par-medium-sea-green; 
+    background-color: $par-medium-green; 
     color: $par-white;
 }
 
 .button:hover, .button:focus, .button.secondary:hover, .button.secondary:focus {
-    background-color: $par-medium-sea-green;
+    background-color: $par-medium-green;
     -webkit-filter: brightness(120%);
     filter: brightness(120%);
 }
 
 .home-bullet__icon svg {
-    fill: $par-medium-sea-green;
+    fill: $par-medium-green;
 }
 
 .subhero-cta {
     margin-top: 2rem;
-    color: $par-medium-sea-green;
+    color: $par-medium-green;
     display: inline-block;
 }

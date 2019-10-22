@@ -19,13 +19,13 @@
 }
 
 .topbar__search svg {
-    color: $par-dark-violet;
+    color: $par-dark-grey;
     position: absolute;
     top: 50%;
     left: 0.5rem;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
-    opacity: .5;
+    opacity: 1;
 }
 
 .topbar__search input, .topbar__search input:focus {
@@ -40,5 +40,6 @@
 }
 
 .m-none, .m-none::placeholder{
-    color: $par-dark-violet;
+    color: $par-dark-grey;
+	opacity: 1;
 }
