@@ -26,7 +26,7 @@ const loadTranslations = () => {
 
     return acc;
   }, {});
-
+  
   I18n.setTranslations(translations);
 };
 
