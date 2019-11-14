@@ -15,8 +15,7 @@ gem "passenger"
 gem "delayed_job_active_record"
 gem "daemons"
 gem "pg"
-gem "spid-rails", ">=  0.2.0"
-gem "jquery-rails"
+gem "spid-rails", "= 0.2.0"
 gem "omniauth"
 
 group :development, :test do
