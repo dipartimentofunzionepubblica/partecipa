@@ -1,4 +1,20 @@
 # frozen_string_literal: true
+require "#{Rails.root}/lib/spid/lib/spid/rack/login.rb"
+require "#{Rails.root}/lib/spid/lib/spid/rack/sso.rb"
+require "#{Rails.root}/lib/spid/lib/spid/saml2/authn_request.rb"
+require "#{Rails.root}/lib/spid/lib/spid/saml2/identity_provider.rb"
+require "#{Rails.root}/lib/spid/lib/spid/saml2/response_validator.rb"
+require "#{Rails.root}/lib/spid/lib/spid/saml2/settings.rb"
+require "#{Rails.root}/lib/spid/lib/spid/saml2/sp_metadata.rb"
+require "#{Rails.root}/lib/spid/lib/spid/saml2/service_provider.rb"
+require "#{Rails.root}/lib/spid/lib/spid/slo/response.rb"
+require "#{Rails.root}/lib/spid/lib/spid/sso/request.rb"
+require "#{Rails.root}/lib/spid/lib/spid/sso/response.rb"
+require "#{Rails.root}/lib/spid/lib/spid/identity_provider_manager.rb"
+require "#{Rails.root}/lib/spid/lib/spid/configuration.rb"
+require "#{Rails.root}/lib/spid/lib/spid/version.rb"
+require "#{Rails.root}/lib/spid/saml2.rb"
+require "#{Rails.root}/lib/spid/lib/spid.rb"
 
 Spid.configure do |config|
   config.hostname = Rails.application.secrets.spid_hostname
@@ -22,4 +38,8 @@ Spid.configure do |config|
   config.attribute_services = [
     { name: 'Decidim', fields: [:spid_code, :email] }
   ]
+  
+  config.organization_name = Rails.application.secrets.spid_organization_name
+  config.organization_display_name = Rails.application.secrets.spid_organization_display_name
+  config.organization_url = Rails.application.secrets.spid_organization_url
 end

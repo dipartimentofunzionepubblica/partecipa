@@ -35,6 +35,7 @@ module Spid
             element.add_attributes(entity_descriptor_attributes)
             element.add_element signature
 			element.add_element sp_sso_descriptor
+			element.add_element organization
             element
           end
       end
@@ -68,11 +69,19 @@ module Spid
             element
           end
       end
+	  
+	  def organization
+		@organization ||=
+			element = REXML::Element.new("md:Organization")
+			element.add_element organization_name
+			element.add_element organization_display_name
+			element.add_element organization_url
+		element
+	  end
+	  
       # rubocop:enable Metrics/AbcSize
       # rubocop:enable Metrics/MethodLength
-
       def signature
-		puts "settings = " + settings.inspect
         @signature ||= ::Spid::Saml2::XmlSignature.new(
           settings: settings,
           sign_reference: entity_descriptor_id
@@ -162,6 +171,36 @@ module Spid
             "_#{Digest::MD5.hexdigest(settings.sp_entity_id)}"
           end
       end
+	  
+	  def organization_name
+		@organization_name ||=
+		begin
+			element = REXML::Element.new("OrganizationName")
+			element.add_attributes("xml:lang" => "it")
+			element.text = settings.organization_name
+			element
+		end
+	  end
+	  
+	  def organization_display_name
+		@organization_display_name ||=
+		begin
+			element = REXML::Element.new("OrganizationDisplayName")
+			element.add_attributes("xml:lang" => "it")
+			element.text = settings.organization_display_name
+			element
+		end
+	  end
+	  
+	  def organization_url
+		@organization_url ||=
+		begin
+			element = REXML::Element.new("OrganizationURL")
+			element.add_attributes("xml:lang" => "it")
+			element.text = settings.organization_url
+			element
+		end
+	  end
     end
     # rubocop:enable Metrics/ClassLength
   end
