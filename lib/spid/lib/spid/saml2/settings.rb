@@ -86,7 +86,19 @@ module Spid
 	  def acs_index
 		"0"
 	  end
-
+	  
+	  def organization_name
+		service_provider.organization_name
+	  end
+	  
+	  def organization_display_name
+		service_provider.organization_display_name
+	  end
+	  
+	  def organization_url
+		service_provider.organization_url
+	  end
+	  
 	  def force_authn?
 		authn_context > Spid::L1
 	  end
