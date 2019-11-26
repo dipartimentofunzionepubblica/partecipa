@@ -87,10 +87,8 @@ module Decidim
 
 		  def after_sign_in_path_for(user)
 			if !pending_redirect?(user) && first_login_and_not_authorized?(user)
-			  puts "after_sign_in_path_for = 1"
 			  decidim_verifications.authorizations_path
 			else
-		      puts "after_sign_in_path_for = 2"
 			  super
 			end
 		  end
