@@ -268,7 +268,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
     if (votable && userAllowedToComment) {
       return (
         <div className="comment__votes">
-          <UpVoteButton session={session} comment={comment} rootCommentable={rootCommentable} orderBy={orderBy} />
+		  <UpVoteButton session={session} comment={comment} rootCommentable={rootCommentable} orderBy={orderBy} />
           <DownVoteButton session={session} comment={comment} rootCommentable={rootCommentable} orderBy={orderBy} />
         </div>
       );
