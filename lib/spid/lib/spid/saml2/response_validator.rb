@@ -242,7 +242,7 @@ module Spid
 		status_message = response.document.elements["/samlp:Response/samlp:Status/samlp:StatusMessage/text()"]
 		@errors["authentication"] = 
 			begin
-			"Errore Spid: autenticazione non andata a buon fine: '#{status_message}'"
+			"Errore Spid: autenticazione non andata a buon fine: status_message: '#{status_message}', status_code: '#{response.status_code}'"
 			end
 		false
 	  end

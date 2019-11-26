@@ -36,6 +36,7 @@ module Spid
 		@authn_request_attributes ||=
 		  begin
 			attributes = {
+			  "ProtocolBinding" => "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST",
 			  "xmlns:samlp" => "urn:oasis:names:tc:SAML:2.0:protocol",
 			  "xmlns:saml" => "urn:oasis:names:tc:SAML:2.0:assertion",
 			  "ID" => uuid,

@@ -28,7 +28,7 @@ module Spid
     def initialize
       @idp_metadata_dir_path    = "idp_metadata"
       @attribute_services       = []
-      @logging_enabled          = false
+      @logging_enabled          = true
       @logger                   = ::Logger.new $stdout
       init_endpoint
       init_bindings

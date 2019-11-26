@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 Decidim.configure do |config|
   config.application_name = "Formez Decidim"
   config.mailer_sender = "noreply@formez.org"
