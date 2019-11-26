@@ -2,6 +2,7 @@
 require "#{Rails.root}/lib/spid/lib/spid/rack/login.rb"
 require "#{Rails.root}/lib/spid/lib/spid/rack/sso.rb"
 require "#{Rails.root}/lib/spid/lib/spid/saml2/authn_request.rb"
+require "#{Rails.root}/lib/spid/lib/spid/saml2/idp_metadata_parser.rb"
 require "#{Rails.root}/lib/spid/lib/spid/saml2/identity_provider.rb"
 require "#{Rails.root}/lib/spid/lib/spid/saml2/response_validator.rb"
 require "#{Rails.root}/lib/spid/lib/spid/saml2/settings.rb"
