@@ -8,6 +8,7 @@ require "#{Rails.root}/lib/spid/lib/spid/saml2/response_validator.rb"
 require "#{Rails.root}/lib/spid/lib/spid/saml2/settings.rb"
 require "#{Rails.root}/lib/spid/lib/spid/saml2/sp_metadata.rb"
 require "#{Rails.root}/lib/spid/lib/spid/saml2/service_provider.rb"
+require "#{Rails.root}/lib/spid/lib/spid/saml2/saml_parser.rb"
 require "#{Rails.root}/lib/spid/lib/spid/slo/response.rb"
 require "#{Rails.root}/lib/spid/lib/spid/sso/request.rb"
 require "#{Rails.root}/lib/spid/lib/spid/sso/response.rb"
@@ -44,3 +45,4 @@ Spid.configure do |config|
   config.organization_display_name = Rails.application.secrets.spid_organization_display_name
   config.organization_url = Rails.application.secrets.spid_organization_url
 end
+Spid.configuration.logger = Rails.logger
