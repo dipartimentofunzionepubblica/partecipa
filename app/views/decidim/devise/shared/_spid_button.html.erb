@@ -1,8 +1,8 @@
-<div class="row">
+<div class="row collapse" >
 	<div class="columns large-4 mediumlarge-6 medium-8 medium-centered">
 		<!-- AGID - SPID IDP BUTTON LARGE "ENTRA CON SPID" * begin * -->
-		<div style="height:120px;">
-			<span><img src="/spid/spid-in_attivazione.png" style="max-width:20%;height:auto;position:relative;z-index:1;top:30px;right:-290px;"/></span>
+		<div style="height:auto;">
+			<span><img src="/spid/spid-in_attivazione.png" style="max-width:20%;height:auto;position:relative;z-index:1;top:30px;right:-300px;"/></span>
 			<a href="#" style="display:block;margin-left:auto;margin-right:auto;cursor:default;" class="italia-it-button italia-it-button-size-l button-spid" spid-idp-button="#spid-idp-button-large-get" aria-haspopup="true" aria-expanded="false">
 				<span class="italia-it-button-icon">
 					<img src="/spid/spid-ico-circle-bb.svg" onerror="this.src='/spid/spid-ico-circle-bb.png'; this.onerror=null;" alt="" />
@@ -37,10 +37,5 @@
 			</ul>
 		</div>
 		<!-- AGID - SPID IDP BUTTON LARGE "ENTRA CON SPID" * end * -->
-		<%- if current_organization.sign_in_enabled? %>
-			<span class="register__separator">
-			  <span class="register__separator__text"><%= t("decidim.devise.shared.omniauth_buttons.or") %></span>
-			</span>
-		<%- end %>
 	</div>
 </div>

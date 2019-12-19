@@ -22,7 +22,45 @@
       </div>
     </div>
     <%= render "decidim/devise/shared/omniauth_buttons" %>
-	<%= render "decidim/devise/shared/spid_button" %>
+	
+	<div class="row collapse">
+		<div class="columns large-8 large-centered text-center page-title">
+			<p>
+				<button class="h5" data-toggle="spid spid_closed spid_open" id="session_toggle">
+					Accedi con Spid - In attivazione
+					<span id="spid_closed" data-toggler=".is-hidden" aria-expanded="true">
+					  <%= icon "chevron-bottom" %>
+					</span>
+					<span id="spid_open" class="is-hidden" data-toggler=".is-hidden" aria-expanded="false">
+					  <%= icon "chevron-top" %>
+					</span>
+				</button>
+			</p>
+		</div>
+	</div>
+	
+    <div id="spid" class="is-hidden" data-toggler=".is-hidden">
+		<div class="row collapse">
+			<div class="columns large-8 large-centered text-center page-title">
+				L'accesso a ParteciPa tramite Spid è in attivazione, il pulsante sotto è presente solo a scopo di test.
+				Per accedere con questa modalità ti invitiamo quindi ad attendere il completamento dell'attivazione di Spid su ParteciPa.
+			</div>
+			<%= render "decidim/devise/shared/spid_button" %>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="columns large-4 mediumlarge-6 medium-8 medium-centered">
+			<div class="social-register">
+				<%- if current_organization.sign_in_enabled? %>
+					<span class="register__separator">
+						<span class="register__separator__text"><%= t("decidim.devise.shared.omniauth_buttons.or") %></span>
+					</span>
+				<%- end %>
+			</div>
+		</div>
+	</div>
+	
 	<% if current_organization.sign_in_enabled? %>
       <div class="row">
         <div class="columns large-6 medium-centered">
