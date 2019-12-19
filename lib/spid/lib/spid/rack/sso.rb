@@ -46,7 +46,7 @@ module Spid
 		end
 
 		def response
-		  log_message
+		  #log_message
 		  if valid_response?
 			store_session_success
 		  else

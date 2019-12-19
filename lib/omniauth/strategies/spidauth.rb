@@ -14,7 +14,13 @@ module OmniAuth
 		end
 
 		def callback_phase
-			if !session.nil? && !session[:spid]["session_index"].blank? && !session[:spid]['attributes'].blank?
+			
+			logger = Rails.logger
+			logger.info 'session[:spid]["session_index"] = ' + session[:spid]["session_index"].inspect
+			logger.info 'session[:spid]["attributes"] = ' + session[:spid]["attributes"].inspect
+			logger.info 'session[:spid]["errors"] = ' + session[:spid]["errors"].inspect
+			
+			if !session.nil? && !session[:spid]["session_index"].blank? && !session[:spid]["attributes"].blank?
 				@provider = session[:spid]['idp']
 				@uid = session[:spid]['attributes']['spid_code']
 				@email = session[:spid]['attributes']['email']
