@@ -24,13 +24,13 @@ module Spid
 		@authn_context = authn_context
 		@errors = {}
 
-		Spid.configuration.logger.info "============================================" + response.saml_message.to_s + "============================================"
+		Spid.configuration.logger.info "============================================" + response.saml_message.to_s +  "============================================"
 	  end
 
 	  def call
 		return false unless success?
 		[
-		  response_id, version, issue_instant, issuer_format, 
+		  response_id, version, issue_instant, #issuer_format, 
 		  assertion_version, assertion_issue_instant, assertion_id, assertion_nameid, assertion_nameid_format, assertion_nameid_namequalifier, 
 		  assertion_subjectconfirmation, assertion_subjectconfirmation_method, assertion_subjectconfirmationdata_recipient, assertion_subjectconfirmationdata_inresponseto, 
 		  assertion_subjectconfirmationdata_notonorafter, assertion_conditions, assertion_conditions_notbefore, assertion_authnstatement, assertion_authnstatement_authncontext,
@@ -58,8 +58,7 @@ module Spid
 	  def issue_instant
 		curr_issue_instant = response.element_from_xpath(response.saml_and_saml2("/samlp:Response/@IssueInstant"))
 		return true if !curr_issue_instant.blank? && 
-			curr_issue_instant == Time.parse(curr_issue_instant).iso8601(3) && 
-				Time.parse(curr_issue_instant).iso8601 >= Time.parse(@authn_issue_instant).iso8601
+				Time.parse(curr_issue_instant).iso8601(3) >= Time.parse(@authn_issue_instant).iso8601(3)
 		@errors["issue_instant"] = 
 		  begin
 			"Errore Spid 3: il parametro Response IssueInstant '#{curr_issue_instant}' è un parametro necessario atteso come un date iso8601 successivo a AuthnRequest IssueInstant '#{@authn_issue_instant}'"
@@ -68,13 +67,9 @@ module Spid
 	  end
 	  
 	  def issuer_format
-		format_element = response.document.elements[response.saml_and_saml2("boolean(/samlp:Response/saml:Issuer[@Format='#{Spid::SAML_ISSUER_FORMAT}'])")]
-		assertion_format_element = response.document.elements[response.saml_and_saml2("boolean(/samlp:Response/saml:Assertion/saml:Issuer[@Format='#{Spid::SAML_ISSUER_FORMAT}'])")]
-		
-		Spid.configuration.logger.info "============================================> format_element = " + format_element.to_s
-		Spid.configuration.logger.info "============================================> assertion_format_element = " + assertion_format_element.to_s
-		
-		return true #if format_element && assertion_format_element
+		format_element = response.element_from_xpath(response.saml_and_saml2("/samlp:Response/saml:Issuer/@Format"))
+		assertion_format_element = response.element_from_xpath(response.saml_and_saml2("/samlp:Response/saml:Assertion/saml:Issuer/@Format"))
+		return true if format_element == Spid::SAML_ISSUER_FORMAT && assertion_format_element == Spid::SAML_ISSUER_FORMAT
 		@errors["issuer_format"] =
 		  begin
 			"Errore Spid 4: il parametro Response Issuer Format e Assertion Issuer Format sono attesi con lo stesso valore '#{Spid::SAML_ISSUER_FORMAT}'"
@@ -83,9 +78,6 @@ module Spid
 	  end
 	  
 	  def assertion_version
-	  
-		Spid.configuration.logger.info "============================================> assertion_version = " + response.document.elements[response.saml_and_saml2("/samlp:Response/saml:Assertion/@Version")].value 
-	  
 		return true if response.document.elements[response.saml_and_saml2("/samlp:Response/saml:Assertion/@Version")].value == Spid::SAML_VERSION
 		@errors["assertion_version"] = 
 		  begin
@@ -98,8 +90,7 @@ module Spid
 		curr_assertion_issue_instant = response.element_from_xpath(response.saml_and_saml2("/samlp:Response/saml:Assertion/@IssueInstant"))
 		return true if !curr_assertion_issue_instant.blank? && 
 			!@authn_issue_instant.blank? && 
-				curr_assertion_issue_instant == Time.parse(curr_assertion_issue_instant).iso8601(3).to_s && 
-					Time.parse(curr_assertion_issue_instant).iso8601 >= Time.parse(@authn_issue_instant).iso8601
+					Time.parse(curr_assertion_issue_instant).iso8601(3) >= Time.parse(@authn_issue_instant).iso8601(3)
 		@errors["assertion_issue_instant"] = 
 		  begin
 			"Errore Spid 6: il parametro Assertion IssueInstant '#{curr_assertion_issue_instant}' è atteso come un date iso8601 successivo a AuthnRequest IssueInstant '#{@authn_issue_instant}'"
@@ -176,8 +167,7 @@ module Spid
 		notonorafter = response.element_from_xpath(response.saml_and_saml2("/samlp:Response/saml:Assertion//saml:SubjectConfirmation//saml:SubjectConfirmationData/@NotOnOrAfter"))
 		curr_assertion_issue_instant = response.element_from_xpath(response.saml_and_saml2("/samlp:Response/saml:Assertion/@IssueInstant"))
 		return true if !notonorafter.blank? && !curr_assertion_issue_instant.blank? &&
-			notonorafter == Time.parse(notonorafter).iso8601(3).to_s && 
-				Time.parse(notonorafter).iso8601 > Time.parse(curr_assertion_issue_instant).iso8601
+				Time.parse(notonorafter).iso8601(3) > Time.parse(curr_assertion_issue_instant).iso8601(3)
 		@errors["assertion_subjectconfirmationdata_notonorafter"] =
 			begin
 				"Errore Spid 15: il parametro Assertion SubjectConfirmationData NotOnOrAfter '#{notonorafter}' è un parametro necessario, atteso come un date iso8601 successivo a Assertion IssueInstant '#{curr_assertion_issue_instant}'"
@@ -188,10 +178,6 @@ module Spid
 	  def assertion_conditions
 		conditions_saml = response.document.elements["boolean(/samlp:Response/saml:Assertion//saml:Conditions/*)"]
 		conditions_saml2 = response.document.elements["boolean(/saml2p:Response/saml2:Assertion//saml2:Conditions/*)"]
-		
-		Spid.configuration.logger.info "============================================> assertion_conditions conditions_saml = " + conditions_saml.to_s
-		Spid.configuration.logger.info "============================================> assertion_conditions conditions_saml2 = " + conditions_saml2.to_s
-		
 		return true if conditions_saml || conditions_saml2
 		@errors["assertion_conditions"] =
 			begin
@@ -202,8 +188,7 @@ module Spid
 	  
 	  def assertion_conditions_notbefore
 		notbefore = response.element_from_xpath(response.saml_and_saml2("/samlp:Response/saml:Assertion//saml:Conditions/@NotBefore"))
-		return true if !notbefore.blank? #&& 
-			notbefore == Time.parse(notbefore).iso8601(3).to_s 
+		return true if !notbefore.blank?
 		@errors["assertion_conditions_notbefore"] =
 			begin
 				"Errore Spid 17: il parametro Assertion SubjectConfirmationData NotBefore '#{notbefore}' è un parametro necessario, atteso come un date iso8601"
@@ -289,10 +274,11 @@ module Spid
 	  end
 
 	  def certificate
+		Spid.configuration.logger.info "==============================================RESPONSE CERTIFICATE=======================================================/n" + response.certificate.to_s + "/n==============================================END RESPONSE CERTIFICATE======================================================="
+		Spid.configuration.logger.info "==============================================SETTINGS CERTIFICATE=======================================================/n" + settings.idp_certificate.to_s + "/n==============================================END SETTINGS CERTIFICATE======================================================="  
 		if response.certificate.to_der == settings.idp_certificate.to_der
-		  return true
+			return true
 		end
-
 		@errors["certificate"] = "Errore Spid 26: errore di mancata corrispondenza del certificato"
 		false
 	  end
@@ -300,7 +286,6 @@ module Spid
 	  def destination
 		return true if response.destination == settings.sp_acs_url
 		return true if response.destination == settings.sp_entity_id
-
 		@errors["destination"] =
 		  begin
 			"Errore Spid 27: il parametro Response Destination é '#{response.destination}'" \
@@ -310,14 +295,11 @@ module Spid
 	  end
 
 	  def conditions
-		time = Time.now.utc.iso8601
-
+		time = Time.now.utc.iso8601(3)
 		if response.conditions_not_before <= time &&
 		   response.conditions_not_on_or_after > time
-
 		  return true
 		end
-
 		@errors["conditions"] = "Errore Spid 28: la Response è scaduta"
 		false
 	  end
