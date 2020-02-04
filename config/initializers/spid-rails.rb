@@ -17,6 +17,7 @@ require "#{Rails.root}/lib/spid/lib/spid/configuration.rb"
 require "#{Rails.root}/lib/spid/lib/spid/version.rb"
 require "#{Rails.root}/lib/spid/saml2.rb"
 require "#{Rails.root}/lib/spid/lib/spid.rb"
+require "#{Rails.root}/lib/spid_logger/spid_logger.rb"
 
 Spid.configure do |config|
   config.hostname = Rails.application.secrets.spid_hostname
@@ -46,3 +47,5 @@ Spid.configure do |config|
   config.organization_url = Rails.application.secrets.spid_organization_url
 end
 Spid.configuration.logger = Rails.logger
+SpidLogger.logger = Logger.new(SpidLogger::LogFile)
+SpidLogger.logger.level = 'info' # could be debug, info, warn, error or fatal
