@@ -18,7 +18,7 @@ module Decidim
 			CreateOmniauthRegistration.call(@form, verified_email) do
 			  on(:ok) do |user|
 				if user.active_for_authentication?
-				  SpidLogger.info("USER #{user.inspect} with EMAIL #{verified_email} AUTHENTICATED")
+				  SpidLogger.info("SPID REGISTRATION: USERNAME #{user.name}, NICKNAME #{user.nickname}, WITH EMAIL #{user.email} IDP #{@form.provider} AUTHENTICATED")
 				  sign_in_and_redirect user, event: :authentication
 				  set_flash_message :notice, :success, kind: @form.provider.capitalize
 				else
@@ -52,7 +52,7 @@ module Decidim
 
 			@form = form(OmniauthRegistrationForm).from_params(form_params)
 			@form.email ||= verified_email
-
+			
 			CreateOmniauthRegistration.call(@form, verified_email) do
 			  on(:ok) do |user|
 				if !user.confirmed? && user.email == verified_email
@@ -61,6 +61,7 @@ module Decidim
 				end
 			  
 				if user.active_for_authentication? && user.confirmed?
+				  SpidLogger.info("SPID ACCESS: USERNAME #{user.name}, NICKNAME #{user.nickname}, WITH EMAIL #{user.email} IDP #{@form.provider} AUTHENTICATED")
 				  sign_in_and_redirect user, event: :authentication
 				  set_flash_message :notice, :success, kind: @form.provider.capitalize
 				else
