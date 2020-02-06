@@ -102,7 +102,8 @@ module Spid
       # @return [String|nil] SingleLogoutService binding if exists
       #
       def single_logout_service_binding
-        nodes = REXML::XPath.match(
+        
+		nodes = REXML::XPath.match(
           entity_descriptor,
           "md:IDPSSODescriptor/md:SingleLogoutService/@Binding",
           namespace
@@ -113,7 +114,8 @@ module Spid
       # @return [String|nil] SingleLogoutService endpoint if exists
       #
       def single_logout_service_url
-        binding = single_logout_service_binding
+        #binding = single_logout_service_binding
+		binding = "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
         unless binding.nil?
           node = REXML::XPath.first(
             entity_descriptor,
@@ -182,7 +184,7 @@ module Spid
       end
 
       def merge_certificates_into(parsed_metadata)
-          if certificates.key?("signing")
+		  if certificates.key?("signing")
             certificate = certificates["signing"][0]
           else
             certificate = certificates["encryption"][0]
