@@ -33,7 +33,9 @@ module Decidim
       end
 
       def after_sign_out_path_for(user)
-		if @identity_provider
+		if @identity_provider																																					
+			SpidLogger.info("SPID LOGOUT: USERNAME #{@curr_user.name}, NICKNAME #{@curr_user.nickname}, WITH EMAIL #{@curr_user.email} IDP #{@identity_provider} LOGGED OUT")	   
+			@curr_user = nil
 			spid_logout_url(idp_name: @identity_provider) 
 		else
 			request.referer || super
@@ -47,9 +49,8 @@ module Decidim
       end
 	  
 	  def set_spid_identity_provider
-		if !session[:spid].blank?
-			@identity_provider = session[:spid]['idp']
-		end
+		@identity_provider = session[:spid]['idp'] if !session[:spid].blank?
+		@curr_user = current_user
 	  end
 	  
     end
