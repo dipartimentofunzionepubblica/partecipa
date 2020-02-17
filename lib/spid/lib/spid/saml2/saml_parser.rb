@@ -19,7 +19,7 @@ module Spid
 		document.elements[xpath]&.value&.strip
       end
 	  
-	  def saml_and_saml2(xpath)
+	  def saml_or_saml2(xpath)
 		xpath + " | " + xpath.gsub("samlp:", "saml2p:").gsub("saml:", "saml2:")
 	  end
     end

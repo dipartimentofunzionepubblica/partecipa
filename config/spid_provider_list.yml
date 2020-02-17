@@ -2,7 +2,7 @@
 spid_provider_list: 
   - 
     alt: "Test ID"
-    identity_provider: identity_provider
+    identity_provider: validator
     png_image_path: /spid/spid-idp-testid.png
     svg_image_path: /spid/spid-idp-testid.png
   - 

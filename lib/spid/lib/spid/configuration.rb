@@ -5,6 +5,7 @@ require "logger"
 module Spid
   class Configuration # :nodoc:
     attr_accessor :idp_metadata_dir_path
+	attr_accessor :entity_id
     attr_accessor :hostname
     attr_accessor :metadata_path
     attr_accessor :login_path
@@ -38,6 +39,7 @@ module Spid
 
     def init_endpoint
       @hostname                 = nil
+	  @entity_id				= nil
       @metadata_path            = "/spid/metadata"
       @login_path               = "/spid/login"
       @logout_path              = "/spid/logout"
@@ -82,7 +84,7 @@ module Spid
             slo_binding: slo_binding, metadata_path: metadata_path,
             private_key: private_key, certificate: certificate,
             digest_method: digest_method, signature_method: signature_method,
-            attribute_services: attribute_services, host: hostname,
+            attribute_services: attribute_services, entity_id: entity_id, host: hostname,
 			organization_name: organization_name,
 			organization_display_name: organization_display_name,
 			organization_url: organization_url
