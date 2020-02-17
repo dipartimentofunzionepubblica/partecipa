@@ -40,7 +40,7 @@ module Spid
 	  end
 
 	  def sp_entity_id
-		service_provider.host
+		service_provider.entity_id
 	  end
 
 	  def sp_acs_url

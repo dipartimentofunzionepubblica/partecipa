@@ -6,6 +6,7 @@ module Spid
   module Saml2
     class ServiceProvider # :nodoc:
       attr_reader :host
+	  attr_reader :entity_id
       attr_reader :acs_path
       attr_reader :acs_binding
       attr_reader :slo_path
@@ -24,6 +25,7 @@ module Spid
       # rubocop:disable Metrics/MethodLength
       def initialize(
             host:,
+			entity_id:,
             acs_path:,
             acs_binding:,
             slo_path:,
@@ -38,7 +40,8 @@ module Spid
 			organization_display_name:,
 			organization_url:
           )
-        @host = host
+        @host 					= host
+		@entity_id 				= entity_id
         @acs_path               = acs_path
         @acs_binding            = acs_binding
         @slo_path               = slo_path

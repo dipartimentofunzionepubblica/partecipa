@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/mainio/decidim-module-term_customizer
+  revision: 5d7dca16af4f4cb049f1f573f6c5eefd8b427fc0
+  specs:
+    decidim-term_customizer (0.19.0)
+      decidim-admin (~> 0.19.0)
+      decidim-core (~> 0.19.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -768,6 +776,7 @@ DEPENDENCIES
   decidim (= 0.19.0)
   decidim-conferences (= 0.19.0)
   decidim-dev (= 0.19.0)
+  decidim-term_customizer (= 0.19.0)!
   delayed_job_active_record
   faker (~> 1.9)
   figaro
