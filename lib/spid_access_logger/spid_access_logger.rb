@@ -1,4 +1,4 @@
-class SpidLogger
+class SpidAccessLogger
   LogFile = Rails.root.join('log', 'spid_access.log')
   class << self
     cattr_accessor :logger
