@@ -144,7 +144,7 @@ module Spid
             element.add_attributes(
               "Binding" => settings.sp_slo_service_binding,
               "Location" => settings.sp_slo_service_url,
-			  "ResponseLocation" => settings.sp_entity_id
+			  "ResponseLocation" => settings.sp_host
             )
             element
           end

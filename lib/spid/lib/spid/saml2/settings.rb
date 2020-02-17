@@ -43,6 +43,10 @@ module Spid
 		service_provider.entity_id
 	  end
 
+	  def sp_host
+		service_provider.host
+	  end
+
 	  def sp_acs_url
 		service_provider.acs_url
 	  end
