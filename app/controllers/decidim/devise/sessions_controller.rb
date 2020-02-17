@@ -34,7 +34,7 @@ module Decidim
 
       def after_sign_out_path_for(user)
 		if @identity_provider																																					
-			SpidLogger.info("SPID LOGOUT: USERNAME #{@curr_user.name}, NICKNAME #{@curr_user.nickname}, WITH EMAIL #{@curr_user.email} IDP #{@identity_provider} LOGGED OUT")	   
+			SpidAccessLogger.info("SPID LOGOUT: USERNAME #{@curr_user.name}, NICKNAME #{@curr_user.nickname}, WITH EMAIL #{@curr_user.email} IDP #{@identity_provider} LOGGED OUT")	   
 			@curr_user = nil
 			spid_logout_url(idp_name: @identity_provider) 
 		else
