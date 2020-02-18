@@ -1,11 +1,6 @@
 --- 
 spid_provider_list: 
   - 
-    alt: "Test ID"
-    identity_provider: validator
-    png_image_path: /spid/spid-idp-testid.png
-    svg_image_path: /spid/spid-idp-testid.png
-  - 
     alt: "Aruba ID"
     identity_provider: aruba
     png_image_path: /spid/spid-idp-arubaid.png
