@@ -175,7 +175,7 @@ module Spid
 	  def organization_name
 		@organization_name ||=
 		begin
-			element = REXML::Element.new("OrganizationName")
+			element = REXML::Element.new("md:OrganizationName")
 			element.add_attributes("xml:lang" => "it")
 			element.text = settings.organization_name
 			element
@@ -185,7 +185,7 @@ module Spid
 	  def organization_display_name
 		@organization_display_name ||=
 		begin
-			element = REXML::Element.new("OrganizationDisplayName")
+			element = REXML::Element.new("md:OrganizationDisplayName")
 			element.add_attributes("xml:lang" => "it")
 			element.text = settings.organization_display_name
 			element
@@ -195,7 +195,7 @@ module Spid
 	  def organization_url
 		@organization_url ||=
 		begin
-			element = REXML::Element.new("OrganizationURL")
+			element = REXML::Element.new("md:OrganizationURL")
 			element.add_attributes("xml:lang" => "it")
 			element.text = settings.organization_url
 			element
