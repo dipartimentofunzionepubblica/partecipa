@@ -8,9 +8,9 @@ Partecipa è la piattaforma di partecipazione democratica promossa dalla Repubbl
 
 Partecipa è un progetto Open-Source basato su [Decidim](https://github.com/decidim/decidim), la piattaforma di partecipazione democratica creata dalla città di Barcellona e
 diffusa in tutto il mondo. Decidim è concesso in licenza attraverso la [GNU Affero General Public License v3.0](https://github.com/decidim/decidim/blob/develop/LICENSE-AGPLv3.txt).
+Prima di installare e utilizzare Partecipa raccomandiamo un attento esame della documentazione relativa a Decidim e di questo README.
 
-Da punto di vista tecnico Decidim è basato su:
-* Sistema Operativo: Ubuntu 18.04 LTS;
+Dal punto di vista tecnico Decidim è basato su:
 * Framework: Ruby on Rails 5;
 * Linguaggio: Ruby;
 * Database: Postgres;
@@ -21,22 +21,22 @@ I manuali di Amministrazione per Decidim si trovano nei seguenti URL:
     https://decidim.org/docs/
     https://docs.decidim.org/
 	
-Istruzioni dettagliate su come installare Decidim si trovano a [questo indirizzo](https://platoniq.github.io/decidim-install/)
+Istruzioni dettagliate su come installare Decidim si trovano a [questo indirizzo](https://platoniq.github.io/decidim-install/).
 
 ## Modifiche e integrazioni di Partecipa rispetto a Decidim
 
 Partecipa usa il core di Decidim 0.19.0 e personalizza o integra solo i seguenti aspetti:
 
-* Utilizzo del [Sistema Pubblico di Identificazione di Identità Digitale (Spid)](https://www.spid.gov.it/) attraverso il middleware [Spid-Rails] (https://github.com/italia/spid-rails) modificato in base alle esigenze riscontrate e integrato nel sistema via [OmniaAuth](https://github.com/omniauth/omniauth);
+* Utilizzo del [Sistema Pubblico di Identità Digitale (Spid)](https://www.spid.gov.it/) attraverso il middleware [Spid-Rails](https://github.com/italia/spid-rails) modificato in base alle esigenze riscontrate e integrato nel sistema via [OmniaAuth](https://github.com/omniauth/omniauth);
 * Aspetto grafico ridefinito via SCSS;
 * Modifiche sulla base delle osservazioni del Garante della Privacy;
-* Integrazione del modulo commnunity [Term-Customizer](https://github.com/mainio/decidim-module-term_customizer);
+* Integrazione del modulo community [Term-Customizer](https://github.com/mainio/decidim-module-term_customizer);
 * Installazione in modalità multi-tenant.
  
-## Utilizzo del Sistema Pubblico di Identificazione di Identità Digitale (Spid)
+## Utilizzo del Sistema Pubblico di Identità Digitale (Spid)
 
-Spid è il Sistema Pubblico di Identificazione di Identità Digitale basato sul linguaggio [SAML2](https://en.wikipedia.org/wiki/SAML_2.0). 
-L'attivazione di partecipa.gov.it come Service Provider Spid ha necessitato della applicazione della procedura descritta dettagliatamente a [questo indirizzo] (https://www.spid.gov.it/come-diventare-fornitore-di-servizi-pubblici-e-privati-con-spid).
+Spid è il Sistema Pubblico di Identità Digitale basato sul linguaggio [SAML2](https://en.wikipedia.org/wiki/SAML_2.0). 
+L'attivazione di partecipa.gov.it come Service Provider Spid ha necessitato della applicazione della procedura descritta dettagliatamente a [questo indirizzo](https://www.spid.gov.it/come-diventare-fornitore-di-servizi-pubblici-e-privati-con-spid).
 L'utilizzo del codice di Partecipa per l'attivazione di un nuovo Service Provider Spid dovrebbe seguire lo stesso iter.
 Partecipa utilizza l'autenticazione Spid al livello 1 e richiede due soli attributi utente: l'Indirizzo di posta elettronica e il Codice identificativo SPID.
 La piattaforma non conosce né memorizza in nessun modo le credenziali Spid dell'utente; vengono tracciati in un apposito log gli eventi di registrazione, login e logout dell'Utente via Spid.
@@ -103,11 +103,11 @@ Di seguito una breve spiegazione attributo per attributo:
 ## IDP metadata.xml
 
 I metadata relativi agli Identity Providers Spid devono essere inseriti nella directory <decidim_path>/config/idp_metadata rispettando la nomenclatura <NOME_IDP>id-metadata.xml.
-I metadata aggiornati si trovano all'[indirizzo](https://www.agid.gov.it/it/piattaforme/spid/identity-provider-accreditati).
+I metadata aggiornati sono pubblicati su [questo indirizzo](https://www.agid.gov.it/it/piattaforme/spid/identity-provider-accreditati). Per il corretto funzionamento di Spid è indispensabile l'aggiornamento degli IDP metadata.
 
-## Creazionne dei certificati
+## Creazione dei certificati
 
-I certificati indispensabili all'utilizzoa di Spid devono essere generati con il seguente comando (nel caso specifico si tratta di certificati sha512):
+I certificati indispensabili all'utilizzo di Spid devono essere generati con il seguente comando (nel caso specifico si tratta di certificati sha512):
 
 	openssl req -x509 -nodes -sha512 -subj '/C=IT' -newkey rsa:4096 -keyout private_key.pem -out certificate.pem
 
