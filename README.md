@@ -55,7 +55,7 @@ Le seguenti modifiche sono state richieste dal Garante della Privacy con l'obbie
 * Rimozione della possibilità di "seguire" un Utente, è possibile "seguire" solo i Processi;
 * Rimozione della possibilità di cercare un Utente.
 
-## Integrazione del modulo commnunity Term-Customizer
+## Integrazione del modulo community Term-Customizer
 
 Decidim utilizza un sistema centralizzato di definizione della localizzazione della piattaforma attraverso [Crowdin](https://crowdin.com/). Il modulo community Term-Customizer può essere utilizzato per creare traduzioni applicabili alla sola istanza della piattaforma che si sta utilizzando.
 
@@ -68,8 +68,8 @@ La stessa istanza di Decidim può essere utilizzata per più Organizzazioni in m
 Il file <decidim_path>/config/application.yml contiene le principali configurazioni indispensabili per il funzionamento dell'applicativo.
 Di seguito una breve spiegazione attributo per attributo:
 
-	SECRET_KEY_BASE: #secret key utilizzata da Rails per il suo funzionamento vedere [questo articolo](https://medium.com/@michaeljcoyne/understanding-the-secret-key-base-in-ruby-on-rails-ce2f6f9968a1)
-	GOOGLE_ANALYTICS_ID: #Google Analytics ID di monitoraggio vedere [questo articolo](https://support.google.com/analytics/answer/7372977)
+	SECRET_KEY_BASE: #Secret key utilizzata da Rails per il suo funzionamento vedere https://medium.com/@michaeljcoyne/understanding-the-secret-key-base-in-ruby-on-rails-ce2f6f9968a1
+	GOOGLE_ANALYTICS_ID: #Google Analytics ID di monitoraggio vedere https://support.google.com/analytics/answer/7372977
 
 	DATABASE_URL: #URL del DB nella seguente forma "postgres://<DATABASE_USERNAME>:<DATABASE_PASSWORD>@<DATABASE_HOST>/<DATABASE_NAME>"
 	DATABASE_HOST: #Host che ospita il DB
@@ -78,13 +78,13 @@ Di seguito una breve spiegazione attributo per attributo:
 
 	SMTP_USERNAME: #Username dell'account di posta utilizzato per la spedizione delle mail della piattaforma via SMTP
 	SMTP_PASSWORD: #Password dell'account di posta
-	SMTP_ADDRESS: #indirizzo dell'SMTP
-	SMTP_DOMAIN: #dominio dell'SMTP
+	SMTP_ADDRESS: #Indirizzo dell'SMTP
+	SMTP_DOMAIN: #Dominio dell'SMTP
 
-	GEOCODER_LOOKUP_APP_ID: #AppID relativo al Geocoder Here vedere [questo articolo](https://github.com/decidim/decidim/blob/master/docs/services/geocoding.md)
+	GEOCODER_LOOKUP_APP_ID: #AppID relativo al Geocoder Here vedere https://github.com/decidim/decidim/blob/master/docs/services/geocoding.md
 	GEOCODER_LOOKUP_APP_CODE: #AppCode relativo al Geocoder Here
 
-	SPID_HOSTNAME: #corrisponde all'URL dell'HP della piattaforma, nel caso specifico "https://partecipa.gov.it", quest'URL viene usato da SpidRails per accodare i path indicati sotto e per fornire la pagina di redirect dal logout Spid
+	SPID_HOSTNAME: #Corrisponde all'URL dell'HP della piattaforma, nel caso specifico "https://partecipa.gov.it", quest'URL viene usato da SpidRails per accodare i path indicati sotto e per fornire la pagina di redirect dal logout Spid
 	SPID_ENTITY_ID: #Normalmente è uguale a SPID_HOSTNAME, nel caso specifico è stato utile differenziarlo 
 	SPID_METADATA_PATH: #Concatenato al SPID_HOSTNAME è l'indirizzo del metadata.xml, normalemente "/metadata"
 	SPID_LOGIN_PATH:  #Concatenato al SPID_HOSTNAME è l'URL relativo alla login, normalmente "/spid/login"
