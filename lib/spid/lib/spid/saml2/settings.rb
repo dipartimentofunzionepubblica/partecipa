@@ -103,6 +103,26 @@ module Spid
 		service_provider.organization_url
 	  end
 	  
+	  def rsa_kv_modulus
+		service_provider.rsa_kv_modulus
+	  end
+	  
+	  def rsa_certificate
+		service_provider.rsa_certificate
+	  end
+	  
+	  def rsa_kv_exponent
+		service_provider.rsa_kv_exponent
+	  end
+	  
+	  def following_slo
+		service_provider.following_slo
+	  end
+	  
+	  def following_acs
+		service_provider.following_acs
+	  end
+	  
 	  def force_authn?
 		authn_context > Spid::L1
 	  end

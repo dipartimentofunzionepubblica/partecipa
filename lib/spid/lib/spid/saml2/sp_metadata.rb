@@ -57,15 +57,38 @@ module Spid
             element = REXML::Element.new("md:SPSSODescriptor")
             element.add_attributes(sp_sso_descriptor_attributes)
             element.add_element key_descriptor
-            element.add_element slo_service
-			element.add_element ac_service
-            settings.sp_attribute_services.each.with_index do |service, index|
+			@slo_service = slo_service(settings.sp_slo_service_binding, settings.sp_slo_service_url,settings.sp_host)
+            element.add_element @slo_service 
+			@ac_service = ac_service(settings.sp_acs_binding, settings.sp_acs_url, 0)
+			element.add_element @ac_service
+						
+			settings.following_slo.each do |slo|
+              binding = slo[:slo_binding]
+			  location = slo[:slo_url]
+			  response_location = slo[:response_location]
+              #Spid.configuration.logger.info "binding = " + binding + "; location = " + location + "; response_location = " + response_location
+			  element.add_element slo_service(
+				binding, location, response_location
+              )
+            end
+			
+            settings.following_acs.each.with_index do |acs, index|
+              binding = acs[:acs_binding]
+			  location = acs[:acs_url]
+			  #Spid.configuration.logger.info "binding = " + binding + "; location = " + location + "; index = " + index.to_s
+              element.add_element ac_service(
+				binding, location, index+1
+              )
+            end
+			
+			settings.sp_attribute_services.each.with_index do |service, index|
               name = service[:name]
               fields = service[:fields]
               element.add_element attribute_consuming_service(
                 index, name, fields
               )
-            end
+			end
+			
             element
           end
       end
@@ -86,16 +109,6 @@ module Spid
           settings: settings,
           sign_reference: entity_descriptor_id
         ).signature
-      end
-
-      def attribute_consuming_service(index, name, fields)
-        element = REXML::Element.new("md:AttributeConsumingService")
-        element.add_attributes("index" => index)
-        element.add_element service_name(name)
-        fields.each do |field|
-          element.add_element requested_attribute(field)
-        end
-        element
       end
 
       def service_name(name)
@@ -119,32 +132,43 @@ module Spid
         }
       end
 
-      def ac_service
-        @ac_service ||=
+      def ac_service(binding, location, index)
+        #@ac_service ||=
           begin
             element = REXML::Element.new("md:AssertionConsumerService")
-            element.add_attributes(ac_service_attributes)
+            element.add_attributes(ac_service_attributes(binding, location, index))
             element
           end
       end
+	  
+	  def attribute_consuming_service(index, name, fields)
+        element = REXML::Element.new("md:AttributeConsumingService")
+        element.add_attributes("index" => index)
+        element.add_element service_name(name)
+        fields.each do |field|
+          element.add_element requested_attribute(field)
+        end
+        element
+      end
 
-      def ac_service_attributes
-        @ac_service_attributes ||= {
-          "Binding" => settings.sp_acs_binding,
-          "Location" => settings.sp_acs_url,
-          "index" => 0,
-          "isDefault" => true
+      def ac_service_attributes(binding, location, index)
+        #@ac_service_attributes ||= 
+		{
+          "Binding" => binding, #settings.sp_acs_binding,
+          "Location" => location,  #settings.sp_acs_url,
+          "index" => index, #0,
+          "isDefault" => index == 0 ? true : false
         }
       end
 
-      def slo_service
-        @slo_service ||=
+      def slo_service(binding, location, response_location)
+        #@slo_service ||=
           begin
             element = REXML::Element.new("md:SingleLogoutService")
             element.add_attributes(
-              "Binding" => settings.sp_slo_service_binding,
-              "Location" => settings.sp_slo_service_url,
-			  "ResponseLocation" => settings.sp_host
+              "Binding" => binding, #settings.sp_slo_service_binding,
+              "Location" => location, #settings.sp_slo_service_url,
+			  "ResponseLocation" => response_location #settings.sp_host
             )
             element
           end
