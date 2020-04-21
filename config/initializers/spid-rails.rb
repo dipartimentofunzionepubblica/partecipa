@@ -10,6 +10,7 @@ require "#{Rails.root}/lib/spid/lib/spid/saml2/saml_parser.rb"
 require "#{Rails.root}/lib/spid/lib/spid/saml2/service_provider.rb"
 require "#{Rails.root}/lib/spid/lib/spid/saml2/settings.rb"
 require "#{Rails.root}/lib/spid/lib/spid/saml2/sp_metadata.rb"
+require "#{Rails.root}/lib/spid/lib/spid/saml2/xml_signature.rb"
 require "#{Rails.root}/lib/spid/lib/spid/slo/response.rb"
 require "#{Rails.root}/lib/spid/lib/spid/sso/request.rb"
 require "#{Rails.root}/lib/spid/lib/spid/sso/response.rb"
@@ -27,6 +28,7 @@ Spid.configure do |config|
   config.idp_metadata_dir_path = Rails.root.join('config', 'idp_metadata')
   config.private_key_pem = File.read(Rails.root.join('lib', '.keys', 'private_key.pem'))
   config.certificate_pem = File.read(Rails.root.join('lib', '.keys', 'certificate.pem'))
+  
 
   config.metadata_path = Rails.application.secrets.spid_metadata_path
   config.login_path = Rails.application.secrets.spid_login_path
@@ -47,6 +49,13 @@ Spid.configure do |config|
   config.organization_name = Rails.application.secrets.spid_organization_name
   config.organization_display_name = Rails.application.secrets.spid_organization_display_name
   config.organization_url = Rails.application.secrets.spid_organization_url
+  
+  config.rsa_kv_modulus = Rails.application.secrets.spid_rsa_kv_modulus
+  config.rsa_kv_exponent = Rails.application.secrets.spid_rsa_kv_exponent
+  config.rsa_certificate = File.read(Rails.root.join('lib', '.keys', 'certificate_md.pem'))
+  
+  config.following_acs = [] #[{acs_url: "https://partecipa.formez.org/spid/samlsso", acs_binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" }, {acs_url: "https://ripam.cloud/spid/samlsso", acs_binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"}] 
+  config.following_slo = [] #[{slo_url: "https://partecipa.formez.org/spid/samlslo", slo_binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect", response_location: "https://partecipa.formez.org"}, {slo_url: "https://ripam.cloud/spid/samlslo", slo_binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect", response_location: "https://ripam.cloud"}] 
 end
 Spid.configuration.logger = Rails.logger
 SpidAccessLogger.logger = Logger.new(SpidAccessLogger::LogFile)
