@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require "xmldsig"
+#require "chilkat"
+#require "nokogiri-xmlsec"
 
 module Spid
   module Saml2
@@ -20,8 +22,8 @@ module Spid
       end
 
       def signed_document
-        doc = Xmldsig::SignedDocument.new(unsigned_document)
-        doc.sign(settings.private_key)
+		signed_document = File.read(settings.signed_metadata_path) if File.file?(settings.signed_metadata_path)
+		signed_document.nil? ? unsigned_document : signed_document
       end
 
       def to_saml
@@ -33,7 +35,7 @@ module Spid
           begin
             element = REXML::Element.new("md:EntityDescriptor")
             element.add_attributes(entity_descriptor_attributes)
-            element.add_element signature
+            #element.add_element signature
 			element.add_element sp_sso_descriptor
 			element.add_element organization
             element
@@ -57,29 +59,27 @@ module Spid
             element = REXML::Element.new("md:SPSSODescriptor")
             element.add_attributes(sp_sso_descriptor_attributes)
             element.add_element key_descriptor
-			@slo_service = slo_service(settings.sp_slo_service_binding, settings.sp_slo_service_url,settings.sp_host)
-            element.add_element @slo_service 
-			@ac_service = ac_service(settings.sp_acs_binding, settings.sp_acs_url, 0)
-			element.add_element @ac_service
-						
-			settings.following_slo.each do |slo|
+			#settings.slos.each do |slo|
+			slo_services = settings.slos.map do |slo|
               binding = slo[:slo_binding]
 			  location = slo[:slo_url]
 			  response_location = slo[:response_location]
-              #Spid.configuration.logger.info "binding = " + binding + "; location = " + location + "; response_location = " + response_location
 			  element.add_element slo_service(
 				binding, location, response_location
               )
             end
+			@slo_service = slo_services[settings.slo_index]
+			Spid.configuration.logger.info "======================================>" + @slo_service.inspect
 			
-            settings.following_acs.each.with_index do |acs, index|
+            ac_services = settings.acs.map.with_index do |acs, index|
               binding = acs[:acs_binding]
 			  location = acs[:acs_url]
-			  #Spid.configuration.logger.info "binding = " + binding + "; location = " + location + "; index = " + index.to_s
               element.add_element ac_service(
-				binding, location, index+1
+				binding, location, index
               )
             end
+			@ac_service = ac_services[settings.acs_index]
+			Spid.configuration.logger.info "======================================>" + @ac_service.inspect
 			
 			settings.sp_attribute_services.each.with_index do |service, index|
               name = service[:name]
@@ -152,28 +152,32 @@ module Spid
       end
 
       def ac_service_attributes(binding, location, index)
-        #@ac_service_attributes ||= 
-		{
-          "Binding" => binding, #settings.sp_acs_binding,
-          "Location" => location,  #settings.sp_acs_url,
-          "index" => index, #0,
-          "isDefault" => index == 0 ? true : false
+		acs_attr = {
+          "Binding" => binding, 
+          "Location" => location,
+          "index" => index
         }
+		acs_attr['isDefault'] = 'true' if index == 0
+		return acs_attr
       end
 
       def slo_service(binding, location, response_location)
-        #@slo_service ||=
           begin
             element = REXML::Element.new("md:SingleLogoutService")
-            element.add_attributes(
-              "Binding" => binding, #settings.sp_slo_service_binding,
-              "Location" => location, #settings.sp_slo_service_url,
-			  "ResponseLocation" => response_location #settings.sp_host
-            )
+            element.add_attributes(slo_attributes(binding, location, response_location))
             element
           end
       end
-
+	  
+	  def slo_attributes(binding, location, response_location)
+		slo_attr = {
+            "Binding" => binding, 
+            "Location" => location, 
+        }
+		slo_attr['ResponseLocation'] = response_location if response_location
+		return slo_attr
+      end
+	  
       def key_descriptor
         @key_descriptor ||=
           begin

@@ -95,7 +95,9 @@ module Spid # :nodoc:
     mobile_phone: "mobilePhone",
     email: "email",
     address: "address",
-    digital_address: "digitalAddress"
+    digital_address: "digitalAddress",
+	expiration_date: "expirationDate",
+	county_of_birth: "countyOfBirth"
   }.freeze
 
   ATTRIBUTES = ATTRIBUTES_MAP.keys.freeze
