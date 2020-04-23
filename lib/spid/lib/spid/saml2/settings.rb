@@ -86,11 +86,11 @@ module Spid
 	  def digest_method
 		service_provider.digest_method
 	  end
-
+=begin
 	  def acs_index
 		"0"
 	  end
-	  
+=end 
 	  def organization_name
 		service_provider.organization_name
 	  end
@@ -103,24 +103,24 @@ module Spid
 		service_provider.organization_url
 	  end
 	  
-	  def rsa_kv_modulus
-		service_provider.rsa_kv_modulus
+	  def slos
+		service_provider.slos
 	  end
 	  
-	  def rsa_certificate
-		service_provider.rsa_certificate
+	  def acs
+		service_provider.acs
 	  end
 	  
-	  def rsa_kv_exponent
-		service_provider.rsa_kv_exponent
+	  def signed_metadata_path
+		service_provider.signed_metadata_path
 	  end
 	  
-	  def following_slo
-		service_provider.following_slo
+	  def acs_index
+		service_provider.acs_index
 	  end
 	  
-	  def following_acs
-		service_provider.following_acs
+	  def slo_index
+		service_provider.slo_index
 	  end
 	  
 	  def force_authn?
