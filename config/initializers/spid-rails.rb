@@ -28,7 +28,6 @@ Spid.configure do |config|
   config.idp_metadata_dir_path = Rails.root.join('config', 'idp_metadata')
   config.private_key_pem = File.read(Rails.root.join('lib', '.keys', 'private_key.pem'))
   config.certificate_pem = File.read(Rails.root.join('lib', '.keys', 'certificate.pem'))
-  
 
   config.metadata_path = Rails.application.secrets.spid_metadata_path
   config.login_path = Rails.application.secrets.spid_login_path
@@ -43,19 +42,32 @@ Spid.configure do |config|
   config.acs_binding = Rails.application.secrets.spid_acs_binding.constantize
   config.slo_binding = Rails.application.secrets.spid_slo_binding.constantize
   config.attribute_services = [
-    { name: 'Decidim', fields: [:spid_code, :email] }
+    { name: 'Decidim', fields: [:spid_code, :email] },
+	{ name: 'Step One Authentication', fields: [:expiration_date, :address, :mobile_phone, :company_name, :iva_code, :place_of_birth, :gender, :name, :spid_code, :fiscal_number, :family_name, :date_of_birth, :county_of_birth, :id_card, :registered_office, :email, :digital_address] }
   ]
 
   config.organization_name = Rails.application.secrets.spid_organization_name
   config.organization_display_name = Rails.application.secrets.spid_organization_display_name
   config.organization_url = Rails.application.secrets.spid_organization_url
+ 
+  config.acs = [
+	{acs_url: "https://partecipa.gov.it/spid/samlsso", acs_binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" },
+    {acs_url: "https://partecipa.formez.org/spid/samlsso", acs_binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" }, 
+	{acs_url: "https://www.ripam.cloud/api/spid/login", acs_binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"},
+	{acs_url: "http://test_spid_decidim/spid/samlsso", acs_binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" }
+  ] 
+  config.slos = [
+    {slo_url: "https://partecipa.gov.it/spid/samlslo", slo_binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect", response_location: "https://partecipa.gov.it"},
+	{slo_url: "https://partecipa.formez.org/spid/samlslo", slo_binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect", response_location: "https://partecipa.formez.org"}, 
+	{slo_url: "https://www.ripam.cloud/api/spid/logout", slo_binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"},
+	{slo_url: "http://test_spid_decidim/spid/samlslo", slo_binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect", response_location: "http://test_spid_decidim"}
+  ] 
   
-  config.rsa_kv_modulus = Rails.application.secrets.spid_rsa_kv_modulus
-  config.rsa_kv_exponent = Rails.application.secrets.spid_rsa_kv_exponent
-  config.rsa_certificate = File.read(Rails.root.join('lib', '.keys', 'certificate_md.pem'))
+  config.signed_metadata_path = Rails.root.join('config', 'signed_sp_metadata', 'metadata-signed.xml')
+  #config.unsigned_metadata_path = Rails.root.join('config', 'unsigned_sp_metadata', 'metadata.xml')
+  config.acs_index = Rails.application.secrets.spid_acs_index
+  config.slo_index = Rails.application.secrets.spid_slo_index
   
-  config.following_acs = [] #[{acs_url: "https://partecipa.formez.org/spid/samlsso", acs_binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" }, {acs_url: "https://ripam.cloud/spid/samlsso", acs_binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"}] 
-  config.following_slo = [] #[{slo_url: "https://partecipa.formez.org/spid/samlslo", slo_binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect", response_location: "https://partecipa.formez.org"}, {slo_url: "https://ripam.cloud/spid/samlslo", slo_binding: "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect", response_location: "https://ripam.cloud"}] 
 end
 Spid.configuration.logger = Rails.logger
 SpidAccessLogger.logger = Logger.new(SpidAccessLogger::LogFile)

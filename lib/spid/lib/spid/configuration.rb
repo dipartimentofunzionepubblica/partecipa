@@ -18,13 +18,13 @@ module Spid
 	attr_accessor :organization_name
 	attr_accessor :organization_display_name
 	attr_accessor :organization_url
-	attr_accessor :rsa_kv_modulus
-	attr_accessor :rsa_kv_exponent
-	attr_accessor :rsa_certificate
     attr_accessor :acs_binding
     attr_accessor :slo_binding
-	attr_accessor :following_acs
-	attr_accessor :following_slo
+	attr_accessor :acs
+	attr_accessor :slos
+	attr_accessor :acs_index
+	attr_accessor :slo_index
+	attr_accessor :signed_metadata_path
     attr_accessor :attribute_services
     attr_accessor :private_key_pem
     attr_accessor :certificate_pem
@@ -54,11 +54,9 @@ module Spid
 	  @organization_name		= ""
 	  @organization_display_name= ""
 	  @organization_url			= ""
-	  @rsa_kv_modulus			= ""
-	  @rsa_kv_exponent			= ""
-	  @rsa_certificate			= ""
-	  @following_acs			= []
-	  @following_slo			= []
+	  @acs						= []
+	  @slos						= []
+	  @signed_metadata_path     = ""
     end
 
     def init_bindings
@@ -95,10 +93,8 @@ module Spid
             private_key: private_key, certificate: certificate,
             digest_method: digest_method, signature_method: signature_method,
             attribute_services: attribute_services, entity_id: entity_id, host: hostname,
-			organization_name: organization_name,
-			organization_display_name: organization_display_name, organization_url: organization_url, 
-			rsa_kv_modulus: rsa_kv_modulus, rsa_kv_exponent: rsa_kv_exponent, rsa_certificate: rsa_certificate,
-			following_acs: following_acs, following_slo: following_slo
+			organization_name: organization_name, organization_display_name: organization_display_name, organization_url: organization_url, 
+			acs: acs, slos: slos, signed_metadata_path: signed_metadata_path, acs_index: acs_index, slo_index: slo_index
           )
         end
     end

@@ -19,6 +19,7 @@ gem "spid-rails", "= 0.2.0"
 gem "omniauth"
 gem "decidim-term_customizer", "0.19.0", :git => "https://github.com/mainio/decidim-module-term_customizer"
 
+
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
   gem "decidim-dev", "0.19.0"
