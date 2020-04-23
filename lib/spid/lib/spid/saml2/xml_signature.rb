@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+
 module Spid
   module Saml2
     class XmlSignature # :nodoc:
@@ -17,7 +18,6 @@ module Spid
             element = REXML::Element.new("ds:Signature")
             element.add_element(signed_info)
             element.add_element(signature_value)
-			element.add_element(key_value)
             element
           end
       end
@@ -114,54 +114,8 @@ module Spid
       def signature_value
         @signature_value ||= REXML::Element.new("ds:SignatureValue")
       end
-	  
-	  def key_value
-		@key_value ||=
-			element = REXML::Element.new("ds:KeyValue")
-			element.add_element rsa_key_value
-			element.add_element certificate
-		element
-	  end
-	  
-	  def rsa_key_value
-		@rsa_key_value ||=
-          begin
-            element = REXML::Element.new("ds:RSAKeyValue")
-            element.add_element(modulus)
-            element.add_element(exponent)
-            element
-          end
-	  end
-	  
-	  def modulus
-		@modulus ||=
-          begin
-            element = REXML::Element.new("ds:Modulus")
-            element.text = settings.rsa_kv_modulus
-            element
-          end
-	  end
-	  
-	  def exponent
-		@exponent ||=
-          begin
-            element = REXML::Element.new("ds:Exponent")
-            element.text = settings.rsa_kv_exponent
-            element
-          end
-	  end
-	  
-	  def certificate
-		@certificate ||=
-          begin
-            element = REXML::Element.new("ds:X509Data")
-			data = REXML::Element.new("ds:X509Certificate")
-			Spid.configuration.logger.info "==============================> data = " + settings.rsa_certificate.to_s
-			data.text = settings.rsa_certificate
-			element.add_element(data)
-            element
-          end
-	  end
-    end
+   
+	end
   end
 end
+

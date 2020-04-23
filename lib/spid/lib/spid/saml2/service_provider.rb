@@ -20,11 +20,11 @@ module Spid
 	  attr_reader :organization_name
 	  attr_reader :organization_display_name
 	  attr_reader :organization_url
-	  attr_reader :rsa_kv_modulus
-	  attr_reader :rsa_kv_exponent
-	  attr_reader :rsa_certificate
-	  attr_reader :following_slo
-	  attr_reader :following_acs
+	  attr_reader :slos
+	  attr_reader :acs
+	  attr_reader :signed_metadata_path
+	  attr_reader :acs_index
+	  attr_reader :slo_index
 	  
       # rubocop:disable Metrics/ParameterLists
       # rubocop:disable Metrics/MethodLength
@@ -44,11 +44,11 @@ module Spid
 			organization_name:,
 			organization_display_name:,
 			organization_url:,
-			rsa_kv_modulus:,
-			rsa_kv_exponent:,
-			rsa_certificate:,
-			following_acs:,
-			following_slo:
+			acs:,
+			slos:,
+			signed_metadata_path:,
+			acs_index:,
+			slo_index:
           )
         @host 					= host
 		@entity_id 				= entity_id
@@ -65,11 +65,11 @@ module Spid
 		@organization_name    	= organization_name
 		@organization_display_name = organization_display_name
 		@organization_url		   = organization_url
-		@rsa_kv_modulus			= rsa_kv_modulus
-		@rsa_kv_exponent		= rsa_kv_exponent
-		@rsa_certficate			= rsa_certificate
-		@following_acs			= following_acs
-		@following_slo			= following_slo
+		@acs			= acs
+		@slos			= slos
+		@signed_metadata_path   = signed_metadata_path
+		@acs_index = acs_index
+		@slo_index = slo_index
         validate_digest_methods
         validate_attributes
         validate_private_key
