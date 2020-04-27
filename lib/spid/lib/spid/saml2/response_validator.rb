@@ -272,8 +272,6 @@ module Spid
 	  end
 
 	  def certificate
-		Spid.configuration.logger.info "==============================================RESPONSE CERTIFICATE=======================================================/n" + response.certificate.to_s + "/n==============================================END RESPONSE CERTIFICATE======================================================="
-		Spid.configuration.logger.info "==============================================SETTINGS CERTIFICATE=======================================================/n" + settings.idp_certificate.to_s + "/n==============================================END SETTINGS CERTIFICATE======================================================="  
 		if response.certificate.to_der == settings.idp_certificate.to_der
 			return true
 		end

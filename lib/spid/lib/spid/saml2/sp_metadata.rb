@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require "xmldsig"
-#require "chilkat"
-#require "nokogiri-xmlsec"
-
 module Spid
   module Saml2
     # rubocop:disable Metrics/ClassLength
@@ -35,7 +31,6 @@ module Spid
           begin
             element = REXML::Element.new("md:EntityDescriptor")
             element.add_attributes(entity_descriptor_attributes)
-            #element.add_element signature
 			element.add_element sp_sso_descriptor
 			element.add_element organization
             element
@@ -59,8 +54,8 @@ module Spid
             element = REXML::Element.new("md:SPSSODescriptor")
             element.add_attributes(sp_sso_descriptor_attributes)
             element.add_element key_descriptor
-			#settings.slos.each do |slo|
-			slo_services = settings.slos.map do |slo|
+			
+			slo_services ||= settings.slos.map do |slo|
               binding = slo[:slo_binding]
 			  location = slo[:slo_url]
 			  response_location = slo[:response_location]
@@ -68,18 +63,16 @@ module Spid
 				binding, location, response_location
               )
             end
-			@slo_service = slo_services[settings.slo_index]
-			Spid.configuration.logger.info "======================================>" + @slo_service.inspect
+			@slo_service ||= slo_services[settings.slo_index]
 			
-            ac_services = settings.acs.map.with_index do |acs, index|
+            ac_services ||= settings.acs.map.with_index do |acs, index|
               binding = acs[:acs_binding]
 			  location = acs[:acs_url]
               element.add_element ac_service(
 				binding, location, index
               )
             end
-			@ac_service = ac_services[settings.acs_index]
-			Spid.configuration.logger.info "======================================>" + @ac_service.inspect
+			@ac_service ||= ac_services[settings.acs_index]
 			
 			settings.sp_attribute_services.each.with_index do |service, index|
               name = service[:name]
