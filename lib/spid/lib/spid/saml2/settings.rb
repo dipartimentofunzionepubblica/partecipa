@@ -48,6 +48,7 @@ module Spid
 	  end
 
 	  def sp_acs_url
+		Spid.configuration.logger.info "========================> " + service_provider.acs_url
 		service_provider.acs_url
 	  end
 
@@ -86,11 +87,7 @@ module Spid
 	  def digest_method
 		service_provider.digest_method
 	  end
-=begin
-	  def acs_index
-		"0"
-	  end
-=end 
+
 	  def organization_name
 		service_provider.organization_name
 	  end
@@ -103,8 +100,8 @@ module Spid
 		service_provider.organization_url
 	  end
 	  
-	  def slos
-		service_provider.slos
+	  def slo
+		service_provider.slo
 	  end
 	  
 	  def acs

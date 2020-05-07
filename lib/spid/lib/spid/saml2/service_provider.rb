@@ -7,9 +7,9 @@ module Spid
     class ServiceProvider # :nodoc:
       attr_reader :host
 	  attr_reader :entity_id
-      attr_reader :acs_path
+      #attr_reader :acs_path
       attr_reader :acs_binding
-      attr_reader :slo_path
+      #attr_reader :slo_path
       attr_reader :slo_binding
       attr_reader :metadata_path
       attr_reader :private_key
@@ -20,7 +20,7 @@ module Spid
 	  attr_reader :organization_name
 	  attr_reader :organization_display_name
 	  attr_reader :organization_url
-	  attr_reader :slos
+	  attr_reader :slo
 	  attr_reader :acs
 	  attr_reader :signed_metadata_path
 	  attr_reader :acs_index
@@ -31,9 +31,9 @@ module Spid
       def initialize(
             host:,
 			entity_id:,
-            acs_path:,
+            #acs_path:,
             acs_binding:,
-            slo_path:,
+            #slo_path:,
             slo_binding:,
             metadata_path:,
             private_key:,
@@ -45,16 +45,16 @@ module Spid
 			organization_display_name:,
 			organization_url:,
 			acs:,
-			slos:,
+			slo:,
 			signed_metadata_path:,
 			acs_index:,
 			slo_index:
           )
         @host 					= host
 		@entity_id 				= entity_id
-        @acs_path               = acs_path
+        #@acs_path               = acs_path
         @acs_binding            = acs_binding
-        @slo_path               = slo_path
+        #@slo_path               = slo_path
         @slo_binding            = slo_binding
         @metadata_path          = metadata_path
         @private_key            = private_key
@@ -66,7 +66,7 @@ module Spid
 		@organization_display_name = organization_display_name
 		@organization_url		   = organization_url
 		@acs					= acs
-		@slos					= slos
+		@slo					= slo
 		@signed_metadata_path   = signed_metadata_path
 		@acs_index 				= acs_index
 		@slo_index 				= slo_index
@@ -79,11 +79,16 @@ module Spid
       # rubocop:enable Metrics/ParameterLists
 
       def acs_url
-        @acs_url ||= URI.join(host, acs_path).to_s
+        #Spid.configuration.logger.info "========================> ACS_URL_NEW = " + @acs[@acs_index][:acs_url]
+		#Spid.configuration.logger.info "========================> ACS_URL_WORKING = " + URI.join(host, acs_path).to_s
+		#@acs_url ||= URI.join(host, acs_path).to_s
+		#Spid.configuration.logger.info "========================> ACS = " + @acs_url
+		@acs_url ||= @acs[@acs_index][:acs_url]
       end
 
       def slo_url
-        @slo_url ||= URI.join(host, slo_path).to_s
+        #@slo_url ||= URI.join(host, slo_path).to_s
+		@slo_url ||= @slo[@slo_index][:slo_url]
       end
 
       def metadata_url
