@@ -21,7 +21,7 @@ module Spid
     attr_accessor :acs_binding
     attr_accessor :slo_binding
 	attr_accessor :acs
-	attr_accessor :slos
+	attr_accessor :slo
 	attr_accessor :acs_index
 	attr_accessor :slo_index
 	attr_accessor :signed_metadata_path
@@ -32,31 +32,29 @@ module Spid
     attr_accessor :logger
 
     def initialize
-      @idp_metadata_dir_path    = "idp_metadata"
-      @attribute_services       = []
-      @logging_enabled          = true
-      @logger                   = ::Logger.new $stdout
-      init_endpoint
+      @idp_metadata_dir_path     = "idp_metadata"
+      @attribute_services        = []
+      @logging_enabled           = true
+      @logger                    = ::Logger.new $stdout
+	  init_endpoint
       init_bindings
       init_dig_sig_methods
       init_openssl_keys
     end
 
     def init_endpoint
-      @hostname                 = nil
-	  @entity_id				= nil
-      @metadata_path            = "/spid/metadata"
-      @login_path               = "/spid/login"
-      @logout_path              = "/spid/logout"
-      @acs_path                 = "/spid/sso"
-      @slo_path                 = "/spid/slo"
-      @default_relay_state_path = "/"
-	  @organization_name		= ""
-	  @organization_display_name= ""
-	  @organization_url			= ""
-	  @acs						= []
-	  @slos						= []
-	  @signed_metadata_path     = ""
+      @hostname                  = nil
+	  @entity_id				 = nil
+      @metadata_path             = "/spid/metadata"
+      @login_path                = "/spid/login"
+      @logout_path               = "/spid/logout"
+      #@acs_path                 = "/spid/sso"
+      #@slo_path                 = "/spid/slo" 
+      @default_relay_state_path  = "/"
+	  @organization_name		 = ""
+	  @organization_display_name = ""
+	  @organization_url			 = ""
+	  @signed_metadata_path      = ""
     end
 
     def init_bindings
@@ -88,13 +86,13 @@ module Spid
       @service_provider ||=
         begin
           Spid::Saml2::ServiceProvider.new(
-            acs_binding: acs_binding, acs_path: acs_path, slo_path: slo_path,
+            acs_binding: acs_binding, #acs_path: acs_path, #slo_path: slo_path,
             slo_binding: slo_binding, metadata_path: metadata_path,
             private_key: private_key, certificate: certificate,
             digest_method: digest_method, signature_method: signature_method,
             attribute_services: attribute_services, entity_id: entity_id, host: hostname,
 			organization_name: organization_name, organization_display_name: organization_display_name, organization_url: organization_url, 
-			acs: acs, slos: slos, signed_metadata_path: signed_metadata_path, acs_index: acs_index, slo_index: slo_index
+			acs: acs, slo: slo, signed_metadata_path: signed_metadata_path, acs_index: acs_index, slo_index: slo_index
           )
         end
     end

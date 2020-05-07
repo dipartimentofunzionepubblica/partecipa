@@ -55,7 +55,7 @@ module Spid
             element.add_attributes(sp_sso_descriptor_attributes)
             element.add_element key_descriptor
 			
-			slo_services ||= settings.slos.map do |slo|
+			slo_services ||= settings.slo.map do |slo|
               binding = slo[:slo_binding]
 			  location = slo[:slo_url]
 			  response_location = slo[:response_location]
