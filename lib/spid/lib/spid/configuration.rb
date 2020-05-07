@@ -48,8 +48,6 @@ module Spid
       @metadata_path             = "/spid/metadata"
       @login_path                = "/spid/login"
       @logout_path               = "/spid/logout"
-      #@acs_path                 = "/spid/sso"
-      #@slo_path                 = "/spid/slo" 
       @default_relay_state_path  = "/"
 	  @organization_name		 = ""
 	  @organization_display_name = ""
@@ -86,8 +84,7 @@ module Spid
       @service_provider ||=
         begin
           Spid::Saml2::ServiceProvider.new(
-            acs_binding: acs_binding, #acs_path: acs_path, #slo_path: slo_path,
-            slo_binding: slo_binding, metadata_path: metadata_path,
+            acs_binding: acs_binding, slo_binding: slo_binding, metadata_path: metadata_path,
             private_key: private_key, certificate: certificate,
             digest_method: digest_method, signature_method: signature_method,
             attribute_services: attribute_services, entity_id: entity_id, host: hostname,
