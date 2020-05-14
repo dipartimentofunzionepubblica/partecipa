@@ -12,7 +12,7 @@ module Spid
     attr_accessor :logout_path
     attr_accessor :acs_path
     attr_accessor :slo_path
-    attr_accessor :digest_method
+    #attr_accessor :digest_method
     attr_accessor :signature_method
     attr_accessor :default_relay_state_path
 	attr_accessor :organization_name
@@ -61,7 +61,7 @@ module Spid
     end
 
     def init_dig_sig_methods
-      @digest_method            = Spid::SHA256
+      #@digest_method            = Spid::SHA256
       @signature_method         = Spid::RSA_SHA256
     end
 
@@ -86,7 +86,8 @@ module Spid
           Spid::Saml2::ServiceProvider.new(
             acs_binding: acs_binding, slo_binding: slo_binding, metadata_path: metadata_path,
             private_key: private_key, certificate: certificate,
-            digest_method: digest_method, signature_method: signature_method,
+            #digest_method: digest_method, 
+			signature_method: signature_method,
             attribute_services: attribute_services, entity_id: entity_id, host: hostname,
 			organization_name: organization_name, organization_display_name: organization_display_name, organization_url: organization_url, 
 			acs: acs, slo: slo, signed_metadata_path: signed_metadata_path, acs_index: acs_index, slo_index: slo_index
