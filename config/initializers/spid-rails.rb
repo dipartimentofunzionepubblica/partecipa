@@ -34,8 +34,14 @@ Spid.configure do |config|
   config.slo_index = SLO_INDEX
   
   config.hostname = HOSTNAME
+  
+  config.acs_binding = ACS[ACS_INDEX][:acs_binding] 
+  config.slo_binding = SLO[SLO_INDEX][:slo_binding]
+  
+  config.acs_path = ACS[ACS_INDEX][:acs_url].gsub(HOSTNAME, "")
+  config.slo_path = SLO[SLO_INDEX][:slo_url].gsub(HOSTNAME, "")
+  
   config.entity_id = Rails.application.secrets.spid_entity_id
-
   config.idp_metadata_dir_path = Rails.root.join('config', 'idp_metadata')
   config.private_key_pem = File.read(Rails.root.join('lib', '.keys', 'private_key.pem'))
   config.certificate_pem = File.read(Rails.root.join('lib', '.keys', 'certificate.pem'))
@@ -46,20 +52,14 @@ Spid.configure do |config|
   
   config.default_relay_state_path = Rails.application.secrets.spid_default_relay_state_path
   
-  config.digest_method = Rails.application.secrets.spid_digest_method.constantize
+  #config.digest_method = Rails.application.secrets.spid_digest_method.constantize
   config.signature_method = Rails.application.secrets.spid_signature_method.constantize
   
-  config.acs_binding = Rails.application.secrets.spid_acs_binding.constantize
-  config.slo_binding = Rails.application.secrets.spid_slo_binding.constantize
-
   config.organization_name = Rails.application.secrets.spid_organization_name
   config.organization_display_name = Rails.application.secrets.spid_organization_display_name
   config.organization_url = Rails.application.secrets.spid_organization_url
 
   config.attribute_services = YAML::load(File.open("#{Rails.root}/config/attr_serv_list.yml"))["attr_serv_list"].each(&:deep_symbolize_keys!)
-  
-  config.acs_path = ACS[ACS_INDEX][:acs_url].gsub(HOSTNAME, "")
-  config.slo_path = SLO[SLO_INDEX][:slo_url].gsub(HOSTNAME, "")
   config.signed_metadata_path = Rails.root.join('config', 'signed_sp_metadata', 'metadata-signed.xml')
 end
 Spid.configuration.logger = Rails.logger
