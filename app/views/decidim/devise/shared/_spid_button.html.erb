@@ -4,12 +4,12 @@
 		<div style="height:auto;">
 			<a href="#" style="display:block;margin-left:auto;margin-right:auto;cursor:default;" class="italia-it-button italia-it-button-size-l button-spid" spid-idp-button="#spid-idp-button-large-get" aria-haspopup="true" aria-expanded="false">
 				<span class="italia-it-button-icon">
-					<img src="/spid/spid-ico-circle-bb.svg" onerror="this.src='/spid/spid-ico-circle-bb.png'; this.onerror=null;" alt="" />
+					<%=image_tag("decidim/spid/spid-ico-circle-bb.svg", src: 'Image Not Found', onerror:"this.src='decidim/spid/spid-ico-circle-bb.png'")%>
 				</span>
 				<span class="italia-it-button-text" style="pointer-events:none">Entra con SPID</span>
 			</a>
 		</div>
-		<div id="spid-idp-button-large-get" class="spid-idp-button spid-idp-button-tip spid-idp-button-relative">
+		<div id="spid-idp-button-large-get" class="spid-idp-button spid-idp-button-tip spid-idp-button-relative" style="margin-left:18px">
 			<ul id="spid-idp-list-large-root-get" class="spid-idp-button-menu" aria-labelledby="spid-idp">
 				<%
 					SPID_PROVIDER_LIST_HASH.each do |hash| 
