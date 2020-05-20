@@ -53,7 +53,6 @@ module Spid
         @metadata_path          = metadata_path
         @private_key            = private_key
         @certificate            = certificate
-        #@digest_method          = digest_method
         @signature_method       = signature_method
         @attribute_services     = attribute_services
 		@organization_name    	= organization_name
@@ -105,13 +104,6 @@ module Spid
       end
 
       def validate_digest_methods
-=begin        
-		if !DIGEST_METHODS.include?(digest_method)
-          raise UnknownDigestMethodError,
-                "Provided digest method is not valid:" \
-                " use one of #{DIGEST_METHODS.join(', ')}"
-        els
-=end		
 		if !SIGNATURE_METHODS.include?(signature_method)
           raise UnknownSignatureMethodError,
                 "Provided digest method is not valid:" \
