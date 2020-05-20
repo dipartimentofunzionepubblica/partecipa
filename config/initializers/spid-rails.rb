@@ -16,13 +16,13 @@ require "#{Rails.root}/lib/spid/lib/spid/sso/response.rb"
 require "#{Rails.root}/lib/spid/lib/spid/identity_provider_manager.rb"
 require "#{Rails.root}/lib/spid/lib/spid/configuration.rb"
 require "#{Rails.root}/lib/spid/lib/spid/version.rb"
-require "#{Rails.root}/lib/spid/saml2.rb"
 require "#{Rails.root}/lib/spid/lib/spid.rb"
+require "#{Rails.root}/lib/spid/saml2.rb"
 require "#{Rails.root}/lib/spid_access_logger/spid_access_logger.rb"
 
 Spid.configure do |config|
-  ACS = YAML::load(File.open("#{Rails.root}/config/acs_list.yml"))["acs_list"].each(&:deep_symbolize_keys!)
-  SLO = YAML::load(File.open("#{Rails.root}/config/slo_list.yml"))["slo_list"].each(&:deep_symbolize_keys!)
+  ACS = YAML::load(File.open("#{Rails.root}/config/spid_acs_list.yml"))["acs_list"].each(&:deep_symbolize_keys!)
+  SLO = YAML::load(File.open("#{Rails.root}/config/spid_slo_list.yml"))["slo_list"].each(&:deep_symbolize_keys!)
   HOSTNAME = Rails.application.secrets.spid_hostname
   ACS_INDEX = Rails.application.secrets.spid_acs_index
   SLO_INDEX = Rails.application.secrets.spid_slo_index
@@ -59,7 +59,7 @@ Spid.configure do |config|
   config.organization_display_name = Rails.application.secrets.spid_organization_display_name
   config.organization_url = Rails.application.secrets.spid_organization_url
 
-  config.attribute_services = YAML::load(File.open("#{Rails.root}/config/attr_serv_list.yml"))["attr_serv_list"].each(&:deep_symbolize_keys!)
+  config.attribute_services = YAML::load(File.open("#{Rails.root}/config/spid_attr_serv_list.yml"))["attr_serv_list"].each(&:deep_symbolize_keys!)
   config.signed_metadata_path = Rails.root.join('config', 'signed_sp_metadata', 'metadata-signed.xml')
 end
 Spid.configuration.logger = Rails.logger
