@@ -23,23 +23,6 @@
     </div>
     <%= render "decidim/devise/shared/omniauth_buttons" %>
 	
-	<div class="row collapse">
-		<%= render "decidim/devise/shared/spid_button" %>
-	</div>
-	
-	
-	<div class="row">
-		<div class="columns large-4 mediumlarge-6 medium-8 medium-centered">
-			<div class="social-register">
-				<%- if current_organization.sign_in_enabled? %>
-					<span class="register__separator">
-						<span class="register__separator__text"><%= t("decidim.devise.shared.omniauth_buttons.or") %></span>
-					</span>
-				<%- end %>
-			</div>
-		</div>
-	</div>
-	
 	<% if current_organization.sign_in_enabled? %>
       <div class="row">
         <div class="columns large-6 medium-centered">

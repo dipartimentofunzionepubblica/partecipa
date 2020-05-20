@@ -82,11 +82,7 @@ module Spid
 	  def signature_method
 		service_provider.signature_method
 	  end
-=begin
-	  def digest_method
-		service_provider.digest_method
-	  end
-=end
+
 	  def organization_name
 		service_provider.organization_name
 	  end

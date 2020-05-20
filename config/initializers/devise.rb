@@ -300,7 +300,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  #config.omniauth :developer, fields: [:name, :nickname, :email] if Rails.application.secrets.dig(:omniauth, :developer).present?
+  config.omniauth :developer, fields: [:name, :nickname, :email] if Rails.application.secrets.dig(:omniauth, :developer).present?
   if Rails.application.secrets.dig(:omniauth, :facebook).present?
     config.omniauth :facebook,
                     Rails.application.secrets.omniauth[:facebook][:app_id],
@@ -318,7 +318,7 @@ Devise.setup do |config|
                     Rails.application.secrets.omniauth[:google_oauth2][:client_id],
                     Rails.application.secrets.omniauth[:google_oauth2][:client_secret]
   end
-  config.omniauth :spidauth
+  config.omniauth :spidauth if Rails.application.secrets.dig(:omniauth, :spidauth).present?
   
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

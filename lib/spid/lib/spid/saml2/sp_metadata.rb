@@ -126,7 +126,6 @@ module Spid
       end
 
       def ac_service(binding, location, index)
-        #@ac_service ||=
           begin
             element = REXML::Element.new("md:AssertionConsumerService")
             element.add_attributes(ac_service_attributes(binding, location, index))
@@ -165,7 +164,7 @@ module Spid
 	  def slo_attributes(binding, location, response_location)
 		slo_attr = {
             "Binding" => binding, 
-            "Location" => location, 
+            "Location" => location
         }
 		slo_attr['ResponseLocation'] = response_location if response_location
 		return slo_attr
