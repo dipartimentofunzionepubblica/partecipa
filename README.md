@@ -2,7 +2,8 @@
 
 ## Piattaforma di partecipazione democratica
 
-ParteciPa è la piattaforma di partecipazione democratica promossa dalla Repubblica Italiana.
+ParteciPa è la piattaforma di partecipazione democratica promossa dalla Repubblica Italiana, attraverso il Ministero per la Pubblica Amministrazione, Dipartimento Funzione Pubblica.
+Per una presentazione approfondita su ParteciPa vi rimandiamo al [seguente articolo] (http://www.funzionepubblica.gov.it/articolo/ministro/05-12-2019/governo-al-portale-e-piattaforma-%E2%80%9Cpartecipa%E2%80%9D-consultazioni-pubbliche) che riassume la conferenza stampa di presentazione.
 
 ## Software
 
@@ -37,7 +38,7 @@ Le seguenti istruzioni di installazione semplificate non comprendono l'installaz
 
 	rails assets:precompile
 
-4) creare il db
+4) aggiornare il db
 
 	rails db:migrate
 
@@ -67,7 +68,7 @@ e installare ed eseguire le migrations relative al modulo appena installato
 
 ParteciPa usa il core di Decidim e personalizza o integra solo i seguenti aspetti:
 
-* Utilizzo del [Sistema Pubblico di Identità Digitale (Spid)](https://www.spid.gov.it/) attraverso il middleware [Spid-Rails](https://github.com/italia/spid-rails) modificato in base alle esigenze riscontrate e integrato nel sistema via [OmniaAuth](https://github.com/omniauth/omniauth);
+* Utilizzo del [Sistema Pubblico di Identità Digitale (Spid)](https://www.spid.gov.it/) attraverso il middleware Open-Source [Spid-Rails](https://github.com/italia/spid-rails) ;
 * Aspetto grafico ridefinito via SCSS;
 * Modifiche sulla base delle osservazioni del Garante della Privacy;
 * Integrazione del modulo community [Term-Customizer](https://github.com/mainio/decidim-module-term_customizer);
@@ -80,6 +81,8 @@ L'attivazione di partecipa.gov.it come Service Provider Spid ha necessitato dell
 L'utilizzo del codice di ParteciPa per l'attivazione di un nuovo Service Provider Spid dovrebbe seguire lo stesso iter.
 E' consigliata un'attenta analisi delle [Regole Tecniche Spid](https://docs.italia.it/italia/spid/spid-regole-tecniche/it/stabile/index.html) per l'attivazione di ParteciPa con Spid, almeno nella sezione che riguarda il Service Provider (SP) Metadata,
 con particolare riferimento agli elementi AssertionConsumerService, SingleLogoutService, AttributeConsumingService.
+
+Per integrare Spid  ParteciPa utilizza il middleware Open-Source [Spid-Rails](https://github.com/italia/spid-rails) modificato in base alle esigenze riscontrate e integrato nel sistema via [OmniaAuth](https://github.com/omniauth/omniauth).
 
 ParteciPa utilizza l'autenticazione Spid al livello 1 e richiede due soli attributi utente: l'Indirizzo di posta elettronica e il Codice identificativo SPID.
 La piattaforma non memorizza in alcun modo le credenziali Spid dell'utente; vengono tracciati in un apposito log gli eventi di registrazione, login e logout dell'Utente via Spid.
@@ -250,6 +253,10 @@ Il file SP metadata.xml così pubblicato per essere trasmesso ad AgID perché di
 Il nuovo file SP metadata.xml così modificato e firmato sarà disponibile all'URL previsto nel file application.yml SPID_METADATA_PATH.
 Il SP metadata.xml dovrà poi essere collaudato da AgID in base alla già citata procedura disponibile a [questo indirizzo](https://www.spid.gov.it/come-diventare-fornitore-di-servizi-pubblici-e-privati-con-spid).
 
-Per eventuli segnalazioni sulla sicurezza del software preghiamo di utilizzare il canale di comunicazione confidenziale attraverso l'indirizzo email: webmaster@formez.org e non aprire segnalazioni pubbliche.
+## Segnalazioni sulla sicurezza
+Per eventuali segnalazioni su possibili falle nella sicurezza del software che siano state riscontrate durante l'utilizzo preghiamo di utilizzare il canale di comunicazione confidenziale attraverso l'indirizzo email: webmaster@formez.org e non aprire segnalazioni pubbliche.
+E' indispensabile contestualizzare e dettagliare con la massima precisione le segnalazioni. Le segnalazioni anonime non veranno comunque verificate.
 
+## ParteciPa
 Le integrazioni e le personalizzioni di ParteciPa che modificano Decidim sono state sviluppate da FormezPA.
+Il mantainer di ParteciPa è Gian Luca Corso.
