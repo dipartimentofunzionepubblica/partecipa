@@ -2,8 +2,8 @@
 
 ## Piattaforma di partecipazione democratica
 
-ParteciPa è la piattaforma di partecipazione democratica promossa dalla Repubblica Italiana, attraverso il Ministero per la Pubblica Amministrazione, Dipartimento Funzione Pubblica.
-Per una presentazione approfondita su ParteciPa vi rimandiamo al [seguente articolo] (http://www.funzionepubblica.gov.it/articolo/ministro/05-12-2019/governo-al-portale-e-piattaforma-%E2%80%9Cpartecipa%E2%80%9D-consultazioni-pubbliche) che riassume la conferenza stampa di presentazione.
+ParteciPa è la piattaforma di partecipazione democratica promossa dalla Repubblica Italiana, attraverso la Presidenza del Consiglio dei Ministri, Dipartimento Funzione Pubblica e il Ministero per la Pubblica Amministrazione.
+Per una presentazione approfondita su ParteciPa vi rimandiamo al [seguente articolo](http://www.funzionepubblica.gov.it/articolo/ministro/05-12-2019/governo-al-portale-e-piattaforma-%E2%80%9Cpartecipa%E2%80%9D-consultazioni-pubbliche) che riassume la conferenza stampa di presentazione.
 
 ## Software
 
@@ -19,12 +19,12 @@ Dal punto di vista tecnico Decidim è basato su:
 
 I manuali di Amministrazione per Decidim si trovano nei seguenti URL:
 
-    https://decidim.org/docs/
-    https://docs.decidim.org/
+    [https://decidim.org/docs/](https://decidim.org/docs/)
+    [https://docs.decidim.org/](https://docs.decidim.org/)
 	
 Istruzioni dettagliate su come installare Decidim si trovano a [questo indirizzo](https://platoniq.github.io/decidim-install/).
 
-Le seguenti istruzioni di installazione semplificate non comprendono l'installazione di NGINX e Postgres possono essere utilizzate in caso di solo aggiornamento:
+Le seguenti istruzioni di installazione riguardano la sola installazione o aggiornamento di ParteciPa, successiva a quella di Decidim
 
 1) scaricare da GitHub.com 
 
@@ -79,28 +79,28 @@ ParteciPa usa il core di Decidim e personalizza o integra solo i seguenti aspett
 Spid è il Sistema Pubblico di Identità Digitale basato sul linguaggio [SAML2](https://en.wikipedia.org/wiki/SAML_2.0). 
 L'attivazione di partecipa.gov.it come Service Provider Spid ha necessitato della applicazione della procedura descritta dettagliatamente a [questo indirizzo](https://www.spid.gov.it/come-diventare-fornitore-di-servizi-pubblici-e-privati-con-spid).
 L'utilizzo del codice di ParteciPa per l'attivazione di un nuovo Service Provider Spid dovrebbe seguire lo stesso iter.
-E' consigliata un'attenta analisi delle [Regole Tecniche Spid](https://docs.italia.it/italia/spid/spid-regole-tecniche/it/stabile/index.html) per l'attivazione di ParteciPa con Spid, almeno nella sezione che riguarda il Service Provider (SP) Metadata,
+E' consigliata un'attenta analisi delle [Regole Tecniche Spid](https://docs.italia.it/italia/spid/spid-regole-tecniche/it/stabile/index.html) per l'attivazione di ParteciPa con Spid, almeno nella sezione che riguarda il Service Provider (SP) Metadata e Identity Provider (IDP) Metadata,
 con particolare riferimento agli elementi AssertionConsumerService, SingleLogoutService, AttributeConsumingService.
 
-Per integrare Spid  ParteciPa utilizza il middleware Open-Source [Spid-Rails](https://github.com/italia/spid-rails) modificato in base alle esigenze riscontrate e integrato nel sistema via [OmniaAuth](https://github.com/omniauth/omniauth).
+Per integrare Spid  ParteciPa utilizza il middleware Open-Source [Spid-Rails](https://github.com/italia/spid-rails) modificato in base alle esigenze riscontrate e integrato nel sistema via [OmniAuth](https://github.com/omniauth/omniauth).
 
-ParteciPa utilizza l'autenticazione Spid al livello 1 e richiede due soli attributi utente: l'Indirizzo di posta elettronica e il Codice identificativo SPID.
+ParteciPa utilizza l'autenticazione Spid al livello 1 e richiede due soli attributi utente: l'Indirizzo di posta elettronica e il Codice identificativo Spid.
 La piattaforma non memorizza in alcun modo le credenziali Spid dell'utente; vengono tracciati in un apposito log gli eventi di registrazione, login e logout dell'Utente via Spid.
 ParteciPa utilizza tutte le raccomandazioni prescritte da Spid per garantire la massima sicurezza nelle transazioni.
 
-Per abilitare il login Spid alla piattafoma ParteciPa, la piattaforma deve essere configurata adeguatamente. In particolare a valle della procedura descritta dettagliatamente a [questo indirizzo](https://www.spid.gov.it/come-diventare-fornitore-di-servizi-pubblici-e-privati-con-spid)
-In particoare è indispensabile che siano configurati i seguenti files:
-- <partecipa_path>/config/application.yml contiene le informazioni essenziali per il sistema;
+Per abilitare il login Spid alla piattafoma ParteciPa, la piattaforma deve essere configurata adeguatamente. In particolare a monte della procedura descritta dettagliatamente a [questo indirizzo](https://www.spid.gov.it/come-diventare-fornitore-di-servizi-pubblici-e-privati-con-spid)
+è indispensabile che siano configurati i seguenti files:
+- <partecipa_path>/config/application.yml contiene le informazioni essenziali per il sistema, si veda sotto per maggiori dettagli;
 - <partecipa_path>/config/spid_acs_list.yml contiene gli elementi AssertionConsumerService che vengono inseriti nel SP metadata.xml;
 - <partecipa_path>/config/spid_slo_list.yml contiene gli elementi SingleLogoutService che vengono inseriti nel SP metadata.xml;
 - <partecipa_path>/config/spid_attr_serv_list.yml contiene gli elementi AttributeConsumingService che vengono inseriti nel SP metadata.xml;
 - <partecipa_path>/config/spid_provider_list.yml contiene i path relativi alle immagini dei logo degli Identity Provider Spid e i nomi che li identificano;
 - <partecipa_path>/config/idp_metadata/ path che contiene gli IDP metadata.xml da scaricare da [questo indirizzo](https://www.agid.gov.it/it/piattaforme/spid/identity-provider-accreditati) ;
 - <partecipa_path>/lib/.keys path nel quale è necessario inserire i certificati SHA256, SHA384 o SHA512 in formato .pem, creati come descritto sotto;
-- <partecipa_path>/config/signed_sp_metadata path nel quale deve essere inserito il file "metadata-signed.xml" (il nome deve rimanere identico) ottenuto dalla firma del file metadata pubblicato dal sistema a cui è stata applicata la firma con lo [spid-metadata-signer](https://github.com/italia/spid-metadata-signer) come indicato sotto.
-Il file secrets.yml funge da collettore di tutte le costanti e non deve essere editato.
+- <partecipa_path>/config/signed_sp_metadata path nel quale deve essere inserito il file "metadata-signed.xml" ottenuto dalla firma del file metadata pubblicato dal sistema, come indicato sotto.
+Il file secrets.yml funge da collettore di tutte le costanti importandole da application.yml e non necessita di essere editato.
 
-E' possibile disabilitare Spid agendo solo sulla apposita costante del file application.yml SPID_ENABLED settandola al valore false. 
+E' possibile disabilitare Spid agendo solo sulla apposita costante del file application.yml SPID_ENABLED, settandola al valore false. 
 
 ## Aspetto grafico ridefinito via SCSS
 
@@ -110,7 +110,7 @@ L'aspetto grafico di ParteciPa è stato ridefinito rispettando quanto previsto d
 
 Le seguenti modifiche sono state richieste dal Garante della Privacy con l'obbiettivo di salvaguardare maggiormente i partecipanti ai processi di partecipazione democratica:
 
-* Rimozione dell'Avatar Utente;
+* Rimozione della possibilità di fare l'upload dell'Avatar Utente;
 * Rimozione del profilo pubblico Utente, in modo che l'attività degli utenti sulla piattaforma non sia pubblica;
 * Rimozione della possibilità di "seguire" un Utente, è possibile "seguire" solo i Processi;
 * Rimozione della possibilità di cercare un Utente.
@@ -164,7 +164,7 @@ Di seguito una breve spiegazione per ciascuna costante:
 
 ## spid_acs_list.yml
 
-Il file contiene una rappesentazione YAML di un Array di Hash in Ruby contenente tutti gli elementi AssertionConsumerService da inserire nel SP metadata.xml.
+Il file <partecipa_path>/config/spid_acs_list.yml contiene una rappesentazione YAML di un Array di Hash in Ruby contenente tutti gli elementi AssertionConsumerService da inserire nel SP metadata.xml.
 Il file deve mantenere la stessa struttura e le stesse chiavi.
 Per approfondimenti si vedano le specifiche [YAML](https://en.wikipedia.org/wiki/YAML).
 
@@ -174,11 +174,11 @@ Esempio:
 	acs_list: 
 	  - 
 		acs_url: https://partecipa.gov.it/spid/samlsso
-		acs_binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST o urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect
+		acs_binding: #urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST o urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect
 
 ## spid_slo_list.yml
 
-Il file contiene una rappesentazione YAML di un Array di Hash in Ruby contenente tutti gli elementi SingleLogoutService da inserire nel SP metadata.xml.
+Il file <partecipa_path>/config/spid_slo_list.yml contiene una rappesentazione YAML di un Array di Hash in Ruby contenente tutti gli elementi SingleLogoutService da inserire nel SP metadata.xml.
 Il file deve mantenere la stessa struttura e le stesse chiavi.
 Per approfondimenti si vedano le specifiche [YAML](https://en.wikipedia.org/wiki/YAML).
 
@@ -188,12 +188,12 @@ Esempio:
 	slo_list: 
 	  - 
 		slo_url: https://partecipa.gov.it/spid/samlslo
-		slo_binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST o urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect
+		slo_binding: #urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST o urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect
 		response_location: https://partecipa.gov.it
 
 ## spid_attr_serv_list.yml
 
-Il file contiene una rappesentazione YAML di un Array di Hash in Ruby contenente tutti gli elementi AttributeConsumingService da inserire nel SP metadata.xml
+Il file <partecipa_path>/config/spid_attr_serv_list.yml contiene una rappesentazione YAML di un Array di Hash in Ruby contenente tutti gli elementi AttributeConsumingService da inserire nel SP metadata.xml
 Il file deve mantenere la stessa struttura e le stesse chiavi.
 Per approfondimenti si vedano le specifiche [YAML](https://en.wikipedia.org/wiki/YAML).
 
@@ -209,7 +209,7 @@ Esempio:
 
 ## spid_provider_list.yml
 
-Il file contiene una rappesentazione YAML di un Array di Hash in Ruby contenente tutti le informazioni necessarie per costruire il menù che risponde
+Il file <partecipa_path>/config/spid_provider_list.yml contiene una rappesentazione YAML di un Array di Hash in Ruby contenente tutti le informazioni necessarie per costruire il menù che risponde
 al click sul pulsante "Entra con Spid". Non è necessario editarlo in nessun modo se non per aggiungere un nuovo IDP, per esempio in fase di test.
 Il file deve mantenere la stessa struttura e le stesse chiavi.
 Per approfondimenti si vedano le specifiche [YAML](https://en.wikipedia.org/wiki/YAML).
@@ -228,7 +228,7 @@ Le immagini sono già contenute sotto il percorso <partecipa_path>/app/assets/im
 
 ## IDP metadata.xml
 
-I metadata relativi agli Identity Providers Spid devono essere inseriti nella directory <partecipa_path>/config/idp_metadata rispettando la nomenclatura <NOME_IDP_MINUSCOLO>id-metadata.xml senza spazi, ad esempio per Aruba sarà "arubaid-metadata.xml".
+I metadata relativi agli Identity Providers Spid devono essere inseriti nella directory <partecipa_path>/config/idp_metadata rispettando la nomenclatura <nome_idp_minuscolo>id-metadata.xml senza spazi, ad esempio per Aruba sarà "arubaid-metadata.xml".
 I metadata aggiornati sono pubblicati su [questo indirizzo](https://www.agid.gov.it/it/piattaforme/spid/identity-provider-accreditati). 
 Per il corretto funzionamento di Spid è indispensabile che gli IDP metadata.xml siano aggiornati.
 
@@ -242,7 +242,7 @@ I certificati devono essere contenuti nell'alberatura <partecipa_path>/lib/.keys
 
 ## SP metadata.xml
 
-Una volta compilati i dati relativi ai files sopra e una volta creati i certificati come sopra, ParteciPa è in grado di pubblicare il SP metadata.xml all'URL previsto nel file application.yml SPID_METADATA_PATH (secondo le regole tecniche https://<URL_partecipa>/metadata.
+Una volta compilati i dati relativi ai files sopra e una volta creati i certificati come sopra, ParteciPa è in grado di pubblicare il SP metadata.xml all'URL previsto nel file application.yml, come valore della costante SPID_METADATA_PATH (secondo le regole tecniche https://<URL_partecipa>/metadata).
 Il file SP metadata.xml così pubblicato per essere trasmesso ad AgID perché diventi parte della federazione Spid deve essere:
 
 1) validato con l'apposito tool [spid-validator](https://github.com/italia/spid-saml-check/tree/master/spid-validator);
@@ -250,13 +250,14 @@ Il file SP metadata.xml così pubblicato per essere trasmesso ad AgID perché di
 3) rinominato in "metadata-signed.xml";
 4) pubblicato sull'apposito path <partecipa_path>config/signed_sp_metadata.
 
-Il nuovo file SP metadata.xml così modificato e firmato sarà disponibile all'URL previsto nel file application.yml SPID_METADATA_PATH.
+Il nuovo file SP metadata.xml così modificato e firmato sarà disponibile all'URL previsto nel file application.yml, come valore della costante SPID_METADATA_PATH.
 Il SP metadata.xml dovrà poi essere collaudato da AgID in base alla già citata procedura disponibile a [questo indirizzo](https://www.spid.gov.it/come-diventare-fornitore-di-servizi-pubblici-e-privati-con-spid).
 
 ## Segnalazioni sulla sicurezza
-Per eventuali segnalazioni su possibili falle nella sicurezza del software che siano state riscontrate durante l'utilizzo preghiamo di utilizzare il canale di comunicazione confidenziale attraverso l'indirizzo email: webmaster@formez.org e non aprire segnalazioni pubbliche.
-E' indispensabile contestualizzare e dettagliare con la massima precisione le segnalazioni. Le segnalazioni anonime non veranno comunque verificate.
+
+ParteciPa utilizza tutte le raccomandazioni e le prescrizioni in materia di sicurezza previste da Decidim e da AgID per Spid. Per eventuali segnalazioni su possibili falle nella sicurezza del software riscontrate durante l'utilizzo preghiamo di usare il canale di comunicazione confidenziale attraverso l'indirizzo email security-partecipa@formez.it e non aprire segnalazioni pubbliche.
+E' indispensabile contestualizzare e dettagliare con la massima precisione le segnalazioni. Le segnalazioni anonime o non sufficientemente dettagliate non potranno essere verificate.
 
 ## ParteciPa
-Le integrazioni e le personalizzioni di ParteciPa che modificano Decidim sono state sviluppate da FormezPA.
-Il mantainer di ParteciPa è Gian Luca Corso.
+
+Le integrazioni e le personalizzioni di ParteciPa che modificano Decidim sono state sviluppate da FormezPA, per contatti maintainer-partecipa@formez.it.
