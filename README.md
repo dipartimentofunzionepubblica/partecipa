@@ -2,8 +2,9 @@
 
 ## Piattaforma di partecipazione democratica
 
-ParteciPa è la piattaforma di partecipazione democratica promossa dalla Repubblica Italiana, attraverso la Presidenza del Consiglio dei Ministri, Dipartimento Funzione Pubblica e il Ministero per la Pubblica Amministrazione.
-Per una presentazione approfondita su ParteciPa vi rimandiamo al [seguente articolo](http://www.funzionepubblica.gov.it/articolo/ministro/05-12-2019/governo-al-portale-e-piattaforma-%E2%80%9Cpartecipa%E2%80%9D-consultazioni-pubbliche) che riassume la conferenza stampa di presentazione.
+ParteciPa è la piattaforma di consultazione e partecipazione online promossa dal Dipartimento della Funzione Pubblica e dal Dipartimento per le Riforme istituzionali della Presidenza del Consiglio dei Ministri.
+Una descrizione dell’applicazione e delle sue funzionalità è disponibile alla pagina
+[Scopri ParteciPa](http://www.funzionepubblica.gov.it/articolo/ministro/05-12-2019/governo-al-portale-e-piattaforma-%E2%80%9Cpartecipa%E2%80%9D-consultazioni-pubbliche) che riassume la conferenza stampa di presentazione.
 
 ## Software
 
@@ -19,8 +20,8 @@ Dal punto di vista tecnico Decidim è basato su:
 
 I manuali di Amministrazione per Decidim si trovano nei seguenti URL:
 
-    [https://decidim.org/docs/](https://decidim.org/docs/)
-    [https://docs.decidim.org/](https://docs.decidim.org/)
+[https://decidim.org/docs/](https://decidim.org/docs/)
+[https://docs.decidim.org/](https://docs.decidim.org/)
 	
 Istruzioni dettagliate su come installare Decidim si trovano a [questo indirizzo](https://platoniq.github.io/decidim-install/).
 
@@ -36,11 +37,11 @@ Le seguenti istruzioni di installazione riguardano la sola installazione o aggio
 
 3) precompilare gli assets
 
-	rails assets:precompile
+	bundle exec rails assets:precompile
 
 4) aggiornare il db
 
-	rails db:migrate
+	bundle exec rails db:migrate
 
 5) vedere sotto i file di configurazione da compilare adeguatamente
 
@@ -70,7 +71,7 @@ ParteciPa usa il core di Decidim e personalizza o integra solo i seguenti aspett
 
 * Utilizzo del [Sistema Pubblico di Identità Digitale (Spid)](https://www.spid.gov.it/) attraverso il middleware Open-Source [Spid-Rails](https://github.com/italia/spid-rails) ;
 * Aspetto grafico ridefinito via SCSS;
-* Modifiche sulla base delle osservazioni del Garante della Privacy;
+* Modifiche sul profilo dell’utente per soddisfare le indicazioni del GDPR;
 * Integrazione del modulo community [Term-Customizer](https://github.com/mainio/decidim-module-term_customizer);
 * Installazione in modalità multi-tenant.
  
@@ -100,20 +101,19 @@ Per abilitare il login Spid alla piattafoma ParteciPa, la piattaforma deve esser
 - <partecipa_path>/config/signed_sp_metadata path nel quale deve essere inserito il file "metadata-signed.xml" ottenuto dalla firma del file metadata pubblicato dal sistema, come indicato sotto.
 Il file secrets.yml funge da collettore di tutte le costanti importandole da application.yml e non necessita di essere editato.
 
-E' possibile disabilitare Spid agendo solo sulla apposita costante del file application.yml SPID_ENABLED, settandola al valore false. 
+E' possibile disabilitare Spid agendo solo sulla apposita costante del file application.yml SPID_ENABLED, impostandola al valore false. 
 
 ## Aspetto grafico ridefinito via SCSS
 
 L'aspetto grafico di ParteciPa è stato ridefinito rispettando quanto previsto dalle [Linee Guida per il design dei siti PA](https://www.agid.gov.it/it/argomenti/linee-guida-design-pa).
 
-## Modifiche sulla base delle osservazioni del Garante della Privacy 
+## Modifiche sul profilo dell’utente per soddisfare le indicazioni del GDPR
 
-Le seguenti modifiche sono state richieste dal Garante della Privacy con l'obbiettivo di salvaguardare maggiormente i partecipanti ai processi di partecipazione democratica:
-
-* Rimozione della possibilità di fare l'upload dell'Avatar Utente;
-* Rimozione del profilo pubblico Utente, in modo che l'attività degli utenti sulla piattaforma non sia pubblica;
-* Rimozione della possibilità di "seguire" un Utente, è possibile "seguire" solo i Processi;
-* Rimozione della possibilità di cercare un Utente.
+Per meglio salvaguardare la privacy dei partecipanti ai processi di consultazione sono stati realizzati degli interventi che consentono a ParteciPa di soddisfare al meglio le indicazioni italiane per l’applicazione del GDPR:
+* Rimozione della possibilità per l’utente di caricare avatar personalizzato;
+* Eliminazione della visibilità  del profilo pubblico Utente;
+* Rimozione della funzionalità che permette  di "seguire" un Utente;
+* Rimozione della funzionalità di ricerca tra gli utenti.
 
 ## Integrazione del modulo community Term-Customizer
 
@@ -122,7 +122,7 @@ Il modulo community [Term-Customizer](https://github.com/mainio/decidim-module-t
 
 ## Installazione in modalità multi-tenant
 
-La stessa istanza di Decidim può essere utilizzata per più Organizzazioni in modalità multi-tenant. Le diverse Organizzazioni afferenti alla stessa istanza condividono aspetto grafico e localizzazione ma sono completamente slegate dal punto di vista delle informazioni immesse al loro interno.
+Una stessa istanza di Decidim può essere utilizzata per più Organizzazioni in modalità multi-tenant. Le diverse Organizzazioni afferenti alla stessa istanza condividono aspetto grafico e localizzazione ma sono completamente slegate dal punto di vista delle informazioni immesse al loro interno e per quanto riguarda gli utenti registrati. Ciascuna Organizzazione risponde ad un diverso indirizzo.
 
 ## application.yml
 
@@ -255,9 +255,8 @@ Il SP metadata.xml dovrà poi essere collaudato da AgID in base alla già citata
 
 ## Segnalazioni sulla sicurezza
 
-ParteciPa utilizza tutte le raccomandazioni e le prescrizioni in materia di sicurezza previste da Decidim e da AgID per Spid. Per eventuali segnalazioni su possibili falle nella sicurezza del software riscontrate durante l'utilizzo preghiamo di usare il canale di comunicazione confidenziale attraverso l'indirizzo email security-partecipa@formez.it e non aprire segnalazioni pubbliche.
-E' indispensabile contestualizzare e dettagliare con la massima precisione le segnalazioni. Le segnalazioni anonime o non sufficientemente dettagliate non potranno essere verificate.
+ParteciPa utilizza tutte le raccomandazioni e le prescrizioni in materia di sicurezza previste da Decidim e dall’Agenzia per l’Italia Digitale per SPID. Per segnalazioni su possibili falle nella sicurezza del software riscontrate durante l'utilizzo preghiamo di usare il canale di comunicazione confidenziale attraverso l'indirizzo email security-partecipa@formez.it e non aprire segnalazioni pubbliche. E' indispensabile contestualizzare e dettagliare con la massima precisione le segnalazioni. Le segnalazioni anonime o non sufficientemente dettagliate non potranno essere verificate.
 
 ## ParteciPa
 
-Le integrazioni e le personalizzioni di ParteciPa che modificano Decidim sono state sviluppate da FormezPA, per contatti maintainer-partecipa@formez.it.
+Le integrazioni e le personalizzazioni di ParteciPa che modificano Decidim sono state sviluppate da Formez PA. Per contatti scrivere a  maintainer-partecipa@formez.it.
