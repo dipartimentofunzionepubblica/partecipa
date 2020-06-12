@@ -14,7 +14,6 @@ module Decidim
       validates :selected_choices, presence: true, if: :mandatory_choices?
 
       validate :max_choices, if: -> { question.max_choices }
-      #validate :all_choices, if: -> { question.question_type == "sorting" }
 	  validate :all_choices, if: :sortable_question_validatable?
 	  
       delegate :mandatory_body?, :mandatory_choices?, to: :question
@@ -26,9 +25,6 @@ module Decidim
       end
 	  
 	  def sortable_question_validatable?
-		Rails.logger.debug ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> mandatory = " + mandatory_choices?.to_s
-		Rails.logger.debug ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> question.question_type = " + question.question_type
-		Rails.logger.debug ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> mandatory_choices? || !selected_choices.empty? = " + (mandatory_choices? || !selected_choices.empty?).to_s
 		return false unless question.question_type == "sorting"
         mandatory_choices? || !selected_choices.empty?
       end
