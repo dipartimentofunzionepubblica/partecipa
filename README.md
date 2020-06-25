@@ -4,12 +4,12 @@
 
 ParteciPa è la piattaforma di consultazione e partecipazione online promossa dal Dipartimento della Funzione Pubblica e dal Dipartimento per le Riforme istituzionali della Presidenza del Consiglio dei Ministri.
 Una descrizione dell’applicazione e delle sue funzionalità è disponibile alla pagina
-[Scopri ParteciPa](http://www.funzionepubblica.gov.it/articolo/ministro/05-12-2019/governo-al-portale-e-piattaforma-%E2%80%9Cpartecipa%E2%80%9D-consultazioni-pubbliche) che riassume la conferenza stampa di presentazione.
+[Scopri ParteciPa](http://www.funzionepubblica.gov.it/articolo/ministro/05-12-2019/governo-al-portale-e-piattaforma-%E2%80%9Cpartecipa%E2%80%9D-consultazioni-pubbliche) .
 
 ## Software
 
-ParteciPa è un progetto Open-Source basato su [Decidim](https://github.com/decidim/decidim), la piattaforma di partecipazione democratica creata dalla città di Barcellona e
-diffusa in tutto il mondo. Decidim è concesso in licenza attraverso la [GNU Affero General Public License v3.0](https://github.com/decidim/decidim/blob/develop/LICENSE-AGPLv3.txt).
+ParteciPa è un progetto Open-Source basato su [Decidim](https://github.com/decidim/decidim), la piattaforma di partecipazione democratica creata dalla città di Barcellona e utilizzata da numerose amministrazioni in tutto il mondo.
+Decidim è concesso in licenza attraverso la [GNU Affero General Public License v3.0](https://github.com/decidim/decidim/blob/develop/LICENSE-AGPLv3.txt).
 Prima di installare e utilizzare ParteciPa raccomandiamo un attento esame della documentazione relativa a Decidim e di questo README.
 
 Dal punto di vista tecnico Decidim è basato su:
@@ -20,30 +20,30 @@ Dal punto di vista tecnico Decidim è basato su:
 
 I manuali di Amministrazione per Decidim si trovano nei seguenti URL:
 
-[https://decidim.org/docs/](https://decidim.org/docs/)
-[https://docs.decidim.org/](https://docs.decidim.org/)
+https://decidim.org/docs/
+https://docs.decidim.org/
 	
 Istruzioni dettagliate su come installare Decidim si trovano a [questo indirizzo](https://platoniq.github.io/decidim-install/).
 
 Le seguenti istruzioni di installazione riguardano la sola installazione o aggiornamento di ParteciPa, successiva a quella di Decidim
 
-1) scaricare da GitHub.com 
+scaricare da GitHub.com
 
 	git clone https://github.com/dipartimentofunzionepubblica/partecipa.git
 
-2) installare le dipendenze
+installare le dipendenze
 
 	bundle install
 
-3) precompilare gli assets
+precompilare gli assets
 
 	bundle exec rails assets:precompile
 
-4) aggiornare il db
+aggiornare il db
 
 	bundle exec rails db:migrate
 
-5) vedere sotto i file di configurazione da compilare adeguatamente
+vedere sotto i file di configurazione da compilare adeguatamente
 
 ## Moduli
 

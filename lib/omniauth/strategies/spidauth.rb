@@ -14,7 +14,7 @@ module OmniAuth
 		end
 
 		def callback_phase
-			if !session.nil? && !session[:spid]["session_index"].blank? && !session[:spid]["attributes"].blank?
+			if !session.nil? && !session[:spid]['session_index'].blank? && !session[:spid]['attributes'].blank?
 				@provider = session[:spid]['idp']
 				@uid = session[:spid]['attributes']['spid_code']
 				@email = session[:spid]['attributes']['email']
@@ -41,7 +41,7 @@ module OmniAuth
 		end
 		
 		def authorize_params
-			super.merge(idp_param: request.params["idp_param"], attribute_service_index_param: request.params["attribute_service_index_param"], authn_context_param: request.params["authn_context_param"])
+			super.merge(idp_param: request.params['idp_param'], attribute_service_index_param: request.params['attribute_service_index_param'], authn_context_param: request.params['authn_context_param'])
 		end
     end
   end
