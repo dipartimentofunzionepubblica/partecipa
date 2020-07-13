@@ -17,6 +17,7 @@ gem "daemons"
 gem "pg"
 gem "spid-rails", "= 0.2.0"
 gem "omniauth"
+gem "omniauth-rails_csrf_protection"
 gem "decidim-term_customizer", "0.20.0", :git => "https://github.com/mainio/decidim-module-term_customizer"
 
 
