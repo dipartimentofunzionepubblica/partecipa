@@ -11,6 +11,11 @@ module Decidim
 
 		  def create
 			form_params = user_params_from_oauth_hash || params[:user]
+			if !form_params[:errors].nil?
+				SpidAccessLogger.info("SPID REGISTRATION ERROR: #{form_params[:errors].values.to_sentence}")
+				redirect_to decidim.new_user_session_path, flash: {errors: form_params[:errors].values.to_sentence}
+				return
+			end
 
 			@form = form(OmniauthRegistrationForm).from_params(form_params)
 			@form.email ||= verified_email
@@ -42,10 +47,11 @@ module Decidim
 			  end
 			end
 		  end
-		  
+
 		  def spidauth
 			form_params = user_params_from_spid_oauth_hash || params[:user]
 			if !form_params[:errors].nil?
+				SpidAccessLogger.info("SPID ACCESS ERROR: #{form_params[:errors].values.to_sentence}")
 				redirect_to decidim.new_user_session_path, flash: {errors: form_params[:errors].values.to_sentence}
 				return
 			end
