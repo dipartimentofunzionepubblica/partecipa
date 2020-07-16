@@ -127,6 +127,7 @@ Una stessa istanza di Decidim può essere utilizzata per più Organizzazioni in 
 ## application.yml
 
 Il file <partecipa_path>/config/application.yml contiene le principali configurazioni indispensabili per il funzionamento dell'applicativo.
+La creazione e la redazione del file è a cura di chi installa la piattaforma secondo le indicazioni sotto, il file non è compreso nel repository.
 Di seguito una breve spiegazione per ciascuna costante:
 
 	SECRET_KEY_BASE: #Secret key utilizzata da Rails per il suo funzionamento vedere https://medium.com/@michaeljcoyne/understanding-the-secret-key-base-in-ruby-on-rails-ce2f6f9968a1
