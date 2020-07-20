@@ -1,0 +1,25 @@
+<!--
+Copyright (C) 2020 Formez PA
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+-->
+<% @sections.delete("Decidim::User") %>
+<main class="wrapper">
+  <div class="row" id="search-count">
+    <%= render partial: "count" %>
+  </div>
+  <div class="row">
+    <div class="columns mediumlarge-4 large-3 search-filters">
+      <%= render partial: "filters" %>
+    </div>
+    <div id="results" class="columns mediumlarge-8 large-9">
+      <%= cell "decidim/search_results", @sections, params: params %>
+    </div>
+  </div>
+</main>
+<%= javascript_include_tag("decidim/filters") %>
+<%= javascript_include_tag "decidim/orders" %>

@@ -1,0 +1,5 @@
+---
+acs_list: 
+  - 
+    acs_url: https://partecipa.gov.it/spid/samlsso
+    acs_binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST

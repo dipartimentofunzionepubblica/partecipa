@@ -1,0 +1,7 @@
+---
+attr_serv_list:
+  - 
+    name: Decidim
+    fields: 
+      - :spid_code
+      - :email

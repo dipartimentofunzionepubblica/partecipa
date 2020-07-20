@@ -1,0 +1,6 @@
+---
+slo_list: 
+  - 
+    slo_url: https://partecipa.gov.it/spid/samlslo
+    slo_binding: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect
+    response_location: https://partecipa.gov.it

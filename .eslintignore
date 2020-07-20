@@ -1,0 +1,12 @@
+**/*{.,-}min.js
+**/vendor/**/*.js
+**/node_modules/**
+app/assets/javascripts/modernizr.js
+bundle.js
+karma.conf.js
+webpack.config.js
+webpack.config.babel.js
+entry.test.js
+entry.js
+*_manifest.js
+coverage
