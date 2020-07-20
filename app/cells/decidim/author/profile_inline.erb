@@ -1,0 +1,39 @@
+<!--
+Copyright (C) 2020 Formez PA
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+-->
+<span class="author__avatar">
+  <%= image_tag model.avatar_url %>
+</span>
+
+<% if model.deleted? %>
+  <span class="label label--small label--basic">
+    <%= t("decidim.profile.deleted") %>
+  </span>
+<% elsif has_tooltip? %>
+  <span
+    class="author__name">
+	<%= model.name %>
+  </span>
+
+  <% if model.badge.present? %>
+    <span class="author__badge">
+      <%= icon model.badge %>
+    </span>
+  <% end %>
+<% else %>
+  <span class="author__name">
+    <%= model.name %>
+  </span>
+
+  <% if model.badge.present? %>
+    <span class="author__badge">
+      <%= icon model.badge %>
+    </span>
+  <% end %>
+<% end %>
