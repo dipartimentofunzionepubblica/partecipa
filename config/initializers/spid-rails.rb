@@ -51,8 +51,6 @@ Spid.configure do |config|
   config.logout_path = Rails.application.secrets.spid_logout_path
   
   config.default_relay_state_path = Rails.application.secrets.spid_default_relay_state_path
-  
-  #config.digest_method = Rails.application.secrets.spid_digest_method.constantize
   config.signature_method = Rails.application.secrets.spid_signature_method.constantize
   
   config.organization_name = Rails.application.secrets.spid_organization_name
