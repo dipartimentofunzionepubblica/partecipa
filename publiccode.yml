@@ -23,7 +23,7 @@ description:
       - partecipazione democratica
       - testo partecipativo
       - processo partecipativo
-    genericName: Applicazione demo partecipativa
+    genericName: Piattaforma per la partecipazione
     longDescription: >
       ParteciPa  è la versione adottata in Italia di Decidim, la piattaforma
       spagnola di democrazia partecipativa.
@@ -85,6 +85,6 @@ maintenance:
 name: ParteciPa
 platforms:
   - web
-releaseDate: '2020-06-08'
+releaseDate: '2020-07-20'
 softwareType: addon
-url: 'https://gitlab.com/dipartimentofunzionepubblica/partecipa.git'
+url: 'https://github.com/dipartimentofunzionepubblica/partecipa.git'
