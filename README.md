@@ -143,7 +143,7 @@ Di seguito una breve spiegazione per ciascuna costante:
 	SMTP_ADDRESS: #Indirizzo dell'SMTP
 	SMTP_DOMAIN: #Dominio dell'SMTP
 
-	GEOCODER_LOOKUP_APP_ID: #AppID relativo al Geocoder Here vedere https://github.com/decidim/decidim/blob/master/docs/services/geocoding.md
+	GEOCODER_LOOKUP_APP_ID: #AppID relativo al Geocoder Here vedere https://github.com/decidim/decidim/blob/0.20-stable/docs/services/geocoding.md
 	GEOCODER_LOOKUP_APP_CODE: #AppCode relativo al Geocoder Here
 
 	SPID_ENABLED: #true o false, definisce se il bottone "Entra con Spid" sarà visibile nella pagina di login del sistema e se Spid sarà attivo come provider Omniauth 
