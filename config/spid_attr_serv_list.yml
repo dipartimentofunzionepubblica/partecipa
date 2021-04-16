@@ -5,3 +5,23 @@ attr_serv_list:
     fields: 
       - :spid_code
       - :email
+  - 
+    name: Step One Authentication
+    fields: 
+      - :expiration_date
+      - :address
+      - :mobile_phone
+      - :company_name
+      - :iva_code
+      - :place_of_birth
+      - :gender
+      - :name
+      - :spid_code
+      - :fiscal_number
+      - :family_name
+      - :date_of_birth
+      - :county_of_birth
+      - :id_card
+      - :registered_office
+      - :email
+      - :digital_address
