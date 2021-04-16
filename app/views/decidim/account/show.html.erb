@@ -15,8 +15,8 @@ You should have received a copy of the GNU Affero General Public License along w
     </div>
 
     <div class="columns large-8 end">
-      <%= f.text_field :name %>
-      <%= f.text_field :nickname %>
+      <%= f.text_field :name, help_text: t("decidim.devise.registrations.new.username_help")  %>
+      <%= f.text_field :nickname, help_text: t("decidim.devise.registrations.new.nickname_help", organization: current_organization.name) %>
       <%= f.email_field :email %>
       <%= f.url_field :personal_url %>
       <%= f.text_area :about, rows: 5 %>
