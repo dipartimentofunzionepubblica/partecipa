@@ -21,6 +21,12 @@
     color: #fff;
 }
 
+.button:hover, .button:focus, .button.secondary:hover, .button.secondary:focus {
+    background-color: $par-medium-green;
+    -webkit-filter: brightness(120%);
+    filter: brightness(120%);
+}
+
 .button.hollow {
     border: 1px solid $par-medium-green; 
     color: $par-medium-green; 
@@ -29,8 +35,8 @@
 .button.hollow:hover, .button.hollow:focus{
     border: 1px solid $par-medium-green; 
     color: $par-medium-green; 
-	-webkit-filter: brightness(120%);
-    filter: brightness(120%);
+	background-color: $par-medium-green; 
+	color: #fff;
 }
 
 .button.secondary {
@@ -38,10 +44,17 @@
     color: $par-white;
 }
 
-.button:hover, .button:focus, .button.secondary:hover, .button.secondary:focus {
-    background-color: $par-medium-green;
-    -webkit-filter: brightness(120%);
-    filter: brightness(120%);
+.button.secondary.hollow {
+    background-color: transparent;
+    color: $par-medium-green;;
+    border-color: $par-medium-green;;
+}
+
+.button.secondary.hollow:hover, .button.secondary.hollow:focus{
+    border: 1px solid $par-medium-green; 
+    color: $par-medium-green; 
+	background-color: $par-medium-green; 
+	color: #fff;
 }
 
 .home-bullet__icon svg {
