@@ -14,7 +14,7 @@
 	background: $par-light-blue;
 }
 
-.topbar__search input, .topbar__search input:focus {
+.topbar__search input, .topbar__search input:focus, .input-search, .input-group-field, .input-group-field::placeholder {
     background: $par-white;
 }
 
@@ -39,7 +39,7 @@
     box-shadow: inset 0 4px 0 0 $par-white;
 }
 
-.m-none, .m-none::placeholder{
+.m-none, .m-none::placeholder, .input-search, .input-search::placeholder, .input-group-field, .input-group-field::placeholder {
     color: $par-dark-grey;
 	opacity: 1;
 }
