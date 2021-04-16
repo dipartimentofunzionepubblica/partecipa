@@ -46,3 +46,20 @@ title.is-active > [role="tab"], .side-panel__tabs .tabs-title.is-active > a {
     color: #599aa6;
     box-shadow: inset 4px 0 0 $par-medium-green;
 }
+
+.callout.success {
+    border-color: #e8e8e8;
+    border-left: 7px solid var(--success);
+    border-top: 3px solid var(--success);
+    border-bottom: 3px solid var(--success);
+    border-right: 3px solid var(--success);
+}
+
+.callout.alert {
+    border-color: #e8e8e8;
+    border-left-color: rgb(232, 232, 232);
+    border-left: 8px solid var(--alert);
+	border-top: 3px solid var(--alert);
+    border-bottom: 3px solid var(--alert);
+    border-right: 3px solid var(--alert);
+}
