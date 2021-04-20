@@ -11,6 +11,9 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
+# Ignore bin
+/bin
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -52,3 +55,4 @@ lib/.keys/*
 # Ignore IDP Metadata
 config/idp_metadata/*
 !/config/idp_metadata/.keep
+

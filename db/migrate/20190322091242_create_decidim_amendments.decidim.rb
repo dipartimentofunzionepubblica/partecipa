@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim (originally 20180720114847)
 
 class CreateDecidimAmendments < ActiveRecord::Migration[5.2]
@@ -13,10 +14,10 @@ class CreateDecidimAmendments < ActiveRecord::Migration[5.2]
 
     add_index :decidim_amendments,
               [:decidim_user_id, :decidim_amendable_id, :decidim_amendable_type],
-              name: "index_on_amender_and_amendable"
+              name: 'index_on_amender_and_amendable'
 
     add_index :decidim_amendments,
               [:decidim_amendable_id, :decidim_amendable_type],
-              name: "index_on_amendable"
+              name: 'index_on_amendable'
   end
 end

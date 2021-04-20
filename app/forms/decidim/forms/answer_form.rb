@@ -1,10 +1,12 @@
-#Copyright (C) 2020 Formez PA
+# frozen_string_literal: true
+
+# Copyright (C) 2020 Formez PA
 #
-#This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
+# This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
 #
-#This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
 #
-#You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+# You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
 
 # frozen_string_literal: true
 
@@ -22,8 +24,8 @@ module Decidim
       validates :selected_choices, presence: true, if: :mandatory_choices?
 
       validate :max_choices, if: -> { question.max_choices }
-	  validate :all_choices, if: :sortable_question_validatable?
-	  
+      validate :all_choices, if: :sortable_question_validatable?
+
       delegate :mandatory_body?, :mandatory_choices?, to: :question
 
       attr_writer :question
@@ -31,9 +33,10 @@ module Decidim
       def question
         @question ||= Decidim::Forms::Question.find(question_id)
       end
-	  
-	  def sortable_question_validatable?
-		return false unless question.question_type == "sorting"
+
+      def sortable_question_validatable?
+        return false unless question.question_type == 'sorting'
+
         mandatory_choices? || !selected_choices.empty?
       end
 
@@ -71,11 +74,11 @@ module Decidim
       end
 
       def mandatory_label
-        "*"
+        '*'
       end
 
       def max_choices_label
-        I18n.t("questionnaires.question.max_choices", scope: "decidim.forms", n: question.max_choices)
+        I18n.t('questionnaires.question.max_choices', scope: 'decidim.forms', n: question.max_choices)
       end
     end
   end

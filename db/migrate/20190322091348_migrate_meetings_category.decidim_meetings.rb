@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_meetings (originally 20170612101925)
 
 class MigrateMeetingsCategory < ActiveRecord::Migration[5.1]

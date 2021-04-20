@@ -1,12 +1,13 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_system (originally 20160919105637)
 
 class DeviseCreateDecidimAdmins < ActiveRecord::Migration[5.0]
   def change
     create_table :decidim_system_admins do |t|
       ## Database authenticatable
-      t.string :email, null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+      t.string :email, null: false, default: ''
+      t.string :encrypted_password, null: false, default: ''
 
       ## Recoverable
       t.string :reset_password_token

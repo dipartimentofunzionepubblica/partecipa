@@ -1,10 +1,12 @@
-require "base64"
-require "zlib"
-require "cgi"
-require "net/http"
-require "net/https"
-require "rexml/document"
-require "rexml/xpath"
+# frozen_string_literal: true
+
+require 'base64'
+require 'zlib'
+require 'cgi'
+require 'net/http'
+require 'net/https'
+require 'rexml/document'
+require 'rexml/xpath'
 
 # Only supports SAML 2.0
 module Spid
@@ -14,11 +16,10 @@ module Spid
     # Auxiliary class to retrieve and parse the Identity Provider Metadata
     #
     class IdpMetadataParser
-
-      METADATA       = "urn:oasis:names:tc:SAML:2.0:metadata"
-      DSIG           = "http://www.w3.org/2000/09/xmldsig#"
-      NAME_FORMAT    = "urn:oasis:names:tc:SAML:2.0:attrname-format:*"
-      SAML_ASSERTION = "urn:oasis:names:tc:SAML:2.0:assertion"
+      METADATA       = 'urn:oasis:names:tc:SAML:2.0:metadata'
+      DSIG           = 'http://www.w3.org/2000/09/xmldsig#'
+      NAME_FORMAT    = 'urn:oasis:names:tc:SAML:2.0:attrname-format:*'
+      SAML_ASSERTION = 'urn:oasis:names:tc:SAML:2.0:assertion'
 
       attr_reader :document
       attr_reader :response
@@ -34,13 +35,13 @@ module Spid
         @certificates = nil
 
         {
-          :idp_entity_id => idp_entity_id,
-          :name_identifier_format => idp_name_id_format,
-          :idp_sso_target_url => single_signon_service_url,
-          :idp_slo_target_url => single_logout_service_url,
-          :idp_attribute_names => attribute_names,
-          :idp_cert => nil,
-          :idp_cert_multi => nil
+          idp_entity_id: idp_entity_id,
+          name_identifier_format: idp_name_id_format,
+          idp_sso_target_url: single_signon_service_url,
+          idp_slo_target_url: single_logout_service_url,
+          idp_attribute_names: attribute_names,
+          idp_cert: nil,
+          idp_cert_multi: nil
         }.tap do |response_hash|
           merge_certificates_into(response_hash) unless certificates.nil?
         end
@@ -51,7 +52,7 @@ module Spid
       def entity_descriptor
         @entity_descriptor ||= REXML::XPath.first(
           document,
-          "//md:EntityDescriptor",
+          '//md:EntityDescriptor',
           namespace
         )
       end
@@ -59,7 +60,7 @@ module Spid
       # @return [String|nil] IdP Entity ID value if exists
       #
       def idp_entity_id
-        entity_descriptor.attributes["entityID"]
+        entity_descriptor.attributes['entityID']
       end
 
       # @return [String|nil] IdP Name ID Format value if exists
@@ -67,7 +68,7 @@ module Spid
       def idp_name_id_format
         node = REXML::XPath.first(
           entity_descriptor,
-          "md:IDPSSODescriptor/md:NameIDFormat",
+          'md:IDPSSODescriptor/md:NameIDFormat',
           namespace
         )
         element_text(node)
@@ -78,7 +79,7 @@ module Spid
       def single_signon_service_binding
         nodes = REXML::XPath.match(
           entity_descriptor,
-         "md:IDPSSODescriptor/md:SingleSignOnService/@Binding",
+          'md:IDPSSODescriptor/md:SingleSignOnService/@Binding',
           namespace
         )
         nodes.first.value if nodes.any?
@@ -87,8 +88,8 @@ module Spid
       # @return [String|nil] SingleSignOnService endpoint if exists
       #
       def single_signon_service_url
-        #binding = single_signon_service_binding
-		binding = "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+        # binding = single_signon_service_binding
+        binding = 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
         unless binding.nil?
           node = REXML::XPath.first(
             entity_descriptor,
@@ -102,10 +103,9 @@ module Spid
       # @return [String|nil] SingleLogoutService binding if exists
       #
       def single_logout_service_binding
-        
-		nodes = REXML::XPath.match(
+        nodes = REXML::XPath.match(
           entity_descriptor,
-          "md:IDPSSODescriptor/md:SingleLogoutService/@Binding",
+          'md:IDPSSODescriptor/md:SingleLogoutService/@Binding',
           namespace
         )
         nodes.first.value if nodes.any?
@@ -114,8 +114,8 @@ module Spid
       # @return [String|nil] SingleLogoutService endpoint if exists
       #
       def single_logout_service_url
-        #binding = single_logout_service_binding
-		binding = "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+        # binding = single_logout_service_binding
+        binding = 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'
         unless binding.nil?
           node = REXML::XPath.first(
             entity_descriptor,
@@ -168,7 +168,7 @@ module Spid
       def attribute_names
         nodes = REXML::XPath.match(
           entity_descriptor,
-          "md:IDPSSODescriptor/saml:Attribute/@Name",
+          'md:IDPSSODescriptor/saml:Attribute/@Name',
           namespace
         )
         nodes.map(&:value)
@@ -176,22 +176,22 @@ module Spid
 
       def namespace
         {
-          "md" => METADATA,
-          "NameFormat" => NAME_FORMAT,
-          "saml" => SAML_ASSERTION,
-          "ds" => DSIG
+          'md' => METADATA,
+          'NameFormat' => NAME_FORMAT,
+          'saml' => SAML_ASSERTION,
+          'ds' => DSIG
         }
       end
 
       def merge_certificates_into(parsed_metadata)
-		  if certificates.key?("signing")
-            certificate = certificates["signing"][0]
-          else
-            certificate = certificates["encryption"][0]
-          end
-          parsed_metadata[:idp_cert] = OpenSSL::X509::Certificate.new(
-            Base64.decode64(certificate)
-          )
+        if certificates.key?('signing')
+          certificate = certificates['signing'][0]
+        else
+          certificate = certificates['encryption'][0]
+        end
+        parsed_metadata[:idp_cert] = OpenSSL::X509::Certificate.new(
+          Base64.decode64(certificate)
+        )
       end
 
       def element_text(element)

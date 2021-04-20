@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim (originally 20170207091021)
 
 class AddSocialMediaHandlersToOrganization < ActiveRecord::Migration[5.0]

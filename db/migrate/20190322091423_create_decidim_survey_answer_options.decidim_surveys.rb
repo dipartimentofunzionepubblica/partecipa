@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_surveys (originally 20180405015012)
 
 class CreateDecidimSurveyAnswerOptions < ActiveRecord::Migration[5.1]
@@ -12,7 +13,7 @@ class CreateDecidimSurveyAnswerOptions < ActiveRecord::Migration[5.1]
 
   def up
     create_table :decidim_surveys_survey_answer_options do |t|
-      t.references :decidim_survey_question, index: { name: "index_decidim_surveys_answer_options_question_id" }
+      t.references :decidim_survey_question, index: { name: 'index_decidim_surveys_answer_options_question_id' }
       t.jsonb :body
     end
 
@@ -20,7 +21,7 @@ class CreateDecidimSurveyAnswerOptions < ActiveRecord::Migration[5.1]
       question.answer_options.each do |answer_option|
         SurveyAnswerOption.create!(
           decidim_survey_question_id: question.id,
-          body: answer_option["body"]
+          body: answer_option['body']
         )
       end
     end
@@ -34,7 +35,7 @@ class CreateDecidimSurveyAnswerOptions < ActiveRecord::Migration[5.1]
     SurveyAnswerOption.find_each do |answer_option|
       question = SurveyQuestion.find(answer_option.decidim_survey_question_id)
 
-      question.answer_options << { "body" => answer_option.body }
+      question.answer_options << { 'body' => answer_option.body }
 
       question.save!
     end
