@@ -1,10 +1,11 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim (originally 20170726145242)
 
 class MakeCategoriesPolymorphic < ActiveRecord::Migration[5.1]
   def change
     remove_index :decidim_categories,
-                 name: "index_decidim_categories_on_decidim_participatory_process_id"
+                 name: 'index_decidim_categories_on_decidim_participatory_process_id'
 
     add_column :decidim_categories, :decidim_participatory_space_type, :string
 
@@ -23,6 +24,6 @@ class MakeCategoriesPolymorphic < ActiveRecord::Migration[5.1]
 
     add_index :decidim_categories,
               [:decidim_participatory_space_id, :decidim_participatory_space_type],
-              name: "index_decidim_categories_on_decidim_participatory_space"
+              name: 'index_decidim_categories_on_decidim_participatory_space'
   end
 end

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_pages (originally 20161214150429)
 
 class AddCommentableToPages < ActiveRecord::Migration[5.0]

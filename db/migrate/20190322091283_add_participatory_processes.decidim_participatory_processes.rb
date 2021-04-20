@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_participatory_processes (originally 20161005130108)
 
 class AddParticipatoryProcesses < ActiveRecord::Migration[5.0]
@@ -12,7 +13,7 @@ class AddParticipatoryProcesses < ActiveRecord::Migration[5.0]
       t.text :description, null: false
       t.references :decidim_organization,
                    foreign_key: true,
-                   index: { name: "index_decidim_processes_on_decidim_organization_id" }
+                   index: { name: 'index_decidim_processes_on_decidim_organization_id' }
 
       t.timestamps
     end

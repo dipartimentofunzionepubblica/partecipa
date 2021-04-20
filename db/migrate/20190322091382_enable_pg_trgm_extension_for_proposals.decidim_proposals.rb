@@ -1,13 +1,14 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_proposals (originally 20171212102250)
 
 class EnablePgTrgmExtensionForProposals < ActiveRecord::Migration[5.1]
   def change
-    return if extension_enabled?("pg_trgm")
+    return if extension_enabled?('pg_trgm')
 
     begin
       # required so that test suite works in ci env
-      enable_extension "pg_trgm"
+      enable_extension 'pg_trgm'
     rescue StandardError
       raise <<-MSG.squish
         Decidim requires the pg_trgm extension to be enabled in your PostgreSQL.

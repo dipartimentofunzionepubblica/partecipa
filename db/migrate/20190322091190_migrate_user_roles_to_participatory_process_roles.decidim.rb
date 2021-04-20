@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim (originally 20170713131308)
 
 class MigrateUserRolesToParticipatoryProcessRoles < ActiveRecord::Migration[5.1]
@@ -12,7 +13,7 @@ class MigrateUserRolesToParticipatoryProcessRoles < ActiveRecord::Migration[5.1]
 
   def up
     User.find_each do |user|
-      next if user.roles.empty? || user.roles.include?("admin")
+      next if user.roles.empty? || user.roles.include?('admin')
 
       values = processes(user).flat_map do |process|
         user.roles.map do |role|
