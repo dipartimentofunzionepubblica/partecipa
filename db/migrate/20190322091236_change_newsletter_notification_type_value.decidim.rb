@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim (originally 20180611121852)
 
 class ChangeNewsletterNotificationTypeValue < ActiveRecord::Migration[5.2]
@@ -7,10 +8,10 @@ class ChangeNewsletterNotificationTypeValue < ActiveRecord::Migration[5.2]
   end
 
   def up
-    add_column :decidim_users, :newsletter_token, :string, default: ""
+    add_column :decidim_users, :newsletter_token, :string, default: ''
     add_column :decidim_users, :newsletter_notifications_at, :datetime
     User.reset_column_information
-    User.where(newsletter_notifications: true).update(newsletter_notifications_at: Time.zone.parse("2018-05-24 00:00 +02:00"))
+    User.where(newsletter_notifications: true).update(newsletter_notifications_at: Time.zone.parse('2018-05-24 00:00 +02:00'))
     remove_column :decidim_users, :newsletter_notifications
   end
 

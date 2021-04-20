@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "spid/saml2/utils"
+require 'spid/saml2/utils'
 
 module Spid
   module Saml2
@@ -16,12 +16,12 @@ module Spid
       end
 
       def element_from_xpath(xpath)
-		document.elements[xpath]&.value&.strip
+        document.elements[xpath]&.value&.strip
       end
-	  
-	  def saml_or_saml2(xpath)
-		xpath + " | " + xpath.gsub("samlp:", "saml2p:").gsub("saml:", "saml2:")
-	  end
+
+      def saml_or_saml2(xpath)
+        xpath + ' | ' + xpath.gsub('samlp:', 'saml2p:').gsub('saml:', 'saml2:')
+      end
     end
   end
 end

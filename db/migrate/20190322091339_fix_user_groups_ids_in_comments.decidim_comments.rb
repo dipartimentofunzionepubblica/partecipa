@@ -1,11 +1,12 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_comments (originally 20181003080320)
 
 class FixUserGroupsIdsInComments < ActiveRecord::Migration[5.2]
   # rubocop:disable Rails/SkipsModelValidations
   def change
     Decidim::UserGroup.find_each do |group|
-      old_id = group.extended_data["old_user_group_id"]
+      old_id = group.extended_data['old_user_group_id']
       next unless old_id
 
       Decidim::Comments::Comment

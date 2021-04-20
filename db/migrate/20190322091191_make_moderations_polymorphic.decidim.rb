@@ -1,10 +1,11 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim (originally 20170720120231)
 
 class MakeModerationsPolymorphic < ActiveRecord::Migration[5.1]
   def change
     remove_index :decidim_moderations,
-                 name: "decidim_moderations_participatory_process"
+                 name: 'decidim_moderations_participatory_process'
 
     add_column :decidim_moderations, :decidim_participatory_space_type, :string
 
@@ -23,7 +24,7 @@ class MakeModerationsPolymorphic < ActiveRecord::Migration[5.1]
 
     add_index :decidim_moderations,
               [:decidim_participatory_space_id, :decidim_participatory_space_type],
-              name: "decidim_moderations_participatory_space"
+              name: 'decidim_moderations_participatory_space'
 
     change_column_null :decidim_moderations, :decidim_participatory_space_type, false
   end

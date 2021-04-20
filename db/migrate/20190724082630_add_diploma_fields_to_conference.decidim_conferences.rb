@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_conferences (originally 20181106092826)
 
 class AddDiplomaFieldsToConference < ActiveRecord::Migration[5.2]
