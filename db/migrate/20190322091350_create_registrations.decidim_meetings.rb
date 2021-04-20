@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_meetings (originally 20170810131100)
 
 class CreateRegistrations < ActiveRecord::Migration[5.1]
@@ -10,6 +11,6 @@ class CreateRegistrations < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-    add_index :decidim_meetings_registrations, [:decidim_user_id, :decidim_meeting_id], unique: true, name: "decidim_meetings_registrations_user_meeting_unique"
+    add_index :decidim_meetings_registrations, [:decidim_user_id, :decidim_meeting_id], unique: true, name: 'decidim_meetings_registrations_user_meeting_unique'
   end
 end

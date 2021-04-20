@@ -32,23 +32,18 @@
 
 # Ignore public uploads
 public/uploads
-<<<<<<< HEAD
 
 # Ignore public assets
 public/assets/**
-=======
 !/public/uploads/.keep
 
 # Ignore public assets
 public/assets/**
 !/public/assets/.keep
->>>>>>> 1eeaf06... commit iniziale
 
 # Ignore application.yml
 config/application.yml
 
-<<<<<<< HEAD
-=======
 # Ignore signed SP metadata
 config/signed_sp_metadata/*
 !/config/signed_sp_metadata/.keep
@@ -60,4 +55,3 @@ lib/.keys/*
 # Ignore IDP Metadata
 config/idp_metadata/*
 !/config/idp_metadata/.keep
->>>>>>> 1eeaf06... commit iniziale

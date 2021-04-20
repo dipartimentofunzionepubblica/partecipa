@@ -1,16 +1,18 @@
-#Copyright (C) 2020 Formez PA
+# frozen_string_literal: true
+
+# Copyright (C) 2020 Formez PA
 #
-#This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
+# This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
 #
-#This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
 #
-#You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+# You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
 
 # frozen_string_literal: true
 
-require_dependency "devise/models/decidim_validatable"
-require_dependency "devise/models/decidim_newsletterable"
-require "valid_email2"
+require_dependency 'devise/models/decidim_validatable'
+require_dependency 'devise/models/decidim_newsletterable'
+require 'valid_email2'
 
 module Decidim
   # A User is a citizen that wants to join the platform to participate.
@@ -18,7 +20,7 @@ module Decidim
     include Decidim::DataPortability
     include Decidim::Searchable
 
-   OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, :spidauth, (:developer if Rails.env.development?)].compact
+    OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, :spidauth, (:developer if Rails.env.development?)].compact
 
     class Roles
       def self.all
@@ -30,14 +32,14 @@ module Decidim
            :recoverable, :rememberable, :trackable, :decidim_validatable,
            :decidim_newsletterable,
            :omniauthable, omniauth_providers: OMNIAUTH_PROVIDERS,
-                          request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email],
-                          confirmation_keys: [:decidim_organization_id, :email]
+                          request_keys: [:env], reset_password_keys: %i[decidim_organization_id email],
+                          confirmation_keys: %i[decidim_organization_id email]
 
-    has_many :identities, foreign_key: "decidim_user_id", class_name: "Decidim::Identity", dependent: :destroy
-    has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_id, dependent: :destroy
-    has_many :user_groups, through: :memberships, class_name: "Decidim::UserGroup", foreign_key: :decidim_user_group_id
-    has_many :access_grants, class_name: "Doorkeeper::AccessGrant", foreign_key: :resource_owner_id, dependent: :destroy
-    has_many :access_tokens, class_name: "Doorkeeper::AccessToken", foreign_key: :resource_owner_id, dependent: :destroy
+    has_many :identities, foreign_key: 'decidim_user_id', class_name: 'Decidim::Identity', dependent: :destroy
+    has_many :memberships, class_name: 'Decidim::UserGroupMembership', foreign_key: :decidim_user_id, dependent: :destroy
+    has_many :user_groups, through: :memberships, class_name: 'Decidim::UserGroup', foreign_key: :decidim_user_group_id
+    has_many :access_grants, class_name: 'Doorkeeper::AccessGrant', foreign_key: :resource_owner_id, dependent: :destroy
+    has_many :access_tokens, class_name: 'Doorkeeper::AccessToken', foreign_key: :resource_owner_id, dependent: :destroy
 
     validates :name, presence: true, unless: -> { deleted? }
     validates :nickname, presence: true, unless: -> { deleted? || managed? }, length: { maximum: Decidim::User.nickname_max_length }
@@ -62,7 +64,7 @@ module Decidim
     scope :not_confirmed, -> { where(confirmed_at: nil) }
 
     scope :interested_in_scopes, lambda { |scope_ids|
-      ids = scope_ids.map { |i| "%#{i}%" }.join(",")
+      ids = scope_ids.map { |i| "%#{i}%" }.join(',')
       where("extended_data->>'interested_scopes' ~~ ANY('{#{ids}}')")
     }
 
@@ -105,12 +107,12 @@ module Decidim
 
     # Public: Returns the active role of the user
     def active_role
-      admin ? "admin" : roles.first
+      admin ? 'admin' : roles.first
     end
 
     # Public: returns the user's name or the default one
     def name
-      super || I18n.t("decidim.anonymous_user")
+      super || I18n.t('decidim.anonymous_user')
     end
 
     # Check if the user account has been deleted or not
@@ -138,7 +140,7 @@ module Decidim
     #                   * env - A Hash containing environment variables.
     # Returns a User.
     def self.find_for_authentication(warden_conditions)
-      organization = warden_conditions.dig(:env, "decidim.current_organization")
+      organization = warden_conditions.dig(:env, 'decidim.current_organization')
       find_by(
         email: warden_conditions[:email].to_s.downcase,
         decidim_organization_id: organization.id
@@ -177,7 +179,7 @@ module Decidim
     end
 
     def interested_scopes_ids
-      extended_data["interested_scopes"] || []
+      extended_data['interested_scopes'] || []
     end
 
     def interested_scopes
@@ -206,7 +208,7 @@ module Decidim
       return unless organization.send_welcome_notification?
 
       Decidim::EventsManager.publish(
-        event: "decidim.events.core.welcome_notification",
+        event: 'decidim.events.core.welcome_notification',
         event_class: WelcomeNotificationEvent,
         resource: self,
         affected_users: [self]
@@ -231,6 +233,5 @@ module Decidim
     def ensure_encrypted_password
       restore_encrypted_password! if will_save_change_to_encrypted_password? && encrypted_password.blank?
     end
-
   end
 end

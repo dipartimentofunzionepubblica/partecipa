@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_sortitions (originally 20180103123055)
 
 class DropDecidimCategoryIdFromSortitions < ActiveRecord::Migration[5.1]
@@ -9,6 +10,6 @@ class DropDecidimCategoryIdFromSortitions < ActiveRecord::Migration[5.1]
   def down
     add_reference :decidim_module_sortitions_sortitions, :decidim_category,
                   foreign_key: true,
-                  index: { name: "index_sortitions__on_category" }
+                  index: { name: 'index_sortitions__on_category' }
   end
 end

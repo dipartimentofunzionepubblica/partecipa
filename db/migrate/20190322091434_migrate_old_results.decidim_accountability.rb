@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_accountability (originally 20170928073905)
 
 class MigrateOldResults < ActiveRecord::Migration[5.1]
@@ -37,16 +38,16 @@ class MigrateOldResults < ActiveRecord::Migration[5.1]
 
       Categorization.where(
         categorizable_id: old_result.id,
-        categorizable_type: "Decidim::Results::Result"
+        categorizable_type: 'Decidim::Results::Result'
       ).update_all("categorizable_type = 'Decidim::Accountability::Result'")
 
       ResourceLink.where(
         from_id: old_result.id,
-        from_type: "Decidim::Results::Result"
+        from_type: 'Decidim::Results::Result'
       ).update_all("from_type = 'Decidim::Accountability::Result'")
     end
 
-    Feature.where(manifest_name: "results").update_all("manifest_name = 'accountability'")
+    Feature.where(manifest_name: 'results').update_all("manifest_name = 'accountability'")
 
     drop_table :decidim_results_results
   end

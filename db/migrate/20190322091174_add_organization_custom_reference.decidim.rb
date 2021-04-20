@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim (originally 20170215115407)
 
 class AddOrganizationCustomReference < ActiveRecord::Migration[5.0]
