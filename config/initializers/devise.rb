@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'omniauth/strategies/spidauth'
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
@@ -18,18 +19,18 @@ Devise.setup do |config|
   config.mailer_sender = Decidim.config.mailer_sender
 
   # Configure the class responsible to send e-mails.
-  config.mailer = "Decidim::DecidimDeviseMailer"
+  config.mailer = 'Decidim::DecidimDeviseMailer'
 
   # Configure the parent class responsible to send e-mails.
-  config.parent_mailer = "Decidim::ApplicationMailer"
+  config.parent_mailer = 'Decidim::ApplicationMailer'
 
-  config.parent_controller = "ActionController::Base"
+  config.parent_controller = 'ActionController::Base'
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require "devise/orm/active_record"
+  require 'devise/orm/active_record'
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -300,13 +301,13 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :developer, fields: [:name, :nickname, :email] if Rails.application.secrets.dig(:omniauth, :developer).present?
+  config.omniauth :developer, fields: %i[name nickname email] if Rails.application.secrets.dig(:omniauth, :developer).present?
   if Rails.application.secrets.dig(:omniauth, :facebook).present?
     config.omniauth :facebook,
                     Rails.application.secrets.omniauth[:facebook][:app_id],
                     Rails.application.secrets.omniauth[:facebook][:app_secret],
                     scope: :email,
-                    info_fields: "name,email,verified"
+                    info_fields: 'name,email,verified'
   end
   if Rails.application.secrets.dig(:omniauth, :twitter).present?
     config.omniauth :twitter,
@@ -319,7 +320,7 @@ Devise.setup do |config|
                     Rails.application.secrets.omniauth[:google_oauth2][:client_secret]
   end
   config.omniauth :spidauth if Rails.application.secrets.dig(:omniauth, :spidauth).present?
-  
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_proposals (originally 20170220152416)
 
 class AddHiddenAtToProposals < ActiveRecord::Migration[5.0]

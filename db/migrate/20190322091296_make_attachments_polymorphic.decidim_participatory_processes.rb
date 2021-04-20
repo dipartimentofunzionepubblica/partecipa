@@ -1,10 +1,11 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_participatory_processes (originally 20170123134023)
 
 class MakeAttachmentsPolymorphic < ActiveRecord::Migration[5.0]
   def change
     transaction do
-      remove_index :decidim_participatory_process_attachments, name: "index_decidim_processes_attachments_on_decidim_process_id"
+      remove_index :decidim_participatory_process_attachments, name: 'index_decidim_processes_attachments_on_decidim_process_id'
       rename_table :decidim_participatory_process_attachments, :decidim_attachments
 
       add_column :decidim_attachments, :attachable_type, :string

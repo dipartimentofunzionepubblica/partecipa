@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_budgets (originally 20170130095615)
 
 class CreateOrders < ActiveRecord::Migration[5.0]
@@ -11,6 +12,6 @@ class CreateOrders < ActiveRecord::Migration[5.0]
       t.timestamps
     end
 
-    add_index :decidim_budgets_orders, [:decidim_user_id, :decidim_feature_id], unique: true, name: "decidim_budgets_order_user_feature_unique"
+    add_index :decidim_budgets_orders, [:decidim_user_id, :decidim_feature_id], unique: true, name: 'decidim_budgets_order_user_feature_unique'
   end
 end

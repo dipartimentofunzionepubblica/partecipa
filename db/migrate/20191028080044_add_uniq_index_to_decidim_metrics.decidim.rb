@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim (originally 20190829092826)
 
 class AddUniqIndexToDecidimMetrics < ActiveRecord::Migration[5.2]
@@ -15,7 +16,7 @@ class AddUniqIndexToDecidimMetrics < ActiveRecord::Migration[5.2]
         :decidim_category_id
       ],
       unique: true,
-      name: "idx_metric_by_day_type_org_space_object_category"
+      name: 'idx_metric_by_day_type_org_space_object_category'
     )
   end
 end

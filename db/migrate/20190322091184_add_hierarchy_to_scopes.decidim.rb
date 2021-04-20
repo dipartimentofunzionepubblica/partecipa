@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim (originally 20170605162500)
 
 class AddHierarchyToScopes < ActiveRecord::Migration[5.0]
@@ -29,12 +30,12 @@ class AddHierarchyToScopes < ActiveRecord::Migration[5.0]
       t.references :parent, foreign_key: { to_table: :decidim_scopes }
       t.string :code
       t.integer :part_of, array: true, default: [], null: false
-      t.index :part_of, using: "gin"
+      t.index :part_of, using: 'gin'
     end
 
     current_data.each do |s|
-      locales = Organization.find(s["decidim_organization_id"]).available_locales
-      name = s["name"].gsub(/'/, "''")
+      locales = Organization.find(s['decidim_organization_id']).available_locales
+      name = s['name'].gsub(/'/, "''")
       execute("
         UPDATE decidim_scopes
         SET name = '#{Hash[locales.map { |locale| [locale, name] }].to_json}',
@@ -60,7 +61,7 @@ class AddHierarchyToScopes < ActiveRecord::Migration[5.0]
 
     # post migration data fixes
     Scope.select(:id, :name).as_json.each do |s|
-      name = quote(JSON.parse(s["name"]).values.first)
+      name = quote(JSON.parse(s['name']).values.first)
       execute("
         UPDATE decidim_scopes
         SET name = #{name}

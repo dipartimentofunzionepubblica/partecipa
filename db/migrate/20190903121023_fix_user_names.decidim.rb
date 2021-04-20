@@ -1,11 +1,12 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim (originally 20190412131728)
 
 class FixUserNames < ActiveRecord::Migration[5.2]
   def change
     # Comes from Decidim::User specs
     weird_characters =
-      ["<", ">", "?", "\\%", "&", "^", "*", "#", "@", "(", ")", "[", "]", "=", "+", ":", ";", "\"", "{", "}", "\\", "|", "/"]
+      ['<', '>', '?', '\\%', '&', '^', '*', '#', '@', '(', ')', '[', ']', '=', '+', ':', ';', '"', '{', '}', '\\', '|', '/']
     characters_to_remove = "<>?%&^*\#@()[]=+:;\"{}\\|/"
 
     weird_characters.each do |character|
