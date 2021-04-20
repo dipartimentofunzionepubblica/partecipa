@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 Decidim.configure do |config|
-  config.application_name = "Formez Decidim"
-  config.mailer_sender = "noreply@formez.org"
+  config.application_name = 'Formez Decidim'
+  config.mailer_sender = 'noreply@formez.org'
 
   # Change these lines to set your preferred locales
   config.default_locale = :it
-  config.available_locales = [:it, :en]
+  config.available_locales = %i[it en]
 
   # Geocoder configuration
   if Rails.application.secrets.geocoder
     config.geocoder = {
-      static_map_url: "https://image.maps.cit.api.here.com/mia/1.6/mapview",
+      static_map_url: 'https://image.maps.cit.api.here.com/mia/1.6/mapview',
       here_app_id: Rails.application.secrets.geocoder[:here_app_id],
       here_app_code: Rails.application.secrets.geocoder[:here_app_code]
     }
@@ -24,7 +24,7 @@ Decidim.configure do |config|
   # end
 
   # Currency unit
-  config.currency_unit = "€"
+  config.currency_unit = '€'
 
   # The number of reports which an object can receive before hiding it
   # config.max_reports_before_hiding = 3

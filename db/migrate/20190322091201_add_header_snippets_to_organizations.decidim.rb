@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim (originally 20170913092351)
 
 class AddHeaderSnippetsToOrganizations < ActiveRecord::Migration[5.1]

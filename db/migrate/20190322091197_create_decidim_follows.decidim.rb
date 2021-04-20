@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim (originally 20170807123535)
 
 class CreateDecidimFollows < ActiveRecord::Migration[5.1]
@@ -12,10 +13,10 @@ class CreateDecidimFollows < ActiveRecord::Migration[5.1]
     add_index :decidim_follows,
               [:decidim_user_id, :decidim_followable_id, :decidim_followable_type],
               unique: true,
-              name: "index_uniq_on_follows_user_and_followable"
+              name: 'index_uniq_on_follows_user_and_followable'
     add_index :decidim_follows,
               [:decidim_followable_id, :decidim_followable_type],
               unique: true,
-              name: "index_uniq_on_followable"
+              name: 'index_uniq_on_followable'
   end
 end

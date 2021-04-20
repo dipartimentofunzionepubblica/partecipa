@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_budgets (originally 20170215132708)
 
 class AddReferenceToProjects < ActiveRecord::Migration[5.0]

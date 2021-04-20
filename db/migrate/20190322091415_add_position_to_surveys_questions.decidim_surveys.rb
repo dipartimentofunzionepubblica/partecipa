@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_surveys (originally 20170518085302)
 
 class AddPositionToSurveysQuestions < ActiveRecord::Migration[5.0]

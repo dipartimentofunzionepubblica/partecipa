@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_participatory_processes (originally 20170206083118)
 
 class RenameExtraInfoOnProcesses < ActiveRecord::Migration[5.0]

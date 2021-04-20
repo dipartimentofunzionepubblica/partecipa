@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_comments (originally 20181016142511)
 
 class MakeAuthorsPolymorphicForComments < ActiveRecord::Migration[5.2]
@@ -19,7 +20,7 @@ class MakeAuthorsPolymorphicForComments < ActiveRecord::Migration[5.2]
 
     add_index :decidim_comments_comments,
               [:decidim_author_id, :decidim_author_type],
-              name: "index_decidim_comments_comments_on_decidim_author"
+              name: 'index_decidim_comments_comments_on_decidim_author'
 
     change_column_null :decidim_comments_comments, :decidim_author_id, false
     change_column_null :decidim_comments_comments, :decidim_author_type, false

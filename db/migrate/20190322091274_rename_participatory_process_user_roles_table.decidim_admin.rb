@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_admin (originally 20170714083651)
 
 class RenameParticipatoryProcessUserRolesTable < ActiveRecord::Migration[5.1]
