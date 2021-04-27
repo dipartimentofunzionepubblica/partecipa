@@ -18,9 +18,9 @@ module OmniAuth
 
       def request_phase
         idp_param = request.params['idp_param']
-        attribute_service_index_param = request.params['attribute_service_index_param'] || 0
-        authn_context_param = request.params['authn_context_param'] || Spid::L1
-        redirect spid_login_path(idp_name: idp_param, authn_context: authn_context_param, attribute_service_index: attribute_service_index_param)
+        attribute_service_index = Rails.application.secrets.spid_attr_serv_list_index || 0
+        authn_context = Rails.application.secrets.spid_level.constantize || Spid::L1
+        redirect spid_login_path(idp_name: idp_param, authn_context: authn_context, attribute_service_index: attribute_service_index) if idp_param.present?
       end
 
       def callback_phase
@@ -50,7 +50,7 @@ module OmniAuth
       end
 
       def authorize_params
-        super.merge(idp_param: request.params['idp_param'], attribute_service_index_param: request.params['attribute_service_index_param'], authn_context_param: request.params['authn_context_param'])
+        super.merge(idp_param: request.params['idp_param'])
       end
     end
   end

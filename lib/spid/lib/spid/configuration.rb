@@ -47,7 +47,7 @@ module Spid
       @metadata_path             = '/spid/metadata'
       @login_path                = '/spid/login'
       @logout_path               = '/spid/logout'
-      @default_relay_state_path  = '/'
+      @default_relay_state_path  = '/users/auth/spidauth/callback'
       @organization_name = ''
       @organization_display_name = ''
       @organization_url = ''
