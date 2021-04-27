@@ -159,8 +159,8 @@ Di seguito una breve spiegazione per ciascuna costante:
 	SPID_DEFAULT_RELAY_STATE_PATH: #Concatenato al SPID_HOSTNAME è l'indirizzo della callback relativa alla autenticazione via OmniAuth, normalmente "/users/auth/spidauth/callback"
 	SPID_SIGNATURE_METHOD: #Secondo preferenza tra "Spid::RSA_SHA256", "Spid::RSA_SHA384", "Spid::RSA_SHA512"
 	
-	SPID_LEVEL = #Livello Spid, può essere valorizzato con "Spid::L1", "Spid::L2" o "Spid::L3", normalmente "Spid::L1"; consultare la documentazione Spid per approfondimenti
-	SPID_ATTR_SERV_LIST_INDEX = #L'indice che identifica il AttributeConsumingService, ossia il set di attributi, da usare, tra quelli previsti nel file spid_attr_serv_list.yml, con indice basato a 0
+	SPID_LEVEL: #Livello Spid, può essere valorizzato con "Spid::L1", "Spid::L2" o "Spid::L3", normalmente "Spid::L1"; consultare la documentazione Spid per approfondimenti
+	SPID_ATTR_SERV_LIST_INDEX: #L'indice che identifica il AttributeConsumingService, ossia il set di attributi, da usare, tra quelli previsti nel file spid_attr_serv_list.yml, con indice basato a 0
 
 	SPID_ORGANIZATION_NAME: #Nome dell'Organizzazione che compare sul metadata.xml
 	SPID_ORGANIZATION_DISPLAY_NAME: #Nome dell'Organizzazione che compare sul metadata.xml e che verrà trasmesso agli IDP
@@ -252,7 +252,7 @@ Il file SP metadata.xml così pubblicato per essere trasmesso ad AgID perché di
 1) validato con l'apposito tool [spid-validator](https://github.com/italia/spid-saml-check/tree/master/spid-validator);
 2) firmato con l'apposito tool [spid-metadata-signer](https://github.com/italia/spid-metadata-signer);
 3) rinominato in "metadata-signed.xml";
-4) pubblicato sull'apposito path <partecipa_path>config/signed_sp_metadata.
+4) pubblicato sull'apposito path <partecipa_path>/config/signed_sp_metadata.
 
 Il nuovo file SP metadata.xml così modificato e firmato sarà disponibile all'URL previsto nel file application.yml, come valore della costante SPID_METADATA_PATH.
 Il SP metadata.xml dovrà poi essere collaudato da AgID in base alla già citata procedura disponibile a [questo indirizzo](https://www.spid.gov.it/come-diventare-fornitore-di-servizi-pubblici-e-privati-con-spid).
