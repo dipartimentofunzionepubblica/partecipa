@@ -99,8 +99,8 @@ Per abilitare il login Spid alla piattafoma ParteciPa, la piattaforma deve esser
 - <partecipa_path>/config/idp_metadata/ path che contiene gli IDP metadata.xml da scaricare da [questo indirizzo](https://www.agid.gov.it/it/piattaforme/spid/identity-provider-accreditati) ;
 - <partecipa_path>/lib/.keys path nel quale è necessario inserire i certificati SHA256, SHA384 o SHA512 in formato .pem, creati come descritto sotto;
 - <partecipa_path>/config/signed_sp_metadata path nel quale deve essere inserito il file "metadata-signed.xml" ottenuto dalla firma del file metadata pubblicato dal sistema, come indicato sotto.
-Il file secrets.yml funge da collettore di tutte le costanti importandole da application.yml e non necessita di essere editato.
 
+Il file secrets.yml funge da collettore di tutte le costanti importandole da application.yml e non deve essere editato.
 E' possibile disabilitare Spid agendo solo sulla apposita costante del file application.yml SPID_ENABLED, impostandola al valore false. 
 
 ## Aspetto grafico ridefinito via SCSS
@@ -148,16 +148,19 @@ Di seguito una breve spiegazione per ciascuna costante:
 
 	SPID_ENABLED: #true o false, definisce se il bottone "Entra con Spid" sarà visibile nella pagina di login del sistema e se Spid sarà attivo come provider Omniauth 
 	SPID_HOSTNAME: #Corrisponde all'URL dell'HP della piattaforma, nel caso specifico "https://partecipa.gov.it", questa URL viene usato da SpidRails per accodare i path indicati sotto e per fornire la pagina di redirect dal logout Spid
-	SPID_ENTITY_ID: #Normalmente è uguale a SPID_HOSTNAME, nel caso specifico è stato utile differenziarlo in modo da disaccoppiarlo. Identifica il metadata univocamente.
-	SPID_METADATA_PATH: #Concatenato al SPID_HOSTNAME è l'indirizzo del metadata.xml, normalmente "/metadata"
+	SPID_ENTITY_ID: #Normalmente è uguale a SPID_HOSTNAME, nel caso specifico è stato utile differenziarlo in modo da disaccoppiarlo. Nei sistemi AgID Identifica il metadata univocamente.
+	SPID_METADATA_PATH: #Concatenato al SPID_HOSTNAME è l'indirizzo del metadata.xml, normalmente e secondo regole Spid "/metadata"
 	SPID_LOGIN_PATH:  #Concatenato al SPID_HOSTNAME è l'URL relativa alla login, normalmente "/spid/login"
 	SPID_LOGOUT_PATH: #Concatenato al SPID_HOSTNAME è l'URL relativa alla logout, normalmente "/spid/logout"
 	
-	SPID_ACS_INDEX: #l'AssertionConsumerServiceIndex che verrà inviato nella Request all'Identity Provider. Identifica il servizio a cui fare login. Si riferisce all'Array di Hash di AssertionConsumerService costruito con il file spid_acs_list.yml con indice basato a 0
-    SPID_SLO_INDEX: #l'indice che identifica il SingleLogoutService verso la quale indirizzare il logout. Si riferisce all'Array di Hash di SingleLogoutService costruito con il file spid_slo_list.yml con indice basato a 0
+	SPID_ACS_INDEX: #L'AssertionConsumerServiceIndex che verrà inviato nella Request all'Identity Provider. Identifica il servizio a cui fare login. Si riferisce all'Array di Hash di AssertionConsumerService costruito con il file spid_acs_list.yml con indice basato a 0
+    SPID_SLO_INDEX: #L'indice che identifica il SingleLogoutService verso la quale indirizzare il logout. Si riferisce all'Array di Hash di SingleLogoutService costruito con il file spid_slo_list.yml con indice basato a 0
 	
 	SPID_DEFAULT_RELAY_STATE_PATH: #Concatenato al SPID_HOSTNAME è l'indirizzo della callback relativa alla autenticazione via OmniAuth, normalmente "/users/auth/spidauth/callback"
-	SPID_DIGEST_METHOD: #Secondo preferenza tra "Spid::SHA256", "Spid::SHA384", "Spid::SHA512"
+	SPID_SIGNATURE_METHOD: #Secondo preferenza tra "Spid::RSA_SHA256", "Spid::RSA_SHA384", "Spid::RSA_SHA512"
+	
+	SPID_LEVEL = #Livello Spid, può essere valorizzato con "Spid::L1", "Spid::L2" o "Spid::L3", normalmente "Spid::L1"; consultare la documentazione Spid per approfondimenti
+	SPID_ATTR_SERV_LIST_INDEX = #L'indice che identifica il AttributeConsumingService, ossia il set di attributi, da usare, tra quelli previsti nel file spid_attr_serv_list.yml, con indice basato a 0
 
 	SPID_ORGANIZATION_NAME: #Nome dell'Organizzazione che compare sul metadata.xml
 	SPID_ORGANIZATION_DISPLAY_NAME: #Nome dell'Organizzazione che compare sul metadata.xml e che verrà trasmesso agli IDP
