@@ -42,7 +42,7 @@ public/assets/**
 !/public/assets/.keep
 
 # Ignore application.yml
-config/application.yml
+config/application*.yml
 
 # Ignore signed SP metadata
 config/signed_sp_metadata/*
