@@ -55,6 +55,8 @@ description:
     shortDescription: >-
       ParteciPa  è la versione adottata in Italia di Decidim, la piattaforma
       spagnola di democrazia partecipativa.
+    screenshots:
+      - screenshot.png
 developmentStatus: beta
 it:
   conforme:
