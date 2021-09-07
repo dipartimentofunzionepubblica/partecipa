@@ -1,53 +1,14 @@
 <!--
-Copyright (C) 2020 Formez PA
-
+Copyright (C) 2021 Formez PA
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
-
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
-
 You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
 -->
-<div class="filters row">
-  <div class="column medium-3">
-    <span class="dropdown-menu-inverted_label"><%= t(".filter_by") %> :</span>
-    <ul class="dropdown menu dropdown-inverted" data-dropdown-menu data-close-on-click-inside="false">
-        <li class="is-dropdown-submenu-parent">
-          <a href="#">
-          <% if @state.present? %>
-            <%= t(".filter.#{@state}") %>
-          <% else %>
-            <%= t(".filter.all") %>
-          <% end %>
-          </a>
-          <ul class="menu is-dropdown-submenu">
-            <li><%= link_to t(".filter.officialized"), url_for(state: "officialized", q: @query) %></li>
-            <li><%= link_to t(".filter.not_officialized"), url_for(state: "not_officialized", q: @query) %></li>
-            <li><%= link_to t(".filter.all"), url_for(q: @query) %></li>
-          </ul>
-        </li>
-      </ul>
-  </div>
-  <div class="column medium-4">
-    <%= form_tag "", method: :get do %>
-      <div class="filters__search">
-        <div class="input-group">
-          <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t(".search") %>
-          <%= hidden_field_tag :state, @state %>
-          <div class="input-group-button">
-            <button type="submit" class="button button--muted">
-              <%= icon "magnifying-glass", aria_label: t(".search") %>
-            </button>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-<div class="card" id='user-groups'>
+<div class="card with-overflow" id='user-groups'>
   <div class="card-divider">
     <h2 class="card-title"><%= t "decidim.admin.titles.participants" %></h2>
   </div>
+  <%= admin_filter_selector %>
   <div class="card-section">
     <div class="table-scroll">
       <table class="table-list">
@@ -55,7 +16,7 @@ You should have received a copy of the GNU Affero General Public License along w
           <tr>
             <th><%= t(".name") %></th>
             <th><%= t(".nickname") %></th>
-			<th><%= t("models.user.fields.email", scope: "decidim.admin") %></th>
+	    <th><%= t("models.user.fields.email", scope: "decidim.admin") %></th>
             <th><%= t(".created_at") %></th>
             <th><%= t(".status") %></th>
             <th><%= t(".badge") %></th>
@@ -72,7 +33,7 @@ You should have received a copy of the GNU Affero General Public License along w
                 <td><%= user.name %></td>
                 <td><%= user.nickname %></td>
               <% end %>
-			  <td><%= user.email %></td>
+              <td><%= user.email %></td>
               <td><%= l user.created_at, format: :short %></td>
               <td><%= user.officialized? ? t(".officialized") : t(".not_officialized") %></td>
               <td><%= translated_attribute(user.officialized_as) %></td>

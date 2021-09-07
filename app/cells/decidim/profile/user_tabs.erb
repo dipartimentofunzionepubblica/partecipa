@@ -1,5 +1,5 @@
 <!--
-Copyright (C) 2020 Formez PA
+Copyright (C) 2021 Formez PA
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
 
@@ -13,7 +13,7 @@ You should have received a copy of the GNU Affero General Public License along w
 	<% if current_organization.badges_enabled? %>
 		<%= user_profile_tab t("decidim.profiles.show.badges"), profile_badges_path(nickname: profile_holder.nickname) %>
 	<% end %>
-  	<%= user_profile_tab t("decidim.profiles.show.following"), profile_following_path(nickname: profile_holder.nickname) %>
+        <%= user_profile_tab t("decidim.profiles.show.following"), profile_following_path(nickname: profile_holder.nickname) %>
     <% if user_groups_enabled? %>
 		<%= user_profile_tab t("decidim.profiles.show.groups"), profile_groups_path(nickname: profile_holder.nickname) %>
 	<% end %>
