@@ -1,5 +1,5 @@
 <!--
-Copyright (C) 2020 Formez PA
+Copyright (C) 2021 Formez PA
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
 
@@ -7,11 +7,10 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
 -->
-<% if Devise.mappings[:user].omniauthable? %>
+<% if Devise.mappings[:user].omniauthable? && current_organization.enabled_omniauth_providers.any? %>
   <div class="row">
     <div class="columns large-4 mediumlarge-6 medium-8 medium-centered">
-      <%- Decidim::User.omniauth_providers.each do |provider| %>
-		<% if social_provider_enabled? provider %>
+	  <%- current_organization.enabled_omniauth_providers.keys.each do |provider| %>
             <% if provider == :spidauth%>
 				<%= render "decidim/devise/shared/spid_button" %>
 		    <%else%>
@@ -23,13 +22,12 @@ You should have received a copy of the GNU Affero General Public License along w
 						<%= t("devise.shared.links.sign_in_with_provider", provider: normalize_provider_name(provider).titleize) %>
 					<% end %>
 				</div>
-			<% end %>		  		     
+			<% end %>
 			<%- if current_organization.sign_in_enabled? %>
 				<span class="register__separator">
 					<span class="register__separator__text"><%= t(".or") %></span>
 				</span>
 			<%- end %>
-	    <% end %>
 	  <% end %>
     </div>
   </div>
