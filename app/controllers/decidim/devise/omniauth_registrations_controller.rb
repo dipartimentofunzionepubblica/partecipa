@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Copyright (C) 2020 Formez PA
+# Copyright (C) 2021 Formez PA
 #
 # This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
 #
@@ -84,7 +84,7 @@ module Decidim
             else
               expire_data_after_sign_in!
               user.resend_confirmation_instructions unless user.confirmed?
-              redirect_to root_path
+              redirect_to decidim.root_path
               flash[:notice] = t('devise.registrations.signed_up_but_unconfirmed')
             end
           end
@@ -125,8 +125,9 @@ module Decidim
       end
 
       def action_missing(action_name)
-        return send(:create) if devise_mapping.omniauthable? && User.omniauth_providers.include?(action_name.to_sym)
-
+        #return send(:create) if devise_mapping.omniauthable? && User.omniauth_providers.include?(action_name.to_sym)
+		return send(:create) if devise_mapping.omniauthable? && current_organization.enabled_omniauth_providers.keys.include?(action_name.to_sym)
+		
         raise AbstractController::ActionNotFound, "The action '#{action_name}' could not be found for Decidim::Devise::OmniauthCallbacksController"
       end
 

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Copyright (C) 2020 Formez PA
+# Copyright (C) 2021 Formez PA
 #
 # This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
 #
@@ -19,21 +19,20 @@ module Decidim
   class User < UserBaseEntity
     include Decidim::DataPortability
     include Decidim::Searchable
-
-    OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, :spidauth, (:developer if Rails.env.development?)].compact
+	include Decidim::ActsAsAuthor 
 
     class Roles
       def self.all
         Decidim.config.user_roles
       end
     end
-
-    devise :invitable, :database_authenticatable, :registerable, :confirmable, :timeoutable,
-           :recoverable, :rememberable, :trackable, :decidim_validatable,
-           :decidim_newsletterable,
-           :omniauthable, omniauth_providers: OMNIAUTH_PROVIDERS,
-                          request_keys: [:env], reset_password_keys: %i[decidim_organization_id email],
-                          confirmation_keys: %i[decidim_organization_id email]
+	
+	devise :invitable, :database_authenticatable, :registerable, :confirmable, :timeoutable,
+           :recoverable, :rememberable, :trackable, :lockable,
+           :decidim_validatable, :decidim_newsletterable,
+           :omniauthable, omniauth_providers: Decidim::OmniauthProvider.available.keys,
+                          request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email],
+                          confirmation_keys: [:decidim_organization_id, :email]
 
     has_many :identities, foreign_key: 'decidim_user_id', class_name: 'Decidim::Identity', dependent: :destroy
     has_many :memberships, class_name: 'Decidim::UserGroupMembership', foreign_key: :decidim_user_id, dependent: :destroy
@@ -91,6 +90,17 @@ module Decidim
     # Returns a String.
     attr_accessor :invitation_instructions
 
+	# Returns the user corresponding to the given +email+ if it exists and has pending invitations,
+    #   otherwise returns nil.
+    def self.has_pending_invitations?(organization_id, email)
+      invitation_not_accepted.find_by(decidim_organization_id: organization_id, email: email)
+    end
+
+    # Returns the presenter for this author, to be used in the views.
+    # Required by ActsAsAuthor.
+    def presenter
+      Decidim::UserPresenter.new(self)
+    end						   
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::UserPresenter
     end
@@ -169,6 +179,9 @@ module Decidim
       accepted_tos_version.to_i >= organization.tos_version.to_i
     end
 
+	def admin_terms_accepted?
+      return true if admin_terms_accepted_at
+    end					 
     # Whether this user can be verified against some authorization or not.
     def verifiable?
       confirmed? || managed? || being_impersonated?

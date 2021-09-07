@@ -3,26 +3,26 @@
 source 'https://rubygems.org'
 
 ruby RUBY_VERSION
+gem 'rails', '5.2.4.5'
 
-gem 'bootsnap', '~> 1.3'
+gem 'bootsnap', '~> 1.4'
 gem 'daemons'
-gem 'decidim', '0.20.0'
-gem 'decidim-conferences', '0.20.0'
-gem 'decidim-term_customizer', branch: '0.20-stable', git: 'https://github.com/mainio/decidim-module-term_customizer'
+gem 'decidim', '0.21.0'
+gem 'decidim-term_customizer', branch: '0.21-stable', git: 'https://github.com/mainio/decidim-module-term_customizer'
 gem 'delayed_job_active_record'
 gem 'faker', '~> 1.9'
 gem 'figaro'
-gem 'omniauth'
+gem 'omniauth', '>= 1.9.0'
 gem 'omniauth-rails_csrf_protection'
 gem 'passenger'
 gem 'pg'
-gem 'puma', '~> 3.0'
+gem 'puma', '>= 4.3.3'
 gem 'spid-rails', '= 0.2.0'
 gem 'uglifier', '~> 4.1'
 
 group :development, :test do
   gem 'byebug', '~> 11.0', platform: :mri
-  gem 'decidim-dev', '0.20.0'
+  gem 'decidim-dev', '0.21.0'
 end
 
 group :development do
