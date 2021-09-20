@@ -143,8 +143,7 @@ Di seguito una breve spiegazione per ciascuna costante:
 	SMTP_ADDRESS: #Indirizzo dell'SMTP
 	SMTP_DOMAIN: #Dominio dell'SMTP
 
-	GEOCODER_LOOKUP_APP_ID: #AppID relativo al Geocoder Here vedere https://github.com/decidim/decidim/blob/0.20-stable/docs/services/geocoding.md
-	GEOCODER_LOOKUP_APP_CODE: #AppCode relativo al Geocoder Here
+	GEOCODER_API_KEY: #here_api_key relativo al Geocoder Here vedere https://github.com/decidim/decidim/blob/0.21-stable/docs/services/geocoding.md
 
 	SPID_ENABLED: #true o false, definisce se il bottone "Entra con Spid" sarà visibile nella pagina di login del sistema e se Spid sarà attivo come provider Omniauth 
 	SPID_HOSTNAME: #Corrisponde all'URL dell'HP della piattaforma, nel caso specifico "https://partecipa.gov.it", questa URL viene usato da SpidRails per accodare i path indicati sotto e per fornire la pagina di redirect dal logout Spid
