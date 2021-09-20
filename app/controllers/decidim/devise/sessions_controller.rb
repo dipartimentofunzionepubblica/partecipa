@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Copyright (C) 2021 Formez PA
+# Copyright (C) 2020 Formez PA
 #
 # This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
 #
@@ -13,10 +13,10 @@ module Decidim
     # Custom Devise SessionsController to avoid namespace problems.
     class SessionsController < ::Devise::SessionsController
       include Decidim::DeviseControllers
-      #include Spid::Rails::RouteHelper
-
+	  include Spid::Rails::RouteHelper
+	  
       before_action :check_sign_in_enabled, only: :create
-      #before_action :set_spid_identity_provider, only: :destroy
+      before_action :set_spid_identity_provider, only: :destroy
 
       def create
         super
@@ -46,8 +46,10 @@ module Decidim
         if !@identity_provider.nil?
           SpidAccessLogger.info("SPID LOGOUT: USERNAME #{@curr_user.name}, NICKNAME #{@curr_user.nickname}, WITH EMAIL #{@curr_user.email} IDP #{@identity_provider} LOGGED OUT")
 		  spid_logout_url(idp_name: @identity_provider)					  
-        end
-		request.referer || super
+        else
+		  request.referer || super
+		end
+		
       end
 
       private
