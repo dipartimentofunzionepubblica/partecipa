@@ -25,6 +25,13 @@ a {
     color: rgba(255, 255, 255, 1);
 }
 
+.main-nav__link a:hover {
+    display: block;
+    padding: 1em 2em;
+    color: rgba(255, 255, 255, 1);
+	text-decoration: underline;
+}
+
 .section-heading::before {
     content: "";
     display: inline-block;
