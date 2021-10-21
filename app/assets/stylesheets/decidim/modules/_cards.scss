@@ -1,5 +1,27 @@
 @import "../variables";
 
+$card-bg: $par-white !default;
+$card-secondary-bg: $light-gray-dark;
+$card-border: $border;
+$card-border-radius: $global-radius;
+$card-border-top-width: 8px !default;
+$card-shadow: 0 2px 7px rgba(black, .1);
+$card-id: $medium-gray;
+
+$card-padding-small: 1rem;
+$card-padding: 1.5rem;
+$card-margin-bottom: map-get($grid-column-gutter, medium);
+
+$card-footer-bg: $light-gray-dark;
+
+$card-proposal: var(--proposals);
+$card-action: var(--actions);
+$card-debate: var(--debates);
+$card-meeting: var(--meetings);
+$card-spaces: var(--meetings);
+
+$datetime-bg: var(--primary);
+
 .card__link {
 	color: $par-medium-green;
 }
@@ -9,3 +31,32 @@
     -webkit-filter: brightness(120%);
     filter: brightness(120%);
 }
+
+.card-data__item__number{
+  display: block;
+    height: 36px;
+}
+
+.card__image{
+  width: 100%;
+  max-height: 10rem;
+  min-height: 5rem;
+  object-fit: cover;
+
+  &.card__image--smaller{
+    max-height: 5rem;
+  }
+
+  &.card__image--larger{
+    max-height: 20rem;
+    min-height: 10rem;
+  }
+}
+
+.card__support__number{
+  line-height: 1;
+  font-weight: 600;
+  font-size: rem-calc(20);
+  color: $body-font-color;
+}
+
