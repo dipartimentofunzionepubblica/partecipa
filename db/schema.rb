@@ -549,6 +549,15 @@ ActiveRecord::Schema.define(version: 2021_10_20_092778) do
     t.index ["section_id"], name: "index_decidim_contextual_help_sections_on_section_id"
   end
 
+  create_table "decidim_continuity_badge_statuses", force: :cascade do |t|
+    t.integer "current_streak", default: 0, null: false
+    t.integer "integer", default: 0, null: false
+    t.date "last_session_at", null: false
+    t.string "subject_type", null: false
+    t.bigint "subject_id", null: false
+    t.index ["subject_type", "subject_id"], name: "decidim_continuity_statuses_subject"
+  end
+
   create_table "decidim_debates_debates", id: :serial, force: :cascade do |t|
     t.jsonb "title"
     t.jsonb "description"
