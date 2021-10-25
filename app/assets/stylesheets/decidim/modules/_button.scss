@@ -30,11 +30,11 @@
 .button.hollow {
     border: 1px solid $par-medium-green; 
     color: $par-medium-green; 
+	background-color: #fff; 
 }
 
 .button.hollow:hover, .button.hollow:focus{
     border: 1px solid $par-medium-green; 
-    color: $par-medium-green; 
 	background-color: $par-medium-green; 
 	color: #fff;
 }
