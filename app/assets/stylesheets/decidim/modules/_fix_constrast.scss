@@ -1,0 +1,56 @@
+@import "../variables";
+
+.phase-current {
+    font-weight: normal;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: $par-dark-grey;
+}
+
+.phase-date {
+    color: #726a70;
+    font-weight: 600;
+    font-size: 90%;
+	color: $par-dark-grey;
+}
+
+.definition-data__title {
+    display: block;
+    font-size: 85%;
+	font-weight: bold;
+    letter-spacing: .01em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: .25rem;
+    color: $par-dark-grey;
+}
+
+h1 small, .h1 small, h2 small, .h2 small, h3 small, .h3 small, h4 small, .h4 small, h5 small, .h5 small, h6 small, .h6 small {
+    line-height: 0;
+    color: $par-dark-grey;
+}
+
+.hero-heading {
+    margin-bottom: 1.5rem;
+    line-height: 1;
+    text-shadow: 4px 4px 4px black;
+}
+
+.card__support__data--left {
+    text-align: left;
+    text-transform: none;
+    color: black;
+}
+
+.timeline__date {
+    color: $par-dark-grey;
+}
+
+.timeline__item--inactive .timeline__phase {
+    background: $par-dark-grey;
+}
+
+.footer-nav{
+	text-align: center;
+	list-style-type: none;
+}
