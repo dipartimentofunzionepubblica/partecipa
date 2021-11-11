@@ -87,4 +87,6 @@ Rails.application.configure do
   config.i18n.fallbacks = true
   
   config.public_file_server.enabled = true
+  
+  config.logger = ActiveSupport::Logger.new(config.paths['log'].first, shift_age = 'daily')
 end
