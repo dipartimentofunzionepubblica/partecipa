@@ -25,7 +25,7 @@ You should have received a copy of the GNU Affero General Public License along w
 			<li class="spid-idp-button-link" style="text-align:left" data-idp="<%=hash[:alt].downcase.delete(' ')%>">
 				<%= link_to decidim.send("user_spidauth_omniauth_authorize_path", idp_param: hash[:identity_provider]), {:style=>'box-sizing: initial;', :method=>:post} do %>
 					<span class="spid-sr-only"><%=hash[:identity_provider].capitalize%> ID</span>
-					<%=image_tag(hash[:svg_image_path], alt: hash[:alt], src: 'Image Not Found', onerror: "this.error=null;this.src=#{hash[:png_image_path]}" )%>
+					<%=image_tag(hash[:svg_image_path], alt: hash[:alt], src: 'Image Not Found' )%>
 				<% end %>
 			</li>
 		<%end%>
