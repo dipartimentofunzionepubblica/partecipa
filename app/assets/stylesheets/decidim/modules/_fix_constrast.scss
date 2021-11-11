@@ -54,3 +54,19 @@ h1 small, .h1 small, h2 small, .h2 small, h3 small, .h3 small, h4 small, .h4 sma
 	text-align: center;
 	list-style-type: none;
 }
+
+.filters__section .section-title, .filters__section--general .section-title {
+    color: black;
+    text-decoration: underline;
+	text-transform: capitalize;
+    margin-right: 1rem;
+}
+
+.filters__section--general.no-results > * {
+    opacity: .60;
+	text-transform: capitalize;
+}
+
+a.muted, abbr.muted, acronym.muted, b.muted, bdo.muted, big.muted, br.muted, button.muted, cite.muted, code.muted, dfn.muted, em.muted, i.muted, img.muted, input.muted, kbd.muted, label.muted, map.muted, object.muted, q.muted, samp.muted, script.muted, select.muted, .inline-filters button.muted[data-toggle], small.muted, span.muted, strong.muted, sub.muted, sup.muted, textarea.muted, time.muted, tt.muted, var.muted {
+    color: $par-dark-grey;
+}
