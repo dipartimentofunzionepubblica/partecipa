@@ -47,11 +47,13 @@
 // }
 
 @import "decidim/application";
-@import "decidim/modules/button";
-@import "decidim/modules/cards";
-@import "decidim/modules/footer";
 @import "decidim/modules/general";
+@import "decidim/modules/navbar_";
+@import "decidim/modules/button";
+@import "decidim/modules/cards_";
 @import "decidim/modules/helper_container";
 @import "decidim/modules/hero";
-@import "decidim/modules/navbar";
 @import "decidim/modules/process_header";
+@import "decidim/modules/footer";
+@import "decidim/modules/fix_constrast";
+

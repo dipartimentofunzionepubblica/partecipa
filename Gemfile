@@ -7,8 +7,8 @@ gem 'rails', '5.2.4.5'
 
 gem 'bootsnap', '~> 1.4'
 gem 'daemons'
-gem 'decidim', '0.21.0'
-gem 'decidim-term_customizer', branch: '0.21-stable', git: 'https://github.com/mainio/decidim-module-term_customizer'
+gem 'decidim', '0.22.0'
+gem 'decidim-term_customizer', branch: '0.22-stable', git: 'https://github.com/mainio/decidim-module-term_customizer'
 gem 'delayed_job_active_record'
 gem 'faker', '~> 1.9'
 gem 'figaro'
@@ -22,7 +22,7 @@ gem 'uglifier', '~> 4.1'
 
 group :development, :test do
   gem 'byebug', '~> 11.0', platform: :mri
-  gem 'decidim-dev', '0.21.0'
+  gem 'decidim-dev', '0.22.0'
 end
 
 group :development do

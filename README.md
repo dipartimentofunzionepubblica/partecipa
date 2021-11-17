@@ -101,7 +101,7 @@ Per abilitare il login Spid alla piattafoma ParteciPa, la piattaforma deve esser
 - <partecipa_path>/config/signed_sp_metadata path nel quale deve essere inserito il file "metadata-signed.xml" ottenuto dalla firma del file metadata pubblicato dal sistema, come indicato sotto.
 
 Il file secrets.yml funge da collettore di tutte le costanti importandole da application.yml e non deve essere editato.
-E' possibile disabilitare Spid agendo solo sulla apposita costante del file application.yml SPID_ENABLED, impostandola al valore false. 
+Perchè l'applicativo inizializzi Spid è necessario impostare la costante SPID_ENABLED a true; se impostata a false l'applicativo non leggerà i files e le configurazioni necessarie al funzionamento di Spid.  Con Spid inizializzato è possibile abilitare e disabilitare il provider Spid agendo dall'interfaccia di Amministratore di Sistema. 
 
 ## Aspetto grafico ridefinito via SCSS
 
@@ -144,8 +144,8 @@ Di seguito una breve spiegazione per ciascuna costante:
 	SMTP_DOMAIN: #Dominio dell'SMTP
 
 	GEOCODER_API_KEY: #here_api_key relativo al Geocoder Here vedere https://github.com/decidim/decidim/blob/0.21-stable/docs/services/geocoding.md
-
-	SPID_ENABLED: #true o false, definisce se il bottone "Entra con Spid" sarà visibile nella pagina di login del sistema e se Spid sarà attivo come provider Omniauth 
+	
+	SPID_ENABLED: #true o false, definisce se il corrispondente initializer caricherà tutti i files necessari ad attivare Spid; da impostare a false se i files stessi non sono presenti nel sistema
 	SPID_HOSTNAME: #Corrisponde all'URL dell'HP della piattaforma, nel caso specifico "https://partecipa.gov.it", questa URL viene usato da SpidRails per accodare i path indicati sotto e per fornire la pagina di redirect dal logout Spid
 	SPID_ENTITY_ID: #Normalmente è uguale a SPID_HOSTNAME, nel caso specifico è stato utile differenziarlo in modo da disaccoppiarlo. Nei sistemi AgID Identifica il metadata univocamente.
 	SPID_METADATA_PATH: #Concatenato al SPID_HOSTNAME è l'indirizzo del metadata.xml, normalmente e secondo regole Spid "/metadata"
