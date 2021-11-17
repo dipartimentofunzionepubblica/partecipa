@@ -59,7 +59,7 @@ Rails.application.configure do
   config.active_support.deprecation = :log
 
   # Raise an error on page load if there are pending migrations.
-  config.active_record.migration_error = :page_load
+  config.active_record.migration_error = false
 
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
@@ -85,4 +85,8 @@ Rails.application.configure do
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to end
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
+  
+  config.public_file_server.enabled = true
+  
+  config.logger = ActiveSupport::Logger.new(config.paths['log'].first, shift_age = 'daily')
 end
