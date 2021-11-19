@@ -97,7 +97,8 @@ Rails.application.configure do
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   config.logger = ActiveSupport::Logger.new(config.paths['log'].first, shift_age = 'daily')
-
+  config.logger.formatter = Logger::Formatter.new
+  
   if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
