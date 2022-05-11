@@ -98,7 +98,7 @@ Rails.application.configure do
   # require 'syslog/logger'
   config.logger = ActiveSupport::Logger.new(config.paths['log'].first, shift_age = 'daily')
   config.logger.formatter = Logger::Formatter.new
-  
+
   if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
@@ -107,6 +107,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.action_mailer.default_url_options = { host: 'partecipa.gov.it', protocol: 'https'}
+  config.action_mailer.default_url_options = { host: 'partecipa.gov.it', protocol: 'https' }
   config.action_mailer.asset_host = 'https://partecipa.gov.it'
 end

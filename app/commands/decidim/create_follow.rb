@@ -19,6 +19,7 @@ module Decidim
       @form = form
       @current_user = current_user
     end
+
     # Executes the command. Broadcasts these events:
     #
     # - :ok when everything is valid, together with the follow.
@@ -27,11 +28,14 @@ module Decidim
     # Returns nothing.
     def call
       return broadcast(:invalid) if form.invalid?
+
       create_follow!
       increment_score
       broadcast(:ok, follow)
     end
+
     private
+
     attr_reader :follow, :form, :current_user
 
     def create_follow!
@@ -43,8 +47,10 @@ module Decidim
         user: current_user
       )
     end
+
     def increment_score
       return unless form.followable.is_a? Decidim::User
+
       Decidim::Gamification.increment_score(form.followable, :followers)
     end
   end
