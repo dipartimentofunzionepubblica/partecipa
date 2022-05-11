@@ -13,8 +13,8 @@ module Decidim
     # Custom Devise SessionsController to avoid namespace problems.
     class SessionsController < ::Devise::SessionsController
       include Decidim::DeviseControllers
-	  include Spid::Rails::RouteHelper
-	  
+      include Spid::Rails::RouteHelper
+
       before_action :check_sign_in_enabled, only: :create
       before_action :set_spid_identity_provider, only: :destroy
 
@@ -45,11 +45,10 @@ module Decidim
       def after_sign_out_path_for(user)
         if !@identity_provider.nil?
           SpidAccessLogger.info("SPID LOGOUT: USERNAME #{@curr_user.name}, NICKNAME #{@curr_user.nickname}, WITH EMAIL #{@curr_user.email} IDP #{@identity_provider} LOGGED OUT")
-		  spid_logout_url(idp_name: @identity_provider)					  
+          spid_logout_url(idp_name: @identity_provider)
         else
-		  request.referer || super
-		end
-		
+          request.referer || super
+    end
       end
 
       private

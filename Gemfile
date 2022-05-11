@@ -7,7 +7,7 @@ gem 'rails', '5.2.4.5'
 
 gem 'bootsnap', '~> 1.4'
 gem 'daemons'
-gem 'decidim', git: "https://github.com/decidim/decidim", tag: "release/0.22-stable" 
+gem 'decidim', git: 'https://github.com/decidim/decidim', tag: 'release/0.22-stable'
 gem 'decidim-term_customizer', branch: '0.22-stable', git: 'https://github.com/mainio/decidim-module-term_customizer'
 gem 'delayed_job_active_record'
 gem 'faker', '~> 1.9'
@@ -22,7 +22,7 @@ gem 'uglifier', '~> 4.1'
 
 group :development, :test do
   gem 'byebug', '~> 11.0', platform: :mri
-  gem 'decidim-dev', git: "https://github.com/decidim/decidim", tag: "release/0.22-stable" 
+  gem 'decidim-dev', git: 'https://github.com/decidim/decidim', tag: 'release/0.22-stable'
 end
 
 group :development do
