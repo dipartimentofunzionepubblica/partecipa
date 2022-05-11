@@ -19,20 +19,20 @@ module Decidim
   class User < UserBaseEntity
     include Decidim::DataPortability
     include Decidim::Searchable
-	include Decidim::ActsAsAuthor 
+    include Decidim::ActsAsAuthor
 
     class Roles
       def self.all
         Decidim.config.user_roles
       end
     end
-	
-	devise :invitable, :database_authenticatable, :registerable, :confirmable, :timeoutable,
+
+    devise :invitable, :database_authenticatable, :registerable, :confirmable, :timeoutable,
            :recoverable, :rememberable, :trackable, :lockable,
            :decidim_validatable, :decidim_newsletterable,
            :omniauthable, omniauth_providers: Decidim::OmniauthProvider.available.keys,
-                          request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email],
-                          confirmation_keys: [:decidim_organization_id, :email]
+                          request_keys: [:env], reset_password_keys: %i[decidim_organization_id email],
+                          confirmation_keys: %i[decidim_organization_id email]
 
     has_many :identities, foreign_key: 'decidim_user_id', class_name: 'Decidim::Identity', dependent: :destroy
     has_many :memberships, class_name: 'Decidim::UserGroupMembership', foreign_key: :decidim_user_id, dependent: :destroy
@@ -67,7 +67,7 @@ module Decidim
       where("extended_data->>'interested_scopes' ~~ ANY('{#{ids}}')")
     }
 
-    scope :org_admins_except_me, ->(user) { where(organization: user.organization, admin: true).where.not(id: user.id) }																													 
+    scope :org_admins_except_me, ->(user) { where(organization: user.organization, admin: true).where.not(id: user.id) }
     attr_accessor :newsletter_notifications
 
     searchable_fields({
@@ -91,7 +91,7 @@ module Decidim
     # Returns a String.
     attr_accessor :invitation_instructions
 
-	# Returns the user corresponding to the given +email+ if it exists and has pending invitations,
+    # Returns the user corresponding to the given +email+ if it exists and has pending invitations,
     #   otherwise returns nil.
     def self.has_pending_invitations?(organization_id, email)
       invitation_not_accepted.find_by(decidim_organization_id: organization_id, email: email)
@@ -101,7 +101,8 @@ module Decidim
     # Required by ActsAsAuthor.
     def presenter
       Decidim::UserPresenter.new(self)
-    end						   
+    end
+
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::UserPresenter
     end
@@ -140,19 +141,21 @@ module Decidim
       Decidim::Follow.where(user: self, followable: followable).any?
     end
 
-	# Public: whether the user accepts direct messages from another
+    # Public: whether the user accepts direct messages from another
     def accepts_conversation?(user)
-      return follows?(user) if direct_message_types == "followed-only"
+      return follows?(user) if direct_message_types == 'followed-only'
 
       true
-    end															
+    end
+
     def unread_conversations
       Decidim::Messaging::Conversation.unread_by(self)
     end
 
-	def unread_messages_count
+    def unread_messages_count
       @unread_messages_count ||= Decidim::Messaging::Receipt.unread_count(self)
-    end					  
+      end
+
     # Check if the user exists with the given email and the current organization
     #
     # warden_conditions - A hash with the authentication conditions
@@ -189,9 +192,10 @@ module Decidim
       accepted_tos_version.to_i >= organization.tos_version.to_i
     end
 
-	def admin_terms_accepted?
+    def admin_terms_accepted?
       return true if admin_terms_accepted_at
-    end					 
+      end
+
     # Whether this user can be verified against some authorization or not.
     def verifiable?
       confirmed? || managed? || being_impersonated?
@@ -209,7 +213,7 @@ module Decidim
       @interested_scopes ||= organization.scopes.where(id: interested_scopes_ids)
     end
 
-	# Caches a Decidim::DataPortabilityUploader with the retrieved file.
+    # Caches a Decidim::DataPortabilityUploader with the retrieved file.
     def data_portability_file(filename)
       @data_portability_file ||= DataPortabilityUploader.new.tap do |uploader|
         uploader.retrieve_from_store!(filename)
@@ -234,7 +238,8 @@ module Decidim
     def invalidate_all_sessions!
       self.session_token = SecureRandom.hex
       save!
-    end														   
+    end
+
     protected
 
     # Overrides devise email required validation.

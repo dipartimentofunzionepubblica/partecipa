@@ -15,14 +15,14 @@ module Decidim
   class UserActivitiesController < Decidim::ApplicationController
     include Paginable
     include UserGroups
-	include FilterResource
-	include Decidim::UserProfile
+    include FilterResource
+    include Decidim::UserProfile
 
     helper Decidim::ResourceHelper
     helper_method :activities, :resource_types, :user, :current_user
 
     def index
-	  enforce_permission_to :user, current_user: current_user
+      enforce_permission_to :user, current_user: current_user
       raise ActionController::RoutingError, 'Not Found' if current_user != user && !current_user.admin?
     end
 
@@ -41,20 +41,20 @@ module Decidim
         ).run
       )
     end
-	
-	def default_filter_params
+
+    def default_filter_params
       { resource_type: nil }
-    end
+      end
 
     def resource_types
-      @resource_types = %w(Decidim::Proposals::CollaborativeDraft
+      @resource_types = %w[Decidim::Proposals::CollaborativeDraft
                            Decidim::Comments::Comment
                            Decidim::Debates::Debate
                            Decidim::Initiative
                            Decidim::Meetings::Meeting
                            Decidim::Blogs::Post
                            Decidim::Proposals::Proposal
-                           Decidim::Consultations::Question)
+                           Decidim::Consultations::Question]
     end
   end
 end
