@@ -12,7 +12,7 @@ Decidim.configure do |config|
   if Rails.application.secrets.geocoder
     config.geocoder = {
       static_map_url: 'https://image.maps.ls.hereapi.com/mia/1.6/mapview',
-	  here_api_key: Rails.application.secrets.geocoder[:here_api_key]
+      here_api_key: Rails.application.secrets.geocoder[:here_api_key]
     }
   end
 
