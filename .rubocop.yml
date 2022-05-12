@@ -1,0 +1,55 @@
+AllCops:
+  Exclude:
+    - "db/schema.rb"
+    - "db/migrate/*"
+    - "lib/templates/rails/jbuilder/index.json.jbuilder"
+    - "bin/*"
+    - "node_modules/**/*"
+    
+Metrics/LineLength:
+  Enabled: false
+  
+Metrics/BlockLength:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+  
+Metrics/ClassLength:
+  Enabled: false
+  
+Security/YAMLLoad:
+  Enabled: false
+  
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/MultilineIfModifier:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/ConditionalAssignment:
+  Enabled: false
