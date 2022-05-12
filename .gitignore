@@ -32,3 +32,26 @@
 
 # Ignore public uploads
 public/uploads
+
+# Ignore public assets
+public/assets/**
+!/public/uploads/.keep
+
+# Ignore public assets
+public/assets/**
+!/public/assets/.keep
+
+# Ignore application.yml
+config/application*.yml
+
+# Ignore signed SP metadata
+config/signed_sp_metadata/*
+!/config/signed_sp_metadata/.keep
+
+# Ignore certificates
+lib/.keys/*
+!/lib/.keys/.keep
+
+# Ignore IDP Metadata
+config/idp_metadata/*
+!/config/idp_metadata/.keep
