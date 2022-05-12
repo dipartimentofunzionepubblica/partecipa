@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = "release/0.23-stable"
+DECIDIM_VERSION = "release/0.24-stable"
 
 gem "decidim", git: 'https://github.com/decidim/decidim', tag: DECIDIM_VERSION
 gem "bootsnap", "~> 1.4"
