@@ -1,0 +1,57 @@
+--- 
+spid_provider_list: 
+#  - 
+    #alt: "Test ID"
+    #identity_provider: identity_provider
+    #png_image_path: ""
+    #svg_image_path: ""
+  - 
+    alt: "Test ID"
+    identity_provider: identity_provider
+    png_image_path: ""
+    svg_image_path: ""
+  - 
+    alt: "Aruba ID"
+    identity_provider: aruba
+    png_image_path: decidim/spid/spid-idp-arubaid.png
+    svg_image_path: decidim/spid/spid-idp-arubaid.svg
+  -
+    alt: "Infocert ID"
+    identity_provider: infocert
+    png_image_path: decidim/spid/spid-idp-infocertid.png
+    svg_image_path: decidim/spid/spid-idp-infocertid.svg
+  -
+    alt: "Intesa ID"
+    identity_provider: intesa
+    png_image_path: decidim/spid/spid-idp-intesaid.png
+    svg_image_path: decidim/spid/spid-idp-intesaid.svg
+  -
+    alt: "Lepida ID"
+    identity_provider: lepida
+    png_image_path: decidim/spid/spid-idp-lepidaid.png
+    svg_image_path: decidim/spid/spid-idp-lepidaid.svg
+  - 
+    alt: "Namirial ID"
+    identity_provider: namirial
+    png_image_path: decidim/spid/spid-idp-namirialid.png
+    svg_image_path: decidim/spid/spid-idp-namirialid.svg
+  -
+    alt: "Poste ID"
+    identity_provider: poste
+    png_image_path: decidim/spid/spid-idp-posteid.png
+    svg_image_path: decidim/spid/spid-idp-posteid.svg
+  -
+    alt: "Sielte ID"
+    identity_provider: sielte
+    png_image_path: decidim/spid/spid-idp-sielteid.png
+    svg_image_path: decidim/spid/spid-idp-sielteid.svg
+  -
+    alt: "Spiditalia ID"
+    identity_provider: register
+    png_image_path: decidim/spid/spid-idp-spiditalia.png
+    svg_image_path: decidim/spid/spid-idp-spiditalia.svg
+  -
+    alt: "Tim ID"
+    identity_provider: tim
+    png_image_path: decidim/spid/spid-idp-timid.png
+    svg_image_path: decidim/spid/spid-idp-timid.svg

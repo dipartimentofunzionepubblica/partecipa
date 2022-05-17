@@ -61,6 +61,10 @@ GIT
       decidim-core (= 0.24.3)
       jquery-rails (~> 4.4)
       redcarpet (~> 3.5, >= 3.5.1)
+    decidim-consultations (0.24.3)
+      decidim-admin (= 0.24.3)
+      decidim-comments (= 0.24.3)
+      decidim-core (= 0.24.3)
     decidim-core (0.24.3)
       active_link_to (~> 1.0)
       anchored (~> 1.1)
@@ -840,6 +844,7 @@ DEPENDENCIES
   bootsnap (~> 1.4)
   byebug (~> 11.0)
   decidim!
+  decidim-consultations!
   decidim-dev!
   faker (~> 1.9)
   figaro
