@@ -1,8 +1,8 @@
 // // Variables
 // 
-// $primary: #cb3c29;
+// $primary: #ef604d;
 // $primary-rgb: 239,96,77;
-// $secondary: #3e7f8b;
+// $secondary: #599aa6;
 // $secondary-rgb: 89,154,166;
 // $success: #57d685;
 // $success-rgb: 87,214,133;
@@ -10,10 +10,6 @@
 // $warning-rgb: 255,174,0;
 // $alert: #ec5840;
 // $alert-rgb: 236,88,64;
-// $highlight: #be6400;
-// $highlight-rgb: 190,100,0;
-// $highlight-alternative: #ff5731;
-// $highlight-alternative-rgb: 255,87,49;
 // 
 // $proposals: #238ff7;
 // $actions: #57d685;
@@ -27,5 +23,37 @@
 // // background colors used in public diff views
 // $color-addition: #e6ffed;
 // $color-removal: #ffeef0;
+// 
+// // Define custom properties as css color variables
+// 
+// :root{
+//   --primary: #{$primary};
+//   --primary-rgb: #{$primary-rgb};
+//   --secondary: #{$secondary};
+//   --secondary-rgb: #{$secondary-rgb};
+//   --success: #{$success};
+//   --success-rgb: #{$success-rgb};
+//   --warning: #{$warning};
+//   --warning-rgb: #{$warning-rgb};
+//   --alert: #{$alert};
+//   --alert-rgb: #{$alert-rgb};
+//   --proposals: #{$proposals};
+//   --actions: #{$actions};
+//   --debates: #{$debates};
+//   --meetings: #{$meetings};
+//   --twitter: #{$twitter};
+//   --facebook: #{$facebook};
+//   --google: #{$google};
+// }
 
 @import "decidim/application";
+@import "decidim/modules/general";
+@import "decidim/modules/navbar_";
+@import "decidim/modules/button";
+@import "decidim/modules/cards_";
+@import "decidim/modules/helper_container";
+@import "decidim/modules/hero";
+@import "decidim/modules/process_header";
+@import "decidim/modules/footer";
+@import "decidim/modules/fix_constrast";
+
