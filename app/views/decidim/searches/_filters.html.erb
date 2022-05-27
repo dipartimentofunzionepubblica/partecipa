@@ -1,0 +1,31 @@
+<%#
+Copyright (C) 2022 Formez PA
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+
+Modificata per non rendere possibile la ricerca di utenti e commenti
+%>
+<label class="text-medium mb-s"><%= t(".jump_to") %></label>
+<% if params.dig(:filter, :resource_type).present? %>
+  <p class="text-secondary">
+    <%= link_to main_search_path do %>
+      <%= icon "caret-left", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;<%= t(".back") %>
+    <% end %>
+  </p>
+<% end %>
+<%= render partial: "resources_filter_block", locals: { sections: @sections, types: Decidim::Searchable.searchable_resources_of_type_participatory_space } %>
+<%= render partial: "resources_filter_block", locals: { sections: @sections, types: Decidim::Searchable.searchable_resources_of_type_component } %>
+<div class="row collapse order-by">
+  <div class="text-right">
+    <span class="order-by__tabs">
+      <%= search_path_by_state_link(:past) %>
+      <%= search_path_by_state_link(:future) %>
+      <%= search_path_by_state_link(:active) %>
+      <%= search_path_by_state_link(nil) %>
+    </span>
+  </div>
+</div>
