@@ -1,0 +1,55 @@
+<%#
+Copyright (C) 2020 Formez PA
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+
+Modificata per eliminare notifiche per newsletter
+%>
+<% add_decidim_page_title(t("notifications_settings", scope: "layouts.decidim.user_profile")) %>
+<% content_for(:subtitle) { t("notifications_settings", scope: "layouts.decidim.user_profile") } %>
+
+<div class="row">
+  <%= form_for(@notifications_settings, url: notifications_settings_path, method: :put, class: "user-form") do |f| %>
+    <p><strong><%= t(".receive_notifications_about") %></strong></p>
+    <div class="switch tiny switch-with-label notifications_from_own_activity">
+      <%= f.label :notifications_from_own_activity do %>
+        <%= f.check_box :notifications_from_own_activity, label: false, class: "switch-input" %>
+        <span class="switch-paddle"></span>
+        <span class="switch-label"><%= t(".own_activity") %></span>
+      <% end %>
+    </div>
+    <div class="switch tiny switch-with-label notifications_from_followed">
+      <%= f.label :notifications_from_followed do %>
+        <%= f.check_box :notifications_from_followed, label: false, class: "switch-input" %>
+        <span class="switch-paddle"></span>
+        <span class="switch-label"><%= t(".everything_followed") %></span>
+      <% end %>
+    </div>
+
+    <p><strong><%= t(".send_notifications_by_email") %></strong></p>
+    <div class="switch tiny switch-with-label email_on_notification">
+      <%= f.label :email_on_notification do %>
+        <%= f.check_box :email_on_notification, label: false, class: "switch-input" %>
+        <span class="switch-paddle"></span>
+        <span class="switch-label"><%= t(".email_on_notification") %></span>
+      <% end %>
+    </div>
+
+    <% if @notifications_settings.user_is_moderator?(current_user) %>
+      <p><strong><%= t(".administrators") %></strong></p>
+      <div class="switch tiny switch-with-label email_on_moderations">
+        <label>
+          <%= f.check_box :email_on_moderations, label: false, class: "switch-input" %>
+          <span class="switch-paddle"></span>
+          <span class="switch-label"><%= t(".email_on_moderations") %></span>
+        </label>
+      </div>
+    <% end %>
+   
+    <%= f.submit t(".update_notifications_settings") %>
+  <% end %>
+</div>
