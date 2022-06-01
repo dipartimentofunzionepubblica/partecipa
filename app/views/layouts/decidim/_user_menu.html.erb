@@ -1,0 +1,20 @@
+<%#
+Copyright (C) 2020 Formez PA
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+
+Modificata per eliminare dal menù la voce Conversazioni
+%>
+<li><%= link_to t(".profile"), decidim.account_path, tabindex: "-1" %></li>
+<% if current_user.nickname.present? && !current_user.managed? %>
+  <li><%= link_to t(".public_profile"), decidim.profile_path(current_user.nickname), tabindex: "-1" %></li>
+<% end %>
+<li><%= link_to t(".notifications"), decidim.notifications_path, tabindex: "-1" %></li>
+<% if allowed_to? :read, :admin_dashboard %>
+  <li><%= link_to t(".admin_dashboard"), decidim_admin.root_path, tabindex: "-1" %></li>
+<% end %>
+<li><%= link_to t(".sign_out"), decidim.destroy_user_session_path, method: :delete, class: "sign-out-link", tabindex: "-1" %></li>
