@@ -16,6 +16,9 @@ gem "omniauth-rails_csrf_protection"
 gem "rake"
 gem "pg"
 gem "spid-rails", "= 0.2.0"
+gem "decidim-api"
+gem "decidim-comparative_stats", "~> 1.1.0"
+
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
