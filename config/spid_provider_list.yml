@@ -1,10 +1,5 @@
 --- 
 spid_provider_list: 
-#  - 
-    #alt: "Test ID"
-    #identity_provider: identity_provider
-    #png_image_path: ""
-    #svg_image_path: ""
   - 
     alt: "Test ID"
     identity_provider: identity_provider
