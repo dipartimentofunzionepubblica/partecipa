@@ -356,6 +356,10 @@ GEM
       decidim-core (>= 0.23.0)
       graphlient (~> 0.3)
       jquery-tmpl-rails (~> 1.1)
+    decidim-decidim_awesome (0.7.2)
+      decidim-admin (>= 0.23.0, < 0.25)
+      decidim-core (>= 0.23.0, < 0.25)
+      sassc (~> 2.3)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -886,6 +890,7 @@ DEPENDENCIES
   byebug (~> 11.0)
   decidim!
   decidim-comparative_stats (~> 1.1.0)
+  decidim-decidim_awesome
   decidim-dev!
   decidim-term_customizer!
   faker (~> 1.9)
