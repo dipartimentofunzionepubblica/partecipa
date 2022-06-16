@@ -18,7 +18,9 @@ gem "rake"
 gem "pg"
 gem "spid-rails", "= 0.2.0"
 gem "decidim-comparative_stats", "~> 1.1.0"
-
+# nokogiri locked at 1.13.4 https://github.com/decidim/decidim/issues/9295
+gem "nokogiri", "1.13.4"
+gem 'decidim-term_customizer', branch: '0.24-stable', git: 'https://github.com/mainio/decidim-module-term_customizer'
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri

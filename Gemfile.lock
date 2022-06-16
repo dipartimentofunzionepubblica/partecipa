@@ -206,6 +206,15 @@ GIT
     decidim-verifications (0.24.3)
       decidim-core (= 0.24.3)
 
+GIT
+  remote: https://github.com/mainio/decidim-module-term_customizer
+  revision: 4b385c55996e390406ac68a8b5ab68b9da2c8817
+  branch: 0.24-stable
+  specs:
+    decidim-term_customizer (0.24.0)
+      decidim-admin (~> 0.24.0)
+      decidim-core (~> 0.24.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -570,7 +579,7 @@ GEM
     netrc (0.11.0)
     nio4r (2.5.8)
     nobspw (0.6.2)
-    nokogiri (1.13.6)
+    nokogiri (1.13.4)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     oauth (0.5.10)
@@ -878,10 +887,12 @@ DEPENDENCIES
   decidim!
   decidim-comparative_stats (~> 1.1.0)
   decidim-dev!
+  decidim-term_customizer!
   faker (~> 1.9)
   figaro
   letter_opener_web (~> 1.3)
   listen (~> 3.1)
+  nokogiri (= 1.13.4)
   omniauth (>= 1.9.0)
   omniauth-rails_csrf_protection
   pg
