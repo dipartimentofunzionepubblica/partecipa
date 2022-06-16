@@ -5,6 +5,7 @@ source "https://rubygems.org"
 ruby RUBY_VERSION
 DECIDIM_VERSION = "release/0.24-stable"
 
+gem "rails", "= 5.2.6"
 gem "decidim", git: 'https://github.com/decidim/decidim', tag: DECIDIM_VERSION
 gem "bootsnap", "~> 1.4"
 gem "puma"
@@ -16,7 +17,6 @@ gem "omniauth-rails_csrf_protection"
 gem "rake"
 gem "pg"
 gem "spid-rails", "= 0.2.0"
-gem "decidim-api"
 gem "decidim-comparative_stats", "~> 1.1.0"
 
 
