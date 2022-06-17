@@ -11,13 +11,13 @@
     color: #726a70;
     font-weight: 600;
     font-size: 90%;
-	color: $par-dark-grey;
+    color: $par-dark-grey;
 }
 
 .definition-data__title {
     display: block;
     font-size: 85%;
-	font-weight: bold;
+    font-weight: bold;
     letter-spacing: .01em;
     text-transform: uppercase;
     line-height: 1;
@@ -51,22 +51,31 @@ h1 small, .h1 small, h2 small, .h2 small, h3 small, .h3 small, h4 small, .h4 sma
 }
 
 .footer-nav{
-	text-align: center;
-	list-style-type: none;
+    text-align: center;
+    list-style-type: none;
 }
 
 .filters__section .section-title, .filters__section--general .section-title {
     color: black;
     text-decoration: underline;
-	text-transform: capitalize;
+    text-transform: capitalize;
     margin-right: 1rem;
 }
 
 .filters__section--general.no-results > * {
     opacity: .60;
-	text-transform: capitalize;
+    text-transform: capitalize;
 }
 
 a.muted, abbr.muted, acronym.muted, b.muted, bdo.muted, big.muted, br.muted, button.muted, cite.muted, code.muted, dfn.muted, em.muted, i.muted, img.muted, input.muted, kbd.muted, label.muted, map.muted, object.muted, q.muted, samp.muted, script.muted, select.muted, .inline-filters button.muted[data-toggle], small.muted, span.muted, strong.muted, sub.muted, sup.muted, textarea.muted, time.muted, tt.muted, var.muted {
     color: $par-dark-grey;
+}
+
+.process-header__hashtag a {
+    text-shadow: none;
+    background-color: #003183;
+    border-radius: 5px;
+    color: #fff;
+    padding: 0 0.4em 0.1em;
+    font-size: 0.9em;
 }
