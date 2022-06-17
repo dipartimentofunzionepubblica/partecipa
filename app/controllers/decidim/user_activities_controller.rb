@@ -8,7 +8,7 @@
 #
 # You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
 #
-# 
+#
 # Modificato per rendere possibile la visualizzazione della propria attività solo al proprietario del profilo e agli admin per moderazione
 module Decidim
   # The controller to show all the last activities in a Decidim Organization.
@@ -24,7 +24,7 @@ module Decidim
 
     def index
       enforce_permission_to :user, current_user: current_user
-      raise ActionController::RoutingError, "Blocked User" if user&.blocked? && !current_user&.admin?
+      raise ActionController::RoutingError, 'Blocked User' if user&.blocked? && !current_user&.admin?
       raise ActionController::RoutingError, 'Not Found' if current_user != user && !current_user.admin?
     end
 
@@ -47,17 +47,17 @@ module Decidim
 
     def default_filter_params
       { resource_type: nil }
-      end
+    end
 
     def resource_types
-      @resource_types = %w(Decidim::Proposals::CollaborativeDraft
+      @resource_types = %w[Decidim::Proposals::CollaborativeDraft
                            Decidim::Comments::Comment
                            Decidim::Debates::Debate
                            Decidim::Initiative
                            Decidim::Meetings::Meeting
                            Decidim::Blogs::Post
                            Decidim::Proposals::Proposal
-                           Decidim::Consultations::Question)
+                           Decidim::Consultations::Question]
     end
   end
 end

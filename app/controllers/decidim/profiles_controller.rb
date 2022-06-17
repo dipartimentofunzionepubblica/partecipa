@@ -21,8 +21,8 @@ module Decidim
 
     before_action :ensure_profile_holder
     before_action :ensure_profile_holder_is_a_group, only: [:members]
-    before_action :ensure_profile_holder_is_a_user, only: [:groups, :following]
-    before_action :ensure_user_not_blocked, only: [:following, :followers, :badges]
+    before_action :ensure_profile_holder_is_a_user, only: %i[groups following]
+    before_action :ensure_user_not_blocked, only: %i[following followers badges]
     before_action :ensure_profile_holder_is_current_user, only: %i[following followers groups]
 
     def show
@@ -34,19 +34,19 @@ module Decidim
 
     def following
       @content_cell = 'decidim/following'
-      @title_key = "following"
+      @title_key = 'following'
       render :show
     end
 
     def followers
       @content_cell = 'decidim/followers'
-      @title_key = "followers"
+      @title_key = 'followers'
       render :show
     end
 
     def badges
       @content_cell = 'decidim/badges'
-      @title_key = "badges"
+      @title_key = 'badges'
       render :show
     end
 
@@ -54,7 +54,7 @@ module Decidim
       enforce_user_groups_enabled
 
       @content_cell = 'decidim/groups'
-      @title_key = "groups"
+      @title_key = 'groups'
       render :show
     end
 
@@ -62,22 +62,22 @@ module Decidim
       enforce_user_groups_enabled
 
       @content_cell = 'decidim/members'
-      @title_key = "members"
+      @title_key = 'members'
       render :show
     end
 
     def activity
       @content_cell = 'decidim/user_activity'
-      @title_key = "activity"
+      @title_key = 'activity'
       render :show
     end
 
     private
 
     def ensure_user_not_blocked
-      raise ActionController::RoutingError, "Blocked User" if profile_holder&.blocked? && !current_user&.admin?
+      raise ActionController::RoutingError, 'Blocked User' if profile_holder&.blocked? && !current_user&.admin?
     end
-    
+
     def ensure_profile_holder_is_a_group
       raise ActionController::RoutingError, 'No user group with the given nickname' unless profile_holder.is_a?(Decidim::UserGroup)
     end
@@ -87,7 +87,7 @@ module Decidim
     end
 
     def ensure_profile_holder
-      raise ActionController::RoutingError, "No user or user group with the given nickname" if !profile_holder || profile_holder.nickname.blank?
+      raise ActionController::RoutingError, 'No user or user group with the given nickname' if !profile_holder || profile_holder.nickname.blank?
     end
 
     def ensure_profile_holder_is_current_user

@@ -280,7 +280,7 @@ module Spid
         @errors['issuer'] =
           begin
             "Errore Spid 24: il parametro Response Issuer è '#{response.issuer}'" \
-      			" ma è atteso '#{settings.idp_entity_id}'"
+            " ma è atteso '#{settings.idp_entity_id}'"
           end
         false
       end
@@ -291,7 +291,7 @@ module Spid
         @errors['assertion_issuer'] =
           begin
             "Errore Spid 25: il parametro Response Assertion Issuer è '#{response.assertion_issuer}'" \
-      			" ma è atteso '#{settings.idp_entity_id}'"
+            " ma è atteso '#{settings.idp_entity_id}'"
           end
         false
       end
@@ -312,7 +312,7 @@ module Spid
         @errors['destination'] =
           begin
             "Errore Spid 27: il parametro Response Destination é '#{response.destination}'" \
-      			" ma è atteso '#{settings.sp_acs_url}'"
+            " ma è atteso '#{settings.sp_acs_url}'"
           end
         false
       end
@@ -334,7 +334,7 @@ module Spid
         @errors['audience'] =
           begin
             "Errore Spid 29: il parametro Response Audience é '#{response.audience}'" \
-      			" ma è atteso '#{settings.sp_entity_id}'"
+            " ma è atteso '#{settings.sp_entity_id}'"
           end
         false
       end

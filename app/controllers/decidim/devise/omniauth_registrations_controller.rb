@@ -10,7 +10,7 @@
 
 module Decidim
   module Devise
-    # This controller customizes the behaviour of Devise::Omniauthable.																	   
+    # This controller customizes the behaviour of Devise::Omniauthable.
     class OmniauthRegistrationsController < ::Devise::OmniauthCallbacksController
       include FormFactory
       include Decidim::DeviseControllers
@@ -126,7 +126,6 @@ module Decidim
       end
 
       def action_missing(action_name)
-
         return send(:create) if devise_mapping.omniauthable? && current_organization.enabled_omniauth_providers.keys.include?(action_name.to_sym)
 
         raise AbstractController::ActionNotFound, "The action '#{action_name}' could not be found for Decidim::Devise::OmniauthCallbacksController"

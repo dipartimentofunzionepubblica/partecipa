@@ -2,17 +2,17 @@
 
 Decidim.configure do |config|
   # The name of the application
-  config.application_name = "ParteciPa"
+  config.application_name = 'ParteciPa'
 
   # The email that will be used as sender in all emails from Decidim
-  config.mailer_sender = "noreply@formez.org"
+  config.mailer_sender = 'noreply@formez.org'
 
   # Sets the list of available locales for the whole application.
   #
   # When an organization is created through the System area, system admins will
   # be able to choose the available languages for that organization. That list
   # of languages will be equal or a subset of the list in this file.
-  config.available_locales = [:en, :it]
+  config.available_locales = %i[en it]
 
   # Sets the default locale for new organizations. When creating a new
   # organization from the System area, system admins will be able to overwrite
@@ -43,10 +43,10 @@ Decidim.configure do |config|
         static: { url: 'https://image.maps.ls.hereapi.com/mia/1.6/mapview' }
       }
       config.geocoder = {
-       timeout: 5,
-       units: :km
+        timeout: 5,
+        units: :km
       }
-	end
+    end
   end
   #
   # == OpenStreetMap (OSM) services ==
@@ -114,7 +114,7 @@ Decidim.configure do |config|
   # end
 
   # Currency unit
-  config.currency_unit = "€"
+  config.currency_unit = '€'
 
   # Defines the quality of image uploads after processing. Image uploads are
   # processed by Decidim, this value helps reduce the size of the files.
@@ -206,7 +206,7 @@ Decidim.configure do |config|
   #   end
   # end
   #
-  config.timestamp_service = "Decidim::Initiatives::DummyTimestamp"
+  config.timestamp_service = 'Decidim::Initiatives::DummyTimestamp'
 
   # PDF signature service configuration
   #
@@ -229,7 +229,7 @@ Decidim.configure do |config|
   #   end
   # end
   #
-  config.pdf_signature_service = "Decidim::Initiatives::PdfSignatureExample"
+  config.pdf_signature_service = 'Decidim::Initiatives::PdfSignatureExample'
 
   # Etherpad configuration
   #

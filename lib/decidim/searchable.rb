@@ -10,8 +10,8 @@
 #
 # Modificata per soluzione al bug https://github.com/decidim/decidim/pull/6839 che faceva fallire la migration db/migrate/20220520132058_move_proposals_fields_to_i18n.decidim_proposals.rb
 
-require "active_support/concern"
-require "decidim/search_resource_fields_mapper"
+require 'active_support/concern'
+require 'decidim/search_resource_fields_mapper'
 
 module Decidim
   # A concern with the features needed when you want a model to be searchable.
@@ -37,7 +37,7 @@ module Decidim
     end
 
     def self.searchable_resources_of_type_participant
-      searchable_resources.select { |r| r == "Decidim::User" }
+      searchable_resources.select { |r| r == 'Decidim::User' }
     end
 
     def self.searchable_resources_of_type_participatory_space
@@ -49,13 +49,13 @@ module Decidim
     end
 
     def self.searchable_resources_of_type_comment
-      searchable_resources.select { |r| r == "Decidim::Comments::Comment" }
+      searchable_resources.select { |r| r == 'Decidim::Comments::Comment' }
     end
     included do
       # Always access to this association scoping by_organization
       clazz = self
       has_many :searchable_resources, -> { where(resource_type: clazz.name) },
-               class_name: "Decidim::SearchableResource",
+               class_name: 'Decidim::SearchableResource',
                inverse_of: :resource,
                foreign_key: :resource_id do
         def by_organization(org_id)
@@ -74,6 +74,7 @@ module Decidim
       #
       def try_add_to_index_as_search_resource
         return unless self.class.searchable_resource?(self) && self.class.search_resource_fields_mapper.index_on_create?(self)
+
         add_to_index_as_search_resource
       end
 
@@ -112,10 +113,10 @@ module Decidim
 
       def contents_to_searchable_resource_attributes(fields, locale)
         contents = fields[:i18n][locale]
-        content_a = I18n.transliterate(contents[:A] || "")
-        content_b = I18n.transliterate(contents[:B] || "")
-        content_c = I18n.transliterate(contents[:C] || "")
-        content_d = I18n.transliterate(contents[:D] || "")
+        content_a = I18n.transliterate(contents[:A] || '')
+        content_b = I18n.transliterate(contents[:B] || '')
+        content_c = I18n.transliterate(contents[:C] || '')
+        content_d = I18n.transliterate(contents[:D] || '')
         {
           content_a: content_a, content_b: content_b, content_c: content_c, content_d: content_d,
           locale: locale,
@@ -131,15 +132,16 @@ module Decidim
     end
 
     class_methods do
-
       def search_resource_fields_mapper
-        raise "`searchable_fields` should be declared when including Searchable" unless defined?(@search_resource_indexable_fields)
+        raise '`searchable_fields` should be declared when including Searchable' unless defined?(@search_resource_indexable_fields)
+
         @search_resource_indexable_fields
       end
 
       def order_by_id_list(id_list)
         return ApplicationRecord.none if id_list.to_a.empty?
-        values_clause = id_list.each_with_index.map { |id, i| "(#{id}, #{i})" }.join(", ")
+
+        values_clause = id_list.each_with_index.map { |id, i| "(#{id}, #{i})" }.join(', ')
         joins("JOIN (VALUES #{values_clause}) AS #{table_name}_id_order(id, ordering) ON #{table_name}.id = #{table_name}_id_order.id")
           .order("#{table_name}_id_order.ordering")
       end
@@ -175,7 +177,6 @@ module Decidim
       def searchable_resource?(resource)
         Decidim::Searchable.searchable_resources.include?(resource.class.name)
       end
-
     end
   end
 end
