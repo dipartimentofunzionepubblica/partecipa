@@ -892,6 +892,7 @@ DEPENDENCIES
   decidim-comparative_stats (~> 1.1.0)
   decidim-decidim_awesome
   decidim-dev!
+  decidim-templates!
   decidim-term_customizer!
   faker (~> 1.9)
   figaro
