@@ -17,7 +17,7 @@ namespace :decidim do
     # Get all metrics entities and execute his own rake task.
     # It admits a date-string parameter, in a 'YYYY-MM-DD' format from
     # today to all past dates
-    desc "Execute all metrics calculation methods"
+    desc 'Execute all metrics calculation methods'
     task :all, [:day] => :environment do |_task, args|
       Decidim::Organization.find_each do |organization|
         Decidim.metrics_registry.all.each do |metric_manifest|
@@ -31,8 +31,8 @@ namespace :decidim do
     # Execute metric calculations for just one metric
     # It need a metric name and permits a date-string parameter, in a 'YYYY-MM-DD' format from
     # today to all past dates
-    desc "Execute one metric calculation method"
-    task :one, [:metric, :day] => :environment do |_task, args|
+    desc 'Execute one metric calculation method'
+    task :one, %i[metric day] => :environment do |_task, args|
       next if args.metric.blank?
 
       Decidim::Organization.find_each do |organization|
@@ -41,8 +41,8 @@ namespace :decidim do
       end
     end
 
-    desc "Rebuild calculations from specific day"
-    task :rebuild, [:metric, :day] => :environment do |_task, args|
+    desc 'Rebuild calculations from specific day'
+    task :rebuild, %i[metric day] => :environment do |_task, args|
       metric = args.metric
       day = args.day
       if args.day.blank?
@@ -68,12 +68,12 @@ namespace :decidim do
           end
         end
       rescue ArgumentError
-        log_error "ERROR: Please specify since which date should the metrics be rebuild"
-        log_error "ie: rails decidim:metrics:rebuild[2019-01-01]"
+        log_error 'ERROR: Please specify since which date should the metrics be rebuild'
+        log_error 'ie: rails decidim:metrics:rebuild[2019-01-01]'
       end
     end
 
-    desc "Show available metrics"
+    desc 'Show available metrics'
     task list: :environment do
       puts Decidim.metrics_registry.all.pluck :metric_name
     end
