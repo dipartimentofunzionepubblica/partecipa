@@ -30,7 +30,7 @@ Modificata per eliminare l'upload dell'avatar e inserire il testo esplicativo ne
       <% if @account.errors[:password].any? || @account.errors[:password_confirmation].any? %>
         <%= render partial: "password_fields", locals: { form: f } %>
       <% else %>
-       <% if current_organization.sign_in_enabled? %>											  
+       <% if current_organization.sign_in_enabled? %>
         <p>
           <a data-toggle="passwordChange" class="change-password"><%= t ".change_password" %></a>
         </p>

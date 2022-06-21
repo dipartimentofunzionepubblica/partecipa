@@ -10,6 +10,7 @@
 #
 #
 # Modificato per rendere possibile la visualizzazione della propria attività solo al proprietario del profilo e agli admin per moderazione
+
 module Decidim
   # The controller to show all the last activities in a Decidim Organization.
   class UserActivitiesController < Decidim::ApplicationController
