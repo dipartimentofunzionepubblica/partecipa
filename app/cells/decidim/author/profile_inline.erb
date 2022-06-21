@@ -20,7 +20,7 @@ Modificato per eliminare la il popup relativo all'utente che permette di visuali
 <% elsif has_tooltip? %>
   <span
     class="author__name">
-	<%= model.name %>
+	<%= author_name %>
   </span>
 
   <% if model.badge.present? %>
@@ -30,7 +30,7 @@ Modificato per eliminare la il popup relativo all'utente che permette di visuali
   <% end %>
 <% else %>
   <span class="author__name">
-    <%= model.name %>
+    <%= author_name %>
   </span>
 
   <% if model.badge.present? %>
