@@ -7,22 +7,19 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
 
-Modificata gestione tabs per rimuovere Followers
+Modificata per aggiungere titolo
 %>
-<div class="row">
-  <div class="columns medium-9 medium-offset-3">
-    <%= profile_tabs %>
-  </div>
-</div>
-<div class="row">
-  <div class="columns medium-3">
-    <%= cell "decidim/profile_sidebar", profile_holder %>
-  </div>
-  <div class="columns medium-9">
-    <div class="tabs-content" data-tabs-content="profile-tabs">
-      <div class="tabs-panel is-active">
-        <%= cell content_cell, profile_holder, context %>
-        </div>
-      </div>
+<% add_decidim_page_title(t("layouts.decidim.user_menu.public_profile")) %>
+<div class="wrapper">
+    <div class="columns medium-4"> 
+        <h1 class="heading1">
+            <%=t("layouts.decidim.user_menu.public_profile")%>
+        </h1>
     </div>
 </div>
+<%= cell "decidim/profile", user, context: {
+      content_cell: "decidim/user_activity",
+      activities: activities,
+      filter: filter,
+      resource_types: resource_types
+} %>
