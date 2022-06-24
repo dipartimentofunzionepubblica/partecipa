@@ -10,7 +10,6 @@ You should have received a copy of the GNU Affero General Public License along w
 Modificata per eliminare l'upload dell'avatar e inserire il testo esplicativo nei campi name e nickname
 %>
 <% add_decidim_page_title(t("profile", scope: "layouts.decidim.user_menu")) %>
-<% content_for(:subtitle) { t("profile", scope: "layouts.decidim.user_menu") } %>
 
 <div class="row">
   <%= decidim_form_for(@account, url: account_path, method: :put, html: { autocomplete: "off" }) do |f| %>
