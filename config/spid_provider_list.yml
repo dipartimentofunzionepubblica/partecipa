@@ -1,11 +1,6 @@
 --- 
 spid_provider_list: 
   - 
-    alt: "Test ID"
-    identity_provider: identity_provider
-    png_image_path: ""
-    svg_image_path: ""
-  - 
     alt: "Aruba ID"
     identity_provider: aruba
     png_image_path: decidim/spid/spid-idp-arubaid.png

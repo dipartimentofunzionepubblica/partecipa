@@ -22,8 +22,8 @@ if ENV['SPID_ENABLED'].to_s == 'true'
   require "#{Rails.root}/lib/spid/saml2.rb"
   require "#{Rails.root}/lib/spid_access_logger/spid_access_logger.rb"
 
-  SPID_PROVIDER_LIST_HASH = YAML.load(File.open("#{Rails.root}/config/spid_provider_list.yml"))['spid_provider_list'].freeze
-  Rails.logger.debug "SPID_PROVIDER_LIST_HASH = #{SPID_PROVIDER_LIST_HASH}"
+  SPID_PROVIDER_LIST_HASH = YAML.load(File.open("#{Rails.root}/config/spid_provider_list.yml"))['spid_provider_list']
+
   Spid.configure do |config|
     ACS = YAML.load(File.open("#{Rails.root}/config/spid_acs_list.yml"))['acs_list'].each(&:deep_symbolize_keys!)
     SLO = YAML.load(File.open("#{Rails.root}/config/spid_slo_list.yml"))['slo_list'].each(&:deep_symbolize_keys!)
