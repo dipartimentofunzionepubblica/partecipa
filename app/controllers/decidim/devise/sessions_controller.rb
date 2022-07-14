@@ -7,6 +7,8 @@
 # This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
 #
 # You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+#
+# Modificato per permettere la logout spid
 
 module Decidim
   module Devise
@@ -18,12 +20,19 @@ module Decidim
       before_action :check_sign_in_enabled, only: :create
       before_action :set_spid_identity_provider, only: :destroy
 
-      def create
-        super
+      def destroy
+        current_user.invalidate_all_sessions!
+        if params[:translation_suffix].present?
+          super { set_flash_message! :notice, params[:translation_suffix], { scope: 'decidim.devise.sessions' } }
+        else
+          super
+        end
       end
 
       def after_sign_in_path_for(user)
-        if first_login_and_not_authorized?(user) && !user.admin? && !pending_redirect?(user)
+        if user.present? && user.blocked?
+          check_user_block_status(user)
+        elsif first_login_and_not_authorized?(user) && !user.admin? && !pending_redirect?(user)
           decidim_verifications.first_login_authorizations_path
         else
           super
@@ -48,7 +57,7 @@ module Decidim
           spid_logout_url(idp_name: @identity_provider)
         else
           request.referer || super
-    end
+        end
       end
 
       private

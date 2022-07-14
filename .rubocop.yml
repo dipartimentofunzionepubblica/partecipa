@@ -1,9 +1,10 @@
 AllCops:
   Exclude:
-    - db/schema.rb
-    - db/migrate/*
-    - lib/templates/rails/jbuilder/index.json.jbuilder
-    - bin/*
+    - "db/schema.rb"
+    - "db/migrate/*"
+    - "lib/templates/rails/jbuilder/index.json.jbuilder"
+    - "bin/*"
+    - "node_modules/**/*"
     
 Metrics/LineLength:
   Enabled: false

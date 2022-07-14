@@ -7,6 +7,11 @@
     min-height: 76px;
 }
 
+.footer-nav li {
+    display: inline-block;
+    padding: 0 1rem;
+}
+
 .mini-footer {
     padding: 1rem 0;
 	background: $par-light-blue;
@@ -15,3 +20,4 @@
 .mini-footer a, .main-footer a {
 	color: $par-white; 
 }
+

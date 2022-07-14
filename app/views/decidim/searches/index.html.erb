@@ -1,4 +1,4 @@
-<!--
+<%#
 Copyright (C) 2020 Formez PA
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
@@ -6,9 +6,13 @@ This program is free software: you can redistribute it and/or modify it under th
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
--->
+
+Modificata per eliminare dai risultati di ricerca gli utenti e i commenti
+%>
+<% add_decidim_page_title(t("term_input_placeholder", scope: "decidim.search")) %>
 <% @sections.delete("Decidim::User") %>
-<main class="wrapper">
+<% @sections.delete("Decidim::Comments") %>
+<div class="wrapper">
   <div class="row" id="search-count">
     <%= render partial: "count" %>
   </div>
@@ -20,6 +24,6 @@ You should have received a copy of the GNU Affero General Public License along w
       <%= cell "decidim/search_results", @sections, params: params %>
     </div>
   </div>
-</main>
+</div>
 <%= javascript_include_tag("decidim/filters") %>
-<%= javascript_include_tag "decidim/orders" %>
+<%= javascript_include_tag "decidim/results_listing" %>
