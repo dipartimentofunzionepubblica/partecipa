@@ -1,4 +1,4 @@
-<!--
+<%#
 Copyright (C) 2020 Formez PA
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
@@ -6,14 +6,16 @@ This program is free software: you can redistribute it and/or modify it under th
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
--->
+
+Modificata per eliminare la possibilità di registrazione con sottoscrizione newsletter
+%>
 <% add_decidim_page_title(t(".sign_up")) %>
 
 <% content_for :devise_links do %>
   <%= render "decidim/devise/shared/links" %>
 <% end %>
 
-<main class="wrapper">
+<div class="wrapper">
 <div class="row collapse">
   <div class="row collapse">
     <div class="columns large-8 large-centered text-center page-title">
@@ -28,24 +30,27 @@ You should have received a copy of the GNU Affero General Public License along w
     </div>
   </div>
 
-  <%= render "decidim/devise/shared/omniauth_buttons" %>
-
+<% cache current_organization do %>
+    <%= render "decidim/devise/shared/omniauth_buttons" %>
+<% end %>
+  
   <div class="row">
     <div class="columns large-6 medium-10 medium-centered">
 
-      <%= decidim_form_for(@form, as: resource_name, url: registration_path(resource_name), html: { class: "register-form new_user", id: "register-form" }) do |f| %>
+      <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: registration_path(resource_name), html: { class: "register-form new_user", id: "register-form" }) do |f| %>
         <%= invisible_captcha %>
         <div class="card">
           <div class="card__content">
+            <%= form_required_explanation %>
             <div class="user-person">
               <div class="field">
                 <%= f.text_field :name, help_text: t(".username_help") %>
               </div>
             </div>
 
-            <div class="user-person">
+            <div class="user-nickname">
               <div class="field">
-                <%= f.text_field :nickname, help_text: t(".nickname_help", organization: current_organization.name) %>
+                <%= f.text_field :nickname, help_text: t(".nickname_help", organization: current_organization.name), prefix: { value: "@", small: 1, large: 1 } %>
               </div>
             </div>
 
@@ -65,7 +70,7 @@ You should have received a copy of the GNU Affero General Public License along w
 
         <div class="card" id="card__tos">
           <div class="card__content">
-            <legend><%= t(".tos_title") %></legend>
+            <h3><%= t(".tos_title") %></h3>
 
             <p class="tos-text">
               <%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %>
@@ -76,7 +81,7 @@ You should have received a copy of the GNU Affero General Public License along w
             </div>
           </div>
         </div>
-	<%= f.hidden_field :newsletter, value: false %>
+        <%= f.hidden_field :newsletter, value: false %>
         <div class="card">
           <div class="card__content">
             <div class="actions">
@@ -87,5 +92,7 @@ You should have received a copy of the GNU Affero General Public License along w
         </div>
       <% end %>
     </div>
-  </div> </div> </main> 
+  </div> 
+ </div> 
+</div> 
 <%= render "decidim/devise/shared/newsletter_modal" %>

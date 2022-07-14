@@ -27,9 +27,9 @@ module Spid
           '/X509Data/X509Certificate/text()')
         )
         if curr_cert_ds.nil?
-          return curr_cert_nods
+          curr_cert_nods
         else
-          return curr_cert_ds
+          curr_cert_ds
         end
       end
 

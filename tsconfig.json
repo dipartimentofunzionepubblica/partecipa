@@ -10,12 +10,14 @@
         "moduleResolution": "node"
     },
     "includes": [
-        "vendor/decidim-comments/app/frontend/**/*.tsx",
-        "vendor/decidim-comments/app/frontend/**/*.ts",
+        "decidim-admin/app/frontend/**/*.tsx",
+        "decidim-admin/app/frontend/**/*.ts",
+        "decidim-comments/app/frontend/**/*.tsx",
+        "decidim-comments/app/frontend/**/*.ts",
         "webpack.d.ts"
     ],
     "exclude": [
         "node_modules",
-        "vendor/decidim-comments/app/frontend/entry_test.ts"
+        "decidim-amin/app/frontend/entry_test.ts"
     ]
 }

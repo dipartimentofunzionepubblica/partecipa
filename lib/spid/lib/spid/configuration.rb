@@ -44,10 +44,10 @@ module Spid
     def init_endpoint
       @hostname = nil
       @entity_id = nil
-      @metadata_path             = '/spid/metadata'
-      @login_path                = '/spid/login'
-      @logout_path               = '/spid/logout'
-      @default_relay_state_path  = '/users/auth/spidauth/callback'
+      @metadata_path = '/spid/metadata'
+      @login_path = '/spid/login'
+      @logout_path = '/spid/logout'
+      @default_relay_state_path = '/users/auth/spidauth/callback'
       @organization_name = ''
       @organization_display_name = ''
       @organization_url = ''
@@ -60,7 +60,7 @@ module Spid
     end
 
     def init_dig_sig_methods
-      @signature_method         = Spid::RSA_SHA256
+      @signature_method = Spid::RSA_SHA256
     end
 
     def init_openssl_keys
