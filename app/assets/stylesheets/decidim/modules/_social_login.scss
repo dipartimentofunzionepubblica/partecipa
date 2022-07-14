@@ -1,0 +1,29 @@
+@import "../variables";
+
+.social-login-button{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.spid-button-container{
+  height:auto;
+}
+
+.spid-button{
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.spid-button-large-idp-list{
+  margin-left:18px;
+}
+
+.spid-button-mini-idp-list{
+  margin-left:10px;
+}
+
+.spid-idp-label{
+  box-sizing: initial;
+}

@@ -44,21 +44,21 @@ module Spid
       )
         @host = host
         @entity_id = entity_id
-        @acs_binding            = acs_binding
-        @slo_binding            = slo_binding
-        @metadata_path          = metadata_path
-        @private_key            = private_key
-        @certificate            = certificate
-        @signature_method       = signature_method
-        @attribute_services     = attribute_services
-        @organization_name      = organization_name
+        @acs_binding = acs_binding
+        @slo_binding = slo_binding
+        @metadata_path = metadata_path
+        @private_key = private_key
+        @certificate = certificate
+        @signature_method = signature_method
+        @attribute_services = attribute_services
+        @organization_name = organization_name
         @organization_display_name = organization_display_name
         @organization_url = organization_url
-        @acs          = acs
-        @slo          = slo
+        @acs = acs
+        @slo = slo
         @signed_metadata_path = signed_metadata_path
-        @acs_index         = acs_index
-        @slo_index         = slo_index
+        @acs_index = acs_index
+        @slo_index = slo_index
         validate_digest_methods
         validate_attributes
         validate_private_key

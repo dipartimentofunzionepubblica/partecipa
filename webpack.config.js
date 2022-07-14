@@ -13,11 +13,13 @@ module.exports = env => {
 
   const config = {
     entry: {
-      comments: "./vendor/decidim-comments-polyfilled/entry.ts",
+      core: "./decidim-core/app/frontend/entry.ts",
+      admin: "./decidim-admin/app/frontend/entry.ts",
     },
     output: {
       path: __dirname,
-      filename: "app/assets/javascripts/decidim/[name]/bundle.js",
+      filename:
+        "decidim-[name]/app/assets/javascripts/decidim/[name]/bundle.js",
     },
     resolve: {
       extensions: [".js", ".jsx", ".ts", ".tsx", ".yml"],
@@ -82,7 +84,7 @@ module.exports = env => {
         openAnalyzer: false,
       }),
       new MiniCssExtractPlugin({
-        filename: "app/assets/stylesheets/decidim/[name]/bundle.scss"
+        filename: "decidim-[name]/app/assets/stylesheets/decidim/[name]/bundle.scss"
       })
     ],
   };
