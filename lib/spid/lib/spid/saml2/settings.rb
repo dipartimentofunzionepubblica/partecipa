@@ -21,7 +21,7 @@ module Spid
         unless AUTHN_CONTEXTS.include?(@authn_context)
           raise Spid::UnknownAuthnContextError,
                 "Provided authn_context '#{@authn_context}' is not valid:" \
-        				" use one of #{AUTHN_CONTEXTS.join(', ')}"
+                " use one of #{AUTHN_CONTEXTS.join(', ')}"
         end
         @identity_provider = identity_provider
         @service_provider = service_provider

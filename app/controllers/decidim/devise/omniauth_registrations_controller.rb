@@ -7,11 +7,12 @@
 # This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
 #
 # You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
-
-# frozen_string_literal: true
+#
+# Modificato per includere la auth strategy spidauth
 
 module Decidim
   module Devise
+    # This controller customizes the behaviour of Devise::Omniauthable.
     class OmniauthRegistrationsController < ::Devise::OmniauthCallbacksController
       include FormFactory
       include Decidim::DeviseControllers
@@ -105,7 +106,9 @@ module Decidim
       end
 
       def after_sign_in_path_for(user)
-        if !pending_redirect?(user) && first_login_and_not_authorized?(user)
+        if user.present? && user.blocked?
+          check_user_block_status(user)
+        elsif !pending_redirect?(user) && first_login_and_not_authorized?(user)
           decidim_verifications.authorizations_path
         else
           super
@@ -125,7 +128,6 @@ module Decidim
       end
 
       def action_missing(action_name)
-        # return send(:create) if devise_mapping.omniauthable? && User.omniauth_providers.include?(action_name.to_sym)
         return send(:create) if devise_mapping.omniauthable? && current_organization.enabled_omniauth_providers.keys.include?(action_name.to_sym)
 
         raise AbstractController::ActionNotFound, "The action '#{action_name}' could not be found for Decidim::Devise::OmniauthCallbacksController"
