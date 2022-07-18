@@ -18,15 +18,13 @@ module Decidim
     include UserGroups
     include FilterResource
     include Flaggable
-    include Decidim::UserProfile
 
     helper Decidim::ResourceHelper
-    helper_method :activities, :resource_types, :user, :current_user
+    helper_method :activities, :resource_types, :user
 
     def index
-      enforce_permission_to :user, current_user: current_user
       raise ActionController::RoutingError, 'Blocked User' if user&.blocked? && !current_user&.admin?
-      raise ActionController::RoutingError, 'Not Found' if current_user != user && !current_user.admin?
+      raise ActionController::RoutingError, 'Not Found' if current_user != user && !current_user&.admin?
     end
 
     private
