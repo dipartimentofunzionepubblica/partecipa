@@ -13,6 +13,7 @@ gem 'decidim-comparative_stats', '~> 1.1.0'
 gem 'decidim-decidim_awesome'
 gem 'decidim-templates', git: 'https://github.com/decidim/decidim', tag: DECIDIM_VERSION
 gem 'decidim-term_customizer', branch: '0.24-stable', git: 'https://github.com/mainio/decidim-module-term_customizer'
+gem 'decidim-calendar', branch: 'undo_participatory_space', git: 'https://github.com/PopulateTools/decidim-module-calendar'
 gem 'faker', '~> 1.9'
 gem 'figaro'
 gem 'nokogiri', '1.13.4'
