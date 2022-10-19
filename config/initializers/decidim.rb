@@ -2,22 +2,22 @@
 
 Decidim.configure do |config|
   # The name of the application
-  config.application_name = 'ParteciPa'
+  config.application_name = "My Application Name"
 
   # The email that will be used as sender in all emails from Decidim
-  config.mailer_sender = 'noreply@formez.org'
+  config.mailer_sender = "change-me@example.org"
 
   # Sets the list of available locales for the whole application.
   #
   # When an organization is created through the System area, system admins will
   # be able to choose the available languages for that organization. That list
   # of languages will be equal or a subset of the list in this file.
-  config.available_locales = %i[en it]
+  config.available_locales = [:en, :ca, :es]
 
   # Sets the default locale for new organizations. When creating a new
   # organization from the System area, system admins will be able to overwrite
   # this value for that specific organization.
-  config.default_locale = :it
+  config.default_locale = :en
 
   # Restrict access to the system part with an authorized ip list.
   # You can use a single ip like ("1.2.3.4"), or an ip subnet like ("1.2.3.4/24")
@@ -30,24 +30,16 @@ Decidim.configure do |config|
   # config.content_processors = []
 
   # Whether SSL should be enabled or not.
-  config.force_ssl = true
+  # config.force_ssl = true
 
   # Map and Geocoder configuration
   #
-  # Geocoder configuration
-  if Rails.application.secrets.geocoder
-    Decidim.configure do |config|
-      config.maps = {
-        provider: :here,
-        api_key: Rails.application.secrets.geocoder[:here_api_key],
-        static: { url: 'https://image.maps.ls.hereapi.com/mia/1.6/mapview' }
-      }
-      config.geocoder = {
-        timeout: 5,
-        units: :km
-      }
-    end
-  end
+  # == HERE Maps ==
+  # config.maps = {
+  #   provider: :here,
+  #   api_key: Rails.application.secrets.maps[:api_key],
+  #   static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
+  # }
   #
   # == OpenStreetMap (OSM) services ==
   # To use the OSM map service providers, you will need a service provider for
@@ -114,7 +106,7 @@ Decidim.configure do |config|
   # end
 
   # Currency unit
-  config.currency_unit = '€'
+  # config.currency_unit = "€"
 
   # Defines the quality of image uploads after processing. Image uploads are
   # processed by Decidim, this value helps reduce the size of the files.
@@ -206,7 +198,7 @@ Decidim.configure do |config|
   #   end
   # end
   #
-  config.timestamp_service = 'Decidim::Initiatives::DummyTimestamp'
+  config.timestamp_service = "Decidim::Initiatives::DummyTimestamp"
 
   # PDF signature service configuration
   #
@@ -229,7 +221,7 @@ Decidim.configure do |config|
   #   end
   # end
   #
-  config.pdf_signature_service = 'Decidim::Initiatives::PdfSignatureExample'
+  config.pdf_signature_service = "Decidim::Initiatives::PdfSignatureExample"
 
   # Etherpad configuration
   #
@@ -287,6 +279,9 @@ Decidim.configure do |config|
   # set cookies.
   # config.consent_cookie_name = "decidim-cc"
 end
-I18n.load_path += Dir.glob("lib/decidim_comparative-stats/config/locales/*.{rb,yml}")
+
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
+
+# Inform Decidim about the assets folder
+Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)
