@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'omniauth/strategies/spidauth'
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 
@@ -319,7 +318,6 @@ Devise.setup do |config|
                     Rails.application.secrets.omniauth[:google_oauth2][:client_id],
                     Rails.application.secrets.omniauth[:google_oauth2][:client_secret]
   end
-  config.omniauth :spidauth if Rails.application.secrets.dig(:omniauth, :spidauth).present?
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
