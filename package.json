@@ -2,10 +2,19 @@
   "name": "decidim_development_app",
   "private": true,
   "dependencies": {
-    "@rails/ujs": "^6.0.0",
-    "turbolinks": "^5.2.0",
+    "@decidim/browserslist-config": "file:packages/browserslist-config",
+    "@decidim/core": "file:packages/core",
+    "@decidim/elections": "file:packages/elections",
+    "@decidim/webpacker": "file:packages/webpacker",
+    "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
-    "@rails/actioncable": "^6.0.0"
+    "@rails/ujs": "^6.0.0",
+    "turbolinks": "^5.2.0"
   },
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "devDependencies": {
+    "@decidim/dev": "file:packages/dev",
+    "@decidim/eslint-config": "file:packages/eslint-config",
+    "@decidim/stylelint-config": "file:packages/stylelint-config"
+  }
 }
