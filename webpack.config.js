@@ -86,7 +86,8 @@ module.exports = env => {
       new MiniCssExtractPlugin({
         filename: "decidim-[name]/app/assets/stylesheets/decidim/[name]/bundle.scss"
       })
-    ],
+    ]
   };
+  
   return config;
 };
