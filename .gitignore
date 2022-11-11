@@ -41,6 +41,11 @@ public/assets/**
 public/assets/**
 !/public/assets/.keep
 
+# Ignore packs
+packages/**
+public/decidim-packs/**
+public/packs/**
+
 # Ignore application.yml
 config/application*.yml
 
