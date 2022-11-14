@@ -176,6 +176,27 @@ GIT
       decidim-core (= 0.25.2)
 
 GIT
+  remote: https://github.com/kapusons/decidim-module-privacy
+  revision: 4e930b16f29f35117aa2f309f9e68dad9dfe17e6
+  ref: 4e930b16f29f35117aa2f309f9e68dad9dfe17e6
+  specs:
+    decidim-privacy (0.25.2)
+      decidim-admin (= 0.25.2)
+      decidim-core (= 0.25.2)
+      deface (= 1.9.0)
+
+GIT
+  remote: https://github.com/kapusons/decidim-module-spid-cie
+  revision: 914f2c10985f67e14e2c183cdd3cfface49f8bd8
+  ref: 914f2c10985f67e14e2c183cdd3cfface49f8bd8
+  specs:
+    decidim-spid-cie (0.25.2)
+      decidim-core (= 0.25.2)
+      deface (= 1.9.0)
+      omniauth (>= 1.9)
+      ruby-saml (~> 1.14.0)
+
+GIT
   remote: https://github.com/mainio/decidim-module-term_customizer
   revision: 1d20451c56b7809cf0d509bbb4d0ac63d4791c8c
   branch: release/0.25-stable
@@ -355,6 +376,12 @@ GEM
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
+    deface (1.9.0)
+      actionview (>= 5.2)
+      nokogiri (>= 1.6)
+      polyglot
+      railties (>= 5.2)
+      rainbow (>= 2.1.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (4.8.1)
@@ -573,6 +600,7 @@ GEM
     pg_search (2.3.6)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
+    polyglot (0.3.5)
     premailer (1.18.0)
       addressable
       css_parser (>= 1.12.0)
@@ -709,6 +737,9 @@ GEM
     rubocop-rspec (1.43.2)
       rubocop (~> 0.87)
     ruby-progressbar (1.11.0)
+    ruby-saml (1.14.0)
+      nokogiri (>= 1.10.5)
+      rexml
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     ruby2_keywords (0.0.5)
@@ -826,6 +857,8 @@ DEPENDENCIES
   decidim-comparative_stats (~> 1.1.0)
   decidim-decidim_awesome
   decidim-dev!
+  decidim-privacy!
+  decidim-spid-cie!
   decidim-templates!
   decidim-term_customizer!
   faker (~> 2.14)
@@ -833,8 +866,6 @@ DEPENDENCIES
   foundation_rails_helper!
   letter_opener_web (~> 1.3)
   listen (~> 3.1)
-  omniauth (>= 1.9.0)
-  omniauth-rails_csrf_protection
   pg
   puma
   rake
