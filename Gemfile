@@ -14,12 +14,14 @@ gem 'decidim-term_customizer', branch: DECIDIM_VERSION, git: 'https://github.com
 gem 'faker', '~> 2.14'
 gem 'foundation_rails_helper', git: 'https://github.com/sgruhier/foundation_rails_helper.git'
 gem 'figaro'
-gem 'omniauth', '>= 1.9.0'
-gem 'omniauth-rails_csrf_protection'
+#gem 'omniauth', '>= 1.9.0'
+#gem 'omniauth-rails_csrf_protection'
 gem 'pg'
 gem 'puma'
 gem 'rake'
 gem 'uglifier', '~> 4.1'
+gem 'decidim-spid-cie', git: 'https://github.com/kapusons/decidim-module-spid-cie', ref: '914f2c10985f67e14e2c183cdd3cfface49f8bd8'
+gem 'decidim-privacy', git: 'https://github.com/kapusons/decidim-module-privacy', ref: '4e930b16f29f35117aa2f309f9e68dad9dfe17e6'
 
 group :development, :test do
   gem 'byebug', '~> 11.0', platform: :mri
