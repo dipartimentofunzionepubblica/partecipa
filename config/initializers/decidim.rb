@@ -279,7 +279,7 @@ Decidim.configure do |config|
   # set cookies.
   # config.consent_cookie_name = "decidim-cc"
 end
-
+I18n.load_path += Dir.glob("lib/decidim_comparative-stats/config/locales/*.{rb,yml}")
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
 
