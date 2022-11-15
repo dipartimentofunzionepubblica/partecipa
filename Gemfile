@@ -14,8 +14,6 @@ gem 'decidim-term_customizer', branch: DECIDIM_VERSION, git: 'https://github.com
 gem 'faker', '~> 2.14'
 gem 'foundation_rails_helper', git: 'https://github.com/sgruhier/foundation_rails_helper.git'
 gem 'figaro'
-#gem 'omniauth', '>= 1.9.0'
-#gem 'omniauth-rails_csrf_protection'
 gem 'pg'
 gem 'puma'
 gem 'rake'

@@ -363,6 +363,9 @@ GEM
     db-query-matchers (0.10.0)
       activesupport (>= 4.0, < 7)
       rspec (~> 3.0)
+    decidim-calendar (0.19.0)
+      decidim-admin (>= 0.19.0)
+      decidim-core (>= 0.19.0)
     decidim-comparative_stats (1.1.0)
       chartkick (~> 3.3)
       decidim-admin (>= 0.23.0)
@@ -854,6 +857,7 @@ DEPENDENCIES
   bootsnap (~> 1.4)
   byebug (~> 11.0)
   decidim!
+  decidim-calendar
   decidim-comparative_stats (~> 1.1.0)
   decidim-decidim_awesome
   decidim-dev!
