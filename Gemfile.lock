@@ -197,15 +197,6 @@ GIT
       ruby-saml (~> 1.14.0)
 
 GIT
-  remote: https://github.com/mainio/decidim-module-term_customizer
-  revision: 1d20451c56b7809cf0d509bbb4d0ac63d4791c8c
-  branch: release/0.25-stable
-  specs:
-    decidim-term_customizer (0.25.0)
-      decidim-admin (~> 0.25.0)
-      decidim-core (~> 0.25.0)
-
-GIT
   remote: https://github.com/sgruhier/foundation_rails_helper.git
   revision: 45709e28f567b2e619a06091eb63d4f050f861d8
   specs:
@@ -363,9 +354,6 @@ GEM
     db-query-matchers (0.10.0)
       activesupport (>= 4.0, < 7)
       rspec (~> 3.0)
-    decidim-calendar (0.19.0)
-      decidim-admin (>= 0.19.0)
-      decidim-core (>= 0.19.0)
     decidim-comparative_stats (1.1.0)
       chartkick (~> 3.3)
       decidim-admin (>= 0.23.0)
@@ -857,14 +845,12 @@ DEPENDENCIES
   bootsnap (~> 1.4)
   byebug (~> 11.0)
   decidim!
-  decidim-calendar
   decidim-comparative_stats (~> 1.1.0)
   decidim-decidim_awesome
   decidim-dev!
   decidim-privacy!
   decidim-spid-cie!
   decidim-templates!
-  decidim-term_customizer!
   faker (~> 2.14)
   figaro
   foundation_rails_helper!
