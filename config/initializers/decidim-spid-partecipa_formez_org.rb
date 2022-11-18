@@ -12,7 +12,7 @@ Decidim::Spid.configure do |config|
 
   # Definisce l'entity ID del service provider:
   # config.sp_entity_id = "https://www.example.org/users/auth/spid/metadata"
-  config.sp_entity_id = "partecipa.formez.org"
+  config.sp_entity_id = "https://partecipa.formez.org"
 
   # Le chiavi che verranno salvate sul DB nell'autorizzazione
   config.metadata_attributes = {
