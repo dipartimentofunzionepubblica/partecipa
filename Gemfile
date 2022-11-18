@@ -7,7 +7,7 @@ DECIDIM_VERSION = 'release/0.25-stable'
 
 gem 'bootsnap', '~> 1.4'
 gem 'decidim', git: 'https://github.com/decidim/decidim', tag: DECIDIM_VERSION
-gem 'decidim-comparative_stats', '~> 1.1.0'
+#gem 'decidim-comparative_stats', '~> 1.1.0'
 gem 'decidim-decidim_awesome'
 gem 'decidim-templates', git: 'https://github.com/decidim/decidim', tag: DECIDIM_VERSION
 gem 'decidim-term_customizer', branch: DECIDIM_VERSION, git: 'https://github.com/mainio/decidim-module-term_customizer'

@@ -338,7 +338,6 @@ GEM
       actionpack (>= 5.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.7)
-    chartkick (3.4.2)
     chef-utils (18.0.161)
       concurrent-ruby
     childprocess (3.0.0)
@@ -363,12 +362,6 @@ GEM
     db-query-matchers (0.10.0)
       activesupport (>= 4.0, < 7)
       rspec (~> 3.0)
-    decidim-comparative_stats (1.1.0)
-      chartkick (~> 3.3)
-      decidim-admin (>= 0.23.0)
-      decidim-core (>= 0.23.0)
-      graphlient (~> 0.3)
-      jquery-tmpl-rails (~> 1.1)
     decidim-decidim_awesome (0.8.3)
       decidim-admin (>= 0.25.0, < 0.27)
       decidim-core (>= 0.25.0, < 0.27)
@@ -451,13 +444,7 @@ GEM
     geocoder (1.8.1)
     globalid (0.5.2)
       activesupport (>= 5.0)
-    graphlient (0.7.0)
-      faraday (~> 2.0)
-      graphql-client
     graphql (1.13.16)
-    graphql-client (0.18.0)
-      activesupport (>= 3.0)
-      graphql
     hashdiff (1.0.1)
     hashie (5.0.0)
     highline (2.0.3)
@@ -487,8 +474,6 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
-    jquery-tmpl-rails (1.1.0)
-      rails (>= 3.1.0)
     json (2.6.2)
     jwt (2.5.0)
     kaminari (1.2.2)
@@ -854,7 +839,6 @@ DEPENDENCIES
   bootsnap (~> 1.4)
   byebug (~> 11.0)
   decidim!
-  decidim-comparative_stats (~> 1.1.0)
   decidim-decidim_awesome
   decidim-dev!
   decidim-privacy!
