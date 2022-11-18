@@ -2,10 +2,10 @@
 
 Decidim.configure do |config|
   # The name of the application
-  config.application_name = "My Application Name"
+  config.application_name = "ParteciPa"
 
   # The email that will be used as sender in all emails from Decidim
-  config.mailer_sender = "change-me@example.org"
+  config.mailer_sender = "noreply@formez.org"
 
   # Sets the list of available locales for the whole application.
   #
@@ -279,7 +279,7 @@ Decidim.configure do |config|
   # set cookies.
   # config.consent_cookie_name = "decidim-cc"
 end
-I18n.load_path += Dir.glob("lib/decidim_comparative-stats/config/locales/*.{rb,yml}")
+
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
 
