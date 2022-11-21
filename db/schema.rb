@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_20_115832) do
+ActiveRecord::Schema.define(version: 2022_11_21_165739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1286,6 +1286,19 @@ ActiveRecord::Schema.define(version: 2022_10_20_115832) do
     t.index ["privatable_to_type", "privatable_to_id"], name: "space_privatable_to_privatable_id"
   end
 
+  create_table "decidim_privacy_settings", force: :cascade do |t|
+    t.bigint "decidim_organization_id", null: false
+    t.bigint "decidim_user_id"
+    t.boolean "user_avatar", default: true
+    t.boolean "user_search", default: true
+    t.boolean "user_follow", default: true
+    t.boolean "user_message", default: true
+    t.boolean "user_index", default: true
+    t.boolean "user_public_page", default: true
+    t.index ["decidim_organization_id"], name: "decidim_privacy_setting_organization"
+    t.index ["decidim_user_id"], name: "decidim_privacy_setting_user"
+  end
+
   create_table "decidim_proposals_collaborative_draft_collaborator_requests", force: :cascade do |t|
     t.bigint "decidim_proposals_collaborative_draft_id", null: false
     t.bigint "decidim_user_id", null: false
@@ -1829,6 +1842,7 @@ ActiveRecord::Schema.define(version: 2022_10_20_115832) do
   add_foreign_key "decidim_participatory_process_steps", "decidim_participatory_processes"
   add_foreign_key "decidim_participatory_processes", "decidim_organizations"
   add_foreign_key "decidim_participatory_processes", "decidim_scope_types"
+  add_foreign_key "decidim_privacy_settings", "decidim_organizations"
   add_foreign_key "decidim_scope_types", "decidim_organizations"
   add_foreign_key "decidim_scopes", "decidim_organizations"
   add_foreign_key "decidim_scopes", "decidim_scope_types", column: "scope_type_id"
