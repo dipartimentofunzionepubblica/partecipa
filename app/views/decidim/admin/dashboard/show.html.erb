@@ -50,7 +50,7 @@ Modificata per gestire l'eccezione creata sul log a seguito disinstallazione del
 	
     <% if allowed_to? :read, :admin_log %>
       <div class="cell small-6">
-        # Aggiunto per gestire il caso di Uninitialized Constant
+        <%# Aggiunto per gestire il caso di Uninitialized Constant%>
 		<% begin %> 
 			<%= render partial: "decidim/admin/logs/logs_list", locals: { logs: latest_action_logs } %>
 		<% if latest_action_logs.any? %>
