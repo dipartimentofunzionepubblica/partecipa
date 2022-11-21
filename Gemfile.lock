@@ -177,8 +177,8 @@ GIT
 
 GIT
   remote: https://github.com/kapusons/decidim-module-privacy
-  revision: 4e930b16f29f35117aa2f309f9e68dad9dfe17e6
-  ref: 4e930b16f29f35117aa2f309f9e68dad9dfe17e6
+  revision: c8925b583a8e85f9b90ae4f63119026510ee0919
+  ref: c8925b583a8e85f9b90ae4f63119026510ee0919
   specs:
     decidim-privacy (0.25.2)
       decidim-admin (= 0.25.2)
