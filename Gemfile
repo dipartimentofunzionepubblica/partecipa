@@ -8,11 +8,13 @@ DECIDIM_VERSION = 'release/0.24-stable'
 # nokogiri locked at 1.13.4 https://github.com/decidim/decidim/issues/9295
 
 gem 'bootsnap', '~> 1.4'
+gem 'daemons'
 gem 'decidim', git: 'https://github.com/decidim/decidim', tag: DECIDIM_VERSION
 gem 'decidim-comparative_stats', '~> 1.1.0'
 gem 'decidim-decidim_awesome'
 gem 'decidim-templates', git: 'https://github.com/decidim/decidim', tag: DECIDIM_VERSION
 gem 'decidim-term_customizer', branch: '0.24-stable', git: 'https://github.com/mainio/decidim-module-term_customizer'
+gem 'delayed_job_active_record'
 gem 'faker', '~> 1.9'
 gem 'figaro'
 gem 'nokogiri', '1.13.4'

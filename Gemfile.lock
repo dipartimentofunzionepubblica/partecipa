@@ -344,6 +344,7 @@ GEM
     crass (1.0.6)
     css_parser (1.11.0)
       addressable
+    daemons (1.4.1)
     date_validator (0.9.0)
       activemodel
       activesupport
@@ -363,6 +364,11 @@ GEM
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
+    delayed_job (4.1.11)
+      activesupport (>= 3.0, < 8.0)
+    delayed_job_active_record (4.1.7)
+      activerecord (>= 3.0, < 8.0)
+      delayed_job (>= 3.0, < 5)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (4.8.1)
@@ -888,12 +894,14 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (~> 1.4)
   byebug (~> 11.0)
+  daemons
   decidim!
   decidim-comparative_stats (~> 1.1.0)
   decidim-decidim_awesome
   decidim-dev!
   decidim-templates!
   decidim-term_customizer!
+  delayed_job_active_record
   faker (~> 1.9)
   figaro
   letter_opener_web (~> 1.3)
