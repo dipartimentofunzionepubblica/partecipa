@@ -6,10 +6,12 @@ ruby RUBY_VERSION
 DECIDIM_VERSION = 'release/0.25-stable'
 
 gem 'bootsnap', '~> 1.4'
+gem 'daemons'
 gem 'decidim', git: 'https://github.com/decidim/decidim', tag: DECIDIM_VERSION
 gem 'decidim-decidim_awesome'
 gem 'decidim-templates', git: 'https://github.com/decidim/decidim', tag: DECIDIM_VERSION
 gem 'decidim-term_customizer', branch: DECIDIM_VERSION, git: 'https://github.com/mainio/decidim-module-term_customizer'
+gem 'delayed_job_active_record'
 gem 'faker', '~> 2.14'
 gem 'foundation_rails_helper', git: 'https://github.com/sgruhier/foundation_rails_helper.git'
 gem 'figaro'
