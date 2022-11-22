@@ -20,7 +20,7 @@ gem 'puma'
 gem 'rake'
 gem 'uglifier', '~> 4.1'
 gem 'decidim-spid-cie', git: 'https://github.com/kapusons/decidim-module-spid-cie', ref: '4528067d7c0b5faaf264bf209b968451f543566d'
-gem 'decidim-privacy', git: 'https://github.com/kapusons/decidim-module-privacy', ref: 'c8925b583a8e85f9b90ae4f63119026510ee0919'
+gem 'decidim-privacy', git: 'https://github.com/kapusons/decidim-module-privacy', ref: '399ee9c4f32ccd177f3aa7993dc865ee500da09b'
 
 group :development, :test do
   gem 'byebug', '~> 11.0', platform: :mri
