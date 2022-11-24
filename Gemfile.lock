@@ -194,8 +194,8 @@ GIT
 
 GIT
   remote: https://github.com/kapusons/decidim-module-spid-cie
-  revision: 4528067d7c0b5faaf264bf209b968451f543566d
-  ref: 4528067d7c0b5faaf264bf209b968451f543566d
+  revision: 49dc22feb061917a835a7f28c8ba05519601fb1f
+  ref: 49dc22feb061917a835a7f28c8ba05519601fb1f
   specs:
     decidim-spid-cie (0.25.2)
       decidim-core (= 0.25.2)
