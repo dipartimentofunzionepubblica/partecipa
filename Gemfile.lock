@@ -176,6 +176,13 @@ GIT
       decidim-core (= 0.25.2)
 
 GIT
+  remote: https://github.com/digidemlab/decidim-module-analytics
+  revision: b4e44a7d2f81d9c76816b8f0233f879c2c128cdf
+  specs:
+    decidim-analytics (0.23.1)
+      decidim-core (>= 0.20.0)
+
+GIT
   remote: https://github.com/kapusons/decidim-module-privacy
   revision: 399ee9c4f32ccd177f3aa7993dc865ee500da09b
   ref: 399ee9c4f32ccd177f3aa7993dc865ee500da09b
@@ -846,6 +853,7 @@ DEPENDENCIES
   byebug (~> 11.0)
   daemons
   decidim!
+  decidim-analytics!
   decidim-decidim_awesome
   decidim-dev!
   decidim-privacy!
