@@ -76,7 +76,7 @@ Decidim::Spid.configure do |config|
   config.contact_people_other = {
     public: true, ipa_code: ENV['SPID_CONTACT_PERSON_IPA_CODE'], vat_number: ENV['SPID_CONTACT_PERSON_VAT_NUMBER'],
     fiscal_code: ENV['SPID_CONTACT_PERSON_FISCAL_CODE'], given_name: ENV['SPID_CONTACT_PERSON_GIVEN_NAME'], email: ENV['SPID_CONTACT_PERSON_EMAIL'],
-    company: ENV['SPID_CONTACT_PERSON_COMPANY'], number: ENV['SPID_CONTACT_NUMBER']
+    company: ENV['SPID_CONTACT_PERSON_COMPANY'], number: ENV['SPID_CONTACT_PERSON_NUMBER']
   }
 
   # Obbligatorio solo per soggetti privati
