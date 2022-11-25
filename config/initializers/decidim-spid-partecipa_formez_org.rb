@@ -55,7 +55,7 @@ Decidim::Spid.configure do |config|
   config.uid_attribute = :spidCode
 
   # Il livello SPID richiesto dall'app
-  config.spid_level = ENV['SPID_LEVEL']
+  config.spid_level = ENV['SPID_LEVEL'].to_i
 
   # Link per reindirizzare dopo il login
   config.relay_state = "/"
