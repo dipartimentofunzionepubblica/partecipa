@@ -8,11 +8,11 @@
 Decidim::Spid.configure do |config|
   # Definisce il nome del tenant. Solo lettere minuscole e underscores sono permessi.
   # Default: spid. Quando hai multipli tenant devi definire un nome univoco rispetto ai vari tenant.
-  config.name = "partecipa_formez_org"
+  config.name = ENV['SPID_TENANT_NAME']
 
   # Definisce l'entity ID del service provider:
   # config.sp_entity_id = "https://www.example.org/users/auth/spid/metadata"
-  config.sp_entity_id = "https://partecipa.formez.org"
+  config.sp_entity_id = ENV['SPID_ENTITY_ID'] 
 
   # Le chiavi che verranno salvate sul DB nell'autorizzazione
   config.metadata_attributes = {
@@ -49,13 +49,13 @@ Decidim::Spid.configure do |config|
   config.new_certificate_path = nil
 
   # Livello di crittografia SHA per la generazione delle signature
-  config.sha = 256
+  config.sha = ENV['SPID_SIGNATURE_METHOD']
 
   # Attribute to match user
   config.uid_attribute = :spidCode
 
   # Il livello SPID richiesto dall'app
-  config.spid_level = 1
+  config.spid_level = ENV['SPID_LEVEL']
 
   # Link per reindirizzare dopo il login
   config.relay_state = "/"
@@ -63,7 +63,7 @@ Decidim::Spid.configure do |config|
   # Documentazione https://docs.italia.it/italia/spid/spid-regole-tecniche/it/stabile/metadata.html#service-provider
   # Configurazioni relative al service provider. it obbligatorio
   config.organization = {
-    it: { name: 'FormezPA', display: 'FormezPA', url: 'http://www.formez.it' }
+    it: { name: ENV['SPID_ORGANIZATION_NAME'], display: ENV['SPID_ORGANIZATION_DISPLAY_NAME'], url: ENV['SPID_ORGANIZATION_URL'] }
   }
   
   # Documentazione https://docs.italia.it/italia/spid/spid-regole-tecniche/it/stabile/metadata.html#service-provider
@@ -74,9 +74,9 @@ Decidim::Spid.configure do |config|
   #   company: "Nome organizzazione S.p.a", number: "+39061111111"
   # }
   config.contact_people_other = {
-    public: true, ipa_code: 'formezpa', vat_number: 'IT12345678901',
-    fiscal_code: '80048080636', given_name: 'FormezPA', email: 'rcantoro@formez.it',
-    company: 'FormezPA', number: '+390684892257'
+    public: true, ipa_code: ENV['SPID_CONTACT_PERSON_IPA_CODE'], vat_number: ENV['SPID_CONTACT_PERSON_VAT_NUMBER'],
+    fiscal_code: ENV['SPID_CONTACT_PERSON_FISCAL_CODE'], given_name: ENV['SPID_CONTACT_PERSON_GIVEN_NAME'], email: ENV['SPID_CONTACT_PERSON_EMAIL'],
+    company: ENV['SPID_CONTACT_PERSON_COMPANY'], number: ENV['SPID_CONTACT_NUMBER']
   }
 
   # Obbligatorio solo per soggetti privati
@@ -120,17 +120,17 @@ Decidim::Spid.configure do |config|
    ]
   
   # Per customizzare il path del metadata
-   config.metadata_path = "https://partecipa.formez.org/metadata"
+   config.metadata_path = ENV['SPID_METADATA_PATH'] 
 
   # Indicare l'indice dell'array del servizio da utilizzare per questo tenant
   # Default value: 0. Indice per il AssertionConsumerService di default
-  config.default_service_index = 0
+  config.default_service_index = ENV['SPID_DEFAULT_ACS_INDEX'].to_i
   # Default value: 0. Indicare l'indice (dell'array config.consumer_services) per il AssertionConsumerService da utilizzare per questo tenant
-  config.current_consumer_index = 1
+  config.current_consumer_index = ENV['SPID_ACS_INDEX'].to_i
   # Default value: 0. Indicare l'indice (dell'array config.attribute_services) per il AttributeConsumingServiceIndex da utilizzare per questo tenant
-  config.current_attribute_index = 0
+  config.current_attribute_index = ENV['SPID_ATTR_SERV_LIST_INDEX'].to_i
   # Default value: 0. Indicare l'indice (dell'array config.logout_services) per il SingleLogoutService da utilizzare per questo tenant
-  config.current_logout_index = 1
+  config.current_logout_index = ENV['SPID_SLO_INDEX'].to_i
 
   # In caso di più AttributeConsumingService
   # Attenzione: l'ordinamento è fondamentale per associare il giusto nome agli attributi specificati in seguito.
