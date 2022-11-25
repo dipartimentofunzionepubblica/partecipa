@@ -19,7 +19,7 @@ gem 'pg'
 gem 'puma'
 gem 'rake'
 gem 'uglifier', '~> 4.1'
-gem 'decidim-spid-cie', git: 'https://github.com/kapusons/decidim-module-spid-cie', ref: '49dc22feb061917a835a7f28c8ba05519601fb1f'
+gem 'decidim-spid-cie', git: 'https://github.com/kapusons/decidim-module-spid-cie', ref: 'a41922457d4c7d9eea7cf08539b95bc33c29cefe'
 gem 'decidim-privacy', git: 'https://github.com/kapusons/decidim-module-privacy', ref: '399ee9c4f32ccd177f3aa7993dc865ee500da09b'
 gem 'decidim-analytics', git: 'https://github.com/digidemlab/decidim-module-analytics'
 
