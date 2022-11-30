@@ -860,6 +860,7 @@ DEPENDENCIES
   decidim-spid-cie!
   decidim-templates!
   decidim-term_customizer!
+  deface
   delayed_job_active_record
   faker (~> 2.14)
   figaro
