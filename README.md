@@ -78,7 +78,7 @@ ParteciPa usa il core di Decidim e personalizza o integra solo i seguenti aspett
 ## Utilizzo del Sistema Pubblico di Identità Digitale (Spid)
 
 Spid è il Sistema Pubblico di Identità Digitale basato sul linguaggio [SAML2](https://en.wikipedia.org/wiki/SAML_2.0). 
-L'attivazione di partecipa.gov.it come Service Provider Spid ha necessitato della applicazione della procedura descritta dettagliatamente a [questo indirizzo](https://www.spid.gov.it/come-diventare-fornitore-di-servizi-pubblici-e-privati-con-spid).
+L'attivazione di partecipa.gov.it come Service Provider Spid ha necessitato della applicazione della procedura descritta dettagliatamente a [questo indirizzo](https://www.spid.gov.it/cos-e-spid/diventa-fornitore-di-servizi/).
 L'utilizzo del codice di ParteciPa per l'attivazione di un nuovo Service Provider Spid dovrebbe seguire lo stesso iter.
 E' consigliata un'attenta analisi delle [Regole Tecniche Spid](https://docs.italia.it/italia/spid/spid-regole-tecniche/it/stabile/index.html) per l'attivazione di ParteciPa con Spid, almeno nella sezione che riguarda il Service Provider (SP) Metadata e Identity Provider (IDP) Metadata,
 con particolare riferimento agli elementi AssertionConsumerService, SingleLogoutService, AttributeConsumingService.
@@ -89,11 +89,11 @@ ParteciPa utilizza l'autenticazione Spid al livello 1 e richiede due soli attrib
 La piattaforma non memorizza in alcun modo le credenziali Spid dell'utente; vengono tracciati in un apposito log contenuto nel Database gli eventi di registrazione, login e logout dell'Utente via Spid.
 ParteciPa utilizza tutte le raccomandazioni prescritte da Spid per garantire la massima sicurezza nelle transazioni.
 
-Per abilitare il login Spid alla piattafoma ParteciPa, la piattaforma deve essere configurata adeguatamente. In particolare a monte della procedura descritta dettagliatamente a [questo indirizzo](https://www.spid.gov.it/come-diventare-fornitore-di-servizi-pubblici-e-privati-con-spid)
+Per abilitare il login Spid alla piattafoma ParteciPa, la piattaforma deve essere configurata adeguatamente. In particolare a monte della procedura descritta dettagliatamente a [questo indirizzo](https://www.spid.gov.it/cos-e-spid/diventa-fornitore-di-servizi/)
 è indispensabile che sia configurato il file <partecipa_path>/config/application.yml contiene le informazioni essenziali per il sistema, si veda sotto per maggiori dettagli.
 
 Il file secrets.yml funge da collettore di tutte le costanti importandole da application.yml e non deve essere editato.
-Si rimanda al README.md della gem [Decidim-Spid-Cie](https://github.com/dipartimentofunzionepubblica/decidim-module-spid-cie) per i dettagli relativi alla installazione e configurazione del sistema.
+Si rimanda al README.md della gem [Decidim-Spid-Cie](https://github.com/dipartimentofunzionepubblica/decidim-module-spid-cie) per i dettagli relativi alla configurazione del sistema con SPID.
 
 ## Aspetto grafico ridefinito via SCSS
 
@@ -113,7 +113,7 @@ Per meglio salvaguardare la privacy dei partecipanti ai processi di consultazion
 
 Decidim utilizza un sistema centralizzato di definizione della localizzazione della piattaforma attraverso [Crowdin](https://crowdin.com/) nel quale le traduzioni sono applicabili indistintamente a tutte le istanze della piattaforma nella lingua data.
 Il modulo community [Term-Customizer](https://github.com/mainio/decidim-module-term_customizer) può essere utilizzato per creare traduzioni applicabili alla sola istanza della piattaforma che si sta utilizzando.
-Il modulo community [Decidim-Awesome](https://github.com/Platoniq/decidim-module-decidim_awesome) fornisce un set di funzinalità avanzate che riguardano vari aspetti delle consultazioni.
+Il modulo community [Decidim-Awesome](https://github.com/Platoniq/decidim-module-decidim_awesome) fornisce un set di funzionalità avanzate che riguardano vari aspetti delle consultazioni.
 Il modulo community [Decidim-Analytics](https://github.com/digidemlab/decidim-module-analytics) da la possibilità di visualizzare la Dashboard Matomo direttamente nella vista Ammnistrativa di Decidim. 
 Il modulo community [Decidim-Privacy](https://github.com/dipartimentofunzionepubblica/decidim-module-privacy) fornisce la possibilità di applicare una serie di restrizioni opzionali che hanno lo scopo di salvaguardare maggiormente la privacy dei partecipanti. 
 
@@ -131,6 +131,7 @@ Di seguito una breve spiegazione per ciascuna costante:
 	GOOGLE_ANALYTICS_ID: #Google Analytics ID di monitoraggio vedere https://support.google.com/analytics/answer/7372977
 	MATOMO_URL: #URL istanza Matomo
 	MATOMO_ID: #ID Matomo
+	MATOMO_TOKEN_AUTH: #Stringa che identifica la Dashboard Matomo
 	
 	DATABASE_URL: #URL del DB nella seguente forma "postgres://<DATABASE_USERNAME>:<DATABASE_PASSWORD>@<DATABASE_HOST>/<DATABASE_NAME>"
 	DATABASE_HOST: #Host che ospita il DB
