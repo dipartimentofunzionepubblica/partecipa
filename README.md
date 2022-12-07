@@ -90,7 +90,7 @@ La piattaforma non memorizza in alcun modo le credenziali Spid dell'utente; veng
 ParteciPa utilizza tutte le raccomandazioni prescritte da Spid per garantire la massima sicurezza nelle transazioni.
 
 Per abilitare il login Spid alla piattafoma ParteciPa, la piattaforma deve essere configurata adeguatamente. In particolare a monte della procedura descritta dettagliatamente a [questo indirizzo](https://www.spid.gov.it/cos-e-spid/diventa-fornitore-di-servizi/)
-è indispensabile che sia configurato il file <partecipa_path>/config/application.yml contiene le informazioni essenziali per il sistema, si veda sotto per maggiori dettagli.
+è indispensabile che sia configurato il file <partecipa_path>/config/application.yml che contiene le informazioni essenziali per il sistema, si veda sotto per maggiori dettagli.
 
 Il file secrets.yml funge da collettore di tutte le costanti importandole da application.yml e non deve essere editato.
 Si rimanda al README.md della gem [Decidim-Spid-Cie](https://github.com/dipartimentofunzionepubblica/decidim-module-spid-cie) per i dettagli relativi alla configurazione del sistema con SPID.
