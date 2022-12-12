@@ -183,9 +183,9 @@ GIT
       decidim-core (>= 0.20.0)
 
 GIT
-  remote: https://github.com/kapusons/decidim-module-privacy
-  revision: 399ee9c4f32ccd177f3aa7993dc865ee500da09b
-  ref: 399ee9c4f32ccd177f3aa7993dc865ee500da09b
+  remote: https://github.com/dipartimentofunzionepubblica/decidim-module-privacy
+  revision: 048e39208f3ba591e81dcde2bb62a2b24eaffcf0
+  branch: main
   specs:
     decidim-privacy (0.25.2)
       decidim-admin (= 0.25.2)
@@ -193,9 +193,9 @@ GIT
       deface (= 1.9.0)
 
 GIT
-  remote: https://github.com/kapusons/decidim-module-spid-cie
-  revision: a41922457d4c7d9eea7cf08539b95bc33c29cefe
-  ref: a41922457d4c7d9eea7cf08539b95bc33c29cefe
+  remote: https://github.com/dipartimentofunzionepubblica/decidim-module-spid-cie
+  revision: c59c2f85a95d0c670c4e33594243ae4a8bd5cb2f
+  branch: main
   specs:
     decidim-spid-cie (0.25.2)
       decidim-core (= 0.25.2)
