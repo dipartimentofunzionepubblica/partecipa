@@ -128,7 +128,9 @@ La creazione e la redazione del file è a cura di chi installa la piattaforma se
 Di seguito una breve spiegazione per ciascuna costante:
 
 	SECRET_KEY_BASE: #Secret key utilizzata da Rails per il suo funzionamento vedere https://medium.com/@michaeljcoyne/understanding-the-secret-key-base-in-ruby-on-rails-ce2f6f9968a1
-	GOOGLE_ANALYTICS_ID: #Google Analytics ID di monitoraggio vedere https://support.google.com/analytics/answer/7372977
+	HOST: #Nome dell'host
+	PROTOCOL: #https
+        GOOGLE_ANALYTICS_ID: #Google Analytics ID di monitoraggio vedere https://support.google.com/analytics/answer/7372977
 	MATOMO_URL: #URL istanza Matomo
 	MATOMO_ID: #ID Matomo
 	MATOMO_TOKEN_AUTH: #Stringa che identifica la Dashboard Matomo
@@ -161,7 +163,7 @@ Di seguito una breve spiegazione per ciascuna costante:
 	SPID_CONTACT_PERSON_IPA_CODE: #Stringa, nel metadata il codice IPA
 	SPID_CONTACT_PERSON_VAT_NUMBER: #Stringa, nel metadata la partita IVA
 	SPID_CONTACT_PERSON_FISCAL_CODE: #Stringa, nel metadata il codice fiscale
-	SPID_CONTACT_PERSON_GIVEN_NAME: #Stringa, nel metadata il nome dell'Organizzazione
+	SPID_CONTACT_PERSON_GIVEN_NAME: #Stringa, nel metadata il nome della persona
 	SPID_CONTACT_PERSON_COMPANY: #Stringa, nel metadata il nome dell'Organizzazione
 	SPID_CONTACT_PERSON_NUMBER: #Stringa, nel metadata il numero di telefono dell'Organizzazione
 
