@@ -92,6 +92,11 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  # Use a different logger for distributed setups.
+  # require 'syslog/logger'
+  config.logger = ActiveSupport::Logger.new(config.paths['log'].first, shift_age = 'daily')
+  config.logger.formatter = Logger::Formatter.new
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
