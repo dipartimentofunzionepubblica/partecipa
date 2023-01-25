@@ -130,7 +130,7 @@ Di seguito una breve spiegazione per ciascuna costante:
 	SECRET_KEY_BASE: #Secret key utilizzata da Rails per il suo funzionamento vedere https://medium.com/@michaeljcoyne/understanding-the-secret-key-base-in-ruby-on-rails-ce2f6f9968a1
 	HOST: #Nome dell'host
 	PROTOCOL: #https
-        GOOGLE_ANALYTICS_ID: #Google Analytics ID di monitoraggio vedere https://support.google.com/analytics/answer/7372977
+	GOOGLE_ANALYTICS_ID: #Google Analytics ID di monitoraggio vedere https://support.google.com/analytics/answer/7372977
 	MATOMO_URL: #URL istanza Matomo
 	MATOMO_ID: #ID Matomo
 	MATOMO_TOKEN_AUTH: #Stringa che identifica la Dashboard Matomo
