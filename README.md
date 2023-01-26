@@ -133,7 +133,6 @@ Di seguito una breve spiegazione per ciascuna costante:
 	GOOGLE_ANALYTICS_ID: #Google Analytics ID di monitoraggio vedere https://support.google.com/analytics/answer/7372977
 	MATOMO_URL: #URL istanza Matomo
 	MATOMO_ID: #ID Matomo
-	MATOMO_TOKEN_AUTH: #Stringa che identifica la Dashboard Matomo
 	
 	DATABASE_URL: #URL del DB nella seguente forma "postgres://<DATABASE_USERNAME>:<DATABASE_PASSWORD>@<DATABASE_HOST>/<DATABASE_NAME>"
 	DATABASE_HOST: #Host che ospita il DB
