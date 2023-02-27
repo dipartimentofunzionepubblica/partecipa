@@ -9,24 +9,65 @@ You should have received a copy of the GNU Affero General Public License along w
 
 Modificato per eliminare informazioni ridondanti e aggiungere link a github.com di ParteciPa
 %>
+<style>
+	.footer-logos{
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-direction: row;
+	}
+	
+	.icon-external-link{
+		display: none;
+	}
+
+	a img + .external-link-indicator {
+		display: none;
+	}
+	
+	.external-link-indicator .icon {
+	    display: none;
+	}
+	
+	.footer-logo{
+		width: 200px !important;
+	}
+	
+	.decidim-logo{
+		margin-right: auto;
+		margin-left: auto;
+	}
+</style>
 <div class="mini-footer">
-  <div class="row">
-    <div class="medium-3 large-4 column">
-      <a rel="license" class="cc-badge"
-        href="http://creativecommons.org/licenses/by-sa/4.0/"
-        target="_blank">
-        <%= image_pack_tag("media/images/cc-badge.png", alt: "Creative Commons License" ) %>
-      </a>
-    </div>
-    <div class="medium-3 large-2 column" style="width:200px;">
-      <div class="decidim-logo" style="float:left;">
-        <a rel="partecipa"
-         href="https://github.com/dipartimentofunzionepubblica/partecipa"
-         target="_blank">
-         <%= image_pack_tag("media/images/medium_logo_nuova_proposta_white.png", alt: "Logo ParteciPa" ) %>
-        <span>Scarica da github.com</span>
-       </a>
-    </div>
-    </div>
-  </div>
+  <div class="row footer-logos">
+	  <div class="ue-logo">
+			<a rel="Logo Unione Europea"
+			 href="https://european-union.europa.eu/index_it"
+			 target="_blank">
+			 <%= image_pack_tag("media/images/eu-logo.png", alt: "Logo Unione Europea" , class: "footer-logo") %>
+		   </a>
+	   </div>
+	   <div class="coesione-logo">
+			<a rel="Logo Agenzia Coesione"
+			 href="https://www.agenziacoesione.gov.it/"
+			 target="_blank">
+			 <%= image_pack_tag("media/images/coesione-logo.png", alt: "Logo Agenzia Coesione" , class: "footer-logo") %>
+		   </a>
+	   </div>	
+	   <div class="dfp-logo">
+			<a rel="Dipartimento della Funzione Pubblica"
+			 href="https://www.funzionepubblica.gov.it/"
+			 target="_blank">
+			 <%= image_pack_tag("media/images/dfp-logo.png", alt: "Logo Dipartimento della Funzione Pubblica" , class: "footer-logo") %>
+		   </a>
+	   </div>
+	   <div class="pon-logo">
+			<a rel="PON"
+			 href="http://www.pongovernance1420.gov.it/it/"
+			 target="_blank">
+			 <%= image_pack_tag("media/images/pon-logo.png", alt: "Logo PON" , class: "footer-logo") %>
+		   </a>
+	   </div>
+	</div>
 </div>
