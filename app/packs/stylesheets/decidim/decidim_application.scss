@@ -401,6 +401,36 @@ $datetime-bg: var(--primary);
 	font-size: 0.90rem;
 }
 
+.footer-logos{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: row;
+}
+
+.icon-external-link{
+	display: none;
+}
+
+a img + .external-link-indicator {
+	display: none;
+}
+
+.external-link-indicator .icon {
+	display: none;
+}
+
+.footer-logo{
+	width: 200px !important;
+}
+
+.decidim-logo{
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
 //FIX CONTRAST
 
 .phase-current {

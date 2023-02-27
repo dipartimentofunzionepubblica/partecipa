@@ -15,3 +15,5 @@ base_path = File.expand_path("..", __dir__)
 # If you want to do the same but include the SCSS file for the admin panel's
 # main SCSS file, you can use the following method.
 #Decidim::Webpacker.register_stylesheet_import("stylesheets/your_app_admin_extensions", group: :admin)
+# Add node_modules folder to the asset load path.
+Rails.application.config.assets.paths << Rails.root.join("node_modules")
