@@ -120,7 +120,7 @@ production:
       entityName: 'Infocert '
       logo: spid-idp-infocertid.svg
     namirial:
-      metadata_url: 'https://idp.namirialtsp.com/idp/metadata'
+      metadata_url: 'https://spid.namirial.it/realms/spid/protocol/saml/descriptor'
       validate_cert: true
       entityName: Namirial ID
       logo: spid-idp-namirialid.svg
