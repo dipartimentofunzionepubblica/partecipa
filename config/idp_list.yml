@@ -5,6 +5,56 @@ development:
       validate_cert: false
       entityName: demo
       logo: spid-idp-dummy.svg
+    aruba:
+      metadata_url: 'https://loginspid.aruba.it/metadata'
+      validate_cert: true
+      entityName: Aruba ID
+      logo: spid-idp-arubaid.svg
+    infocert:
+      metadata_url: 'https://identity.infocert.it/metadata/metadata.xml'
+      validate_cert: true
+      entityName: 'Infocert '
+      logo: spid-idp-infocertid.svg
+    namirial:
+      metadata_url: 'https://idp.namirialtsp.com/idp/metadata'
+      validate_cert: true
+      entityName: Namirial ID
+      logo: spid-idp-namirialid.svg
+    poste:
+      metadata_url: 'https://posteid.poste.it/jod-fs/metadata/metadata.xml'
+      validate_cert: true
+      entityName: Poste ID
+      logo: spid-idp-posteid.svg
+    spiditalia:
+      metadata_url: 'https://spid.register.it/login/metadata'
+      validate_cert: true
+      entityName: SPIDItalia Register.it
+      logo: spid-idp-spiditalia.svg
+    sielte:
+      metadata_url: 'https://identity.sieltecloud.it/simplesaml/metadata.xml'
+      validate_cert: true
+      entityName: Sielte
+      logo: spid-idp-sielteid.svg
+    tim:
+      metadata_url: 'https://login.id.tim.it/spid-services/MetadataBrowser/idp'
+      validate_cert: true
+      entityName: Tim ID
+      logo: spid-idp-timid.svg
+    intesa:
+      metadata_url: 'https://spid.intesa.it/metadata/metadata.xml'
+      validate_cert: true
+      entityName: Intesa ID
+      logo: spid-idp-intesaid.svg
+    lepida:
+      metadata_url: 'https://id.lepida.it/idp/shibboleth'
+      validate_cert: true
+      entityName: Lepida ID
+      logo: spid-idp-lepidaid.svg
+    etna:
+      metadata_url: 'https://id.eht.eu/metadata.xml'
+      validate_cert: true
+      entityName: Etna ID
+      logo: spid-idp-etnaid.svg
 staging:
   spid:
     demo:
@@ -104,3 +154,8 @@ production:
       validate_cert: true
       entityName: Lepida ID
       logo: spid-idp-lepidaid.svg
+    etna:
+      metadata_url: 'https://id.eht.eu/metadata.xml'
+      validate_cert: true
+      entityName: Etna ID
+      logo: spid-idp-etnaid.svg
