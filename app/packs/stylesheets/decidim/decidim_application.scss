@@ -64,7 +64,7 @@ title.is-active > [role="tab"], .side-panel__tabs .tabs-title.is-active > a {
     box-shadow: inset 4px 0 0 $par-medium-green;
 }
 
-.callout.success {
+.callout.success, .callout.secondary{
     border-color: #e8e8e8;
     border-left: 7px solid var(--success);
     border-top: 3px solid var(--success);
@@ -409,15 +409,7 @@ $datetime-bg: var(--primary);
 	flex-direction: row;
 }
 
-.icon-external-link{
-	display: none;
-}
-
 a img + .external-link-indicator {
-	display: none;
-}
-
-.external-link-indicator .icon {
 	display: none;
 }
 
