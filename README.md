@@ -146,7 +146,7 @@ Di seguito una breve spiegazione per ciascuna costante:
 
 	GEOCODER_API_KEY: #here_api_key relativo al Geocoder Here vedere https://github.com/decidim/decidim/blob/0.21-stable/docs/services/geocoding.md
 	
-	SPID_TENANT_NAME: #Stringa che identifica il nome del tenant SPID
+	SPID_TENANT_NAME: #Stringa che identifica il nome del tenant SPID, in caso non sia presente l'initializer Spid non parte evitando un errore in mancanza di configurazione Spid
 	SPID_BUTTON_SIZE: #Stringa ["s","m","l","xl"] che determina la dimensione del bottone SPID
 	SPID_ENTITY_ID: #Stringa che identifica univocamente il metadata SPID relativo alla Organizzazione
 	SPID_METADATA_PATH: #URL del metadata SPID
@@ -165,6 +165,8 @@ Di seguito una breve spiegazione per ciascuna costante:
 	SPID_CONTACT_PERSON_GIVEN_NAME: #Stringa, nel metadata il nome della persona
 	SPID_CONTACT_PERSON_COMPANY: #Stringa, nel metadata il nome dell'Organizzazione
 	SPID_CONTACT_PERSON_NUMBER: #Stringa, nel metadata il numero di telefono dell'Organizzazione
+	
+	COMPONENT_TABS: #Intero indicante il numero massimo di tabs Componenti che appaiono a fianco al nome Processo/Assemblea
 
 ## Creazione dei certificati
 
