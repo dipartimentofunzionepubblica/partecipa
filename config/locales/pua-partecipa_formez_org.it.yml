@@ -1,0 +1,8 @@
+it:
+  decidim:
+    authorization_handlers:
+      openid_connect_identity:
+        name: "PUA"
+        explanation: "Migrazione account decidim verso account SPID o CIE attraverso il PUA"
+        title: Migrazione account
+        description: Il tuo account Decidim verrà associato al tuo account SPID o CIE. Le tue credenziali saranno disattivate e potrai continuare ad accedere con il tuo account SPID o CIE.

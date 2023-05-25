@@ -19,7 +19,7 @@ gem 'pg'
 gem 'puma'
 gem 'rake'
 gem 'uglifier', '~> 4.1'
-gem 'decidim-spid-cie', git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-spid-cie', branch: 'main'
+gem 'decidim-pua', git: 'https://github.com/kapusons/decidim-module-pua', branch: 'main'
 gem 'decidim-privacy', git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-privacy', branch: 'main'
 gem 'deface'
 

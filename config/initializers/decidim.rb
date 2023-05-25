@@ -143,7 +143,7 @@ Decidim.configure do |config|
   # config.throttling_period = 1.minute
 
   # Time window were users can access the website even if their email is not confirmed.
-  # config.unconfirmed_access_for = 2.days
+  config.unconfirmed_access_for = 0.days
 
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
