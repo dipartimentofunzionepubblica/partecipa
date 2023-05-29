@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_decidim_awesome (originally 20210628150825)
 
 class ChangeAwesomeConfigVarType < ActiveRecord::Migration[5.2]
