@@ -534,6 +534,16 @@ a.muted, abbr.muted, acronym.muted, b.muted, bdo.muted, big.muted, br.muted, but
   box-sizing: initial;
 }
 
+.button--l .button--pua {
+  background-color: #06c;
+  border-color: #06c;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 12px;
+  text-align: center;
+  display: block;
+}
+
 //ASSEMBLIES
 .filters__section.scope_id_scopes_picker_filter {
   display: none;
