@@ -45,11 +45,6 @@ development:
       validate_cert: true
       entityName: Tim ID
       logo: spid-idp-timid.svg
-    intesa:
-      metadata_url: 'https://spid.intesa.it/metadata/metadata.xml'
-      validate_cert: true
-      entityName: Intesa ID
-      logo: spid-idp-intesaid.svg
     lepida:
       metadata_url: 'https://id.lepida.it/idp/shibboleth'
       validate_cert: true
@@ -60,6 +55,11 @@ development:
       validate_cert: true
       entityName: Etna ID
       logo: spid-idp-etnaid.svg
+    teamsystem:
+      metadata_url: 'https://spid.teamsystem.com/idp'
+      validate_cert: true
+      entityName: TeamSystem ID
+      logo: spid-idp-teamsystemid.svg
 staging:
   spid:
     demo:
@@ -107,16 +107,21 @@ staging:
       validate_cert: true
       entityName: Tim ID
       logo: spid-idp-timid.svg
-    intesa:
-      metadata_url: 'https://spid.intesa.it/metadata/metadata.xml'
-      validate_cert: true
-      entityName: Intesa ID
-      logo: spid-idp-intesaid.svg
     lepida:
       metadata_url: 'https://id.lepida.it/idp/shibboleth'
       validate_cert: true
       entityName: Lepida ID
       logo: spid-idp-lepidaid.svg
+    etna:
+      metadata_url: 'https://id.eht.eu/metadata.xml'
+      validate_cert: true
+      entityName: Etna ID
+      logo: spid-idp-etnaid.svg
+    teamsystem:
+      metadata_url: 'https://spid.teamsystem.com/idp'
+      validate_cert: true
+      entityName: TeamSystem ID
+      logo: spid-idp-teamsystemid.svg
 production:
   spid:
     aruba:
@@ -159,11 +164,6 @@ production:
       validate_cert: true
       entityName: Tim ID
       logo: spid-idp-timid.svg
-    intesa:
-      metadata_url: 'https://spid.intesa.it/metadata/metadata.xml'
-      validate_cert: true
-      entityName: Intesa ID
-      logo: spid-idp-intesaid.svg
     lepida:
       metadata_url: 'https://id.lepida.it/idp/shibboleth'
       validate_cert: true
@@ -174,3 +174,8 @@ production:
       validate_cert: true
       entityName: Etna ID
       logo: spid-idp-etnaid.svg
+    teamsystem:
+      metadata_url: 'https://spid.teamsystem.com/idp'
+      validate_cert: true
+      entityName: TeamSystem ID
+      logo: spid-idp-teamsystemid.svg
