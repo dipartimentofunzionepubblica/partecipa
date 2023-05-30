@@ -10,6 +10,11 @@ development:
       validate_cert: true
       entityName: Aruba ID
       logo: spid-idp-arubaid.svg
+    infocert:
+      metadata_url: 'https://identity.infocert.it/metadata/metadata.xml'
+      validate_cert: true
+      entityName: Infocert
+      logo: spid-idp-infocertid.svg
     infocamere:
       metadata_url: 'https://loginspid.infocamere.it/metadata'
       validate_cert: true
@@ -67,6 +72,11 @@ staging:
       validate_cert: true
       entityName: Aruba ID
       logo: spid-idp-arubaid.svg
+    infocert:
+      metadata_url: 'https://identity.infocert.it/metadata/metadata.xml'
+      validate_cert: true
+      entityName: Infocert
+      logo: spid-idp-infocertid.svg
     infocamere:
       metadata_url: 'https://loginspid.infocamere.it/metadata'
       validate_cert: true
@@ -119,6 +129,11 @@ production:
       validate_cert: true
       entityName: Infocamere ID
       logo: spid-idp-infocamereid.svg
+    infocert:
+      metadata_url: 'https://identity.infocert.it/metadata/metadata.xml'
+      validate_cert: true
+      entityName: Infocert
+      logo: spid-idp-infocertid.svg
     namirial:
       metadata_url: 'https://spid.namirial.it/realms/spid/protocol/saml/descriptor'
       validate_cert: true
