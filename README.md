@@ -69,28 +69,31 @@ e installare ed eseguire le migrations relative al modulo appena installato
 
 ParteciPa usa il core di Decidim e personalizza o integra solo i seguenti aspetti:
 
-* Utilizzo del Sistema Pubblico di Identità Digitale (Spid), della Carta di Identità Elettronica (CIE) e della Carta Nazionale dei Servizi (CNS) attraverso il Punto Unico d'Accesso (PUA) ;
+* Utilizzo del [Sistema Pubblico di Identità Digitale (Spid)](https://www.spid.gov.it/) attraverso la gem Open-Source [Decidim-Spid-Cie](https://github.com/dipartimentofunzionepubblica/decidim-module-spid-cie) ;
 * Aspetto grafico ridefinito via SCSS;
 * Modifiche sul profilo dell’utente per soddisfare le indicazioni del GDPR;
-* Integrazione dei moduli community;
+* Integrazione dei moduli community [Term-Customizer](https://github.com/mainio/decidim-module-term_customizer), [Decidim-Awesome](https://github.com/Platoniq/decidim-module-decidim_awesome), [Decidim-Analytics](https://github.com/digidemlab/decidim-module-analytics) e [Decidim-Privacy](https://github.com/dipartimentofunzionepubblica/decidim-module-privacy);
 * Installazione in modalità multi-tenant.
  
-## Utilizzo del Sistema Pubblico di Identità Digitale (Spid), della Carta di Identità Elettronica (CIE) e della Carta Nazionale dei Servizi (CNS) attraverso il Punto Unico d'Accesso (PUA)
+## Utilizzo del Sistema Pubblico di Identità Digitale (Spid)
 
-L'attivazione di partecipa.gov.it come Service Provider Spid, CIE e CNS ha necessitato della applicazione della procedura di accreditamento tramite PUA (Punto Unico di Accesso) del DFP (Dipartimento Funzione Pubblica).
-L'accreditamento PUA avviene a seguito di verifica dei requisiti da parte di DFP ed esclusivamente per siti afferenti al Dipartimento stesso.
+Spid è il Sistema Pubblico di Identità Digitale basato sul linguaggio [SAML2](https://en.wikipedia.org/wiki/SAML_2.0). 
+L'attivazione di partecipa.gov.it come Service Provider Spid ha necessitato della applicazione della procedura descritta dettagliatamente a [questo indirizzo](https://www.spid.gov.it/cos-e-spid/diventa-fornitore-di-servizi/).
+L'utilizzo del codice di ParteciPa per l'attivazione di un nuovo Service Provider Spid dovrebbe seguire lo stesso iter.
+E' consigliata un'attenta analisi delle [Regole Tecniche Spid](https://docs.italia.it/italia/spid/spid-regole-tecniche/it/stabile/index.html) per l'attivazione di ParteciPa con Spid, almeno nella sezione che riguarda il Service Provider (SP) Metadata e Identity Provider (IDP) Metadata,
+con particolare riferimento agli elementi AssertionConsumerService, SingleLogoutService, AttributeConsumingService.
 
-Per integrare PUA ParteciPa utilizza il middleware Open-Source [Decidim-pua](https://github.com/dipartimentofunzionepubblica/decidim-module-pua) .
+Per integrare Spid  ParteciPa utilizza il middleware Open-Source [Decidim-Spid-Cie](https://github.com/dipartimentofunzionepubblica/decidim-module-spid-cie) .
 
-ParteciPa richiede per suo utilizzo tre soli attributi utente: l'Indirizzo di posta elettronica, il Codice identificativo Spid (ove applicabili) e il Codice Fiscale.
-La piattaforma non memorizza in alcun modo le credenziali Spid, CIE o CNS dell'utente; vengono tracciati in un apposito log contenuto nel Database gli eventi di registrazione, login e logout dell'Utente.
-ParteciPa utilizza tutte le raccomandazioni prescritte da Spid, CIE o CNS per garantire la massima sicurezza nelle transazioni.
+ParteciPa utilizza l'autenticazione Spid al livello 1 e richiede due soli attributi utente: l'Indirizzo di posta elettronica e il Codice identificativo Spid.
+La piattaforma non memorizza in alcun modo le credenziali Spid dell'utente; vengono tracciati in un apposito log contenuto nel Database gli eventi di registrazione, login e logout dell'Utente via Spid.
+ParteciPa utilizza tutte le raccomandazioni prescritte da Spid per garantire la massima sicurezza nelle transazioni.
 
-Per abilitare il login PUA alla piattafoma ParteciPa, la piattaforma deve essere configurata adeguatamente. 
-E' indispensabile che sia configurato il file <partecipa_path>/config/application.yml che contiene le informazioni essenziali per il sistema, si veda sotto per maggiori dettagli.
+Per abilitare il login Spid alla piattafoma ParteciPa, la piattaforma deve essere configurata adeguatamente. In particolare a monte della procedura descritta dettagliatamente a [questo indirizzo](https://www.spid.gov.it/cos-e-spid/diventa-fornitore-di-servizi/)
+è indispensabile che sia configurato il file <partecipa_path>/config/application.yml che contiene le informazioni essenziali per il sistema, si veda sotto per maggiori dettagli.
 
 Il file secrets.yml funge da collettore di tutte le costanti importandole da application.yml e non deve essere editato.
-Si rimanda al README.md della gem [Decidim-pua](https://github.com/dipartimentofunzionepubblica/decidim-module-pua) per i dettagli relativi alla configurazione del sistema con PUA e quindi per l'autenticazione con SPID, CIE e CNS.
+Si rimanda al README.md della gem [Decidim-Spid-Cie](https://github.com/dipartimentofunzionepubblica/decidim-module-spid-cie) per i dettagli relativi alla configurazione del sistema con SPID.
 
 ## Aspetto grafico ridefinito via SCSS
 
@@ -111,6 +114,7 @@ Per meglio salvaguardare la privacy dei partecipanti ai processi di consultazion
 Decidim utilizza un sistema centralizzato di definizione della localizzazione della piattaforma attraverso [Crowdin](https://crowdin.com/) nel quale le traduzioni sono applicabili indistintamente a tutte le istanze della piattaforma nella lingua data.
 Il modulo community [Term-Customizer](https://github.com/mainio/decidim-module-term_customizer) può essere utilizzato per creare traduzioni applicabili alla sola istanza della piattaforma che si sta utilizzando.
 Il modulo community [Decidim-Awesome](https://github.com/Platoniq/decidim-module-decidim_awesome) fornisce un set di funzionalità avanzate che riguardano vari aspetti delle consultazioni.
+Il modulo community [Decidim-Analytics](https://github.com/digidemlab/decidim-module-analytics) da la possibilità di visualizzare la Dashboard Matomo direttamente nella vista Ammnistrativa di Decidim. 
 Il modulo community [Decidim-Privacy](https://github.com/dipartimentofunzionepubblica/decidim-module-privacy) fornisce la possibilità di applicare una serie di restrizioni opzionali che hanno lo scopo di salvaguardare maggiormente la privacy dei partecipanti. 
 
 ## Installazione in modalità multi-tenant
@@ -142,18 +146,35 @@ Di seguito una breve spiegazione per ciascuna costante:
 
 	GEOCODER_API_KEY: #here_api_key relativo al Geocoder Here vedere https://github.com/decidim/decidim/blob/0.21-stable/docs/services/geocoding.md
 	
-	PUA_TENANT_NAME: #Stringa che identifica il nome del tenant PUA, in caso non sia presente l'initializer PUA non parte evitando un errore in mancanza di configurazione PUA
-	PUA_BUTTON_SIZE: #Stringa ["s","m","l","xl"] che determina la dimensione del bottone Accedi per PUA
-	PUA_ISSUER: #Stringa indicante l'URL relativo al servizio PUA, normalmente in produzione "https://sso.dfp.gov.it"
-	PUA_RELYING_PARTY: #Stringa indicante il servizio del Service Provider corrente, nel nostro caso "https://partecipa.gov.it"
-	PUA_APP_ID: #Stringa indicante l'app_id univoco che identifica il Service Provider, comunicato da DFP in fase di accreditamento
-	PUA_APP_SECRET: #Stringa indicante il secret che serve all'autenticazione del Service Provider, comunicato da DFP in fase di accreditamento
-
+	SPID_TENANT_NAME: #Stringa che identifica il nome del tenant SPID, in caso non sia presente l'initializer Spid non parte evitando un errore in mancanza di configurazione Spid
+	SPID_BUTTON_SIZE: #Stringa ["s","m","l","xl"] che determina la dimensione del bottone SPID
+	SPID_ENTITY_ID: #Stringa che identifica univocamente il metadata SPID relativo alla Organizzazione
+	SPID_METADATA_PATH: #URL del metadata SPID
+	SPID_SIGNATURE_METHOD: #Intero che identifica lo SHA utilizzato per la firma
+	SPID_DEFAULT_ACS_INDEX: #Intero, indice del AssertionConsumerService di default
+	SPID_ACS_INDEX: #Intero, indice dell'elemento nell'array di AssertionConsumerService usato
+	SPID_SLO_INDEX: #Intero, indice dell'elemento nell'array di SingleLogoutService usato
+	SPID_ATTR_SERV_LIST_INDEX: #Intero, indice dell'elemento nell'array attributi usato
+	SPID_LEVEL: #Intero indicante il Livello SPID
+	SPID_ORGANIZATION_NAME: #Stringa, nel metadata, il nome dell'Organizzazione
+	SPID_ORGANIZATION_DISPLAY_NAME: #Stringa, nel metadata, il nome dell'Organizzazione visualizzato
+	SPID_ORGANIZATION_URL: #Stringa, nel metadata l'URL dell'Organizzazione
+	SPID_CONTACT_PERSON_IPA_CODE: #Stringa, nel metadata il codice IPA
+	SPID_CONTACT_PERSON_VAT_NUMBER: #Stringa, nel metadata la partita IVA
+	SPID_CONTACT_PERSON_FISCAL_CODE: #Stringa, nel metadata il codice fiscale
+	SPID_CONTACT_PERSON_GIVEN_NAME: #Stringa, nel metadata il nome della persona
+	SPID_CONTACT_PERSON_COMPANY: #Stringa, nel metadata il nome dell'Organizzazione
+	SPID_CONTACT_PERSON_NUMBER: #Stringa, nel metadata il numero di telefono dell'Organizzazione
+	
 	COMPONENT_TABS: #Intero indicante il numero massimo di tabs Componenti che appaiono a fianco al nome Processo/Assemblea
 
-## FAQ
+## Creazione dei certificati
 
-Per verificare le risposte alle domande più frequenti, in particolare in relazione alla installazione della piattaforma, verificare le [FAQ.md](https://github.com/dipartimentofunzionepubblica/partecipa/blob/master/FAQ.md)
+I certificati indispensabili all'utilizzo di Spid devono essere generati con il seguente comando (nel caso specifico si tratta di certificati sha512):
+
+	openssl req -x509 -nodes -sha512 -subj '/C=IT' -newkey rsa:4096 -keyout private_key.pem -out certificate.pem
+
+I certificati devono essere contenuti nell'alberatura <partecipa_path>/lib/.keys.
 
 ## Segnalazioni sulla sicurezza
 
