@@ -8,7 +8,7 @@
 #
 # You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
 #
-# Modificato per configurare il numero dei componenti di default del menù processi 
+# Modificato per configurare il numero dei componenti di default del menù processi
 
 module Decidim
   # View helpers related to the layout.
@@ -42,16 +42,16 @@ module Decidim
       options = options.with_indifferent_access
       html_properties = {}
 
-      html_properties["width"] = options[:width]
-      html_properties["height"] = options[:height]
-      html_properties["aria-label"] = options[:aria_label] || options[:"aria-label"]
-      html_properties["role"] = options[:role] || "img"
-      html_properties["aria-hidden"] = options[:aria_hidden] || options[:"aria-hidden"]
+      html_properties['width'] = options[:width]
+      html_properties['height'] = options[:height]
+      html_properties['aria-label'] = options[:aria_label] || options[:"aria-label"]
+      html_properties['role'] = options[:role] || 'img'
+      html_properties['aria-hidden'] = options[:aria_hidden] || options[:"aria-hidden"]
 
-      html_properties["class"] = (["icon--#{name}"] + _icon_classes(options)).join(" ")
+      html_properties['class'] = (["icon--#{name}"] + _icon_classes(options)).join(' ')
 
-      title = options["title"] || html_properties["aria-label"]
-      if title.blank? && html_properties["role"] == "img"
+      title = options['title'] || html_properties['aria-label']
+      if title.blank? && html_properties['role'] == 'img'
         # This will make the accessibility audit tools happy as with the "img"
         # role, the alternative text (aria-label) and title are required for the
         # element. This will also force the SVG to be hidden because otherwise
@@ -59,15 +59,15 @@ module Decidim
         # different language (English) than the page language which is not
         # allowed.
         title = name
-        html_properties["aria-label"] = title
-        html_properties["aria-hidden"] = true
+        html_properties['aria-label'] = title
+        html_properties['aria-hidden'] = true
       end
 
-      href = Decidim.cors_enabled ? "" : asset_pack_path("media/images/icons.svg")
+      href = Decidim.cors_enabled ? '' : asset_pack_path('media/images/icons.svg')
 
       content_tag :svg, html_properties do
         inner = content_tag :title, title
-        inner += content_tag :use, nil, "href" => "#{href}#icon-#{name}"
+        inner += content_tag :use, nil, 'href' => "#{href}#icon-#{name}"
 
         inner
       end
@@ -81,14 +81,14 @@ module Decidim
     #
     # Returns an <img /> tag with the SVG icon.
     def external_icon(path, options = {})
-      classes = _icon_classes(options) + ["external-icon"]
+      classes = _icon_classes(options) + ['external-icon']
 
-      if path.split(".").last == "svg"
-        attributes = { class: classes.join(" ") }.merge(options)
+      if path.split('.').last == 'svg'
+        attributes = { class: classes.join(' ') }.merge(options)
         asset = File.read(application_path(path))
-        asset.gsub("<svg ", "<svg#{tag_builder.tag_options(attributes)} ").html_safe
+        asset.gsub('<svg ', "<svg#{tag_builder.tag_options(attributes)} ").html_safe
       else
-        image_pack_tag(path, class: classes.join(" "), style: "display: none")
+        image_pack_tag(path, class: classes.join(' '), style: 'display: none')
       end
     end
 
@@ -106,7 +106,7 @@ module Decidim
     end
 
     def _icon_classes(options = {})
-      classes = options[:remove_icon_class] ? [] : ["icon"]
+      classes = options[:remove_icon_class] ? [] : ['icon']
       classes += [options[:class]]
       classes.compact
     end
@@ -117,7 +117,7 @@ module Decidim
       extra_items = items.slice((max_items + 1)..-1) || []
       active_item = items.find { |item| item[:active] }
 
-      render partial: "decidim/shared/extended_navigation_bar.html", locals: {
+      render partial: 'decidim/shared/extended_navigation_bar.html', locals: {
         items: items,
         extra_items: extra_items,
         active_item: active_item,
@@ -144,7 +144,7 @@ module Decidim
     # background-color: rgba(var(--primary-rgb), 0.5)
     def organization_colors
       css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex},#{v[3..4].hex},#{v[5..6].hex};" }.join
-      render partial: "layouts/decidim/organization_colors", locals: { css: css }
+      render partial: 'layouts/decidim/organization_colors', locals: { css: css }
     end
 
     private

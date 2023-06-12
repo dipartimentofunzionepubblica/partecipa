@@ -9,7 +9,7 @@ module Decidim
       AVAILABLE_COMPONENTS = %w(proposals debates surveys budgets).freeze
 
       def metric_name
-        "participants"
+        'participants'
       end
 
       def save
@@ -25,11 +25,8 @@ module Decidim
           record = Decidim::Metric.find_or_initialize_by(day: @day.to_s, metric_type: @metric_name,
                                                          participatory_space_type: space_type, participatory_space_id: space_id,
                                                          organization: @organization)
-		  Rails.logger.debug "1 record ==>" + record.to_s
           record.assign_attributes(cumulative: cumulative_value, quantity: quantity_value)
-		  Rails.logger.debug "2 record assign attributes ==> " + record.to_s
           @registry << record
-		  Rails.logger.debug "3 registry ==> " + @registry.to_s
         end
         @registry.each(&:save!)
         @registry
@@ -54,11 +51,9 @@ module Decidim
             next grouped_participants unless operation_manifest
 
             component_participants = operation_manifest.calculate(@day, component)
-			Rails.logger.debug "4 component_participants ==> " + @component_participants.to_s
             grouped_participants[key].merge!(component_participants || {}) do |_key, grouped_users, component_users|
               grouped_users | component_users
             end
-			Rails.logger.debug "4 grouped_participants ==> " + grouped_participants.inspect
           end
 
           # Special case for comments ONLY
@@ -69,7 +64,7 @@ module Decidim
           grouped_participants[key].merge!(comments_participants || {}) do |_key, grouped_users, comment_users|
             grouped_users | comment_users
           end
-		  grouped_participants
+          grouped_participants
           grouped_participants
         end
         @query
