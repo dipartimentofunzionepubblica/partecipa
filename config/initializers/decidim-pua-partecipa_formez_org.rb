@@ -5,46 +5,48 @@
 
 # frozen_string_literal: true
 
-Decidim::Pua.configure do |config|
-  # Definisce il nome del tenant. Solo lettere minuscole e underscores sono permessi.
-  # Default: pua. Quando hai multipli tenant devi definire un nome univoco rispetto ai vari tenant.
-  config.name = ENV['PUA_TENANT_NAME']
+if ENV['PUA_TENANT_NAME'].present?
+	Decidim::Pua.configure do |config|
+	  # Definisce il nome del tenant. Solo lettere minuscole e underscores sono permessi.
+	  # Default: pua. Quando hai multipli tenant devi definire un nome univoco rispetto ai vari tenant.
+	  config.name = ENV['PUA_TENANT_NAME']
 
-  # Definisce l'URL dell'Identity Server:
-  # config.issuer = "https://www.example.org"
-  config.issuer = ENV['PUA_ISSUER']
+	  # Definisce l'URL dell'Identity Server:
+	  # config.issuer = "https://www.example.org"
+	  config.issuer = ENV['PUA_ISSUER']
 
-  # Definisce l'URL del Relying Party:
-  # config.relying_party = "https://www.mydomain.org"
-  config.relying_party = ENV['PUA_RELYING_PARTY']
+	  # Definisce l'URL del Relying Party:
+	  # config.relying_party = "https://www.mydomain.org"
+	  config.relying_party = ENV['PUA_RELYING_PARTY']
 
-  # Attributo per matchare l'utente
-  config.uid_field = :nickname # Default value: sub
+	  # Attributo per matchare l'utente
+	  config.uid_field = :nickname # Default value: sub
 
-  # Definisce lo scope da utilizzare:
-  config.scope =  %i[openid email profile providername providersubject] # Default: [] Es: %i[openid profile email]
+	  # Definisce lo scope da utilizzare:
+	  config.scope =  %i[openid email profile providername providersubject] # Default: [] Es: %i[openid profile email]
 
-  # Definisce l'app ID
-  config.app_id = ENV['PUA_APP_ID']
+	  # Definisce l'app ID
+	  config.app_id = ENV['PUA_APP_ID']
 
-  # Definisce l'app secret
-  config.app_secret= ENV['PUA_APP_SECRET']
+	  # Definisce l'app secret
+	  config.app_secret= ENV['PUA_APP_SECRET']
 
-  # Mappatura delle chiavi che verranno salvate sul DB nell'autorizzazione
-  config.attributes = {
-    name: 'given_name',
-    surname: 'family_name',
-    fiscal_code: 'nickname',
-    email: 'email',
-    providername: 'providername',
-    providersubject: 'providersubject'
-  }
-  #
-  # I campi da escludere dall'export nei processi a causa della policy GDPR.
-  # Deve contenere un'array di chiavi presenti in attributes.
-  # Se l'array è vuoto saranno inseriti tutti quelli disponibili
-  # config.export_exclude_attributes = [
-  #   :name, :surname, :fiscal_code, :gender, :birthdate, :phone_number, :email, :address
-  # ]
-  #
+	  # Mappatura delle chiavi che verranno salvate sul DB nell'autorizzazione
+	  config.attributes = {
+		name: 'given_name',
+		surname: 'family_name',
+		fiscal_code: 'nickname',
+		email: 'email',
+		providername: 'providername',
+		providersubject: 'providersubject'
+	  }
+	  #
+	  # I campi da escludere dall'export nei processi a causa della policy GDPR.
+	  # Deve contenere un'array di chiavi presenti in attributes.
+	  # Se l'array è vuoto saranno inseriti tutti quelli disponibili
+	  # config.export_exclude_attributes = [
+	  #   :name, :surname, :fiscal_code, :gender, :birthdate, :phone_number, :email, :address
+	  # ]
+	  #
+	end
 end
