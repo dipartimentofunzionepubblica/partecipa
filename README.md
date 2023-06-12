@@ -153,7 +153,7 @@ Di seguito una breve spiegazione per ciascuna costante:
 
 ## FAQ
 
-Per verificare le risposte alle domande più frequenti, in particolare in relazione alla installazione della piattaforma, verificare le [FAQ.md](https://github.com/dipartimentofunzionepubblica/partecipa/FAQ.md)
+Per verificare le risposte alle domande più frequenti, in particolare in relazione alla installazione della piattaforma, verificare le [FAQ.md](https://github.com/dipartimentofunzionepubblica/partecipa/blob/master/FAQ.md)
 
 ## Segnalazioni sulla sicurezza
 
