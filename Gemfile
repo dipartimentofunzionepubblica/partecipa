@@ -22,6 +22,8 @@ gem 'uglifier', '~> 4.1'
 gem 'decidim-spid-cie', git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-spid-cie', branch: 'main'
 gem 'decidim-privacy', git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-privacy', branch: 'main'
 gem 'deface'
+gem 'mini_portile2', '2.5.3'
+gem 'wicked_pdf', '~> 2.1'
 
 group :development, :test do
   gem 'byebug', '~> 11.0', platform: :mri
