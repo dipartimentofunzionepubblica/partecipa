@@ -2,10 +2,10 @@
 
 Decidim.configure do |config|
   # The name of the application
-  config.application_name = "ParteciPa"
+  config.application_name = 'ParteciPa'
 
   # The email that will be used as sender in all emails from Decidim
-  config.mailer_sender = "noreply@formez.org"
+  config.mailer_sender = 'noreply@formez.org'
 
   # Sets the list of available locales for the whole application.
   #
@@ -38,7 +38,7 @@ Decidim.configure do |config|
    config.maps = {
      provider: :here,
      api_key: Rails.application.secrets.maps[:api_key],
-     static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
+     static: { url: 'https://image.maps.ls.hereapi.com/mia/1.6/mapview' }
    }
   #
   # == OpenStreetMap (OSM) services ==
@@ -143,7 +143,7 @@ Decidim.configure do |config|
   # config.throttling_period = 1.minute
 
   # Time window were users can access the website even if their email is not confirmed.
-  # config.unconfirmed_access_for = 2.days
+  config.unconfirmed_access_for = 0.days
 
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
@@ -198,7 +198,7 @@ Decidim.configure do |config|
   #   end
   # end
   #
-  config.timestamp_service = "Decidim::Initiatives::DummyTimestamp"
+  config.timestamp_service = 'Decidim::Initiatives::DummyTimestamp'
 
   # PDF signature service configuration
   #
@@ -221,7 +221,7 @@ Decidim.configure do |config|
   #   end
   # end
   #
-  config.pdf_signature_service = "Decidim::Initiatives::PdfSignatureExample"
+  config.pdf_signature_service = 'Decidim::Initiatives::PdfSignatureExample'
 
   # Etherpad configuration
   #
@@ -279,9 +279,9 @@ Decidim.configure do |config|
   # set cookies.
   # config.consent_cookie_name = "decidim-cc"
 end
-I18n.load_path += Dir.glob("config/locales/matomo/*.{rb,yml}")
+I18n.load_path += Dir.glob('config/locales/matomo/*.{rb,yml}')
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
 
 # Inform Decidim about the assets folder
-Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)
+Decidim.register_assets_path File.expand_path('app/packs', Rails.application.root)
