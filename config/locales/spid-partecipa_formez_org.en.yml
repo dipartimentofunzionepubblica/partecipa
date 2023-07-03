@@ -1,8 +1,0 @@
-en:
-  decidim:
-    authorization_handlers:
-      partecipa_formez_org_identity:
-        name: "SPID"
-        explanation: "Connect your account by logging in with SPID"
-        title: Migrate account
-        description: Your Decidim account will be associated with your SPID account. Your credentials will be deactivated and you can continue to log in with your SPID account.

@@ -9,19 +9,19 @@ gem 'bootsnap', '~> 1.4'
 gem 'daemons'
 gem 'decidim', git: 'https://github.com/decidim/decidim', tag: DECIDIM_VERSION
 gem 'decidim-decidim_awesome'
+gem 'decidim-privacy', git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-privacy', branch: 'main'
+gem 'decidim-pua', git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-pua', branch: 'main'
 gem 'decidim-templates', git: 'https://github.com/decidim/decidim', tag: DECIDIM_VERSION
 gem 'decidim-term_customizer', branch: DECIDIM_VERSION, git: 'https://github.com/mainio/decidim-module-term_customizer'
+gem 'deface'
 gem 'delayed_job_active_record'
 gem 'faker', '~> 2.14'
-gem 'foundation_rails_helper', git: 'https://github.com/sgruhier/foundation_rails_helper.git'
 gem 'figaro'
+gem 'foundation_rails_helper', git: 'https://github.com/sgruhier/foundation_rails_helper.git'
 gem 'pg'
 gem 'puma'
 gem 'rake'
 gem 'uglifier', '~> 4.1'
-gem 'decidim-spid-cie', git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-spid-cie', branch: 'main'
-gem 'decidim-privacy', git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-privacy', branch: 'main'
-gem 'deface'
 gem 'mini_portile2', '2.5.3'
 gem 'wicked_pdf', '~> 2.1'
 
@@ -31,8 +31,8 @@ group :development, :test do
   # Use latest simplecov from master until next version of simplecov is
   # released (greather than 0.18.5)
   # See https://github.com/decidim/decidim/issues/6230
-  gem 'simplecov', '~> 0.19.0'
   gem 'decidim-dev', git: 'https://github.com/decidim/decidim', tag: DECIDIM_VERSION
+  gem 'simplecov', '~> 0.19.0'
 end
 
 group :development do

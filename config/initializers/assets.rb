@@ -3,7 +3,7 @@
 
 # Define the base path of your module. Please note that `Rails.root` may not be
 # used because we are not inside the Rails environment when this file is loaded.
-base_path = File.expand_path("..", __dir__)
+base_path = File.expand_path('..', __dir__)
 
 # If you want to import some extra SCSS files in the Decidim main SCSS file
 # without adding any extra stylesheet inclusion tags, you can use the following
@@ -16,4 +16,4 @@ base_path = File.expand_path("..", __dir__)
 # main SCSS file, you can use the following method.
 #Decidim::Webpacker.register_stylesheet_import("stylesheets/your_app_admin_extensions", group: :admin)
 # Add node_modules folder to the asset load path.
-Rails.application.config.assets.paths << Rails.root.join("node_modules")
+Rails.application.config.assets.paths << Rails.root.join('node_modules')
