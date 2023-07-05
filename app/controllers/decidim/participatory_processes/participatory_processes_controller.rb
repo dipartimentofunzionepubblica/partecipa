@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright (C) 2023 Formez PA
 #
@@ -9,8 +11,6 @@
 
 # Modificato per visualizzare sempre tutti i processi nella pagina Processi e non solo quelli attivi per default
 
-
-# frozen_string_literal: true
 
 module Decidim
   module ParticipatoryProcesses
@@ -93,7 +93,12 @@ module Decidim
       end
 
       def collection
+        Rails.logger.info "participatory_processes=#{participatory_processes.inspect}"
         @collection ||= participatory_processes + participatory_process_groups
+      end
+
+      def active_collection
+        @active_collection ||= participatory_processes.inspect
       end
 
       def filtered_processes
