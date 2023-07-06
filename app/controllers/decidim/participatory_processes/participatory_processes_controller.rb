@@ -9,7 +9,7 @@
 #
 # You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
 
-# Modificato per visualizzare sempre tutti i processi nella pagina Processi e non solo quelli attivi per default
+# Modificato per visualizzare sempre tutti i processi nella pagina Processi e non solo quelli attivi per default e in modo da separare Processi attivi e conclusi in due sezioni di pagina diverse
 
 
 module Decidim
@@ -29,7 +29,9 @@ module Decidim
                     :participatory_process_group,
                     :default_date_filter,
                     :related_processes,
-                    :linked_assemblies
+                    :linked_assemblies,
+                    :active_collection,
+                    :ended_collection
 
       def index
         raise ActionController::RoutingError, "Not Found" if published_processes.none?
@@ -93,12 +95,15 @@ module Decidim
       end
 
       def collection
-        Rails.logger.info "participatory_processes=#{participatory_processes.inspect}"
         @collection ||= participatory_processes + participatory_process_groups
       end
 
       def active_collection
-        @active_collection ||= participatory_processes.inspect
+        @active_collection ||= participatory_processes.select{|process| process.active?}
+      end
+
+      def ended_collection
+        @ended_collection ||= participatory_processes.select{|process| !process.active?}
       end
 
       def filtered_processes
