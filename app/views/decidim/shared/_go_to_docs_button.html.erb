@@ -1,0 +1,14 @@
+<div id="go_to_docs_button">
+    <%= button_tag "Vai ai Documenti Relativi", type: '', onclick: "scrollDown()", class: 'button expanded secondary small has-tip' %>
+</div>
+<script>
+  function scrollDown(){
+        window.scrollTo(0, document.body.scrollHeight);
+  }
+</script>
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
