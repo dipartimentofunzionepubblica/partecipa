@@ -80,7 +80,7 @@ ParteciPa usa il core di Decidim e personalizza o integra solo i seguenti aspett
 L'attivazione di partecipa.gov.it come Service Provider Spid, CIE e CNS ha necessitato della applicazione della procedura di accreditamento tramite PUA (Punto Unico di Accesso) del DFP (Dipartimento Funzione Pubblica).
 L'accreditamento PUA avviene a seguito di verifica dei requisiti da parte di DFP ed esclusivamente per siti afferenti al Dipartimento stesso.
 
-Per integrare PUA ParteciPa utilizza il middleware Open-Source [Decidim-pua](https://github.com/dipartimentofunzionepubblica/decidim-module-pua) .
+Per integrare PUA ParteciPa utilizza il middleware Open-Source [Decidim-pua](https://github.com/dipartimentofunzionepubblica/decidim-module-pua) . In alternativa, in caso di impossibilità di accredito su PUA, è possibile gestire la login in single sign-on SPID e CIE attraverso la gem [Decidim-spid-cie](https://github.com/dipartimentofunzionepubblica/decidim-module-spid-cie) .
 
 ParteciPa richiede per suo utilizzo tre soli attributi utente: l'Indirizzo di posta elettronica, il Codice identificativo Spid (ove applicabili) e il Codice Fiscale.
 La piattaforma non memorizza in alcun modo le credenziali Spid, CIE o CNS dell'utente; vengono tracciati in un apposito log contenuto nel Database gli eventi di registrazione, login e logout dell'Utente.
