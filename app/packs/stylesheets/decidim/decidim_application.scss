@@ -76,7 +76,7 @@ title.is-active > [role="tab"], .side-panel__tabs .tabs-title.is-active > a {
     border-color: #e8e8e8;
     border-left-color: rgb(232, 232, 232);
     border-left: 8px solid var(--alert);
-	border-top: 3px solid var(--alert);
+	  border-top: 3px solid var(--alert);
     border-bottom: 3px solid var(--alert);
     border-right: 3px solid var(--alert);
 }
@@ -95,10 +95,12 @@ title.is-active > [role="tab"], .side-panel__tabs .tabs-title.is-active > a {
 }
 
 .title-bar {
-    padding: 1rem 0.5rem;
-	background: $par-blue;
-    color: #fff;
+  padding: 1rem 0.5rem;
+  background: $par-blue;
+  color: #fff;
 }
+
+
 
 //NAVBAR
 
