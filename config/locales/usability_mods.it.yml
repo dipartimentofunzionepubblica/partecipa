@@ -1,0 +1,10 @@
+it:
+  decidim:
+    usability_mods:
+      process_page:
+        process_go_to_docs_button_text: "Vai ai Documenti Relativi"
+      processes_index_page:
+        processes_title: "Processi"
+        processes_subtitile: "Esplora i Processi partecipativi attivi e quelli conclusi "
+        active_processes_label: "Processi Attivi"
+        ended_processes_label: "Processi Conclusi"
