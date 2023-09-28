@@ -1,0 +1,24 @@
+<%#
+Copyright (C) 2023 Formez PA
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+
+Inserito per gestire il nuovo bottone nella colonna a sinistra della pagina Processo che permette di fare scroll dowm alla sezione Documenti Relativi, se questa esiste
+%>
+<div id="go_to_docs_button">
+    <%= button_tag t("decidim.usability_mods.process_page.process_go_to_docs_button_text"), type: '', onclick: "scrollDownToDocSection()", class: 'button expanded secondary small has-tip' %>
+</div>
+<script>
+  function scrollDownToDocSection(){
+	var documentsSectionHeading = document.getElementById("documents-section-heading");
+	documentsSectionHeading.scrollIntoView({
+	  behavior: "smooth",
+	  block: "start",
+	  inline: "nearest"
+	});
+  }
+</script>

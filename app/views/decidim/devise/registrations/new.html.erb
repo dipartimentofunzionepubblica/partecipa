@@ -33,7 +33,7 @@ Modificata per eliminare la possibilità di registrazione con sottoscrizione new
 <% cache current_organization do %>
     <%= render "decidim/devise/shared/omniauth_buttons" %>
 <% end %>
-  
+
   <div class="row">
     <div class="columns large-6 medium-10 medium-centered">
 
@@ -44,13 +44,13 @@ Modificata per eliminare la possibilità di registrazione con sottoscrizione new
             <%= form_required_explanation %>
             <div class="user-person">
               <div class="field">
-                <%= f.text_field :name, help_text: t(".username_help") %>
+                <%= f.text_field :name, help_text_big: t(".username_help") %>
               </div>
             </div>
 
             <div class="user-nickname">
               <div class="field">
-                <%= f.text_field :nickname, help_text: t(".nickname_help", organization: current_organization.name), prefix: { value: "@", small: 1, large: 1 } %>
+                <%= f.text_field :nickname, help_text_big: t(".nickname_help", organization: current_organization.name), prefix: { value: "@", small: 1, large: 1 } %>
               </div>
             </div>
 
@@ -59,7 +59,7 @@ Modificata per eliminare la possibilità di registrazione con sottoscrizione new
             </div>
 
             <div class="field">
-              <%= f.password_field :password, help_text: t(".password_help", minimun_characters: NOBSPW.configuration.min_password_length), autocomplete: "off" %>
+              <%= f.password_field :password, help_text_big: t(".password_help", minimun_characters: NOBSPW.configuration.min_password_length), autocomplete: "off" %>
             </div>
 
             <div class="field">
@@ -92,7 +92,7 @@ Modificata per eliminare la possibilità di registrazione con sottoscrizione new
         </div>
       <% end %>
     </div>
-  </div> 
- </div> 
-</div> 
+  </div>
+ </div>
+</div>
 <%= render "decidim/devise/shared/newsletter_modal" %>

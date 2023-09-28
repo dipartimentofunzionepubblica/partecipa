@@ -14,7 +14,7 @@ a {
     line-height: inherit;
     color: $par-medium-green;
     text-decoration: none;
-	font-weight: 520;
+    font-weight: 520;
     cursor: pointer;
 }
 
@@ -39,7 +39,7 @@ a {
     display: block;
     padding: 1em 2em;
     color: rgba(255, 255, 255, 1);
-	text-decoration: underline;
+	  text-decoration: underline;
 }
 
 .section-heading::before {
@@ -54,7 +54,7 @@ a {
 
 #profile-tabs.tabs .tabs-title a:focus, #profile-tabs.tabs .tabs-title a[aria-selected="true"] {
     background: transparent;
-	color: $par-light-blue;
+	  color: $par-light-blue;
     font-weight: 600;
     border-bottom: 3px solid $par-medium-green;
 }
@@ -76,7 +76,7 @@ title.is-active > [role="tab"], .side-panel__tabs .tabs-title.is-active > a {
     border-color: #e8e8e8;
     border-left-color: rgb(232, 232, 232);
     border-left: 8px solid var(--alert);
-	border-top: 3px solid var(--alert);
+	  border-top: 3px solid var(--alert);
     border-bottom: 3px solid var(--alert);
     border-right: 3px solid var(--alert);
 }
@@ -95,10 +95,16 @@ title.is-active > [role="tab"], .side-panel__tabs .tabs-title.is-active > a {
 }
 
 .title-bar {
-    padding: 1rem 0.5rem;
-	background: $par-blue;
-    color: #fff;
+  padding: 1rem 0.5rem;
+  background: $par-blue;
+  color: #fff;
 }
+
+.help-text-big{
+  font-size: 1.1em !important;
+  font-style: italic;
+}
+
 
 //NAVBAR
 
@@ -125,7 +131,7 @@ title.is-active > [role="tab"], .side-panel__tabs .tabs-title.is-active > a {
       color: $par-black;
       box-shadow: none;
       background: $par-white;
-	  margin-top: 8px;
+	    margin-top: 8px;
       outline-color: var(--highlight-alternative);
     }
   }
@@ -146,10 +152,10 @@ title.is-active > [role="tab"], .side-panel__tabs .tabs-title.is-active > a {
     left: 0;
     right: 0;
   }
-  
+
   button{
     border-radius: 0 4 4 0;
-	width: 40px;
+    width: 40px;
   }
 
   form:first-child{
@@ -178,17 +184,17 @@ title.is-active > [role="tab"], .side-panel__tabs .tabs-title.is-active > a {
       }
     }
   }
-  
+
   svg{
     color: $par-white;
     position: absolute;
-    top: 0.8rem; 
+    top: 0.8rem;
     left: 0.6rem;
     transform: none;
-								
+
     opacity: 1;
   }
-				 
+
 }
 
 .main-nav__link--active a {
@@ -202,7 +208,7 @@ title.is-active > [role="tab"], .side-panel__tabs .tabs-title.is-active > a {
 
 //BUTTON
 
-.button {
+.button{
     display: inline-block;
     vertical-align: middle;
     margin: 0 0 1rem 0;
@@ -230,19 +236,19 @@ title.is-active > [role="tab"], .side-panel__tabs .tabs-title.is-active > a {
 }
 
 .button.hollow {
-    border: 1px solid $par-medium-green; 
-    color: $par-medium-green; 
-	background-color: #fff; 
+    border: 1px solid $par-medium-green;
+    color: $par-medium-green;
+    background-color: #fff;
 }
 
 .button.hollow:hover, .button.hollow:focus{
-    border: 1px solid $par-medium-green; 
-	background-color: $par-medium-green; 
+    border: 1px solid $par-medium-green;
+	background-color: $par-medium-green;
 	color: #fff;
 }
 
 .button.secondary {
-    background-color: $par-medium-green; 
+    background-color: $par-medium-green;
     color: $par-white;
 }
 
@@ -253,20 +259,26 @@ title.is-active > [role="tab"], .side-panel__tabs .tabs-title.is-active > a {
 }
 
 .button.secondary.hollow:hover, .button.secondary.hollow:focus{
-    border: 1px solid $par-medium-green; 
-    color: $par-medium-green; 
-	background-color: $par-medium-green; 
-	color: #fff;
+    border: 1px solid $par-medium-green;
+    color: $par-medium-green;
+	  background-color: $par-medium-green;
+	  color: #fff;
 }
 
 .home-bullet__icon svg {
     fill: $par-medium-green;
 }
 
-.subhero-cta {
-    margin-top: 2rem;
-    color: $par-medium-green;
-    display: inline-block;
+.subhero-cta-new {
+   margin-top: 2rem;
+   display: inline-block !important;
+   text-transform: uppercase;
+
+   &:hover,
+   &:focus{
+     text-decoration: none !important;
+     color: white !important;
+   }
 }
 
 //CARDS
@@ -394,7 +406,7 @@ $datetime-bg: var(--primary);
 }
 
 .mini-footer a, .main-footer a {
-	color: $par-white; 
+	color: $par-white;
 }
 
 .decidim-logo > a:nth-child(1) > span:nth-child(2){
