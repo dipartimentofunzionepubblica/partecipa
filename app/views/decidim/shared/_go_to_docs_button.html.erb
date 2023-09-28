@@ -1,14 +1,13 @@
 <div id="go_to_docs_button">
-    <%= button_tag "Vai ai Documenti Relativi", type: '', onclick: "scrollDown()", class: 'button expanded secondary small has-tip' %>
+    <%= button_tag "Vai ai Documenti Relativi", type: '', onclick: "scrollDownToDocSection()", class: 'button expanded secondary small has-tip' %>
 </div>
 <script>
-  function scrollDown(){
-        window.scrollTo(0, document.body.scrollHeight);
+  function scrollDownToDocSection(){
+	var documentsSectionHeading = document.getElementById("documents-section-heading");
+	documentsSectionHeading.scrollIntoView({
+	  behavior: "smooth",
+	  block: "start",
+	  inline: "nearest"
+	});
   }
 </script>
-<style>
-  html {
-    scroll-behavior: smooth;
-  }
-</style>
-
