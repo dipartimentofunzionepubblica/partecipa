@@ -1,5 +1,5 @@
 <%#
-Copyright (C) 2022 Formez PA
+Copyright (C) 2023 Formez PA
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
 
@@ -16,11 +16,9 @@ Modificata classe relativa alla call-to-action per renderla uguale al normale bo
           <%= organization_description %>
         </h2>
         <% unless current_user %>
-          <!--%= link_to decidim.new_user_registration_path, class: "button--sc link subhero-cta", title: t("decidim.pages.home.sub_hero.register_title") do %-->
 		  <div class="columns small-centered small-6 medium-4 mediumlarge-3">
 			  <%= link_to decidim.new_user_registration_path, class: "button expanded large button--sc subhero-cta-new", title: t("decidim.pages.home.sub_hero.register_title") do %>
-				<%= t("decidim.pages.home.sub_hero.register") %>
-				<!--%= icon "chevron-right", aria_hidden: true, role: "img" %-->
+				  <%= t("decidim.pages.home.sub_hero.register") %>
 			  <% end %>
 		  </div>
         <% end %>
