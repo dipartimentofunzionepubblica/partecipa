@@ -1,0 +1,27 @@
+<%#
+Copyright (C) 2023 Formez PA
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+
+Modificata classe relativa alla call-to-action per renderla uguale al normale bottone large
+%>
+<section class="extended subhero home-section">
+    <div class="row">
+      <div class="columns small-centered large-10">
+        <h2 class="heading2">
+          <%= organization_description %>
+        </h2>
+        <% unless current_user %>
+		  <div class="columns small-centered small-6 medium-4 mediumlarge-3">
+			  <%= link_to decidim.new_user_registration_path, class: "button expanded large button--sc subhero-cta-new", title: t("decidim.pages.home.sub_hero.register_title") do %>
+				  <%= t("decidim.pages.home.sub_hero.register") %>
+			  <% end %>
+		  </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
