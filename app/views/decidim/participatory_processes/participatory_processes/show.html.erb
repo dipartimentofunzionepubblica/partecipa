@@ -1,3 +1,16 @@
+<%#
+Copyright (C) 2023 Formez PA
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+
+Modificata per integrare il bottone "Vai ai Documenti Relativi"
+%>
+
+
 <% add_decidim_meta_tags({
                            image_url: current_participatory_space.attached_uploader(:hero_image).path,
                            description: translated_attribute(current_participatory_space.short_description),
@@ -68,13 +81,6 @@
                      locals: { followable: current_participatory_space, large: false } %>
         </div>
       </div>
-      <% if current_participatory_space.attachments.any? %>
-        <div class="card extra">
-          <div class="card__content">
-            <%= render partial: "decidim/shared/go_to_docs_button" %>
-          </div>
-        </div>
-      <% end %>
       <div class="card extra definition-data">
         <% if translated_attribute(current_participatory_space.participatory_scope).present? %>
           <div class="definition-data__item participatory_scope">
@@ -143,6 +149,13 @@
           </div>
         <% end %>
       </div>
+      <% if current_participatory_space.attachments.any? %>
+        <div class="card extra">
+          <div class="card__content">
+            <%= render partial: "decidim/shared/go_to_docs_button" %>
+          </div>
+        </div>
+      <% end %>
         <%= resource_reference(current_participatory_space) %>
         <%= render partial: "decidim/shared/share_modal" %>
         <%= embed_modal_for participatory_process_widget_url(current_participatory_space, format: :js) %>
