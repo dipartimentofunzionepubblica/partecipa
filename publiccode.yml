@@ -1,4 +1,4 @@
-# This repository adheres to the publiccode.yml standard by including this 
+# This repository adheres to the publiccode.yml standard by including this
 # metadata file that makes public software easily discoverable.
 # More info at https://github.com/italia/publiccode.yml
 
@@ -12,7 +12,7 @@ dependsOn:
       version: ''
       versionMax: ''
       versionMin: ''
-    - name: spid-rails
+    - name: Decidim-pua
       optional: false
       version: ''
       versionMax: ''
@@ -33,17 +33,19 @@ description:
       aspetti:
 
 
-      - Utilizzo del[ ++Sistema Pubblico di Identità Digitale
-      (SPID)++](https://www.spid.gov.it/) attraverso il middleware open source[
-      ++SPID-Rails++](https://github.com/italia/spid-rails) ;
+      - Utilizzo del[ ++Sistema Pubblico di Identità Digitale (Spid),
+      della Carta di Identità Elettronica (CIE)
+      e della Carta Nazionale dei Servizi (CNS) attraverso il Punto Unico d'Accesso (PUA) ++]
+      con l'apposito middleware open source [https://github.com/dipartimentofunzionepubblica/decidim-module-pua];
 
       - Aspetto grafico ridefinito via SCSS;
 
-      - Modifiche sul profilo dell’utente per soddisfare le indicazioni del GDPR
-      ;
+      - Modifiche sul profilo dell’utente per soddisfare le indicazioni del GDPR con l'apposito modulo open-source
+      [https://github.com/dipartimentofunzionepubblica/decidim-module-privacy];
 
-      - Integrazione del modulo community[
-      ++Term-Customizer++](https://github.com/mainio/decidim-module-term_customizer);
+      - Integrazione di moduli community:
+      [++Term-Customizer++](https://github.com/mainio/decidim-module-term_customizer);
+      [++Decidim-Awesome++](https://github.com/Platoniq/decidim-module-decidim_awesome);
 
       - Installazione in modalità multi-tenant.
 
@@ -58,7 +60,7 @@ description:
     shortDescription: |-
       ParteciPa  è la versione adottata in Italia di Decidim, la piattaforma
       spagnola di democrazia partecipativa.
-developmentStatus: beta
+developmentStatus: stable
 it:
   conforme:
     gdpr: true
@@ -68,7 +70,7 @@ it:
   countryExtensionVersion: '0.2'
   piattaforme:
     anpr: false
-    cie: false
+    cie: true
     pagopa: false
     spid: true
   riuso:
@@ -92,3 +94,4 @@ softwareType: addon
 url: 'https://github.com/dipartimentofunzionepubblica/partecipa.git'
 usedBy:
   - Regione Emilia-Romagna
+  - Regione Sardegna
