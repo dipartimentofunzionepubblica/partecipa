@@ -890,6 +890,7 @@ GEM
     zeitwerk (2.6.13)
 
 PLATFORMS
+  ruby
   x86_64-linux
 
 DEPENDENCIES
