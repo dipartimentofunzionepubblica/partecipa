@@ -183,15 +183,6 @@ GIT
       deface (= 1.9.0)
 
 GIT
-  remote: https://github.com/dipartimentofunzionepubblica/decidim-module-proposal_moderation
-  revision: d8885a89bf70b60b81baa06dbd5d5cdaccc2212a
-  branch: bump_to_0.26
-  specs:
-    decidim-proposal_moderation (0.26.9)
-      decidim-core (= 0.26.9)
-      deface (= 1.9.0)
-
-GIT
   remote: https://github.com/dipartimentofunzionepubblica/decidim-module-pua
   revision: 9aa14d0e969887f7c488b885e1735bb30b074612
   branch: bump_to_0.26
@@ -328,7 +319,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    carrierwave (2.2.5)
+    carrierwave (2.2.6)
       activemodel (>= 5.0.0)
       activesupport (>= 5.0.0)
       addressable (~> 2.6)
@@ -365,7 +356,7 @@ GEM
       bigdecimal
       rexml
     crass (1.0.6)
-    css_parser (1.16.0)
+    css_parser (1.17.1)
       addressable
     daemons (1.4.1)
     date (3.3.4)
@@ -396,7 +387,7 @@ GEM
       delayed_job (>= 3.0, < 5)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
-    devise (4.9.3)
+    devise (4.9.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0)
@@ -436,7 +427,7 @@ GEM
     factory_bot_rails (4.11.1)
       factory_bot (~> 4.11.1)
       railties (>= 3.0.0)
-    faker (2.23.0)
+    faker (3.3.1)
       i18n (>= 1.8.11, < 2)
     faraday (2.8.1)
       base64
@@ -466,7 +457,7 @@ GEM
     hashdiff (1.1.0)
     hashie (5.0.0)
     highline (2.1.0)
-    html_tokenizer (0.0.7)
+    html_tokenizer (0.0.8)
     htmlentities (4.3.4)
     httpclient (2.8.3)
     i18n (1.14.4)
@@ -490,7 +481,7 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
-    json (2.7.1)
+    json (2.7.2)
     json-jwt (1.16.6)
       activesupport (>= 4.2)
       aes_key_wrap
@@ -518,8 +509,8 @@ GEM
       kramdown (~> 2.0)
     launchy (2.5.2)
       addressable (~> 2.8)
-    letter_opener (1.9.0)
-      launchy (>= 2.2, < 3)
+    letter_opener (1.10.0)
+      launchy (>= 2.2, < 4)
     letter_opener_web (1.4.1)
       actionmailer (>= 3.2)
       letter_opener (~> 1.0)
@@ -566,9 +557,9 @@ GEM
       net-protocol
     net-protocol (0.2.2)
       timeout
-    net-smtp (0.4.0.1)
+    net-smtp (0.5.0)
       net-protocol
-    nio4r (2.7.0)
+    nio4r (2.7.1)
     nokogiri (1.15.6-x86_64-linux)
       racc (~> 1.4)
     oauth (1.1.0)
@@ -590,11 +581,11 @@ GEM
       rack-protection
     omniauth-facebook (5.0.0)
       omniauth-oauth2 (~> 1.2)
-    omniauth-google-oauth2 (1.1.1)
+    omniauth-google-oauth2 (1.1.2)
       jwt (>= 2.0)
-      oauth2 (~> 2.0.6)
+      oauth2 (~> 2.0)
       omniauth (~> 2.0)
-      omniauth-oauth2 (~> 1.8.0)
+      omniauth-oauth2 (~> 1.8)
     omniauth-oauth (1.2.0)
       oauth
       omniauth (>= 1.0, < 3)
@@ -642,11 +633,11 @@ GEM
       actionmailer (>= 3)
       net-smtp
       premailer (~> 1.7, >= 1.7.9)
-    public_suffix (5.0.4)
+    public_suffix (5.0.5)
     puma (5.6.8)
       nio4r (~> 2.0)
     racc (1.7.3)
-    rack (2.2.8.1)
+    rack (2.2.9)
     rack-attack (6.7.0)
       rack (>= 1.0, < 4)
     rack-cors (1.1.1)
@@ -699,7 +690,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
     rainbow (3.1.1)
-    rake (13.1.0)
+    rake (13.2.1)
     ransack (2.4.2)
       activerecord (>= 5.2.4)
       activesupport (>= 5.2.4)
@@ -777,7 +768,7 @@ GEM
     ruby-vips (2.2.1)
       ffi (~> 1.12)
     ruby2_keywords (0.0.5)
-    rubyXL (3.4.25)
+    rubyXL (3.4.26)
       nokogiri (>= 1.10.8)
       rubyzip (>= 1.3.0)
     rubyzip (2.3.2)
@@ -842,7 +833,7 @@ GEM
     validate_url (1.0.15)
       activemodel (>= 3.0.0)
       public_suffix
-    version_gem (1.1.3)
+    version_gem (1.1.4)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -900,13 +891,12 @@ DEPENDENCIES
   decidim-decidim_awesome
   decidim-dev!
   decidim-privacy!
-  decidim-proposal_moderation!
   decidim-pua!
   decidim-templates!
   decidim-term_customizer!
   deface
   delayed_job_active_record
-  faker (~> 2.14)
+  faker
   figaro
   foundation_rails_helper!
   letter_opener_web (~> 1.3)
