@@ -11,12 +11,12 @@ gem 'decidim', git: 'https://github.com/decidim/decidim', tag: DECIDIM_VERSION
 gem 'decidim-decidim_awesome'
 gem 'decidim-privacy', git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-privacy', branch: 'main'
 gem 'decidim-pua', git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-pua', branch: 'bump_to_0.26'
-gem 'decidim-proposal_moderation', git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-proposal_moderation', branch: 'bump_to_0.26'
+#gem 'decidim-proposal_moderation', git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-proposal_moderation', branch: 'bump_to_0.26'
 gem 'decidim-templates', git: 'https://github.com/decidim/decidim', tag: DECIDIM_VERSION
 gem 'decidim-term_customizer', branch: DECIDIM_VERSION, git: 'https://github.com/mainio/decidim-module-term_customizer'
 gem 'deface'
 gem 'delayed_job_active_record'
-gem 'faker', '~> 2.14'
+#gem 'faker', '~> 2.14'
 gem 'figaro'
 gem 'foundation_rails_helper', git: 'https://github.com/sgruhier/foundation_rails_helper.git'
 gem 'pg'
@@ -45,4 +45,5 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0'
   gem 'web-console', '4.0.4'
   gem 'xray-rails'
+  gem 'faker', :require => false
 end
