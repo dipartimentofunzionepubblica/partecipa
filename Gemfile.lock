@@ -183,6 +183,15 @@ GIT
       deface (= 1.9.0)
 
 GIT
+  remote: https://github.com/dipartimentofunzionepubblica/decidim-module-proposal_moderation
+  revision: d8885a89bf70b60b81baa06dbd5d5cdaccc2212a
+  branch: bump_to_0.26
+  specs:
+    decidim-proposal_moderation (0.26.9)
+      decidim-core (= 0.26.9)
+      deface (= 1.9.0)
+
+GIT
   remote: https://github.com/dipartimentofunzionepubblica/decidim-module-pua
   revision: 9aa14d0e969887f7c488b885e1735bb30b074612
   branch: bump_to_0.26
@@ -768,7 +777,7 @@ GEM
     ruby-vips (2.2.1)
       ffi (~> 1.12)
     ruby2_keywords (0.0.5)
-    rubyXL (3.4.26)
+    rubyXL (3.4.27)
       nokogiri (>= 1.10.8)
       rubyzip (>= 1.3.0)
     rubyzip (2.3.2)
@@ -891,6 +900,7 @@ DEPENDENCIES
   decidim-decidim_awesome
   decidim-dev!
   decidim-privacy!
+  decidim-proposal_moderation!
   decidim-pua!
   decidim-templates!
   decidim-term_customizer!
