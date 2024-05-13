@@ -99,10 +99,11 @@ module Decidim
         @meeting ||= Meeting.not_hidden.where(component: current_component).find(params[:id])
       end
 
-      def meetings
-        @meetings ||= paginate(search.results.order(start_time: :asc))
+	  def meetings
+        is_past_meetings = params.dig("filter", "date")&.include?("past")
+        @meetings ||= paginate(search.results.order(start_time: is_past_meetings ? :desc : :asc))
       end
-
+	  
       def registration
         @registration ||= meeting.registrations.find_by(user: current_user)
       end
