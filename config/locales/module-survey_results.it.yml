@@ -10,7 +10,7 @@ it:
       survey_results:
         answered_table:
           table:
-            answered: Risposto
+            answered: Risposta
             not_answered: Non risposto
             percentage: Percentuale
             quantity: Quantità
@@ -18,7 +18,7 @@ it:
           conditioned_question: Domanda %{number} (DOMANDA CONDIZIONALE)
           question: Domanda %{number}
         show:
-          alert: Stai vedendeo i risultati del sondaggio.
+          alert: Stai vedendo i risultati del sondaggio.
           num_participants:
             one: 1 partecipante
             other: "%{count} partecipanti"

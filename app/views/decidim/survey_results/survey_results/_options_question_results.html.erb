@@ -1,0 +1,32 @@
+<%#
+Copyright (C) 2021 Formez PA
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+
+Modificata per aggiungere le localizzazioni in italiano al posto di quelle statiche in spagnolo
+%>
+<div class="answers-chart">
+  <canvas
+    class="<%= results.question_type %>-chart"
+    data-labels="<%= results.x_labels %>"
+    data-datasets="<%= results.datasets.to_json %>"
+  ></canvas>
+</div>
+
+<table>
+  <thead>
+    <th><%= t("decidim.survey_results.survey_results.answered_table.table.answered") %></th>
+    <th><%= t("decidim.survey_results.survey_results.answered_table.table.percentage") %></th>
+    <th><%= t("decidim.survey_results.survey_results.answered_table.table.quantity") %></th>
+  </thead>
+  <tbody>
+    <% results.x_labels.zip(results.datasets.first[:data]).each do |label, count| %>
+      <tr>
+        <td><%= label %></td>
+        <td><%= results.answers_percentage(count) %>%</td>
+        <td><%= count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
