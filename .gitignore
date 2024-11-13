@@ -11,7 +11,7 @@
 /.idea
 
 # Ignore packages
-/packages
+#/packages
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
