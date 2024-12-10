@@ -45,7 +45,7 @@ it:
     admin:
      component:
       actions:
-       answers_alert: Risposte
+       answers_alert: Attenzione se pubblichi il componente tutte le risposte saranno cancellate
     settings:
      global:
       enable_results: Abilita risultati
@@ -132,6 +132,11 @@ it:
     shared:
      links:
       log_in: Login
+      sign_in: Accedi
+      sign_up: Registrati
+      forgot_your_password?: Hai dimenticato la password?
+      did_not_receive_confirmation_instructions?: Non hai ricevuto le istruzioni di conferma?
+      did_not_receive_unlock_instructions?: Non hai ricevuto le istruzioni di sblocco?               
    organizations:
     edit:
      title: Organizzazione
