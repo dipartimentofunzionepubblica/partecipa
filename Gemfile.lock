@@ -194,15 +194,6 @@ GIT
       deface (= 1.9.0)
 
 GIT
-  remote: https://github.com/dipartimentofunzionepubblica/decidim-module-proposal_moderation
-  revision: 0ebd4c56ab2b94f540733e753c0fd796f70e30cb
-  branch: bump_to_0.26
-  specs:
-    decidim-proposal_moderation (0.26.10)
-      decidim-core (= 0.26.10)
-      deface (= 1.9.0)
-
-GIT
   remote: https://github.com/dipartimentofunzionepubblica/decidim-module-pua
   revision: ae0db6adc0d547bef354eb1701cc63bc51fea9f4
   branch: bump_to_0.26
@@ -916,7 +907,6 @@ DEPENDENCIES
   decidim-decidim_awesome
   decidim-dev!
   decidim-privacy!
-  decidim-proposal_moderation!
   decidim-pua!
   decidim-survey_results!
   decidim-templates!
