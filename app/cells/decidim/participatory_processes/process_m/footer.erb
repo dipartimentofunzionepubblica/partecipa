@@ -7,7 +7,8 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
 
-Modificata footer della card processi per visualizzare un testo alternativo nel pulsante di partecipazione in caso di processo attivo o non attivo
+Modificata footer della card processi per visualizzare un testo alternativo nel pulsante di partecipazione in caso di processo attivo o non attivi
+modifiche per aggiungere il title al link relativo al pulsante "Partecipa" o "Naviga"
 %>
 <div class="card__footer card__footer--spaces">
   <div class="card__support">
@@ -17,14 +18,18 @@ Modificata footer della card processi per visualizzare un testo alternativo nel 
         <div class="text-ellipsis"><strong><%= step_title %></strong></div>
       </div>
 	  <% if has_state? %>
-	    <%= link_to(resource_path, class: "card__button button button--sc small") do %>
-		 <span class="show-for-sr"><%= t("browse", resource_name: title, scope: "layouts.decidim.participatory_process_groups.participatory_process_group") %></span>
-		 <%= t("browse", scope: "layouts.decidim.participatory_process_groups.participatory_process_group") %>
-	   <% end %>
+        <% new_title = t("browse_button_link_title", scope: "decidim.usability_mods.processes_index_page") %>
+        <% new_title += " "  + title %>
+        <%= link_to(resource_path, class: "card__button button button--sc small", :title => new_title )  do %>
+		      <span class="show-for-sr"><%= t("participate_button_text", resource_name: title, scope: "decidim.usability_mods.processes_index_page") %></span>
+		      <%= t("browse_button_text", scope: "decidim.usability_mods.processes_index_page") %>
+	      <% end %>
 	  <% else %>
-	   <%= link_to(resource_path, class: "card__button button button--sc small") do %>
-		 <span class="show-for-sr"><%= t(model.cta_button_text_key_accessible, resource_name: title, scope: "layouts.decidim.participatory_processes.participatory_process") %></span>
-		 <%= t(model.cta_button_text_key, scope: "layouts.decidim.participatory_processes.participatory_process") %>
+      <% new_title = t("participate_button_link_title", scope: "decidim.usability_mods.processes_index_page") %>
+      <% new_title += " "  + title %>
+      <%= link_to(resource_path, class: "card__button button button--sc small", :title => new_title ) do %>
+		  <span class="show-for-sr"><%= t("browse_button_text", resource_name: title, scope: "decidim.usability_mods.processes_index_page") %></span>
+		  <%= t("participate_button_text", scope: "decidim.usability_mods.processes_index_page") %>
 	   <% end %>
 	 <% end %>
 	<% end %>

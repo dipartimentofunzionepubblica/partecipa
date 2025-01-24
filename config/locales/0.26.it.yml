@@ -15,11 +15,32 @@ it:
     actions:
      accept: Accetta
      refuse: Rifiuta
+   moderations:
+    index:
+     title: Moderazione
+  assemblies:
+   show:
+    indefinite_duration: Durata non definita
+   admin:
+    assembly_members:
+     index:
+      filter:
+       ceased: cessata
+       not_ceased: non cessata
+    assemblies:
+     form:
+      slug_help: 'gli URL slugs sono usati per generare gli URLs che puntano a questa assemblea. Accetta solo lettere, numeri e il trattino, e deve iniziare con una lettera. Esempio: %{url}'               
   blogs:
    models:
     post:
      fields:
       title: Blog
+  devise:
+   registrations:
+    new:
+     sign_in: Login
+    create:
+     error: C'è stato un problema nella creazione del tuo account
   components:
    budgets:
     settings:
@@ -28,6 +49,19 @@ it:
       workflow_choices:
        random: Casuale
    proposals:
+    admin:
+     imports:
+      label:
+       answers: Risposte
+       proposals: Proposte
+    proposals:
+      admin:
+       proposal_answers:
+        form:
+         answered: Risposta
+         not_answered: Non risposta
+      new:
+       title: Titolo
     settings:
      step:
       default_sort_order: Ordine di default
@@ -41,7 +75,14 @@ it:
     settings:
      global:
       enable_results: Abilita risultati
+      send_confirmation_email: Invia un email con le risposte all'utente e agli Amministratori quando un questionario è stato completato                                     
   surveys:
+    survey_confirmation_mailer:
+     export_name: questionario-%{questionnaire_slug}
+     confirmation:
+      subject: Risposte al tuo questionario %{participatory_space_title}
+      greetings: Gentile %{user_name},
+      body:  in allegato, all'interno dell'archivio .ZIP, il file .PDF contenente le tue risposte alle domande del questionario %{questionnaire_title} / %{participatory_space_title}.                              
     admin:
      component:
       actions:
@@ -111,6 +152,8 @@ it:
       reportable_id: id
   pages:
    home:
+    footer_sub_hero:
+     footer_sub_hero_body: Creiamo una più aperta, trasparente e collaborativa società.<br /> Registrati, partecipa e decidi.
     hero:
      participate_title: partecipa
   participatory_processes:
@@ -125,6 +168,11 @@ it:
       see_all_processes: Vedi tutti i processi
    show:
     local_area: Area locale
+  proposals:
+   proposals:
+    participatory_texts:
+     index:
+      document_index: Indice documento
   system:
    titles:
     decidim: Decidim
