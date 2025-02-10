@@ -514,7 +514,7 @@ a.muted, abbr.muted, acronym.muted, b.muted, bdo.muted, big.muted, br.muted, but
     border-radius: 5px;
     color: #fff;
     padding: 0 0.4em 0.1em;
-    font-size: 0.9em;
+    font-size: 1em; //mod_accessibility id 7 - Generale
 }
 
 //SOCIAL LOGIN
@@ -567,4 +567,42 @@ a.muted, abbr.muted, acronym.muted, b.muted, bdo.muted, big.muted, br.muted, but
 
 #assemblies-chart {
   display: none;
+}
+
+// colore delle label che avvertono che è presente un errore
+.is-invalid-label {
+  color: $par-darkorange; // colore delle label che avvertono che è presente un errore mod_accessibility
+}
+
+// colore scritte di errore nei form
+.form-error {
+  display: none;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: $par-darkorange; // colore delle label che avvertono che è presente un errore mod_accessibility
+}
+
+// colore del bordo dei campi contrassegnati con errore
+.is-invalid-input:not(:focus) {
+  border-color: $par-darkorange; // colore delle label che avvertono che è presente un errore mod_accessibility
+  background-color: #fdeeec;
+}
+
+// pagina Processi filtro aumentata saturazione di colore
+.order-by__tab {
+  color: #404040;
+}
+
+// Pagina risultati ricerca filtro attivo
+
+.order-by__tab.is-active {
+  color: $par-darkgreen !important;
+  text-decoration-color: $par-darkgreen !important;
+}
+
+.filters__section--general.no-results .section-title {
+  color: #404040;
+  text-decoration: none;
 }

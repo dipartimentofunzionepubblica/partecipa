@@ -5,6 +5,17 @@ it:
         process_go_to_docs_button_text: "Vai ai Documenti Relativi"
       processes_index_page:
         processes_title: "Processi"
-        processes_subtitile: "Esplora i Processi partecipativi attivi e quelli conclusi "
+        processes_subtitile: "Esplora i Processi partecipativi attivi, quelli conclusi e i gruppi di processi"
         active_processes_label: "Processi Attivi"
         ended_processes_label: "Processi Conclusi"
+        upcoming_processes_label: "Processi Imminenti"
+        groups_processes_label: "Gruppi di Processi"
+        participate_button_text: "Partecipa"
+        browse_button_text: "Naviga"
+        participate_button_link_title: "Partecipa a"
+        browse_button_link_title: "Naviga su"
+      help_index_page:
+        more_button_link_title: "Leggi di più su"
+      proposals_index_page:
+        view_button_link_title: "Visualizza la proposta su"
+
