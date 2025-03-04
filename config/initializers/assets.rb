@@ -17,3 +17,6 @@ base_path = File.expand_path('..', __dir__)
 #Decidim::Webpacker.register_stylesheet_import("stylesheets/your_app_admin_extensions", group: :admin)
 # Add node_modules folder to the asset load path.
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
+
+# Add node_modules folder to the asset load path.
+Rails.application.config.assets.paths << Rails.root.join("node_modules")
