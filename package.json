@@ -1,5 +1,5 @@
 {
-  "name": "a-decidim-app",
+  "name": "partecipa",
   "description": "Note: this is not a package, just the dependencies for the project in the dev environment.",
   "private": true,
   "engines": {
@@ -45,10 +45,29 @@
     "testRegex": "\\.(test|spec)\\.js$"
   },
   "dependencies": {
-    "@decidim/browserslist-config": "file:packages/browserslist-config",
-    "@decidim/core": "file:packages/core",
-    "@decidim/elections": "file:packages/elections",
-    "@decidim/webpacker": "file:packages/webpacker"
+    "@decidim/browserslist-config": "0.26.10",
+    "@decidim/core": "0.26.10",
+    "@decidim/elections": "0.26.10",
+    "@decidim/webpacker": "0.26.10",
+    "@rails/actioncable": "^6.1.7",
+    "@rails/webpacker": "6.0.0-rc.3",
+    "codemirror": "^5.65.0",
+    "europa": "^4.0.0",
+    "expose-loader": "^5.0.1",
+    "form-storage": "^1.3.5",
+    "formBuilder": "^3.6.1",
+    "graphql-ws": "^5.11.3",
+    "highlight.js": "^11.4.0",
+    "inline-attachment": "^2.0.3",
+    "inscrybmde": "^1.11.6",
+    "jquery-ui": "^1.13.0",
+    "jsrender": "^1.0.9",
+    "leaflet.featuregroup.subgroup": "^1.0.2",
+    "marked": "^5.1.2",
+    "sass-loader": "10.0.4",
+    "select2": "^4.1.0-rc.0",
+    "webpack": "^5.51.1",
+    "webpack-cli": "4.10.0"
   },
   "devDependencies": {
     "@decidim/dev": "file:packages/dev",
@@ -63,5 +82,29 @@
     "react-test-renderer": "^16.0.0",
     "webpack-dev-server": "^5.2.0",
     "yaml-jest": "^1.0.5"
-  }
+    "@babel/eslint-parser": "^7.24.1",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-private-methods": "^7.18.6",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/plugin-transform-classes": "^7.24.1",
+    "@babel/plugin-transform-regenerator": "^7.24.1",
+    "@babel/plugin-transform-runtime": "^7.24.3",
+    "@babel/preset-env": "^7.24.4",
+    "@babel/preset-react": "^7.24.1",
+    "@decidim/dev": "0.26.10",
+    "@decidim/eslint-config": "0.26.10",
+    "@decidim/stylelint-config": "0.26.10",
+    "@webpack-cli/serve": "1.7.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-standard": "^3.1.0",
+    "sass-embedded": "~1.57.1",
+    "stylelint": "^13.11.0",
+    "webpack-dev-server": "4.15.2"
+  },
+  "browserslist": [
+    "extends @decidim/browserslist-config"
+  ]
 }
