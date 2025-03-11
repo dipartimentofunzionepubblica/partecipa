@@ -377,6 +377,8 @@ GEM
     db-query-matchers (0.10.0)
       activesupport (>= 4.0, < 7)
       rspec (~> 3.0)
+    decidim-cache_cleaner (1.0.4)
+      decidim-core (~> 0.26)
     decidim-decidim_awesome (0.8.1)
       decidim-admin (>= 0.25.0, < 0.27)
       decidim-core (>= 0.25.0, < 0.27)
@@ -903,7 +905,8 @@ DEPENDENCIES
   byebug (~> 11.0)
   daemons
   decidim!
-  decidim-decidim_awesome (= 0.8.1)
+  decidim-cache_cleaner
+  decidim-decidim_awesome
   decidim-dev!
   decidim-privacy!
   decidim-pua!
