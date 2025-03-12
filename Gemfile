@@ -25,6 +25,7 @@ gem 'uglifier', '~> 4.1'
 gem 'mini_portile2', '~> 2.8.2'
 gem 'wicked_pdf', '~> 2.1'
 gem 'wkhtmltopdf-binary'
+gem 'concurrent-ruby', '1.3.4'
 
 group :development, :test do
   gem 'byebug', '~> 11.0', platform: :mri
