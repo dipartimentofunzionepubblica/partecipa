@@ -1,0 +1,100 @@
+---
+it:
+  activemodel:
+    attributes:
+      post:
+        body: Body
+        decidim_author_id: Author
+        published_at: Publish time
+        title: Title
+    models:
+      decidim/blogs/create_post_event: Nuovo post sul blog
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Inviare
+        other: Messaggi
+  decidim:
+    blogs:
+      actions:
+        author_id: Crea post come
+        confirm_destroy: Are you sure you want to delete this post?
+        destroy: Delete
+        edit: Modifica
+        new: Nuovo post
+        title: Azioni
+      admin:
+        models:
+          post:
+            name: Inviare
+        posts:
+          create:
+            invalid: Si è verificato un problema durante la creazione di questo post
+            success: Post creato con successo
+          destroy:
+            success: Posta cancellata con successo
+          edit:
+            save: Aggiornare
+            title: Modifica post
+          index:
+            title: Messaggi
+          new:
+            create: Creare
+            title: Crea un post
+          update:
+            invalid: Si sono verificati errori durante il salvataggio del post.
+            success: Post salvato correttamente
+      admin_log:
+        post:
+          create: "%{user_name} created the %{resource_name} blog post in %{space_name}"
+          delete: "%{user_name} deleted the %{resource_name} blog post from %{space_name}"
+          update: "%{user_name} updated the %{resource_name} blog post in %{space_name}"
+      last_activity:
+        new_post_at_html: "<span>Nuovo post a %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Autore
+            body: Corpo
+            created_at: Creato a
+            official_blog_post: Official post
+            title: Title
+      posts:
+        index:
+          empty: There are no posts yet.
+        show:
+          back: Torna alla lista
+          comments: Commenti
+          view: vista
+        sidebar_blog:
+          comments: Commenti
+          most_commented_posts: La maggior parte dei post commentati
+      read_more: Leggi di più
+    components:
+      blogs:
+        actions:
+          comment: Commento
+          create: Create
+          destroy: Delete
+          endorse: Appoggia
+          update: Update
+        name: blog
+        settings:
+          global:
+            announcement: Annuncio
+            comments_enabled: Commenti abilitati
+            comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
+          step:
+            announcement: Annuncio
+            comments_blocked: Commenti bloccati
+            endorsements_blocked: Appoggi bloccati
+            endorsements_enabled: Appoggi abilitati
+    events:
+      blogs:
+        post_created:
+          email_intro: Il post "%{resource_title}" è stato pubblicato in "%{participatory_space_title}" che stai seguendo.
+          email_outro: Hai ricevuto questa notifica perché stai seguendo "%{participatory_space_title}". Puoi smettere di seguirlo dal link precedente.
+          email_subject: Nuovo post pubblicato su %{participatory_space_title}
+          notification_title: Il post <a href="%{resource_path}">%{resource_title}</a> è stato pubblicato su %{participatory_space_title}
+    statistics:
+      posts_count: Post

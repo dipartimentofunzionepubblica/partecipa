@@ -1,0 +1,222 @@
+---
+it:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Nome dell'applicazione OAuth
+        organization_logo: Logo dell'organizzazione (quadrato)
+        organization_name: Organizzazione
+        organization_url: URL dell'organizzazione
+        redirect_uri: URI di Reindirizzamento
+      organization:
+        address: Server SMTP
+        from_email: Indirizzo email
+        from_label: Etichetta
+        password: Password
+        port: Porta
+        user_name: Pseudonimo
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Tipi MIME di amministrazione
+          default: Tipi MIME predefiniti
+        allowed_file_extensions:
+          admin: Estensioni file amministratore
+          default: Estensioni di file predefinite
+          image: Estensioni file immagine
+        maximum_file_size:
+          avatar: Dimensioni dell'immagine avatar
+          default: Dimensione predefinita del file
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: L'URI di reindirizzamento deve essere un URI SSL
+        organization:
+          attributes:
+            password:
+              secret_key: You need to define the SECRET_KEY_BASE environment variable to be able to save this field
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Sei sicuro di voler cancellare?
+        destroy: Elimina
+        edit: Modifica
+        new: Nuovo
+        save: Salva
+        title: Azioni
+      admins:
+        create:
+          error: C'è stato un errore durante la creazione del nuovo utente con profilo Admin.
+          success: L'utente Admin è stato creato.
+        destroy:
+          success: Amministratore eliminato con successo
+        edit:
+          title: Modifica Admin
+          update: Aggiorna
+        index:
+          title: Amministratori
+        new:
+          create: Crea
+          title: Nuovo Amministratore
+        show:
+          destroy: Elimina
+          edit: Modifica
+        update:
+          error: E' successo un errore durante la modifica di questo utente Admin.
+          success: Admin modificato con successo
+      dashboard:
+        show:
+          current_organizations: Organizzazioni attuali
+      default_pages:
+        placeholders:
+          content: Si prega di aggiungere contenuto significativo alla pagina statica %{page} il pannello di amministrazione.
+          title: Titolo predefinito per %{page}
+      devise:
+        passwords:
+          edit:
+            change_your_password: Change your password
+            minimum_characters: "(%{minimum} characters minimum)"
+          new:
+            forgot_your_password: Forgot your password
+            send_me_reset_password_instructions: Send me reset password instructions
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Did not receive confirmation instructions?
+            did_not_receive_unlock_instructions?: Did not receive unlock instructions?
+            forgot_your_password?: Forgot your password?
+            log_in: Log in
+            sign_up: Registrati
+      menu:
+        admins: Amministratori
+        dashboard: Cruscotto
+        oauth_applications: Applicazioni OAuth
+        organizations: Organizzazioni
+      models:
+        admin:
+          fields:
+            created_at: Data/ora di creazione
+            email: E-mail
+          name: Amministratore
+          validations:
+            email_uniqueness: Esiste già un utente Admin con l'email che hai indicato.
+        oauth_application:
+          fields:
+            created_at: Data/ora di creazione
+            name: Nome dell'applicazione OAuth
+            organization_name: Organizzazione
+          name: Applicazione OAuth
+        organization:
+          actions:
+            save_and_invite: Crea una nuova organizzazione e invita un utente Admin
+          fields:
+            created_at: Data/ora di creazione
+            file_upload_settings: Impostazioni di caricamento file
+            name: Nome
+            omniauth_settings: Impostazioni Omniauth
+            smtp_settings: Impostazioni SMTP
+          name: Organizzazione
+      oauth_applications:
+        create:
+          error: Si è verificato un errore durante la creazione di questa applicazione.
+          success: Applicazione creata correttamente.
+        destroy:
+          error: C'è stato un errore nella distruzione di questa applicazione.
+          success: Applicazione eliminata correttamente.
+        edit:
+          save: Salva
+          title: Modifica l'applicazione
+        form:
+          select_organization: Seleziona un'organizzazione
+        index:
+          confirm_delete: Sei sicuro di voler cancellare questa applicazione?
+          title: Applicazioni OAuth
+        new:
+          save: Salva
+          title: Nuova applicazione
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questa applicazione.
+          success: Applicazione aggiornata correttamente.
+      organizations:
+        advanced_settings:
+          hide: Nascondi impostazioni avanzate
+          show: Mostra impostazioni avanzate
+        create:
+          error: C'è stato un errore durante la creazione di una nuova organizzazione.
+          error_invitation: Si è verificato un problema durante la creazione di una nuova organizzazione. Controlla il nome dell'amministratore dell'organizzazione.
+          success: OK, è stata aggiunta la nuova organizzazione.
+        edit:
+          secondary_hosts_hint: Inserisci ciascun elemento in una nuova linea
+          title: Edit organization
+        file_upload_settings:
+          content_types:
+            admin_hint: Questi tipi MIME sono consentiti per i caricamenti della sezione Admin. Gli utenti di amministrazione dovrebbero essere consapevoli dei rischi con il caricamento di alcuni formati di documento, così puoi aspettarti che siano più cauti con i file caricati.
+            default_hint: Questi tipi MIME sono consentiti per tutti gli utenti come impostazione predefinita.
+            intro_html: Si aggiungono caratteri jolly con il carattere asterisco per i tipi MIME, ad esempio <code>immagine/*</code>.
+            title: Tipi MIME consentiti
+          file_extensions:
+            admin_hint: Questi tipi MIME sono consentiti per il caricamento nella sezione Admin. Gli utenti amministratori dovrebbero essere consapevoli dei rischi nel caricamento di alcuni formati particolari di documenti, così puoi aspettarti che siano più cauti con il caricamento di file.
+            default_hint: Queste estensioni di file sono consentite per tutti gli utenti come impostazione predefinita.
+            image_hint: Queste estensioni di file sono consentite per il caricamento delle immagini.
+            title: Estensioni di file consentite
+          file_sizes:
+            avatar_hint: Megabyte (MB). Questo è il limite di dimensione del file per il caricamento dell'immagine avatar.
+            default_hint: Megabyte (MB). Questo è il limite di dimensione del file predefinito per tutti i file da caricare se non diversamente specificato.
+            title: Dimensioni massime dei file
+          intro: |
+            Modificare con cautela. Meno estensioni sono ammesse, meglio è.
+            Consentire estensioni di file o tipi MIME specifici può esporre gli utenti del sistema a rischi per la sicurezza e può anche influenzare l'accessibilità del sito web.
+        index:
+          title: Organizzazioni
+        new:
+          default: Default?
+          enabled: Enabled
+          locale: Locale
+          reference_prefix_hint: The reference prefix is used to uniquely identify resources across all organization.
+          secondary_hosts_hint: Enter each one of them in a new line.
+          title: Nuova Organizzazione
+        omniauth_settings:
+          decidim:
+            client_id: Client ID
+            client_secret: Client secret
+            site_url: URL del sito
+          enabled: Abilitato
+          enabled_by_default: Questo provider è abilitato di default. Può essere modificato ma non disabilitato.
+          facebook:
+            app_id: ID App
+            app_secret: App secret
+          google_oauth2:
+            client_id: Client ID
+            client_secret: Client secret
+          icon: Icona
+          icon_path: Percorso icona
+          twitter:
+            api_key: API Key
+            api_secret: API secret
+        smtp_settings:
+          fieldsets:
+            sender: Mittente
+          instructions:
+            from_label: 'Email sender will be: "your-organization-name <your-organization@example.org>". Leave blank to use the same name as the defined for the organization.'
+          placeholder:
+            from_email: your-organization@example.org
+            from_label: nome-della-tua-organizzazione
+        update:
+          error: C'è stato un errore durante l'aggiornamento di questa organizzazione.
+          success: OK, l'Organizzazione è stata aggiornata.
+        users_registration_mode:
+          disabled: L'accesso può essere fatto solo con account esterni
+          enabled: Permetti agli utenti di registrarsi e accedere
+          existing: Non consentire agli utenti di registrarsi, ma consentire agli utenti esistenti di accedere
+      shared:
+        notices:
+          no_organization_warning_html: È necessario creare un'organizzazione per iniziare. Assicurati di leggere %{guide} prima di procedere.
+          our_getting_started_guide: La nostra guida iniziale
+      titles:
+        dashboard: Cruscotto
+        decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Logout
