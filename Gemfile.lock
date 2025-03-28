@@ -198,6 +198,14 @@ GIT
       openid_connect
 
 GIT
+  remote: https://github.com/mainio/decidim-module-privacy
+  revision: 5425f1950d590710fb4cc9f02509d216ecd163dd
+  branch: release/0.27-stable
+  specs:
+    decidim-privacy (0.27.0)
+      decidim-core (~> 0.27.0)
+
+GIT
   remote: https://github.com/mainio/decidim-module-term_customizer
   revision: abbf0c69e1bcaafebc5aa4f8da22fdb64ce62149
   branch: release/0.27-stable
@@ -937,6 +945,7 @@ DEPENDENCIES
   decidim!
   decidim-decidim_awesome
   decidim-dev!
+  decidim-privacy!
   decidim-pua!
   decidim-templates!
   decidim-term_customizer!

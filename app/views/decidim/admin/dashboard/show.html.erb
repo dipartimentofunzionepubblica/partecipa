@@ -1,0 +1,72 @@
+<%#
+Copyright (C) 2025 Formez PA
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+
+Modificata per gestire l'eccezione creata sul log a seguito disinstallazione del modulo Comparative_stats
+%>
+<% add_decidim_page_title(t("decidim.admin.titles.dashboard")) %>
+
+<h2 class="card-title">
+  <%= t "decidim.admin.titles.dashboard" %>
+</h2>
+
+<div class="content">
+  <p><%= t ".welcome" %></p>
+
+  <% unless current_user.admin_terms_accepted? %>
+    <%= cell("decidim/announcement", announcement_body, callout_class: current_user.admin_terms_accepted? ? "success" : "warning" ) %>
+  <% end %>
+
+  <div class="grid-x grid-margin-x">
+    <% if allowed_to? :read, :users_statistics %>
+      <div class="cell small-12 medium-6 large-4">
+        <%= render(
+          partial: "decidim/admin/users_statistics/users_count",
+          locals: {
+            result: users_counter
+          }
+        ) %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="grid-x grid-margin-x">
+    <% if allowed_to? :read, :metrics %>
+      <div class="cell small-6">
+        <%= render(
+          partial: "decidim/admin/metrics/metrics",
+          locals: {
+            metrics_presenter: metrics_presenter,
+            show_link_to_more: true
+          }
+        ) %>
+      </div>
+    <% end %>
+
+    <% if allowed_to? :read, :admin_log %>
+      <div class="cell small-6">
+        <%# Aggiunto per gestire il caso di Uninitialized Constant%>
+        <% begin %>
+           <%= render partial: "decidim/admin/logs/logs_list", locals: { logs: latest_action_logs } %>
+           <% if latest_action_logs.any? %>
+             <div class="text-center"><%= link_to t(".view_more_logs"), logs_path %></div>
+           <% end %>
+        <% rescue NameError => e 
+        end%>
+      </div>
+    <% end %>
+  </div>
+
+  <% if current_user.admin_terms_accepted? %>
+    <p class="text-right">
+      <small>
+        <%= link_to( t("title", scope: "decidim.admin.admin_terms_of_use"), admin_terms_show_path) %>
+      </small>
+    </p>
+  <% end %>
+</div>
