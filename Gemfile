@@ -10,7 +10,7 @@ gem 'daemons'
 gem 'decidim', git: 'http://github.com/decidim/decidim', tag: DECIDIM_VERSION
 gem 'decidim-decidim_awesome'
 #gem 'decidim-privacy', git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-privacy', branch: 'bump_to_0.26'
-gem 'decidim-privacy', git: 'https://github.com/mainio/decidim-module-privacy', branch: 'release/0.27-stable'
+#gem 'decidim-privacy', git: 'https://github.com/mainio/decidim-module-privacy', branch: 'release/0.27-stable'
 gem 'decidim-pua', git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-pua', branch: 'bump_to_0.27'
 gem 'decidim-templates', git: 'https://github.com/decidim/decidim', tag: DECIDIM_VERSION
 gem 'decidim-term_customizer', branch: 'release/0.27-stable', git: 'https://github.com/mainio/decidim-module-term_customizer'
