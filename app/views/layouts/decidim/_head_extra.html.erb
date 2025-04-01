@@ -1,0 +1,44 @@
+<%#
+Copyright (C) 2020 Formez PA
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+
+This file is meant to be overriden by the app developers in order to include extra headers like tracking, error handling and such.
+
+Note that thie code you add here will be run for all organizations in your instance of Decidim. If you want to add code for a specific
+organization, add it to the organization's `header_snippets` field, which can be modified at the organization admin section.
+
+The `header_snippets` organization field will render *after* this file.
+
+Just copy your own version of the file under: `app/views/layouts/decidim/_head_extra.html.erb`
+
+%>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src='https://www.googletagmanager.com/gtag/js?id=<%=ENV["GOOGLE_ANALYTICS_ID"]%>'></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '<%=ENV["GOOGLE_ANALYTICS_ID"]%>');
+</script>
+
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="<%= ENV["MATOMO_SERVER_ADDRESS"]%>";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '<%= ENV["MATOMO_SITE_ID"] %>']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
