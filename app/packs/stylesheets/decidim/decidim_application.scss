@@ -20,7 +20,7 @@ a {
 
 .cookie-warning a{
     color: $par-medium-green;
-	font-weight: 600;
+    font-weight: 600;
 }
 
 .cookie-warning {
@@ -54,7 +54,7 @@ a {
 
 #profile-tabs.tabs .tabs-title a:focus, #profile-tabs.tabs .tabs-title a[aria-selected="true"] {
     background: transparent;
-	  color: $par-light-blue;
+    color: $par-light-blue;
     font-weight: 600;
     border-bottom: 3px solid $par-medium-green;
 }
@@ -515,6 +515,16 @@ a.muted, abbr.muted, acronym.muted, b.muted, bdo.muted, big.muted, br.muted, but
     color: #fff;
     padding: 0 0.4em 0.1em;
     font-size: 1em; //mod_accessibility id 7 - Generale
+}
+
+// PROCESS PAGE
+
+.section-heading-process-grid{
+    width: 100%;
+}
+
+.process-grid-section{
+    margin-left: 15px;
 }
 
 //SOCIAL LOGIN

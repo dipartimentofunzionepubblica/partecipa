@@ -29,7 +29,8 @@ module Decidim
                     :related_processes,
                     :linked_assemblies,
                     :active_collection,
-                    :ended_collection
+                    :ended_collection,
+                    :upcoming_collection
 
       def index
         raise ActionController::RoutingError, "Not Found" if published_processes.none?
@@ -102,7 +103,11 @@ module Decidim
       end
 
       def ended_collection
-        @ended_collection ||= participatory_processes.select{|process| !process.active?}
+        @ended_collection ||= participatory_processes.select{|process| !process.active? && !process.upcoming?}
+      end
+
+      def upcoming_collection
+        @upcoming_collection ||= participatory_processes.select{|process| process.upcoming?}
       end
 
       def filtered_processes
@@ -110,7 +115,7 @@ module Decidim
       end
 
       def participatory_processes
-        @participatory_processes ||= filtered_processes.groupless.includes(attachments: :file_attachment)
+        @participatory_processes ||= filtered_processes
       end
 
       def participatory_process_groups
