@@ -1,1 +1,1 @@
-Rack::Attack.enabled = false if Rails.env.production?
+#Rack::Attack.enabled = false if Rails.env.production?
