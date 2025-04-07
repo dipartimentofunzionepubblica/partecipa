@@ -15,10 +15,12 @@ gem 'decidim-pua', git: 'https://github.com/dipartimentofunzionepubblica/decidim
 gem 'decidim-templates', git: 'https://github.com/decidim/decidim', tag: DECIDIM_VERSION
 gem 'decidim-term_customizer', branch: 'release/0.27-stable', git: 'https://github.com/mainio/decidim-module-term_customizer'
 #gem 'decidim-survey_results', git: 'https://github.com/CodiTramuntana/decidim-module-survey_results', branch: 'main'
+gem 'decidim-cache_cleaner'
 gem 'deface'
 gem 'delayed_job_active_record'
 gem 'figaro'
 gem 'foundation_rails_helper', git: 'http://github.com/sgruhier/foundation_rails_helper.git'
+gem 'lograge'
 gem 'pg'
 gem 'puma'
 gem 'rake'
