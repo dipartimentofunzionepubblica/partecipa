@@ -6,8 +6,10 @@
 
 # Ignore 
 /config/locales/0.27.it.yml
-config/locales/0.27.it.yml_NEW
-
+/config/locales/0.27.it.yml_NEW
+/app_BACKUP/
+/app_NEW/
+/lib_BACKUP/
 
 # Ignore bundler config.
 /.bundle
