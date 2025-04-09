@@ -8,7 +8,8 @@ DECIDIM_VERSION = 'v0.26.10'
 gem 'bootsnap', '~> 1.4'
 gem 'daemons'
 gem 'decidim', git: 'https://github.com/decidim/decidim', tag: DECIDIM_VERSION
-gem 'decidim-decidim_awesome'
+#gem 'decidim-decidim_awesome'
+gem "decidim-decidim_awesome", "~> 0.9.2"
 gem 'decidim-privacy', git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-privacy', branch: 'bump_to_0.26'
 gem 'decidim-pua', git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-pua', branch: 'bump_to_0.26'
 gem 'decidim-templates', git: 'https://github.com/decidim/decidim', tag: DECIDIM_VERSION
