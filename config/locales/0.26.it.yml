@@ -41,6 +41,8 @@ it:
      sign_in: Login
     create:
      error: C'è stato un problema nella creazione del tuo account
+  decidim_awesome:
+    credits: CREDITS
   components:
    budgets:
     settings:
