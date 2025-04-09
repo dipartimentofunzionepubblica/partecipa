@@ -17,6 +17,14 @@ The `header_snippets` organization field will render *after* this file.
 Just copy your own version of the file under: `app/views/layouts/decidim/_head_extra.html.erb`
 
 %>
+
+<%= stylesheet_pack_tag "decidim_decidim_awesome", media: "all" %>
+<%= render(partial: "layouts/decidim/decidim_awesome/custom_styles") if awesome_custom_styles %>
+
+<%= render partial: "layouts/decidim/decidim_awesome/awesome_config" %>
+<%= javascript_pack_tag "decidim_decidim_awesome" %>
+<%= javascript_pack_tag "decidim_decidim_awesome_custom_fields" if awesome_proposal_custom_fields %>
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src='https://www.googletagmanager.com/gtag/js?id=<%=ENV["GOOGLE_ANALYTICS_ID"]%>'></script>
 <script>
