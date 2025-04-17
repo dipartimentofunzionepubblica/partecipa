@@ -102,6 +102,20 @@ it:
         update:
           error: Si è verificato un errore
           success: Le impostazioni delle iniziative sono state aggiornate con successo
+    forms:
+      admin:
+        questionnaires:
+          title_and_description:
+            title_and_description: Titolo e descrizione
+            collapse: Titolo e descrizione
+            expand: Titolo e descrizione
+            up: Su
+            down: Giù
+            remove: Rimuovi
+            title: Titolo
+            description: Descrizione
+          form:
+            add_title_and_description: Aggiungi titolo e descrizione
       menu:
         attachments: Allegati
         committee_members: Membri del comitato
