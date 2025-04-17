@@ -8,6 +8,8 @@
 /app_BACKUP/*
 /app_NEW/*
 /lib_BACKUP/*
+/public/sw.js
+/public/sw.js.map
 ##############################
 
 # Ignore bundler config.
