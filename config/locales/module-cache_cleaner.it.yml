@@ -1,0 +1,20 @@
+---
+it:
+  decidim:
+    cache_cleaner:
+      admin:
+        cache_manager:
+          index:
+            cache_activated: Cache attivata con %{cache_store}
+            cache_not_activated: La cache non è attivata
+            clear_cache: Ho capito, cancellare la cache
+            confirm_destroy: Ho capito che questa azione rallenterà la mia applicazione mentre rigenera la cache. Sei sicuro di voler cancellare la cache?
+            description: La cache di Rails è una tecnica utilizzata per velocizzare le applicazioni web memorizzando dati o calcoli frequentemente accessibili in memoria, piuttosto che ricalcolarli ogni volta che sono necessari. Questo può essere particolarmente utile per ridurre la quantità di tempo necessario per caricare le pagine e migliorare le prestazioni generali del sito. Quando l'applicazione visualizza informazioni che sembrano scadute, si può provare a cancellare la cache, ma l'applicazione sarà un po più lenta mentre si rigenera.
+            not_clearable: La cache non è cancellabile
+            title: Decidim cache manager
+      cache_manager:
+        clear:
+          error: La cache non è stata cancellata
+          success: Cache cancellata con successo
+      menu:
+        cache_cleaner: Pulitore cache
