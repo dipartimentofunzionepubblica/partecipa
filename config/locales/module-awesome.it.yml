@@ -32,7 +32,7 @@ it:
                 <br>
                 Sì, non è possibile eliminare i dati privatise l'ultimo aggiornamento è avvenuto meno di %{time_ago} fa. È possibile modificare questa configurazione nel file di inizializzazione.
             items_count: Totale elementi interessati
-            no_data: NESSUN DATO
+            no_data: Nessun dato privato trovato più vecchio di %{time_ago} fa
         menu:
           maintenance:
             maintenance: Manutenzione
