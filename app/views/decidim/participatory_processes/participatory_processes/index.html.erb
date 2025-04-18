@@ -37,36 +37,39 @@ edit_link(
     </div>
     <%= render partial: "decidim/shared/participatory_space_filters/show" %>
     <p class="loading"><%= t(".loading") %></p>
-    <% if upcoming_collection.size > 0 %>
+    
       <div class="process-grid-section" >
         <div class="row small-up-1 medium-up-2 large-up-3 card-grid card-grid-upcoming columns">
+         <% if upcoming_collection.size > 0 %>
           <h3 class="section-heading section-heading-process-grid">
             <%=t("decidim.usability_mods.processes_index_page.upcoming_processes_label") %>
           </h3>
           <%= render(upcoming_collection) %>
-        </div>
+         <%end%>
+       </div>
       </div>
-    <%end%>
-    <% if active_collection.size > 0 %>
+    
       <div class="process-grid-section" >
         <div class="row small-up-1 medium-up-2 large-up-3 card-grid card-grid-active columns">
+         <% if active_collection.size > 0 %>
           <h3 class="section-heading section-heading-process-grid">
             <%=t("decidim.usability_mods.processes_index_page.active_processes_label") %>
           </h3>
           <%= render(active_collection) %>
-        </div>
+        <%end%>
+       </div>
       </div>
-    <%end%>
-    <% if ended_collection.size > 0 %>
+    
       <div class="process-grid-section">
         <div class="row small-up-1 medium-up-2 large-up-3 card-grid card-grid-ended columns">
+          <% if ended_collection.size > 0 %>
           <h3 class="section-heading section-heading-process-grid">
             <%=t("decidim.usability_mods.processes_index_page.ended_processes_label") %>
           </h3>
           <%= render(ended_collection) %>
-        </div>
+         <%end%>
+       </div>
       </div>
-    <%end%>
   </section>
 <% end %>
 
