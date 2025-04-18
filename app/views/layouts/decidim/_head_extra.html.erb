@@ -18,27 +18,29 @@ Just copy your own version of the file under: `app/views/layouts/decidim/_head_e
 
 %>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src='https://www.googletagmanager.com/gtag/js?id=<%=ENV["GOOGLE_ANALYTICS_ID"]%>'></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<% content_for(:js_content) do %>
+	<script async src='https://www.googletagmanager.com/gtag/js?id=<%=ENV["GOOGLE_ANALYTICS_ID"]%>'></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
 
-  gtag('config', '<%=ENV["GOOGLE_ANALYTICS_ID"]%>');
-</script>
+	  gtag('config', '<%=ENV["GOOGLE_ANALYTICS_ID"]%>');
+	</script>
 
-<!-- Matomo -->
-<script type="text/javascript">
-  var _paq = window._paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="<%= ENV["MATOMO_SERVER_ADDRESS"]%>";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '<%= ENV["MATOMO_SITE_ID"] %>']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
+	<!-- Matomo -->
+	<script type="text/javascript">
+	  var _paq = window._paq = window._paq || [];
+	  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+	  _paq.push(['trackPageView']);
+	  _paq.push(['enableLinkTracking']);
+	  (function() {
+		var u="<%= ENV["MATOMO_SERVER_ADDRESS"]%>";
+		_paq.push(['setTrackerUrl', u+'matomo.php']);
+		_paq.push(['setSiteId', '<%= ENV["MATOMO_SITE_ID"] %>']);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+	  })();
+	</script>
+<%end%>
 <!-- End Matomo Code -->

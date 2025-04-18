@@ -12,13 +12,16 @@ Inserito per gestire il nuovo bottone nella colonna a sinistra della pagina Proc
 <div id="go_to_docs_button">
     <%= button_tag t("decidim.usability_mods.process_page.process_go_to_docs_button_text"), type: '', onclick: "scrollDownToDocSection()", class: 'button expanded secondary small has-tip' %>
 </div>
-<script>
-  function scrollDownToDocSection(){
-	var documentsSectionHeading = document.getElementById("documents-section-heading");
-	documentsSectionHeading.scrollIntoView({
-	  behavior: "smooth",
-	  block: "start",
-	  inline: "nearest"
-	});
-  }
-</script>
+
+<% content_for(:js_content) do %>
+   <script>
+      function scrollDownToDocSection(){
+         var documentsSectionHeading = document.getElementById("documents-section-heading");
+         documentsSectionHeading.scrollIntoView({
+         behavior: "smooth",
+         block: "start",
+         inline: "nearest"
+        });
+      }
+   </script>
+<% end %>

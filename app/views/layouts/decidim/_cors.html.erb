@@ -1,0 +1,10 @@
+<div id="svg-cors-container" style="display: none"></div>
+<script type="text/javascript">
+  $.get(window.Decidim.config.get("icons_path"), function(data) {
+    var div = document.getElementById("svg-cors-container");
+    if (typeof x === 'object'){
+        div.innerHTML = new XMLSerializer().serializeToString(data.documentElement);
+        document.body.insertBefore(div, document.body.childNodes[0]);
+    }
+  });
+</script>
