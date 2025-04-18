@@ -1,0 +1,58 @@
+---
+it:
+  layouts:
+    decidim:
+      decidim_awesome:
+        admin:
+          maintenance:
+            title: 'Strumenti di Manutenzione: %{title}'
+            titles:
+              private_data: Pulizia Dati privati
+              checks: System Compatibility Checks
+  decidim:
+    decidim_awesome:
+      admin:
+        actions: Azioni
+        maintenance:
+          private_data:
+            help_html: Questo strumento consente di eliminare tutti i dati privatiper uno specifico spazio partecipativo o componente. Questa azione è irreversibile e rimuoverà tutti i dati privatidal database.
+                <br><br>
+                <strong>Cosa si intende per dati privati?</strong>
+                <br>
+                I dati privatisono tutte le informazioni non disponibili al pubblico e accessibili solo agli amministratori. Al momento, questo include le informazioni sui campi personalizzati privati.
+                <br><br>
+                <strong>Cosa succede quando elimino i dati privati?</strong>
+                <br>
+                Quando elimini i dati privati, tutte le informazioni private per lo spazio partecipativo o il componente selezionato verranno rimosse definitivamente dal database. Un registro di questa azione verrà archiviato nel sistema a scopo di audit.
+                <br><br>
+                <strong>Cosa succede ai dati pubblici?</strong>
+                <br>
+                I dati pubblici non saranno interessati da questa azione. Verranno eliminati solo i dati privati. <br><br>
+                <strong>Esiste un tempo minimo di attesa prima di eliminare i dati privati?</strong>
+                <br>
+                Sì, non è possibile eliminare i dati privatise l'ultimo aggiornamento è avvenuto meno di %{time_ago} fa. È possibile modificare questa configurazione nel file di inizializzazione.
+            items_count: Totale elementi interessati
+            no_data: NESSUN DATO
+        menu:
+          maintenance:
+            maintenance: Manutenzione
+            private_data: Dati Privati
+        proposal_custom_fields:
+          menu:
+            title: Campi custom per Proposte
+          proposal_private_custom_fields: Campi custom privati per Proposte
+        config:
+          form_proposal_private_custom_fields:
+            new: Nuovo
+          title:
+            proposal_custom_fields: Campi custom per le Proposte
+            proposal_private_custom_fields: Campi custom privati per Proposte
+          form:
+            help:
+              proposal_private_custom_fields: Campi custom privati per Proposte
+              proposal_private_custom_fields_translations: Traduzioni dei campi custom privati per Proposte
+            additional_proposal_sortings:
+              title: Personalizza le opzioni di ordinamento per l'elenco delle proposte
+              help: Queste opzioni di ordinamento si aggiungono a quelle predefinite. Ricorda inoltre che puoi scegliere l'ordine predefinito nelle impostazioni del componente Proposte.
+              enable_all: Abilita tutte le opzioni di ordinamento aggiuntive
+      proposal_private_custom_fields_disclosure: Divulgazione dei campi custom delle Proposte
