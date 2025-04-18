@@ -187,6 +187,16 @@ GIT
       decidim-forms (= 0.27.9)
 
 GIT
+  remote: https://github.com/dipartimentofunzionepubblica/decidim-module-privacy
+  revision: 88912fa0560e5e202c70506fceca9e01850cf254
+  branch: bump_to_0.27
+  specs:
+    decidim-privacy (0.27.9)
+      decidim-admin (>= 0.25.x, < 0.28.x)
+      decidim-core (>= 0.25.x, < 0.28.x)
+      deface (= 1.9.0)
+
+GIT
   remote: https://github.com/dipartimentofunzionepubblica/decidim-module-pua
   revision: 56b69434d5fcfdc780adee833c2b26e1d04f2a21
   branch: bump_to_0.27
@@ -205,6 +215,17 @@ GIT
     decidim-term_customizer (0.27.0)
       decidim-admin (~> 0.27.0)
       decidim-core (~> 0.27.0)
+
+GIT
+  remote: https://github.com/maintainer-partecipa/decidim-module-survey_results
+  revision: 9cb00aec5b0fe40429f8f43e07614bd6d0aa2542
+  branch: bump_to_0.27
+  specs:
+    decidim-survey_results (0.0.2)
+      decidim-core (>= 0.27.2)
+      decidim-forms (>= 0.27.2)
+      decidim-surveys (>= 0.27.2)
+      deface
 
 GEM
   remote: http://rubygems.org/
@@ -945,7 +966,9 @@ DEPENDENCIES
   decidim-cache_cleaner
   decidim-decidim_awesome
   decidim-dev!
+  decidim-privacy!
   decidim-pua!
+  decidim-survey_results!
   decidim-templates!
   decidim-term_customizer!
   deface
