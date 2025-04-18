@@ -548,7 +548,7 @@ it:
         areas: Ambiti territoriali
         configuration: Configurazione
         dashboard: Cruscotto (Dashboard)
-        external_domain_whitelist: Allowed external domains
+        external_domain_whitelist: Domini esterni consentiti
         help_sections: Sezioni di Aiuto
         homepage: Homepage
         impersonations: Impersonificazioni
@@ -654,7 +654,7 @@ it:
           nickname: Nickname
           reason: Motivazione
           reports: Numero di segnalazioni
-          title: Reported participants
+          title: Utenti segnalati
         report:
           reasons:
             does_not_belong: Non appartiene
@@ -665,7 +665,7 @@ it:
           unblocked: Non Bloccato
       moderations:
         index:
-          title: Reported content
+          title: Contenuto segnalato
         report:
           reasons:
             does_not_belong: Non appartiene
