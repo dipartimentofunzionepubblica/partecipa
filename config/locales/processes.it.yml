@@ -12,14 +12,14 @@ it:
         decidim_area_id: Area
         description: Descrizione
         developer_group: Promotore
-        document: Document
+        document: Documento
         domain: Dominio
         end_date: Data di fine
         hashtag: Hashtag
         hero_image: Immagine della Home Page
-        import_attachments: Import attachments
-        import_categories: Import categories
-        import_components: Import components
+        import_attachments: Importa allegati
+        import_categories: Importa categorie
+        import_components: Importa componenti
         import_steps: Import steps
         local_area: Area organizzativa
         meta_scope: Metadati di ambito
@@ -405,7 +405,7 @@ it:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'Gli URL slugs sono usati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadati
@@ -414,10 +414,10 @@ it:
         participatory_process_imports:
           form:
             document_legend: Aggiungi documento
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'Gli URL slugs sono usati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
+            cta_path_help: 'Usa URL relativi, non URL assoluti. Accetta lettere, numeri, trattini e barre e deve iniziare con una lettera. Se non indicato, il bottone non sarà mostrato. Esempio: %{url}'
             cta_text_help: Se non impostato, il pulsante non verrà mostrato.
         participatory_processes:
           form:
@@ -432,7 +432,7 @@ it:
             select_an_area: Seleziona un'area
             select_participatory_process_type: Seleziona un tipo di processo
             select_process_group: Seleziona un gruppo di processi
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'Gli URL slugs sono usati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
             title: Informazioni generali
             visbility: Visibilità
       content_blocks:
@@ -445,19 +445,19 @@ it:
       pages:
         home:
           highlighted_processes:
-            active_processes: Active processes
+            active_processes: Processi attivi
             active_step: Fase attiva
             more_information: Maggiori informazioni
             participate: Partecipa
             participate_in: Partecipa al processo %{resource_name}
             processes_button_title: Link alla pagina "Processi" in cui sono visualizzati tutti i processi
-            see_all_processes: See all processes
+            see_all_processes: Vedi tutti i processi
       participatory_process_steps:
         index:
           back_to_process: Torna alla pagina di processo
       participatory_processes:
         filters:
-          all_types: All types
+          all_types: Tutti i tipi
           counters:
             active:
               one: 1 processo attivo
@@ -492,7 +492,7 @@ it:
         dates: Date
         developer_group: Promotore
         end_date: Data di fine
-        local_area: Organization Area
+        local_area: Area locale
         participatory_scope: Cosa è deciso
         participatory_structure: Come è deciso?
         private_space: Questo è un processo privato
