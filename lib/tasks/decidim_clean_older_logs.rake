@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Copyright (C) 2022 Formez PA
+# Copyright (C) 2025 Formez PA
 #
 # This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
 #
