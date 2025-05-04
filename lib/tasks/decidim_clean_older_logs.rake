@@ -25,7 +25,7 @@ namespace :decidim do
      }
      
      Dir.glob("#{Rails.root}/log/*.log.*").
-     select{|f| File.mtime(f) < (Time.now - (60*60*24*2)) }. # older than 1 day
+     select{|f| File.mtime(f) < (Time.now - (60*60*24*1)) && !f.end_with?(".gz") }. # older than 1 day
       each { |f| 
         Rails.logger.info "-- Cleanup logs -- Compressing #{f}"
         compress_file f
