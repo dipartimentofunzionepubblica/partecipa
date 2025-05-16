@@ -1,0 +1,19 @@
+<%#
+Copyright (C) 2025 Formez PA
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+
+Modificato per cambiare il link da Terms-and-conditions a Faq che corrisponde allo slug URL di Privacy Policy 
+%>
+<% unless cookies_accepted? %>
+  <div class="cookie-warning" role="region">
+    <%= t(".description_html", link: link_to(t(".link_label"), decidim.page_path("faq"), title: t(".link_label"), target: "_blank")) %>
+    <div class="cookie-warning__action">
+      <%= button_to t(".ok"), decidim.accept_cookies_path, method: :get, remote: true, class: "button tiny cookie-bar__button" %>
+    </div>
+  </div>
+<% end %>
