@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Copyright (C) 2025 Formez PA
+# Copyright (C) 2023 Formez PA
 #
 # This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
 #
@@ -76,12 +76,9 @@ module Decidim
         html_properties["aria-label"] = title
         html_properties["aria-hidden"] = true
       end
-      
-      # Riga commentata e sostituita con la riga sotto in quanto non caricava il path in caso di Decidim.cors_enabled = true
-      #href = Decidim.cors_enabled ? "" : asset_pack_path("media/images/icons.svg")
-  
-      href = asset_pack_path("media/images/icons.svg")
-      
+
+      href = Decidim.cors_enabled ? "" : asset_pack_path("media/images/icons.svg")
+
       content_tag :svg, html_properties do
         inner = content_tag :title, title
         inner += content_tag :use, nil, "href" => "#{href}#icon-#{name}"
@@ -106,19 +103,18 @@ module Decidim
 
         attributes = { class: classes.join(" ") }.merge(options)
         asset = File.read(icon_path)
-        asset.gsub("<svg ", "<svg#{tag_builder.tag_options(attributes)} ").
-
+        asset.gsub("<svg ", "<svg#{tag_builder.tag_options(attributes)} ").html_safe
       else
         image_pack_tag(path, class: classes.join(" "), style: "display: none")
       end
     end
-
     def application_path(path)
       # Force the path to be returned without the protocol and host even when a
       # custom asset host has been defined. The host parameter needs to be a
       # non-nil because otherwise it will be set to the asset host at
       # ActionView::Helpers::AssetUrlHelper#compute_asset_host.
       img_path = asset_pack_path(path, host: "", protocol: :relative)
+														   
       path = Rails.public_path.join(img_path.sub(%r{^/}, ""))
       return unless File.exist?(path)
 
