@@ -1265,7 +1265,7 @@ it:
           agreement: Sono d'accordo con i termini e le condizioni d'uso
           legend: Accetta i termini e le condizioni d'uso
         refuse:
-          modal_body: In caso di rifiuto, non sarai in grado di utilizzare la piattaforma, ma potrai <a href="%{data_portability_path}">scaricare i tuoi dati</a> e/o <a href="%{delete_path}">eliminare il tuo account</a>.
+          modal_body: In caso di rifiuto, non sarai in grado di utilizzare la piattaforma, ma potrai scaricare i tuoi dati e/o eliminare il tuo account</a>.
           modal_btn_continue: Accetta i termini e le condizioni d'uso e continua
           modal_btn_exit: Lo esaminerò più tardi
           modal_button: Refuse the terms
