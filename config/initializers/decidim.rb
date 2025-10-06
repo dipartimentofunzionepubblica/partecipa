@@ -337,34 +337,34 @@ Decidim.configure do |config|
   # set cookies.
   config.consent_cookie_name = Rails.application.secrets.decidim[:consent_cookie_name] if Rails.application.secrets.decidim[:consent_cookie_name].present?
   # Defines data consent categories and the data stored in each category.
-  # config.consent_categories = [
-  #   {
-  #     slug: "essential",
-  #     mandatory: true,
-  #     items: [
-  #       {
-  #         type: "cookie",
-  #         name: "_session_id"
-  #       },
-  #       {
-  #         type: "cookie",
-  #         name: Decidim.consent_cookie_name
-  #       }
-  #     ]
-  #   },
+   config.consent_categories = [
+     {
+       slug: "essential",
+       mandatory: true,
+       items: [
+         {
+           type: "cookie",
+           name: "_session_id"
+         },
+         {
+           type: "cookie",
+           name: Decidim.consent_cookie_name
+         }
+       ]
+     },
   #   {
   #     slug: "preferences",
   #     mandatory: false
   #   },
-  #   {
-  #     slug: "analytics",
-  #     mandatory: false
-  #   },
+     {
+       slug: "analytics",
+       mandatory: false
+     }
   #   {
   #     slug: "marketing",
   #     mandatory: false
   #   }
-  # ]
+   ]
 
   # Admin admin password configurations
   Rails.application.secrets.dig(:decidim, :admin_password, :strong).tap do |strong_pw|

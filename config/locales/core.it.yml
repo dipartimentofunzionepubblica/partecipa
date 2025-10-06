@@ -119,7 +119,7 @@ it:
   decidim:
     accessibility:
       external_link: Collegamento esterno
-      front_page_link: Vai alla pagina 
+      front_page_link: Vai alla pagina
       logo: "Logo ufficiale di %{organization}"
       skip_button: Vai al contenuto principale
     account:
@@ -257,7 +257,7 @@ it:
       dismiss: Rimuovi notifica
     amendments:
       accepted:
-        error: Si è verificato un errore durante l'accettazione dell'emendamento.
+        error: "Si è verificato un errore durante l'accettazione dell'emendamento."
         success: L'emendamento è stato accettato con successo.
       amendable:
         amended_by: Modificato da
@@ -276,7 +276,7 @@ it:
         error: Si è verificato un errore durante la creazione della proposta di emendamento.
         success: La proposta di emendamento è stata creata con successo.
       destroy_draft:
-        error: C'è stato un problema nell'eliminazione della bozza di emendamento.
+        error: "C'è stato un problema nell'eliminazione della bozza di emendamento."
         success: La proposta di emendamento è stata eliminata con successo.
       edit_draft:
         discard: Scarta questa bozza
@@ -301,7 +301,7 @@ it:
             Questo emendamento per il %{amendable_type} %{proposal_link}
             è stato ritirato dall'autore.
       new:
-        amendment_author: Autore dell'autore
+        amendment_author: "Autore dell'emendamento"
         send: Crea
         title: Crea proposta di emendamento
       preview_draft:
@@ -323,7 +323,7 @@ it:
         help_text: Stai esaminando un emendamento al %{model_name}
         send: Accettare l'emendamento
       update_draft:
-        error: C'è stato un problema nell'eliminazione della bozza di emendamento.
+        error: "C'è stato un problema nell'eliminazione della bozza di emendamento."
         success: Bozza emendamento aggiornata correttamente.
       withdraw:
         error: Si è verificato un errore durante la creazione della proposta di emendamento
@@ -1268,7 +1268,7 @@ it:
           modal_body: In caso di rifiuto, non sarai in grado di utilizzare la piattaforma, ma potrai scaricare i tuoi dati e/o eliminare il tuo account</a>.
           modal_btn_continue: Accetta i termini e le condizioni d'uso e continua
           modal_btn_exit: Lo esaminerò più tardi
-          modal_button: Refuse the terms
+          modal_button: Rifiuta i termini
           modal_close: Chiudi modalità
           modal_title: Rifiutate davvero i Termini e condizioni aggiornati?
         required_review:
@@ -1759,11 +1759,11 @@ it:
           accept_only_essential: Accetta solo essenziali
           analytics:
             description: Questi cookies sono usati per misurare e analizzare l'audience del sito web per aiutare a migliorare il sito stesso.
-            title: Analytics and statistics
+            title: Analytics e statistiche
           description: Usiamo i cookies per garantire le funzionalità di base del sito web e migliorare l'esperienza online. Puoi configurare e accettare l'uso dei cookies, e modificare le tue opzioni di consenso, in qualsiasi momento.
           essential:
             description: Questi cookies abilitano funzionalità chiave del sito web e aiutano a mantenere la sicurezza. Sono automaticamente salvati nel browser e non possono esssere disabilitati.
-            title: Essential
+            title: Essenziali
           marketing:
             description: Questi cookies raccolgono informazioni sull'utilizzo del sito web e possono essere utilizzati per fornire marketing più personalizzato tra diversi siti web che usi.
             title: Marketing
