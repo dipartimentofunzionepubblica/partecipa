@@ -1,5 +1,5 @@
 <%#
-Copyright (C) 2020 Formez PA
+Copyright (C) 2025 Formez PA
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
 
@@ -30,9 +30,9 @@ Modificata per eliminare la possibilità di registrazione con sottoscrizione new
     </div>
   </div>
 
-<% cache current_organization do %>
+  <% cache current_organization do %>
     <%= render "decidim/devise/shared/omniauth_buttons" %>
-<% end %>
+  <% end %>
 
   <div class="row">
     <div class="columns large-6 medium-10 medium-centered">
@@ -42,35 +42,36 @@ Modificata per eliminare la possibilità di registrazione con sottoscrizione new
         <div class="card">
           <div class="card__content">
             <%= form_required_explanation %>
+
             <div class="user-person">
               <div class="field">
-                <%= f.text_field :name, help_text: t(".username_help") %>
+                <%= f.text_field :name, help_text: t(".username_help"), autocomplete: "name" %>
               </div>
             </div>
 
             <div class="user-nickname">
               <div class="field">
-                <%= f.text_field :nickname, help_text: t(".nickname_help", organization: current_organization.name), prefix: { value: "@", small: 1, large: 1 } %>
+                <%= f.text_field :nickname, help_text: t(".nickname_help", organization: current_organization.name), prefix: { value: "@", small: 1, large: 1 }, autocomplete: "nickname" %>
               </div>
             </div>
 
             <div class="field">
-              <%= f.email_field :email %>
+              <%= f.email_field :email, autocomplete: "email" %>
             </div>
 
             <div class="field">
-              <%= f.password_field :password, help_text: t(".password_help", minimun_characters: ::PasswordValidator::MINIMUM_LENGTH), autocomplete: "off" %>
+              <%= f.password_field :password, password_field_options_for(:user) %>
             </div>
 
             <div class="field">
-              <%= f.password_field :password_confirmation %>
+              <%= f.password_field :password_confirmation, password_field_options_for(:user).except(:help_text) %>
             </div>
           </div>
         </div>
 
         <div class="card" id="card__tos">
           <div class="card__content">
-            <h3><%= t(".tos_title") %></h3>
+            <h2><%= t(".tos_title") %></h2>
 
             <p class="tos-text">
               <%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %>
@@ -81,6 +82,7 @@ Modificata per eliminare la possibilità di registrazione con sottoscrizione new
             </div>
           </div>
         </div>
+
         <%= f.hidden_field :newsletter, value: false %>
         <div class="card">
           <div class="card__content">
@@ -93,6 +95,6 @@ Modificata per eliminare la possibilità di registrazione con sottoscrizione new
       <% end %>
     </div>
   </div>
- </div>
+</div>
 </div>
 <%= render "decidim/devise/shared/newsletter_modal" %>

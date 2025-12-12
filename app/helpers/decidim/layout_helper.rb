@@ -25,6 +25,20 @@ module Decidim
       end)
     end
 
+    def apple_favicon
+      icon_image = current_organization.attached_uploader(:favicon).variant_url(:medium, host: current_organization.host)
+      return unless icon_image
+
+      favicon_link_tag(icon_image, rel: "apple-touch-icon", type: "image/png")
+    end
+
+    def legacy_favicon
+      icon_image = current_organization.attached_uploader(:favicon).variant_url(:small, host: current_organization.host)
+      return unless icon_image
+
+      favicon_link_tag(icon_image.gsub(".png", ".ico"), rel: "icon", sizes: "any", type: nil)
+    end
+
     # Outputs an SVG-based icon.
     #
     # name    - The String with the icon name.
@@ -42,16 +56,16 @@ module Decidim
       options = options.with_indifferent_access
       html_properties = {}
 
-      html_properties['width'] = options[:width]
-      html_properties['height'] = options[:height]
-      html_properties['aria-label'] = options[:aria_label] || options[:"aria-label"]
-      html_properties['role'] = options[:role] || 'img'
-      html_properties['aria-hidden'] = options[:aria_hidden] || options[:"aria-hidden"]
+      html_properties["width"] = options[:width]
+      html_properties["height"] = options[:height]
+      html_properties["aria-label"] = options[:aria_label] || options[:"aria-label"]
+      html_properties["role"] = options[:role] || "img"
+      html_properties["aria-hidden"] = options[:aria_hidden] || options[:"aria-hidden"]
 
-      html_properties['class'] = (["icon--#{name}"] + _icon_classes(options)).join(' ')
+      html_properties["class"] = (["icon--#{name}"] + _icon_classes(options)).join(" ")
 
-      title = options['title'] || html_properties['aria-label']
-      if title.blank? && html_properties['role'] == 'img'
+      title = options["title"] || html_properties["aria-label"]
+      if title.blank? && html_properties["role"] == "img"
         # This will make the accessibility audit tools happy as with the "img"
         # role, the alternative text (aria-label) and title are required for the
         # element. This will also force the SVG to be hidden because otherwise
@@ -59,15 +73,15 @@ module Decidim
         # different language (English) than the page language which is not
         # allowed.
         title = name
-        html_properties['aria-label'] = title
-        html_properties['aria-hidden'] = true
+        html_properties["aria-label"] = title
+        html_properties["aria-hidden"] = true
       end
 
-      href = Decidim.cors_enabled ? '' : asset_pack_path('media/images/icons.svg')
+      href = Decidim.cors_enabled ? "" : asset_pack_path("media/images/icons.svg")
 
       content_tag :svg, html_properties do
         inner = content_tag :title, title
-        inner += content_tag :use, nil, 'href' => "#{href}#icon-#{name}"
+        inner += content_tag :use, nil, "href" => "#{href}#icon-#{name}"
 
         inner
       end
@@ -81,21 +95,32 @@ module Decidim
     #
     # Returns an <img /> tag with the SVG icon.
     def external_icon(path, options = {})
-      classes = _icon_classes(options) + ['external-icon']
+      classes = _icon_classes(options) + ["external-icon"]
 
-      if path.split('.').last == 'svg'
-        attributes = { class: classes.join(' ') }.merge(options)
-        asset = File.read(application_path(path))
-        asset.gsub('<svg ', "<svg#{tag_builder.tag_options(attributes)} ").html_safe
+      if path.split(".").last == "svg"
+        icon_path = application_path(path)
+        return unless icon_path
+
+        attributes = { class: classes.join(" ") }.merge(options)
+        asset = File.read(icon_path)
+        asset.gsub("<svg ", "<svg#{tag_builder.tag_options(attributes)} ").html_safe
       else
-        image_pack_tag(path, class: classes.join(' '), style: 'display: none')
+        image_pack_tag(path, class: classes.join(" "), style: "display: none")
       end
     end
-
     def application_path(path)
-      img_path = asset_pack_path(path)
-      img_path = URI(img_path).path if Decidim.cors_enabled
-      Rails.root.join("public/#{img_path}")
+      # Force the path to be returned without the protocol and host even when a
+      # custom asset host has been defined. The host parameter needs to be a
+      # non-nil because otherwise it will be set to the asset host at
+      # ActionView::Helpers::AssetUrlHelper#compute_asset_host.
+      img_path = asset_pack_path(path, host: "", protocol: :relative)
+														   
+      path = Rails.public_path.join(img_path.sub(%r{^/}, ""))
+      return unless File.exist?(path)
+
+      path
+    rescue ::Webpacker::Manifest::MissingEntryError
+      nil
     end
 
     # Allows to create role attribute according to accessibility rules
@@ -106,7 +131,7 @@ module Decidim
     end
 
     def _icon_classes(options = {})
-      classes = options[:remove_icon_class] ? [] : ['icon']
+      classes = options[:remove_icon_class] ? [] : ["icon"]
       classes += [options[:class]]
       classes.compact
     end
@@ -117,7 +142,7 @@ module Decidim
       extra_items = items.slice((max_items + 1)..-1) || []
       active_item = items.find { |item| item[:active] }
 
-      render partial: 'decidim/shared/extended_navigation_bar.html', locals: {
+      controller.view_context.render partial: "decidim/shared/extended_navigation_bar", locals: {
         items: items,
         extra_items: extra_items,
         active_item: active_item,
@@ -144,7 +169,7 @@ module Decidim
     # background-color: rgba(var(--primary-rgb), 0.5)
     def organization_colors
       css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex},#{v[3..4].hex},#{v[5..6].hex};" }.join
-      render partial: 'layouts/decidim/organization_colors', locals: { css: css }
+      render partial: "layouts/decidim/organization_colors", locals: { css: css }
     end
 
     private

@@ -10,8 +10,6 @@
 # You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
 
 # Modificato per visualizzare sempre tutti i processi nella pagina Processi e non solo quelli attivi per default e in modo da separare Processi attivi e conclusi in due sezioni di pagina diverse
-
-
 module Decidim
   module ParticipatoryProcesses
     # A controller that holds the logic to show ParticipatoryProcesses in a
@@ -31,7 +29,8 @@ module Decidim
                     :related_processes,
                     :linked_assemblies,
                     :active_collection,
-                    :ended_collection
+                    :ended_collection,
+                    :upcoming_collection
 
       def index
         raise ActionController::RoutingError, "Not Found" if published_processes.none?
@@ -54,15 +53,16 @@ module Decidim
 
       private
 
-      def search_klass
-        ParticipatoryProcessSearch
+      def search_collection
+        ParticipatoryProcess.where(organization: current_organization).published.visible_for(current_user).includes(:area)
       end
 
       def default_filter_params
         {
-          scope_id: nil,
-          area_id: nil,
-          date: default_date_filter
+          with_any_scope: nil,
+          with_area: nil,
+          with_type: nil,
+          with_date: default_date_filter
         }
       end
 
@@ -103,15 +103,19 @@ module Decidim
       end
 
       def ended_collection
-        @ended_collection ||= participatory_processes.select{|process| !process.active?}
+        @ended_collection ||= participatory_processes.select{|process| !process.active? && !process.upcoming?}
+      end
+
+      def upcoming_collection
+        @upcoming_collection ||= participatory_processes.select{|process| process.upcoming?}
       end
 
       def filtered_processes
-        search.results
+        search.result
       end
 
       def participatory_processes
-        @participatory_processes ||= filtered_processes.groupless
+        @participatory_processes ||= filtered_processes
       end
 
       def participatory_process_groups
@@ -124,7 +128,7 @@ module Decidim
       end
 
       def metrics
-        @metrics ||= ParticipatoryProcessMetricChartsPresenter.new(participatory_process: current_participatory_space)
+        @metrics ||= ParticipatoryProcessMetricChartsPresenter.new(participatory_process: current_participatory_space, view_context: view_context)
       end
 
       def participatory_process_group
@@ -132,6 +136,9 @@ module Decidim
       end
 
       def default_date_filter
+        return "active" if published_processes.any?(&:active?)
+        return "upcoming" if published_processes.any?(&:upcoming?)
+        return "past" if published_processes.any?(&:past?)
 
         "all"
       end
@@ -139,9 +146,9 @@ module Decidim
       def related_processes
         @related_processes ||=
           current_participatory_space
-            .linked_participatory_space_resources(:participatory_processes, "related_processes")
-            .published
-            .all
+          .linked_participatory_space_resources(:participatory_processes, "related_processes")
+          .published
+          .all
       end
 
       def linked_assemblies

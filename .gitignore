@@ -4,18 +4,10 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
-# Ignore 
-/config/locales/0.27.it.yml
-/config/locales/0.27.it.yml_NEW
-/app_BACKUP/
-/app_NEW/
-/lib_BACKUP/
-/public/sw.js
-/public/sw.js.br
-/public/sw.js.gz
-/public/sw.js.map
-/public/sw.js.map.br
-/public/sw.js.map.gz
+####### Ignore custom ########
+public
+public/sw.js*
+public/sw.js.map*
 
 # Ignore bundler config.
 /.bundle
@@ -75,6 +67,7 @@ lib/.keys/*
 config/idp_metadata/*
 !/config/idp_metadata/.keep
 
+# Ignore packs
 /public/packs
 /public/decidim-packs
 /public/packs-test
@@ -83,10 +76,3 @@ config/idp_metadata/*
 yarn-debug.log*
 .yarn-integrity
 
-
-/public/packs
-/public/packs-test
-/node_modules
-/yarn-error.log
-yarn-debug.log*
-.yarn-integrity

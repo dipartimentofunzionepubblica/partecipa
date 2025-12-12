@@ -40,6 +40,7 @@ Modificata per integrare il bottone "Vai ai Documenti Relativi"
   <div class="row">
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">
+        <h2 class="show-for-sr"><%= t(".title") %></h2>
         <% if participatory_process_group.present? %>
           <%= render partial: "participatory_process_group" %>
         <% end %>
@@ -156,14 +157,14 @@ Modificata per integrare il bottone "Vai ai Documenti Relativi"
           </div>
         </div>
       <% end %>
-        <%= resource_reference(current_participatory_space) %>
-        <%= render partial: "decidim/shared/share_modal" %>
-        <%= embed_modal_for participatory_process_widget_url(current_participatory_space, format: :js) %>
+      <%= resource_reference(current_participatory_space) %>
+      <%= render partial: "decidim/shared/share_modal" %>
+      <%= embed_modal_for participatory_process_widget_url(current_participatory_space, format: :js) %>
     </div>
   </div>
 
   <% if current_participatory_space.show_statistics? %>
-    <%= cell "decidim/statistics", stats.collection %>
+     <%= cell "decidim/statistics", stats.collection %>
   <% end %>
 
   <% if current_participatory_space.show_metrics? %>

@@ -9,17 +9,17 @@ You should have received a copy of the GNU Affero General Public License along w
 
 Modificata per aggiungere titolo
 %>
-<% add_decidim_page_title(t("layouts.decidim.user_menu.public_profile")) %>
+<% add_decidim_page_title(t("timeline", scope: "decidim.profiles.show")) %>
 <div class="wrapper">
     <div class="columns medium-4"> 
         <h1 class="heading1">
-            <%=t("layouts.decidim.user_menu.public_profile")%>
+            <%=t("timeline", scope: "decidim.profiles.show")%>
         </h1>
     </div>
 </div>
 <%= cell "decidim/profile", user, context: {
-      content_cell: "decidim/user_activity",
-      activities: activities,
-      filter: filter,
-      resource_types: resource_types
+  content_cell: "decidim/user_activity",
+  activities: activities,
+  filter: filter,
+  resource_types: resource_types
 } %>

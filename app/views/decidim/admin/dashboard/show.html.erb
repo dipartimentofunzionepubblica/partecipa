@@ -1,5 +1,5 @@
 <%#
-Copyright (C) 2022 Formez PA
+Copyright (C) 2025 Formez PA
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
 
@@ -23,7 +23,7 @@ Modificata per gestire l'eccezione creata sul log a seguito disinstallazione del
   <% end %>
 
   <div class="grid-x grid-margin-x">
-    <% if current_user.admin? && current_user.organization&.id == current_organization.id %>
+    <% if allowed_to? :read, :users_statistics %>
       <div class="cell small-12 medium-6 large-4">
         <%= render(
           partial: "decidim/admin/users_statistics/users_count",
@@ -47,21 +47,21 @@ Modificata per gestire l'eccezione creata sul log a seguito disinstallazione del
         ) %>
       </div>
     <% end %>
-	
+
     <% if allowed_to? :read, :admin_log %>
       <div class="cell small-6">
         <%# Aggiunto per gestire il caso di Uninitialized Constant%>
-		<% begin %> 
-			<%= render partial: "decidim/admin/logs/logs_list", locals: { logs: latest_action_logs } %>
-		<% if latest_action_logs.any? %>
-          <div class="text-center"><%= link_to t(".view_more_logs"), logs_path %></div>
-        <% end %>
-		<% rescue NameError => e 
-		end%>
-	  </div>
+        <% begin %>
+           <%= render partial: "decidim/admin/logs/logs_list", locals: { logs: latest_action_logs } %>
+           <% if latest_action_logs.any? %>
+             <div class="text-center"><%= link_to t(".view_more_logs"), logs_path %></div>
+           <% end %>
+        <% rescue NameError => e 
+        end%>
+      </div>
     <% end %>
   </div>
-  
+
   <% if current_user.admin_terms_accepted? %>
     <p class="text-right">
       <small>

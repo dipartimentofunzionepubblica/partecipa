@@ -1,0 +1,139 @@
+---
+it:
+  activemodel:
+    attributes:
+      user:
+        old_password: Current password
+  layouts:
+    decidim:
+      user_profile:
+        privacy_settings: Privacy settings
+      wrapper:
+        public: Your profile is public
+        profile: My public profile
+        message: "Your profile is set as public on this platform and other people can see details about you, such as your name, nickname, profile picture and your public activity on this platform. You can change the visibility of your profile through the privacy settings page. Your profile is available at:"
+      shared:
+        layout_two_col:
+          private_account: Private account
+        layout_center:
+          save_privacy_settings: Save privacy settings
+  decidim:
+    components:
+      privacy:
+        name: Privacy settings
+    members:
+      no_members: This group does not have any members.
+      no_public_members: This group does not have any public members.
+    messaging:
+      conversations:
+        show:
+          private_account: You cannot have a conversation with a private participant.
+          private_messaging_disabled: You cannot have a conversation with a participant that has private messaging disabled.
+          private_messaging_disabled_new: You cannot start a conversation with a participant that has private messaging disabled.
+          private_messaging_disabled_new_multiple: One or more of the participants in this conversation have private messaging disabled, which is why the conversation cannot be started.
+          private_messaging_disabled_users:
+            one: "The following participant has disabled their private messaging:"
+            other: "The following participants have disabled their private messaging:"
+    privacy:
+      message_block:
+        title: Private messaging is not enabled
+        content_html: |
+          <p class="text-lg pb-4">
+            To access this page you have to enable private messaging from the "Privacy settings" under your profile settings.
+          </p>
+        back: Previous page
+      privacy_settings:
+        show:
+          profile_publicity_html: |
+            <p>
+              These privacy settings allow you to control how you appear on this platform publicly. You can decide to
+              remain completely anonymous but it will limit what you can do on this platform.
+            </p>
+            <h2 class="heading3 h3 pt-4">Profile publicity</h2>
+            <p class="pt-4">
+              Making your profile public allows you to perform public activities on this platform, such as sending
+              comments, participating in discussions, creating proposals, etc.
+            </p>
+            <p>
+              When you make your profile public, other participants can see your name publicly on this platform and also
+              see other public information about you, such as your nickname and profile photo (avatar), your public
+              activity on this platform, your followers and who you follow.
+            </p>
+          private_messaging_html: |
+            <h2 class="heading3 h3">Private messaging</h2>
+            <p class="pt-2">
+              These settings allow you to communicate with other participants on this platform. Other participants can
+              send you private messages and you can send them to others as well. Your profile needs to be public in
+              order to enable this feature because other people need to find you on this platform in order to have a
+              conversation with you.
+            </p>
+          enable_public_profile: Enable public profile
+          public_profile: I want my profile to be public to other users
+          enable_private_messaging: Enable private messaging
+          private_messaging: I want to be able to message other public users
+          save_privacy_settings: Save privacy settings
+          allow_public_contact: Allow public contact
+          public_contact: Allow anyone to send me a direct message, even if I do not follow them.
+        update:
+          error: There was a problem updating your privacy settings.
+          success: Your privacy settings were successfully updated.
+      privacy_block:
+        title: Public profile is required for this action
+        content_html: |
+          <p class="text-lg">
+            You are trying to access a page which requires your profile to be public. Making your profile public allows
+            other participants to see information about you.
+          </p>
+          <p class="text-lg py-4">
+            <strong>
+              Additional information about making your profile public will be presented after clicking the button below.
+            </strong>
+          </p>
+        button: "Publish your profile"
+      private_account:
+        unnamed_user: Unnamed participant
+      partials:
+        privacy_consent:
+          make_profile_public: Make your profile public
+          content_html: |
+            <p>
+              If you want to perform public activities on this platform, you must create a public profile. This means
+              that other participants will see your name and nickname alongside your public activity on this platform,
+              such as the proposals or comments you have submitted. The public profile displays the following
+              information about you:
+            </p>
+            <ul class="list-disc pl-4 mt-2">
+              <li>your name (%{user_name})</li>
+              <li>your nickname (%{nickname})</li>
+              <li>your public activity on this platform, such as the proposals and comments you have submitted</li>
+              <li>who you follow and who follows you on this platform</li>
+            </ul>
+            <p class="my-2">If you wish, you can also add the following information to your public profile:</p>
+            <ul class="list-disc pl-4">
+              <li>a profile photo (avatar)</li>
+              <li>a profile description</li>
+            </ul>
+            <p class="mt-2 mb-1">You can change this info through the profile settings:</p>
+            <p>%{profile_settings}</p>
+            <p class="mt-2">
+              If you change your mind later, you can always change your profile back to private through your account's
+              privacy settings.
+            </p>
+          close_modal: Close
+          agree_to_public_profile: I agree that a public profile is created about me
+          do_not_agree: No, I do not want to make my profile public
+          profile_settings: Profile settings
+      publish_account:
+        unauthorized: Only participants with public profiles are allowed to perform this action.
+      groups:
+        create:
+          email_confirmation: Group successfully created! Please verify the group's email address by clicking the link included in the verification email message in order to act on behalf of the group on this platform.
+        verify:
+          email_confirmation: The group's email address has to be confirmed in order to verify the group.
+    profile:
+      private: Private participant
+      private_info_html: This participant has decided to make their profile private. New messages to this conversation have been therefore disabled.
+  devise:
+    passwords:
+      edit:
+        old_password_help: In order to confirm the changes to your account, please provide your current password.

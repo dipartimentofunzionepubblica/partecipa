@@ -1,5 +1,5 @@
 <%#
-Copyright (C) 2024 Formez PA
+Copyright (C) 2025 Formez PA
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
 
@@ -11,7 +11,7 @@ Modificata per eliminare il filtro per Ambito o Scope
 
 %>
 <label class="text-medium mb-s"><%= t(".jump_to") %></label>
-<% if params.dig(:filter, :resource_type).present? %>
+<% if params.dig(:filter, :with_resource_type).present? %>
   <p class="text-secondary">
     <%= link_to main_search_path do %>
       <%= icon "caret-left", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;<%= t(".back") %>
