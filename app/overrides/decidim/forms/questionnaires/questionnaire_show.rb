@@ -20,4 +20,3 @@ Deface::Override.new(virtual_path: "decidim/forms/questionnaires/show",
     <%= link_to I18n.t('survey_results.questionnaire_show.see_results'), decidim_survey_results.survey_results_path(component_id: current_component.id) if current_component.settings.enable_results && !@survey&.open? %>
     
   ")
-

@@ -19,6 +19,14 @@ Just copy your own version of the file under: `app/views/layouts/decidim/_head_e
 %>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <% content_for(:js_content) do %>
+	<script async src='https://www.googletagmanager.com/gtag/js?id=<%=ENV["GOOGLE_ANALYTICS_ID"]%>'></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', '<%=ENV["GOOGLE_ANALYTICS_ID"]%>');
+	</script>
 
 	<!-- Matomo -->
 	<script type="text/javascript">
@@ -35,5 +43,4 @@ Just copy your own version of the file under: `app/views/layouts/decidim/_head_e
 	  })();
 	</script>
 <%end%>
-
 <!-- End Matomo Code -->
