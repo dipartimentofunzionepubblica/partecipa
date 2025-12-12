@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 ruby RUBY_VERSION
 DECIDIM_VERSION = 'v0.27.10'
 
 gem 'bootsnap', '~> 1.4'
 gem 'daemons'
-gem 'decidim', git: 'http://github.com/decidim/decidim', tag: DECIDIM_VERSION
+gem 'decidim', git: 'https://github.com/decidim/decidim', tag: DECIDIM_VERSION
 gem 'decidim-decidim_awesome', '0.10.2'
 gem 'decidim-privacy', git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-privacy', branch: 'bump_to_0.27'
 gem 'decidim-pua', git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-pua', branch: 'bump_to_0.27', ref: '39c90a7f9eb1c1f4bb3387870484e9a6a2e8db6c'
@@ -18,7 +18,7 @@ gem 'decidim-cache_cleaner'
 gem 'deface'
 gem 'delayed_job_active_record'
 gem 'figaro'
-gem 'foundation_rails_helper', git: 'http://github.com/sgruhier/foundation_rails_helper.git'
+gem 'foundation_rails_helper', git: 'https://github.com/sgruhier/foundation_rails_helper.git'
 gem 'lograge'
 gem 'pg'
 gem 'puma'

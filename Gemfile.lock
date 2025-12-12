@@ -3,26 +3,6 @@ GIT
   revision: 4f5de478b30006864873bc587ca37026a72aff21
   tag: v0.27.10
   specs:
-    decidim (0.27.10)
-      decidim-accountability (= 0.27.10)
-      decidim-admin (= 0.27.10)
-      decidim-api (= 0.27.10)
-      decidim-assemblies (= 0.27.10)
-      decidim-blogs (= 0.27.10)
-      decidim-budgets (= 0.27.10)
-      decidim-comments (= 0.27.10)
-      decidim-core (= 0.27.10)
-      decidim-debates (= 0.27.10)
-      decidim-forms (= 0.27.10)
-      decidim-generators (= 0.27.10)
-      decidim-meetings (= 0.27.10)
-      decidim-pages (= 0.27.10)
-      decidim-participatory_processes (= 0.27.10)
-      decidim-proposals (= 0.27.10)
-      decidim-sortitions (= 0.27.10)
-      decidim-surveys (= 0.27.10)
-      decidim-system (= 0.27.10)
-      decidim-verifications (= 0.27.10)
     decidim-accountability (0.27.10)
       decidim-comments (= 0.27.10)
       decidim-core (= 0.27.10)
@@ -170,20 +150,30 @@ GIT
       decidim-core (= 0.27.10)
 
 GIT
-  remote: http://github.com/sgruhier/foundation_rails_helper.git
-  revision: bc33600db7a2d16ce3cdc1f8369d0d7e7c4245b5
-  specs:
-    foundation_rails_helper (4.0.1)
-      actionpack (>= 4.1, < 7.1)
-      activemodel (>= 4.1, < 7.1)
-      activesupport (>= 4.1, < 7.1)
-      railties (>= 4.1, < 7.1)
-
-GIT
   remote: https://github.com/decidim/decidim
   revision: 4f5de478b30006864873bc587ca37026a72aff21
   tag: v0.27.10
   specs:
+    decidim (0.27.10)
+      decidim-accountability (= 0.27.10)
+      decidim-admin (= 0.27.10)
+      decidim-api (= 0.27.10)
+      decidim-assemblies (= 0.27.10)
+      decidim-blogs (= 0.27.10)
+      decidim-budgets (= 0.27.10)
+      decidim-comments (= 0.27.10)
+      decidim-core (= 0.27.10)
+      decidim-debates (= 0.27.10)
+      decidim-forms (= 0.27.10)
+      decidim-generators (= 0.27.10)
+      decidim-meetings (= 0.27.10)
+      decidim-pages (= 0.27.10)
+      decidim-participatory_processes (= 0.27.10)
+      decidim-proposals (= 0.27.10)
+      decidim-sortitions (= 0.27.10)
+      decidim-surveys (= 0.27.10)
+      decidim-system (= 0.27.10)
+      decidim-verifications (= 0.27.10)
     decidim-templates (0.27.10)
       decidim-core (= 0.27.10)
       decidim-forms (= 0.27.10)
@@ -230,8 +220,18 @@ GIT
       decidim-surveys (>= 0.27.2)
       deface
 
+GIT
+  remote: https://github.com/sgruhier/foundation_rails_helper.git
+  revision: bc33600db7a2d16ce3cdc1f8369d0d7e7c4245b5
+  specs:
+    foundation_rails_helper (4.0.1)
+      actionpack (>= 4.1, < 7.1)
+      activemodel (>= 4.1, < 7.1)
+      activesupport (>= 4.1, < 7.1)
+      railties (>= 4.1, < 7.1)
+
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     actioncable (6.1.7.10)
       actionpack (= 6.1.7.10)
