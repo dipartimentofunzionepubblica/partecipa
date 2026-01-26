@@ -150,6 +150,72 @@ Di seguito una breve spiegazione per ciascuna costante:
 	PUA_APP_SECRET: #Stringa indicante il secret che serve all'autenticazione del Service Provider, comunicato da DFP in fase di accreditamento
 
 	COMPONENT_TABS: #Intero indicante il numero massimo di tabs Componenti che appaiono a fianco al nome Processo/Assemblea
+	
+	DECIDIM_APPLICATION_NAME: #Stringa che identifica il nome dell'applicativo
+	DECIDIM_MAILER_SENDER: #Stringa che indica l'indirizzo email mittente delle comunicazioni e notifiche
+	DECIDIM_AVAILABLE_LOCALES: #Stringa che inentifica i locales attivati nell'instanza corrente, ad es. "en, it"
+	DECIDIM_DEFAULT_LOCALE: #Stringa che identifica il locale di default ad es. "it"
+	DECIDIM_FORCE_SSL: #Stringa che segnala se il protocollo SSL deve essere forzato, ad es. "auto" o "true" o "false"
+	DECIDIM_ENABLE_HTML_HEADER_SNIPPETS: #Booleano che determina se saranno presenti gli header snippets, ad es. per inserire javascript nell header da configurare in dashboard
+	DECIDIM_CURRENCY_UNIT: #Stringa che determina quale è la divisa monetaria di default, ad es. "€"
+	DECIDIM_CORS_ENABLED: #Booleano che determina se CORS (Cross-Origin Resource Sharing) è attivato, nel caso lo sia è possibile  richiedere risorse (come font, JavaScript, immagini) da un dominio diverso da quello da cui la pagina web è stata caricata
+	DECIDIM_IMAGE_UPLOADER_QUALITY: #Intero che determina la qualità delle immagini caricate tramite uploader, ad es. "80"
+	DECIDIM_MAXIMUM_ATTACHMENT_SIZE: #Intero che determina la dimensione massima in Megabytes delle immagini caricate
+	DECIDIM_MAXIMUM_AVATAR_SIZE: "5" #Intero che determina la dimensione massima in Megabytes degli avatar caricati
+	DECIDIM_MAX_REPORTS_BEFORE_HIDING: #Intero che determina di report che un contenuto può ricevere prima di essere nascosto
+	DECIDIM_TRACK_NEWSLETTER_LINKS: #Stringa con cui viene configurato il tracciamento dei link della newsletter tramite UTM
+	DECIDIM_DOWNLOAD_YOUR_DATA_EXPIRY_TIME: #Intero che configura il numero di giorni in cui il download dei dati sarà disponibile sul server, una volta richiesto
+	DECIDIM_THROTTLING_MAX_REQUESTS: #Intero che identifica il numero massimo di richieste nell'unità di tempo per IP prima che vengano bloccate
+	DECIDIM_THROTTLING_PERIOD: #Intero che identifica l'unità di tempo in minuti che si riferisce al conteggio sopra
+	DECIDIM_UNCONFIRMED_ACCESS_FOR: #Intero che si riferisce al numero massimo di giorni in cui il sito è accessibile senza che l'email sia confermata
+	DECIDIM_SYSTEM_ACCESSLIST_IPS: #Stringa che è un elenco di IP o subnet separati da virgola che descrive chi può accedere alla parte /system del sito
+	DECIDIM_BASE_UPLOADS_PATH: #Stringa che definisce un base path per gli uploads
+	DECIDIM_DEFAULT_CSV_COL_SEP: #Stringa che definisce il separatore tra campi nel file csv
+	DECIDIM_CONSENT_COOKIE_NAME: #Stringa che definisce il nome del cookie con cui viene memorizzato sul browser il consenso relativo al trattamento dati
+	DECIDIM_CACHE_KEY_SEPARATOR: #Stringa che definisce il separatore della chiave della cache
+	DECIDIM_EXPIRE_SESSION_AFTER: #Intero che definisce dopo quanti minuti far scadere la sessione
+	DECIDIM_SESSION_TIMEOUT_INTERVAL: #Intero che definisce dopo quanti minuti chiedere conferma della presenza utente
+	DECIDIM_ENABLE_REMEMBER_ME: #Stringa che abilita il checkbox "Ricordati di me", ad es. "auto"
+	DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST: #Stringa che espone una opzione di configurazione: HTTP_X_FORWARDED_HOST
+	DECIDIM_MAXIMUM_CONVERSATION_MESSAGE_LENGTH: #Intero che definisce il numero massimo di caratteri per messaggio
+	DECIDIM_PASSWORD_BLACKLIST: #Stringa che definisce una lista di parole non consentite nelle password
+	DECIDIM_ALLOW_OPEN_REDIRECTS: #Booleano che disabilita il redirect ad un altro host quando si esegue il redirect di ritorno
+	DECIDIM_SERVICE_WORKER_ENABLED: #Booleano che abilita o disabilita il service worker che serve a ad abilitare il supporto offline e le notifiche push
+	DECIDIM_ADMIN_PASSWORD_EXPIRATION_DAYS: #Intero che indica i giorni di scadenza della password 
+	DECIDIM_ADMIN_PASSWORD_MIN_LENGTH: #Intero che segnala la lunghezza minima della password
+	DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES: #Intero che indica quante password amministrative già utilizzate vengono comparate alla password attuale
+	DECIDIM_ADMIN_PASSWORD_STRONG: #Booleano che segnala se utilizzare le regole per la password strong
+	API_SCHEMA_MAX_PER_PAGE: #Intero che definisce quanti items vengono restituiti al massimo da una query GraphQL API
+	API_SCHEMA_MAX_COMPLEXITY: #Intero che segnala la complessità della query GraphQL
+	API_SCHEMA_MAX_DEPTH: #Intero che segnala quante query GraphQL possano essere innestate 
+	PROPOSALS_SIMILARITY_THRESHOLD: #Float che definisce la soglia di similarità di una proposta
+	PROPOSALS_SIMILARITY_LIMIT: #Intero che definisce il limite di similarità di una proposta
+	PROPOSALS_PARTICIPATORY_SPACE_HIGHLIGHTED_PROPOSALS_LIMIT: #Intero che definisce il numero massimo di proposte evidenziate
+	PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT: #Intero che definisce il limite alle gruppo di proposte evidenziate
+	MEETINGS_UPCOMING_MEETING_NOTIFICATION: #Intero che definisce quanti giorni prima vengono inviate notifiche riguardanti i meeting imminenti
+	MEETINGS_ENABLE_PROPOSAL_LINKING: #Booleano che definisce se è possibile linkare le proposte nei meeting
+	MEETINGS_EMBEDDABLE_SERVICES: #Stringa che definisce il servizio includibile nei Meeting
+	BUDGETS_ENABLE_PROPOSAL_LINKING: #Stringa che definisce se le proposte siano linkabili al bilancio partecipativo
+	ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING: #Stringa che definisce se le proposte siano linkabili all'accountability
+	CONSULTATIONS_STATS_CACHE_EXPIRATION_TIME: #Intero che definisce per quanti minuti le statistiche delle consultazioni sono messe in cache
+	INITIATIVES_CREATION_ENABLED: #Stringa che definisce se la creazione delle iniziative é abilitata
+	INITIATIVES_SIMILARITY_THRESHOLD: #Float che definisce la soglia di similarità delle iniziative
+	INITIATIVES_SIMILARITY_LIMIT: #Intero che definisce il limite di similarità delle iniziative
+	INITIATIVES_MINIMUM_COMMITTEE_MEMBERS: #Intero che definisce il numero minimo di membri di un comitato
+	INITIATIVES_DEFAULT_SIGNATURE_TIME_PERIOD_LENGTH: #Intero che definisce la lunghezza del periodo di tempo della firma di default delle iniziative
+	INITIATIVES_DEFAULT_COMPONENTS: #Stringa che definisce i componenti di default delle iniziative
+	INITIATIVES_FIRST_NOTIFICATION_PERCENTAGE: #Intero che definisce a quale perscentuale di completamente viene inviata la prima notifica per le iniziative
+	INITIATIVES_SECOND_NOTIFICATION_PERCENTAGE: #Intero che definisce a quale perscentuale di completamente viene inviata la seconda notifica per le iniziative
+	INITIATIVES_STATS_CACHE_EXPIRATION_TIME: #Intero che determina per quanti minuti le statistiche delle iniziative sono messe in cache 
+	INITIATIVES_MAX_TIME_IN_VALIDATING_STATE: #Intero che segnala il tempo massimo in giorni in cui una iniziativa può stare in stato di validazione
+	INITIATIVES_PRINT_ENABLED: #Stringa che definisce se le iniziative sono stampabili
+	INITIATIVES_DO_NOT_REQUIRE_AUTHORIZATION: #Booleano che definisce se le iniziative non richiedono autenticazione
+	VERIFICATIONS_DOCUMENT_TYPES: #Stringa che definisce quali documenti sono abilitati alla verifica
+	ELECTIONS_BULLETIN_BOARD_SERVER: #Stringa che definisce l'URL relativo al board server
+	STORAGE_PROVIDER: #Stringa che definisce lo storage provider
+	OMNIAUTH_FACEBOOK_APP_ID: #Stringa che definisce l'id relativo all'autenticazione su facebook via omniauth
+	OMNIAUTH_TWITTER_API_KEY: #Stringa che definisce l'id relativo all'autenticazione su tweetter via omniauth
+	OMNIAUTH_GOOGLE_CLIENT_ID: Stringa che definisce l'id relativo all'autenticazione su google via omniauth
 
 ## FAQ
 
