@@ -1,15 +1,5 @@
 # frozen_string_literal: true
 
-# Copyright (C) 2025 Formez PA
-#
-# This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
-#
-# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
-#
-# You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
-#
-# Incluso immutato per rendere possibile la corretta esecuzione su 0.27, senza l'inclusione nella codebase viene generata un' eccezione
-
 module Decidim
   # Helper that provides methods to render order selector and links
   module SanitizeHelper
@@ -29,9 +19,9 @@ module Decidim
     def decidim_sanitize(html, options = {})
       scrubber = options[:scrubber] || Decidim::UserInputScrubber.new
       if options[:strip_tags]
-        strip_tags sanitize(html, scrubber: scrubber)
+        strip_tags sanitize(html, scrubber:)
       else
-        sanitize(html, scrubber: scrubber)
+        sanitize(html, scrubber:)
       end
     end
 
@@ -47,13 +37,22 @@ module Decidim
       end
     end
 
+    # Converts the blob and blob variant references to blob URLs.
+    def decidim_rich_text(html, options = {})
+      renderer = Decidim::ContentProcessor.renderer_klass(:blob).constantize.new(html)
+      renderer.render(options)
+    end
+
     def decidim_sanitize_editor(html, options = {})
-      content_tag(:div, decidim_sanitize(html, options), class: %w(ql-editor-display))
+      content_tag(:div, decidim_sanitize(html, options), class: %w(rich-text-display))
     end
 
     def decidim_sanitize_editor_admin(html, options = {})
       html = Decidim::IframeDisabler.new(html, options).perform
-      decidim_sanitize_editor(html, { scrubber: Decidim::AdminInputScrubber.new }.merge(options))
+      decidim_sanitize_editor(
+        decidim_rich_text(html),
+        { scrubber: Decidim::AdminInputScrubber.new }.merge(options)
+      )
     end
 
     def decidim_html_escape(text)
@@ -61,7 +60,7 @@ module Decidim
     end
 
     def decidim_url_escape(text)
-      decidim_html_escape(text).sub(/^javascript:/, "")
+      decidim_html_escape(text).sub(/^\s*javascript:/, "")
     end
 
     def decidim_sanitize_translated(text)
@@ -83,13 +82,15 @@ module Decidim
     end
 
     def sanitize_unordered_lists(text)
-      text.gsub(%r{(?=.*</ul>)(?!.*?<li>.*?</ol>.*?</ul>)<li>}) { |li| "#{li}• " }
+      text.gsub(%r{(\n+)?(</?li>)(\n+)?}, "\\2")
+          .gsub(%r{(?=.*</ul>)(?!.*?<li>.*?</ol>.*?</ul>)<li>}) { |li| "#{li}• " }
     end
 
     def sanitize_ordered_lists(text)
       i = 0
 
-      text.gsub(%r{(?=.*</ol>)(?!.*?<li>.*?</ul>.*?</ol>)<li>}) do |li|
+      text.gsub(%r{(\n+)?(</?li>)(\n+)?}, "\\2")
+          .gsub(%r{(?=.*</ol>)(?!.*?<li>.*?</ul>.*?</ol>)<li>}) do |li|
         i += 1
 
         li + "#{i}. "
@@ -116,7 +117,7 @@ module Decidim
         content = strip_tags(sanitize_text(content)) if strip_tags
 
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
-        content = renderer.render(links: links, extras: extras).html_safe
+        content = renderer.render(links:, extras:).html_safe
 
         content = Decidim::ContentRenderers::LinkRenderer.new(content).render if links
         content

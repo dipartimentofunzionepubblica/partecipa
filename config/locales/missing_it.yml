@@ -1,0 +1,3356 @@
+---
+it:
+  errors:
+    messages:
+      carrierwave_processing_error: non è stato elaborato
+      carrierwave_integrity_error: non è un tipo di file consentito
+      carrierwave_download_error: non è stato possibile scaricarlo
+      extension_allowlist_error: 'Non ti è consentito caricare file %{extension},
+        tipi consentiti: %{allowed_types}'
+      extension_denylist_error: 'Non ti è consentito caricare file %{extension}, tipi
+        proibiti: %{prohibited_types}'
+      content_type_denylist_error: Non ti è consentito caricare file %{content_type}
+      rmagick_processing_error: Impossibile manipolare con rmagick, forse non è un'immagine?
+      mini_magick_processing_error: 'Impossibile manipolare con MiniMagick, forse
+        non è un''immagine? Errore originale: %{e}'
+      vips_processing_error: 'Impossibile manipolare con vips, forse non è un''immagine?
+        Errore originale: %{e}'
+      min_size_error: La dimensione del file deve essere maggiore di %{min_size}
+      max_size_error: La dimensione del file deve essere inferiore a %{max_size}
+      model_invalid: 'Convalida non riuscita: %{errors}'
+      too_short: è troppo corto (meno di %{count} caratteri)
+      file_size_is_in: la dimensione del file deve essere compresa tra %{min} e %{max}
+      file_size_is_less_than: la dimensione del file deve essere inferiore a %{count}
+      file_size_is_greater_than: la dimensione del file deve essere maggiore di %{count}
+      file_size_is_greater_than_or_equal_to: la dimensione del file deve essere maggiore
+        o uguale a %{count}
+      allowed_file_content_types: 'sono consentiti solo i file con le seguenti estensioni:
+        %{types}'
+      excluded_file_content_types: il file non può essere %{types}
+      cannot_be_blank: non può essere vuoto
+      cycle_detected: il genitore di un ambito non può essere uno dei suoi discendenti
+      nesting_too_deep: non può essere all'interno di una sottocategoria
+      url_format: Questo URL è nel formato errato
+      cannot_have_comments: non è possibile avere commenti
+    unavailable_session: |-
+      La sessione %{id} non è più disponibile in memoria.
+
+      Se ti capita di eseguire su un server multi-processo (come Unicorn o Puma), il processo
+      questa richiesta hit non memorizza %{id} in memoria. Valuta di ridurre il numero di
+      processi/worker a uno (1) o di utilizzare un server diverso in fase di sviluppo.
+    unacceptable_request: È prevista una versione supportata nell'intestazione Accept.
+    connection_refused: |-
+      Oops! Impossibile connettersi al middleware della Web Console.
+      Assicurati che un server di sviluppo Rails sia in esecuzione.
+  date:
+    formats:
+      decidim_short_dashed: "%d-%m-%Y"
+  time:
+    formats:
+      long_with_particles: "%B %d, %Y alle %H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p"
+    human:
+      storage_units:
+        units:
+          pb: PB
+          eb: E.B.
+    nth:
+      ordinals: "#<Proc:0x000000011952e440 /Utenti/lorenzo/.asdf/installs/ruby/3.1.1/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.6/lib/active_support/locale/it.rb:7
+        (lambda)>"
+      ordinalized: "#<Proc:0x000000011952d658 /Utenti/lorenzo/.asdf/installs/ruby/3.1.1/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.6/lib/active_support/locale/it.rb:26
+        (lambda)>"
+  activerecord:
+    errors:
+      models:
+        doorkeeper/application:
+          attributes:
+            redirect_uri:
+              unspecified_scheme: deve specificare uno schema.
+            scopes:
+              not_match_configured: non corrisponde alla configurazione sul server.
+    attributes:
+      decidim/action_log:
+        created_at: Tempo
+        with_participatory_space: Spazio partecipativo
+    models:
+      decidim/budgets/budget:
+        one: Bilancio
+        other: Bilanci
+  datetime:
+    distance_in_words:
+      short:
+        about_x_days: "%{conteggio}d"
+        about_x_hours: "%{conteggio}h"
+        about_x_minutes: "%{conta}m"
+        about_x_months: "%{count} mesi."
+        about_x_years: "%{contea"
+        almost_x_years: "%{contea"
+        half_a_minute: 1 milione
+        less_than_x_minutes: "%{conta}m"
+        less_than_x_seconds: "%{conteggio}"
+        over_x_years: "%{contea"
+        x_days: "%{conteggio}d"
+        x_hours: "%{conteggio}h"
+        x_minutes: "%{conta}m"
+        x_months: "%{count} mesi."
+        x_seconds: "%{conteggio}"
+        x_years: "%{contea"
+      x_hours:
+        one: 1 ora
+        other: "%{count} ore"
+  helpers:
+    page_entries_info:
+      entry:
+        zero: voci
+        one: iscrizione
+        other: voci
+      one_page:
+        display_entries:
+          zero: Nessun %{entry_name} trovato
+          one: Visualizzazione di <b>1</b> %{entry_name}
+          other: Visualizzazione di <b>tutti i %{count</b> %{entry_name}
+      more_pages:
+        display_entries: Visualizzazione di %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last</b>
+          di <b>%{total</b> in totale
+  flash:
+    actions:
+      create:
+        notice: "%{resource_name} è stato creato correttamente."
+      update:
+        notice: "%{resource_name} è stato aggiornato correttamente."
+      destroy:
+        notice: "%{resource_name} è stato distrutto con successo."
+        alert: "%{resource_name} non può essere distrutto."
+  ransack:
+    predicates:
+      dtgt: Dopo
+      dtgteq: dopo o uguale a
+      dtlt: Prima
+      dtlteq: prima o uguale a
+  devise:
+    mailer:
+      invite_admin:
+        subject: Sei stato invitato a gestire %{organization}
+      invite_collaborator:
+        subject: Sei stato invitato a collaborare su %{organization}
+      invite_private_user:
+        subject: Sei stato invitato a un processo partecipativo privato su %{organization}
+      organization_admin_invitation_instructions:
+        subject: Sei stato invitato a gestire %{organization}
+    passwords:
+      edit:
+        old_password_help: Per confermare le modifiche al tuo account, inserisci la
+          tua password attuale.
+        password_help: Minimo %{minimum_characters} caratteri, non devono essere troppo
+          comuni (ad esempio 123456) e devono essere diversi dal tuo nickname e dalla
+          tua email.
+        password_help_admin: Almeno %{minimum_characters} caratteri, non devono essere
+          troppo comuni (ad esempio 123456), devono essere diversi dal tuo nickname
+          e dalla tua email e devono essere diversi dalle tue vecchie password.
+        title: Modifica password
+    shared:
+      links:
+        log_in_with_provider: Accedi con %{provider}
+    invitations:
+      edit:
+        nickname_help: Il tuo nickname in %{organization}. Può contenere solo lettere,
+          numeri, '-' e '_'.
+  doorkeeper:
+    applications:
+      help:
+        confidential: L'applicazione verrà utilizzata laddove il segreto del client
+          può essere mantenuto riservato. Le app mobili native e le app a pagina singola
+          sono considerate non riservate.
+        blank_redirect_uri: Lasciarlo vuoto se hai configurato il tuo provider per
+          utilizzare le credenziali client, le credenziali password del proprietario
+          della risorsa o qualsiasi altro tipo di concessione che non richieda un
+          URI di reindirizzamento.
+      index:
+        confidential: Riservato?
+        actions: Azioni
+        confidentiality:
+          'yes': SÌ
+          'no': 'NO'
+      show:
+        secret_hashed: Segreto hash
+        confidential: Riservato
+        not_defined: Non definito
+    authorizations:
+      form_post:
+        title: Invia questo modulo
+    errors:
+      messages:
+        invalid_request:
+          unknown: Nella richiesta manca un parametro obbligatorio, include un valore
+            di parametro non supportato o è comunque malformata.
+          missing_param: 'Parametro obbligatorio mancante: %{value}.'
+          request_not_authorized: La richiesta deve essere autorizzata. Il parametro
+            obbligatorio per autorizzare la richiesta è mancante o non valido.
+        invalid_code_challenge_method: Il metodo di sfida del codice deve essere semplice
+          o S256.
+        admin_authenticator_not_configured: L'accesso al pannello di amministrazione
+          è vietato perché Doorkeeper.configure.admin_authenticator non è configurato.
+        unsupported_response_mode: Il server di autorizzazione non supporta questa
+          modalità di risposta.
+        revoke:
+          unauthorized: Non sei autorizzato a revocare questo token
+        forbidden_token:
+          missing_scope: L'accesso a questa risorsa richiede l'ambito "%{oauth_scopes}".
+    layouts:
+      admin:
+        title: Portiere
+    pre_authorization:
+      status: Pre-autorizzazione
+  views:
+    pagination:
+      first: "&laquo; Primo"
+      last: Ultimo &raquo;
+      previous: Precedente
+      next: Prossimo
+  activemodel:
+    attributes:
+      user:
+        encrypted_password: Password
+        locale: Localizzazione
+        old_password: Password attuale
+        tos_agreement: Termini del contratto di servizio
+        user_time_zone: Fuso orario personale
+      organization:
+        admin_terms_of_service_body: Corpo per i termini di servizio dell'amministratore
+        tertiary_color: Terziario
+        twitter_handler: Gestore X
+        awesome_admins_available_authorizations: Consenti agli amministratori di verificare
+          manualmente gli utenti con queste autorizzazioni
+      attachment:
+        weight: Posizione dell'ordine
+      attachment_collection:
+        weight: Posizione dell'ordine
+      category:
+        weight: Posizione dell'ordine
+      external_domain:
+        value: Valore
+      help_section:
+        content: Contenuto
+      newsletter:
+        send_to_all_users: Invia a tutti gli utenti
+        send_to_followers: Invia ai follower
+        send_to_participants: Invia ai partecipanti
+      participatory_space_private_user:
+        email: E-mail
+        name: Nome
+      static_page:
+        topic_id: Argomento
+      static_page_topic:
+        name: Nome argomento
+      config:
+        additional_proposal_sortings: Sono state abilitate ulteriori opzioni di ordinamento
+        allow_images_in_editors: Consenti immagini nell'editor HTML
+        allow_videos_in_editors: Consenti i video nell'editor HTML
+        force_authorization_after_login: Forza l'autorizzazione dopo l'accesso/registrazione
+        force_authorization_help_text: Testo di aiuto per la pagina di autorizzazione
+        force_authorization_with_any_method: Consenti l'accesso se una qualsiasi delle
+          autorizzazioni è concessa (per impostazione predefinita, sono tutte richieste)
+        proposal_private_custom_fields: Campi personalizzati privati %{id}
+        scoped_admin_styles: Stili personalizzati %{id}
+        user_timezone: Consentire agli utenti di impostare il fuso orario nel proprio
+          profilo
+      confirmation:
+        verification_code: Codice di verifica
+      mobile_phone:
+        mobile_phone_number: Numero di telefono cellulare
+      participatory_process:
+        document: Documento
+        import_attachments: Importa allegati
+        import_categories: Importa categorie
+        import_components: Importa componenti
+        import_steps: Importare i passaggi
+        participatory_process_type_id: Tipo di processi
+        private_space: Processo privato
+      participatory_process_type:
+        title: Titolo
+      assemblies_type:
+        title: Titolo
+      assembly:
+        announcement: Annuncio
+        document: Documento
+        import_attachments: Importa allegati
+        import_categories: Importa categorie
+        import_components: Importa componenti
+        twitter: X
+      assembly_member:
+        weight: Posizione dell'ordine
+      proposals_copy:
+        copy_proposals: Comprendo che questa operazione importerà tutte le proposte
+          dal componente selezionato a quello corrente e che questa azione non può
+          essere annullata.
+      proposals_import:
+        scope_id: Ambito
+      meeting:
+        end_time: Ora di fine
+        iframe_access_level: Livello di accesso iframe
+        iframe_embed_type: Tipo di incorporamento iframe
+        iframe_embed_type_html: Solo pochi servizi consentono l'opzione "Incorpora
+          nella pagina della riunione" o "Apri nella pagina dell'evento live". Nota
+          che con l'opzione "Incorpora nella pagina della riunione" sui dispositivi
+          mobili, poiché lo schermo eredita dimensioni diverse, funzionerà effettivamente
+          come una "Apri nella pagina dell'evento live".
+        registration_type: Tipo di registrazione
+        reserved_slots: Posti riservati per questo incontro
+        start_time: Ora di inizio
+      meeting_agenda:
+        title: Titolo
+        visible: Visibile
+      meeting_agenda_items:
+        description: Descrizione
+        duration: Durata
+        title: Titolo
+      meeting_registration_invite:
+        email: E-mail
+        name: Nome
+      validate_registration_code:
+        code: Codice
+      project:
+        proposals: Proposte
+        decidim_scope_id: Ambito
+      result:
+        meetings_ids: Incontri inclusi
+        subresults: Sottorisultati
+      debate:
+        scope_id: Ambito
+      post:
+        body: Corpo
+        decidim_author_id: Autore
+        published_at: Ora di pubblicazione
+        title: Titolo
+      budget:
+        decidim_scope_id: Ambito
+    models:
+      decidim/gamification/level_up_event: Hai salito di livello
+      decidim/invited_to_group_event: Invitato al gruppo
+      decidim/promoted_to_admin_event: Promosso ad amministratore del gruppo
+      decidim/resource_hidden_event: Risorsa nascosta
+      decidim/user_group_created_event: Gruppo di utenti creato
+      decidim/welcome_notification_event: Messaggio di benvenuto
+      decidim/comments/comment_upvoted_event: Commento votato positivamente
+    errors:
+      models:
+        organization:
+          attributes:
+            password:
+              secret_key: È necessario definire la variabile di ambiente SECRET_KEY_BASE
+                per poter salvare questo campo
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Seleziona almeno uno spazio partecipativo.
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: File di importazione non valido, leggere attentamente le
+                istruzioni e assicurarsi che il file sia codificato in UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: File di importazione non valido, leggere attentamente le
+                istruzioni e assicurarsi che il file sia codificato in UTF-8.
+        questionnaire:
+          request_invalid: Si è verificato un errore durante la gestione della richiesta.
+            Riprova.
+        census_data:
+          attributes:
+            file:
+              malformed: File di importazione non valido, leggere attentamente le
+                istruzioni e assicurarsi che il file sia codificato in UTF-8.
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tipo di documento non valido. Sono consentiti
+                solo i file con le seguenti estensioni: %{types}'
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tipo di documento non valido. Sono consentiti
+                solo i file con le seguenti estensioni: %{types}.'
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tipo di documento non valido. Sono consentiti
+                solo i file con le seguenti estensioni: %{types}'
+        proposals_merge:
+          attributes:
+            base:
+              supported: Hanno ricevuto supporto o approvazioni
+        proposals_split:
+          attributes:
+            base:
+              supported: Hanno ricevuto supporto o approvazioni
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Questo URL non può essere incorporato nella pagina della
+                riunione o dell'evento live.
+            online_meeting_url:
+              url_format: Deve essere un URL valido
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: La durata degli elementi supera la durata della riunione
+                di %{count} minuti.
+              too_many_minutes_child: La durata dell'elemento figlio supera la durata
+                dell'elemento padre "%{parent_title}" dell'agenda di %{count} minuti.
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Questo account email è già stato invitato.
+      new_import:
+        attributes:
+          file:
+            invalid_file: Il file fornito non è valido. Verificare che il file sia
+              formattato correttamente.
+            invalid_mime_type: Tipo MIME non valido.
+  carrierwave:
+    errors:
+      file_cannot_be_processed: Il file non può essere elaborato
+      file_resolution_too_large: La risoluzione del file è troppo grande
+      file_size_too_large: La dimensione del file è troppo grande
+      not_inside_organization: Il file non è allegato a nessuna organizzazione
+  decidim:
+    accessibility:
+      front_page_link: Vai alla prima pagina
+      opens_in_new_tab: Si apre in una nuova scheda
+    account:
+      blocked: Questo account è stato bloccato a causa della violazione dei termini
+        di servizio
+      delete:
+        alert: Questa azione non può essere annullata. Se elimini il tuo account non
+          potrai più effettuare l'accesso con le tue credenziali. L'eliminazione del
+          tuo account comporterà l'anonimizzazione dei tuoi contributi. Potrai comunque
+          creare un nuovo account, ma questi contributi non saranno associati ad esso.
+        leaving_authorizations_behind: Alcuni dati associati alla tua autorizzazione
+          verranno salvati per sicurezza. Se crei un altro account e autorizzi di
+          nuovo, questi dati verranno recuperati nel tuo nuovo account.
+      download_your_data_export:
+        notice: Il download dei tuoi dati è attualmente in corso. Riceverai un'email
+          quando sarà completato.
+      email_change:
+        body1: Abbiamo inviato un'e-mail a %{unconfirmed_email} per verificare il
+          tuo nuovo indirizzo e-mail.
+        body2: Vuoi che ti inviamo di nuovo l'email di verifica? %{resend_link} o
+          %{cancel_link}.
+        cancel: cancellare
+        cancel_error: Impossibile annullare la modifica dell'email.
+        cancel_successfully: Modifica e-mail annullata con successo.
+        resend_error: Impossibile inviare nuovamente l'e-mail di conferma.
+        resend_successfully: L'email di conferma è stata reinviata correttamente a
+          %{unconfirmed_email}.
+        send_again: Invia di nuovo
+        title: Verifica della modifica dell'email
+      show:
+        available_locales_helper: Scegli la lingua che desideri utilizzare per navigare
+          e ricevere le notifiche sulla piattaforma.
+      update:
+        success_with_email_confirmation: Il tuo account è stato aggiornato con successo.
+          Riceverai un'e-mail per confermare il tuo nuovo indirizzo e-mail.
+    activity:
+      time_ago: "%{time} fa"
+    admin:
+      actions:
+        attachment_collection:
+          new: Nuova cartella allegati
+        send_me_a_test_email: Inviami un'email di prova
+        user:
+          new: Nuovo amministratore
+        moderate: Moderare
+        new_process_type: Nuovo tipo di processo
+        see_process: Vedi il processo
+        new_assembly_member: Nuovo membro dell'assemblea
+        new_assembly_user_role: Nuovo amministratore dell'assemblea
+      password_change:
+        alert: Per procedere è necessario modificare la password.
+        notification: Gli utenti amministratori devono cambiare la propria password
+          ogni %{days} giorni.
+      admin_terms_of_service:
+        accept:
+          error: Si è verificato un errore durante l'accettazione dei termini di servizio
+            amministrativi.
+          success: Ottimo! Hai accettato i termini di servizio dell'amministratore.
+        actions:
+          accept: Accetto i termini
+          are_you_sure: Sei sicuro di voler rifiutare i termini di servizio amministrativi?
+          refuse: Rifiutare i termini amministrativi
+          title: Accetta i termini del servizio
+        required_review:
+          alert: 'Obbligatorio: rivedere i nostri termini di servizio amministrativi'
+          callout: Prenditi un momento per rivedere i termini di servizio dell'amministratore.
+            Altrimenti non sarai in grado di gestire la piattaforma.
+          cta: Esaminateli ora.
+        title: Termini di servizio dell'amministratore
+      area_types:
+        destroy:
+          success: Tipo di area distrutta con successo.
+        update:
+          success: Tipo di area aggiornato correttamente.
+      areas:
+        destroy:
+          success: Area distrutta con successo.
+        update:
+          success: Area aggiornata con successo.
+      attachments_privacy_warning:
+        message: Fai attenzione quando lavori con allegati in uno spazio privato.
+          Ogni partecipante potrebbe condividere questo documento con altri.
+      autocomplete:
+        search_prompt: Digita almeno tre caratteri per effettuare la ricerca.
+      block_user:
+        new:
+          already_reported_html: Continuando con questa azione nasconderai anche tutti
+            i contenuti dei partecipanti.
+      components:
+        create:
+          success_landing_page: Componente creato con successo. Puoi aggiungere un
+            blocco di contenuto per questo componente nella home page dello spazio.
+            Vai a <a href="%{landing_page_path}">Pagina di destinazione</a> per configurarlo.
+      conflicts:
+        index:
+          text: Cerca per email, nome o nickname dell'utente attuale.
+        transfer:
+          error: Si è verificato un problema durante il trasferimento del partecipante
+            corrente al partecipante gestito.
+      content_blocks:
+        create:
+          error: Si è verificato un errore durante la creazione del blocco di contenuto.
+          success: Blocco di contenuto creato correttamente.
+        destroy:
+          error: Si è verificato un problema durante il tentativo di eliminare questo
+            blocco di contenuto.
+          success: Blocco di contenuto eliminato correttamente.
+        edit:
+          active_content_blocks: Blocchi di contenuto attivi
+          add: Aggiungi blocco di contenuto
+          destroy_confirmation: Sei sicuro di voler eliminare questo blocco di contenuto?
+          inactive_content_blocks: Blocchi di contenuto inattivo
+          title: Contenuto della pagina
+          update: Aggiornamento
+      dashboard:
+        pending_moderations:
+          anouncement:
+            one: Ci sono %{count} in attesa di moderazione
+            other: Ci sono %{count} moderazioni in sospeso
+          goto_moderation: Vai alle moderazioni globali
+          title: Moderazioni in sospeso
+        show:
+          dropdown: Cadere in picchiata
+      domain_whitelist:
+        form:
+          domain_too_short: Dominio troppo corto
+        update:
+          error: Impossibile aggiornare la whitelist dei domini.
+          success: La whitelist dei domini è stata aggiornata correttamente.
+      exports:
+        notice: La tua esportazione è attualmente in corso. Riceverai un'e-mail quando
+          sarà completata.
+      filters:
+        moderated_users:
+          reports_reason_eq:
+            label: Segnala il motivo
+            values:
+              does_not_belong: Non appartiene
+              offensive: Offensiva
+              spam: Spam
+        search_placeholder:
+          report_count_eq: Segnala conteggio eq
+          user_name_or_user_nickname_or_user_email_cont: Cerca %{collection} per email,
+            nome o nickname.
+          full_name_or_user_name_or_user_nickname_cont: Cerca per nome o soprannome
+        decidim_participatory_process_group_id_eq:
+          label: Per gruppo di processi
+        ceased_date_not_null:
+          label: Cessato
+          values:
+            'false': Non cessato
+            'true': Cessato
+        proposals:
+          state_eq:
+            values:
+              not_answered: Non ha risposto
+          with_any_state:
+            label: Risposto
+            values:
+              state_not_published: Non ha risposto
+              state_published: Risposto
+        meetings:
+          with_any_origin:
+            label: Origine
+            values:
+              official: Ufficiale
+              participants: Partecipante
+          with_any_type:
+            values:
+              hybrid: Ibrido
+              online: In linea
+        projects:
+          category_id_eq:
+            label: Categoria
+          scope_id_eq:
+            label: Ambito
+          selected_at_null:
+            label: Selezionato
+            values:
+              'false': Selezionato per l'implementazione
+              'true': Non selezionato per l'implementazione
+      help_sections:
+        error: Si è verificato un problema durante l'aggiornamento delle sezioni della
+          guida.
+        success: Le sezioni della guida sono state aggiornate correttamente.
+      imports:
+        and: E
+        data_errors:
+          duplicate_headers:
+            detail: Controllare una sola volta che il file contenga le colonne o le
+              intestazioni richieste.
+            message:
+              one: Colonna duplicata %{columns}.
+              other: Colonne duplicate %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Controllare che queste righe siano formattate correttamente
+                e contengano record validi.
+              message:
+                one: È stato trovato un errore nel file di importazione alla riga
+                  %{indexes}.
+                other: Sono stati trovati errori nel file di importazione sulle righe
+                  %{indexes}.
+            records:
+              detail: Si prega di verificare che questi record siano formattati correttamente
+                e contengano record validi.
+              message:
+                one: È stato trovato un errore nel file di importazione per i record
+                  con numeri di ordine %{indexes}.
+                other: Sono stati rilevati errori nel file di importazione per i record
+                  con numeri di ordine %{indexes}.
+          missing_headers:
+            detail: Controllare che il file contenga le colonne richieste.
+            message:
+              one: Colonna mancante %{columns}.
+              other: Colonne mancanti %{columns}.
+        error: Si è verificato un problema durante l'importazione.
+        example_error: Si è verificato un problema durante la creazione di un esempio
+          per il tipo specificato.
+        new:
+          download_example: Scarica esempio
+          download_example_format: Esempio come %{name}
+        notice: "%{count} %{resource_name} importato correttamente."
+      logs:
+        filters:
+          participatory_space: Trova uno spazio partecipativo
+          text: Cerca per email, nome o nickname dell'utente.
+          user: Utente
+        logs_list:
+          no_logs_yet: Non ci sono ancora registri.
+          no_matching_logs: Non ci sono log con i filtri di ricerca forniti. Prova
+            a cambiarli e riprova.
+      menu:
+        content: Contenuto segnalato
+        external_domain_whitelist: Domini esterni consentiti
+        see_site: Vedi sito
+        static_page_topics: Argomenti
+        authorization_revocation:
+          destroy:
+            confirm: Le autorizzazioni di revoca prima della data non possono essere
+              annullate. Vuoi continuare?
+            confirm_all: Revoca tutte le autorizzazioni non può essere annullata.
+              Vuoi continuare?
+          destroy_nok: Si è verificato un problema durante la revoca delle autorizzazioni.
+          no_data: Nessun partecipante verificato.
+        participatory_process_types: Tipi di processo
+        participatory_processes_submenu:
+          info: Informazioni su questo processo
+          landing_page: Pagina di destinazione
+        assemblies_submenu:
+          info: Informazioni su questa assemblea
+          landing_page: Pagina di destinazione
+          see_assembly: Vedi assemblaggio
+      models:
+        user:
+          fields:
+            last_sign_in_at: Data dell'ultimo accesso
+        user_group:
+          fields:
+            nickname: Soprannome
+        participatory_process:
+          fields:
+            actions: Azioni
+        participatory_process_type:
+          fields:
+            created_at: Creato a
+            title: Titolo
+          name: Tipo di processo
+        assembly:
+          fields:
+            actions: Azioni
+      moderated_users:
+        index:
+          title: Partecipanti segnalati
+      moderations:
+        index:
+          title: Contenuto segnalato
+        report:
+          reasons:
+            hidden_during_block: Nascosto durante il blocco dell'utente
+      newsletters:
+        send:
+          no_recipients: Nessun destinatario per questa selezione.
+        send_to_user:
+          sent_successfully: La newsletter è stata inviata con successo a %{email}
+        show:
+          send_me_a_test_email: Inviami un'email di prova
+      officializations:
+        block:
+          error: Si è verificato un errore durante il blocco del partecipante.
+          success: Partecipante bloccato con successo.
+        create:
+          success: Partecipante ufficializzato con successo.
+        destroy:
+          success: Partecipante deufficializzato con successo.
+        unblock:
+          error: Si è verificato un errore durante lo sblocco del partecipante.
+          success: Partecipante sbloccato con successo.
+      organization:
+        form:
+          twitter: X
+      organization_appearance:
+        form:
+          colors:
+            choose_color: Scegli un colore primario
+            colors_warning_html: Attenzione! Cambiare questi colori può compromettere
+              i contrasti di accessibilità. Puoi controllare il contrasto che preferisci
+              con <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast
+              Checker</a> o altri strumenti simili.
+            explanation: Questo strumento ti aiuta a scegliere uno schema di colori,
+              composto da tonalità distribuite uniformemente lungo la ruota dei colori,
+              che verrà utilizzato nel sito web dell'organizzazione.
+            legend_html: Colori dell'applicazione principale, basati sull'<a href="https://www.color-meanings.com/triadic-colors/">algoritmo
+              triadico</a>. Il colore <i>secondario</i> viene calcolato automaticamente
+              dal colore primario e dalla saturazione scelta.
+            saturation: Saturazione
+            title: Selettore colore
+            update_suggested_colors: Aggiorna i colori suggeriti
+          cta_button_path_help_html: 'Puoi sovrascrivere dove si collega il pulsante
+            Call To Action nella homepage. Qui usa percorsi parziali, non URL completi.
+            Accetta lettere, numeri, trattini e barre e deve iniziare con una lettera.
+            Il pulsante Call To Action è mostrato nella homepage tra il testo di benvenuto
+            e la descrizione. Esempio: %{url}'
+          header_snippets:
+            header_snippets_help_html: Usa questo campo per aggiungere elementi all'intestazione
+              HTML. L'uso più comune è integrare servizi di terze parti che richiedono
+              JavaScript o CSS extra. Puoi anche usarlo per aggiungere meta tag extra
+              all'HTML. Nota che questo verrà visualizzato solo nelle pagine pubbliche,
+              non nella sezione di amministrazione. Se il codice interagisce con API
+              esterne o non è conforme alle linee guida sulla sicurezza dell'applicazione,
+              sarà necessario modificare la Content Security Policy. Leggi di più
+              su <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">sul
+              sito della documentazione</a> .
+            title: Frammenti di intestazione HTML
+      organization_external_domain_whitelist:
+        external_domain:
+          down: Giù
+          external_domain: Dominio esterno
+          remove: Rimuovere
+          up: Su
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Si è verificato un problema durante la lettura del file CSV. Assicurati
+            di aver seguito le istruzioni.
+          success: Il file CSV è stato caricato correttamente, stiamo inviando un'email
+            di invito ai partecipanti. Potrebbe volerci un po' di tempo.
+        new:
+          csv_upload:
+            title: Carica il tuo file CSV
+          destroy:
+            button: Elimina tutti i partecipanti privati
+            confirm: Vuoi davvero eliminare tutti i partecipanti privati? Questa azione
+              non può essere annullata, non potrai recuperarli.
+            empty: Non hai partecipanti privati.
+            explanation: Hai %{count} partecipanti privati.
+            title: Elimina partecipanti privati
+          example_file: 'File di esempio:'
+          explanation: Carica il tuo file CSV. Deve avere due colonne con l'email
+            nella prima colonna del file e il nome nell'ultima colonna del file degli
+            utenti che vuoi aggiungere allo spazio partecipativo, senza intestazioni.
+            Evita di usare caratteri non validi come `<>?%&^*#@()[]=+:;"{}\|` nel
+            nome utente.
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}Giovanni Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
+          title: Importa partecipanti privati tramite CSV
+      reminders:
+        create:
+          success:
+            one: Verrà inviato un promemoria a %{count} utente.
+            other: Verrà inviato un promemoria a %{count} utenti.
+      scopes:
+        destroy:
+          success: Il mirino è stato distrutto con successo.
+      share_tokens:
+        share_tokens:
+          empty: Non ci sono token attivi.
+      shared:
+        gallery:
+          edit_images: Modifica immagini
+      static_page_topics:
+        destroy:
+          success: Argomento distrutto con successo.
+      static_pages:
+        edit:
+          changed_notably_help: Se selezionata, i partecipanti saranno avvisati e
+            dovranno accettare i nuovi termini di servizio.
+          last_notable_change: 'Ultima modifica degna di nota: %{tos_version_formatted}'
+        form:
+          slug_help_html: 'Qui usa percorsi parziali, non URL completi. Accetta lettere,
+            numeri, trattini e barre e deve iniziare con una lettera. Esempio: %{url}'
+        topic:
+          empty: Non ci sono pagine su questo argomento.
+        update:
+          success: Pagina aggiornata con successo.
+      titles:
+        edit_external_domains: Whitelist di domini esterni
+        edit_landing_page: Contenuto della pagina
+        edit_organization_appearance: Modifica l'aspetto della home page
+        menu: Menu
+        page_topics: Argomenti
+        pages: Pagine
+        users: Amministratori
+        participatory_process_types: Tipi di processo partecipativo
+      user_group:
+        csv_verify:
+          success: Il file CSV è stato caricato correttamente, stiamo verificando
+            i gruppi che corrispondono ai criteri. Potrebbe volerci un po' di tempo.
+        reject:
+          success: Gruppo rifiutato con successo.
+        verify:
+          success: Gruppo verificato con successo.
+      user_groups_csv_verifications:
+        new:
+          example_file: 'File di esempio:'
+          explanation_example: |
+            acme@esempio.org
+            bubba.gump@example.org
+      users:
+        new:
+          title: Invita nuovo amministratore
+      users_statistics:
+        users_count:
+          no_users_count_statistics_yet: Non ci sono ancora statistiche sul conteggio
+            degli utenti.
+      participatory_process_steps:
+        destroy:
+          error:
+            active_step: Impossibile eliminare la fase attiva.
+            last_step: Impossibile eliminare l'ultima fase di un processo.
+        edit:
+          cta_deprecated:
+            body_html: |-
+              La configurazione del CTA tramite la fase del processo partecipativo è deprecata con il nuovo design.
+              Ora questo viene fatto nella <b>Landing Page</b>, utilizzando il blocco di contenuto <b>Hero and image</b>.
+              Abbiamo lasciato qui per consentirti di migrare i CTA di cui hai bisogno. I campi <i>Call to action path</i> e
+              <i>Call to action text</i> saranno rimossi nella prossima versione.
+            title: CTA deprecato
+      participatory_process_types:
+        create:
+          error: Si è verificato un problema durante la creazione di un nuovo tipo
+            di processo.
+          success: Tipo di processo creato correttamente.
+        destroy:
+          success: Tipo di processo eliminato correttamente.
+        edit:
+          title: Modifica tipo di processo
+          update: Aggiornamento
+        new:
+          create: Creare
+          title: Nuovo tipo di processo
+        update:
+          error: Si è verificato un problema durante l'aggiornamento di questo tipo
+            di processo.
+          success: Tipo di processo aggiornato correttamente.
+      participatory_processes:
+        index:
+          unpublished: Non pubblicato
+      assembly_members:
+        edit:
+          title: Aggiorna membro dell'assemblaggio
+        new:
+          title: Nuovo membro dell'assemblea
+      assembly_user_roles:
+        edit:
+          title: Aggiorna l'amministratore dell'assemblaggio
+        new:
+          title: Nuovo amministratore dell'assemblea
+    admin_log:
+      area_type:
+        create: "%{user_name} ha creato il tipo di area %{resource_name}"
+        delete: "%{user_name} ha eliminato il tipo di area %{resource_name}"
+        update: "%{user_name} ha aggiornato il tipo di area %{resource_name}"
+      attachment:
+        create: "%{user_name} ha creato l'allegato %{resource_name}"
+        delete: "%{user_name} ha eliminato l'allegato %{resource_name}"
+        update: "%{user_name} ha aggiornato l'allegato %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} ha creato la raccolta di allegati %{resource_name}"
+        delete: "%{user_name} ha eliminato la raccolta di allegati %{resource_name}"
+        update: "%{user_name} ha aggiornato la raccolta di allegati %{resource_name}"
+      category:
+        create: "%{user_name} ha aggiunto la categoria %{resource_name} allo spazio
+          %{space_name}"
+        delete: "%{user_name} ha eliminato la categoria %{resource_name} dallo spazio
+          %{space_name}"
+        update: "%{user_name} ha aggiornato la categoria %{resource_name} nello spazio
+          %{space_name}"
+      component:
+        export_component: "%{user_name} ha esportato %{resource_name} %{component_name}
+          in %{space_name} come %{format_name}"
+        update_permissions_with_space: "%{user_name} ha aggiornato i permessi di %{resource_name}
+          in %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} ha aggiornato la sezione della guida di %{resource_name}"
+      helpers:
+        answers: risposte
+        comments: commenti
+        projects: progetti
+        results: risultati
+      organization:
+        update_external_domain: "%{user_name} ha aggiornato i domini esterni dell'organizzazione"
+      scope_type:
+        create: "%{user_name} ha creato il tipo di ambito %{resource_name}"
+        delete: "%{user_name} ha eliminato il tipo di ambito %{resource_name}"
+        update: "%{user_name} ha aggiornato il tipo di ambito %{resource_name}"
+      user_group:
+        block: "%{user_name} ha bloccato il gruppo di utenti %{resource_name}"
+        unblock: "%{user_name} ha sbloccato il gruppo utenti %{resource_name}"
+      participatory_process:
+        duplicate: "%{user_name} ha duplicato il processo partecipativo %{resource_name}"
+        export: "%{user_name} ha esportato il processo partecipativo %{resource_name}"
+        import: "%{user_name} ha importato il processo partecipativo %{resource_name}"
+      participatory_process_type:
+        create: "%{user_name} ha creato il tipo di processo partecipativo %{resource_name}"
+        delete: "%{user_name} ha eliminato il tipo di processo partecipativo %{resource_name}"
+        update: "%{user_name} ha aggiornato il tipo di processo partecipativo %{resource_name}"
+      assembly:
+        duplicate: "%{user_name} ha duplicato l'assembly %{resource_name}"
+        export: "%{user_name} ha esportato l'assembly %{resource_name}"
+        import: "%{user_name} ha importato l'assembly %{resource_name}"
+    admin_terms_of_service:
+      default_body: "<h2>TERMINI DI SERVIZIO DELL'AMMINISTRATORE</h2><p>Siamo certi
+        che tu abbia ricevuto la solita lezione dall'amministratore di sistema locale.
+        Di solito si riduce a queste tre cose:</p><ol><li>Rispetta la privacy degli
+        altri.</li><li>Pensa prima di cliccare.</li><li>Da un grande potere derivano
+        grandi responsabilità.</li></ol>"
+    amendments:
+      amendable:
+        promote_help_text: Puoi promuovere questo emendamento e pubblicarlo come %{model_name}
+          indipendente.
+      amendments:
+        title:
+          one: "%{count} emendamento"
+          other: "%{count} emendamenti"
+      name: Emendamento
+      promoted:
+        error: Si è verificato un problema durante la pubblicazione dell'emendamento
+          come nuova proposta.
+        success: L'emendamento è stato pubblicato con successo come nuova proposta.
+      rejected:
+        error: Si è verificato un problema durante il rifiuto di questo emendamento.
+          Riprova più tardi.
+        success: L'emendamento è stato respinto con successo.
+      withdraw:
+        error: Si è verificato un errore durante il ritiro dell'emendamento.
+        success: L'emendamento è stato ritirato con successo.
+      wizard_step_form:
+        steps:
+          '4': Pubblica il tuo emendamento
+    application:
+      documents:
+        documents: Documenti
+      photo:
+        alt: Immagine mediatica
+        title: Immagine
+      photos:
+        photos: Immagini
+    author:
+      official_author: Ufficiale
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Per verificare la tua identità, inserisci un numero di passaporto
+          che inizia con la lettera "A".
+      dummy_authorization_handler:
+        explanation: Ottieni la verifica inserendo un numero di documento che termina
+          con "X".
+      admin:
+        csv_census:
+          help: '["Gli amministratori caricano un CSV con gli indirizzi e-mail dei
+            partecipanti accettati.", "Solo i partecipanti con un indirizzo e-mail
+            in quel file CSV possono essere verificati."]'
+      csv_census:
+        explanation: Ottieni la verifica tramite il censimento dell'organizzazione.
+      id_documents:
+        explanation: Carica i tuoi documenti d'identità così possiamo verificare la
+          tua identità.
+      postal_letter:
+        explanation: Ti invieremo una lettera postale con un codice che dovrai inserire
+          per verificare il tuo indirizzo.
+    authorization_modals:
+      content:
+        incomplete:
+          explanation: 'Anche se al momento sei autorizzato con "%{authorization}",
+            abbiamo bisogno che tu autorizzi nuovamente perché mancano i seguenti
+            dati:'
+        ok:
+          title: Sei stato autorizzato mentre eri in questa pagina. Ricarica la pagina
+            per eseguire la tua azione.
+        pending:
+          explanation: Per poter eseguire questa azione, è necessario essere autorizzati
+            con "%{authorization}", ma l'autorizzazione è ancora in corso.
+          resume: Controlla lo stato di avanzamento dell'autorizzazione "%{authorization}".
+        unauthorized:
+          explanation: Spiacenti, non puoi eseguire questa azione poiché alcuni dati
+            di autorizzazione non corrispondono.
+          invalid_field: Il valore %{field} %{value} non è valido.
+        unconfirmed:
+          confirmation_instructions: 'Se non hai ricevuto le istruzioni di conferma
+            puoi richiederle nuovamente:'
+    components:
+      component_order_selector:
+        no_content: Non siamo riusciti a trovare alcun contenuto con questi criteri.
+        order:
+          order: Votazione sul bilancio
+      dummy:
+        settings:
+          global:
+            guided: Input guidato
+            guided_help: Testo di aiuto
+            guided_readonly: Input disabilitato
+            guided_rich: Input avanzato guidato
+            guided_rich_help_html: Testo della guida HTML
+            guided_rich_readonly_html: Testo della guida HTML per input disabilitati
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Accedi con il tuo account</a> o
+          <a href="%{sign_up_url}">registrati</a> per aggiungere il tuo commento.
+        form:
+          form_error: Il testo è obbligatorio e non può essere più lungo di %{length}
+            caratteri.
+          submit_reply: Pubblica risposta
+          submit_root_comment: Pubblica commento
+      comment:
+        cancel_reply: Annulla risposta
+        comment_label: Commento %{comment_id}
+        comment_label_reply: Commento %{comment_id} (rispondi al commento %{parent_comment_id})
+        controls_label: Controlli dei commenti
+        hide_replies:
+          one: Nascondi risposta
+          other: Nascondi %{count} risposte
+        moderated_at: Commento moderato il %{date}
+        report:
+          reasons:
+            does_not_belong: Contiene attività illegali, minacce di suicidio, informazioni
+              personali o altro che ritieni non appartenga a %{organization_name}.
+        show_replies:
+          one: Mostra risposta
+          other: Mostra %{count} risposte
+      proposals:
+        settings:
+          global:
+            default_sort_order: Ordinamento predefinito delle proposte
+            default_sort_order_help: Automatico significa che se i voti sono abilitati,
+              le proposte verranno mostrate ordinate in modo casuale, mentre se i
+              voti sono bloccati, verranno ordinate in base alla più votata.
+            default_sort_order_options:
+              automatic: Automatico
+              most_commented: I più commentati
+              most_endorsed: Più approvato
+              most_followed: I più seguiti
+              most_voted: I più supportati
+              with_more_authors: Con più autori
+            proposal_wizard_step_4_help_text: Testo di aiuto per la fase "Pubblica"
+              della procedura guidata Proposta
+            limit_pending_amendments: Consentire un solo emendamento in sospeso per
+              ogni proposta.
+            sort_orders_enabled: Tipi di ordinamento abilitati
+          step:
+            creation_enabled_readonly: Questa impostazione è disabilitata quando attivi
+              la funzionalità Testi partecipativi. Per caricare le proposte come testo
+              partecipativo, clicca sul pulsante Testi partecipativi e segui le istruzioni.
+            default_sort_order: Ordinamento predefinito delle proposte
+            default_sort_order_help: Automatico significa che se i voti sono abilitati,
+              le proposte verranno mostrate ordinate in modo casuale, mentre se i
+              voti sono bloccati, verranno ordinate in base alla più votata.
+            default_sort_order_options:
+              automatic: Automatico
+              most_commented: I più commentati
+              most_endorsed: Più approvato
+              most_followed: I più seguiti
+              most_voted: I più supportati
+              random: Casuale
+              recent: Recente
+              with_more_authors: Con più autori
+            publish_answers_immediately_help_html: Tieni presente che se rispondi
+              a una proposta senza questa opzione abilitata, dovrai pubblicarla manualmente
+              selezionandola e utilizzando l'azione per la pubblicazione. Per maggiori
+              informazioni su come funziona, consulta la <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication"
+              target="_blank">pagina di documentazione delle risposte delle proposte</a>.
+      budgets:
+        settings:
+          global:
+            form:
+              errors:
+                budget_voting_rule_only_one: Deve essere abilitata una sola regola
+                  di voto.
+                budget_voting_rule_required: È richiesta una regola di voto.
+            geocoding_enabled: Geocodifica abilitata
+            vote_rule_selected_projects_enabled: 'Abilita regola: numero minimo e
+              massimo di progetti su cui votare'
+            scope_id: Ambito
+      surveys:
+        settings:
+          step:
+            allow_unregistered_help: Se attivo, non sarà richiesto alcun login per
+              rispondere al sondaggio. Ciò potrebbe portare a dati scadenti o inaffidabili
+              e sarà più vulnerabile ad attacchi automatizzati. Da usare con cautela!
+              Tieni presente che un partecipante potrebbe rispondere allo stesso sondaggio
+              più volte, utilizzando browser diversi o la funzione di "navigazione
+              privata" del suo browser web.
+      blogs:
+        actions:
+          create: Creare
+          destroy: Eliminare
+          update: Aggiornamento
+    content_blocks:
+      announcement:
+        name: Annuncio
+      global_menu:
+        name: Menu globale
+      hero:
+        name: Immagine eroe e CTA
+      highlighted_elements_settings_form:
+        components:
+          all: Tutto
+          label: 'Seleziona componente:'
+      last_activity_settings_form:
+        max_last_activity_users: Numero massimo di avatar utente con attività recenti
+          da mostrare
+      main_data:
+        name: Dati principali
+      metadata:
+        name: Metadati
+      participatory_space_metrics:
+        name: Metrica
+      participatory_space_stats:
+        name: Statistiche
+      social_networks_metadata:
+        name: Reti sociali
+      static_page:
+        section:
+          name: Sezione
+          section_content: Contenuto
+        summary:
+          name: Riepilogo
+          summary_content: Contenuto
+        two_pane_section:
+          left_column: Colonna di sinistra
+          name: Sezione a due colonne
+          right_column: Colonna di destra
+    core:
+      actions:
+        login_before_access: Per favore, accedi con il tuo account per entrare nella piattaforma.
+        unauthorized: Non sei autorizzato a eseguire questa azione.
+      application_helper:
+        filter_area_values:
+          all: Tutto
+        filter_category_values:
+          all: Tutto
+        filter_scope_values:
+          all: Tutto
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Un altro account utilizza lo stesso indirizzo email.
+      registrations:
+        create:
+          error: Si è verificato un problema durante la creazione del tuo account.
+        new:
+          terms: i termini del servizio
+      sessions:
+        new:
+          sign_in_disabled: Puoi accedere con un account esterno.
+          sign_up_disabled: La registrazione è disattivata, puoi utilizzare un account
+            esistente per accedere.
+        user:
+          timed_out: Sei stato inattivo per troppo tempo e sei stato automaticamente
+            disconnesso dal servizio. Se desideri continuare a utilizzare il servizio,
+            effettua nuovamente l'accesso.
+      shared:
+        newsletter_modal:
+          notice: |-
+            <p>Ehi, sei sicuro di non voler ricevere una newsletter?
+            Ti preghiamo di considerare di spuntare di nuovo la casella di controllo della newsletter qui sotto.
+            Per noi è molto importante che tu possa ricevere email occasionali
+            per fare annunci importanti, puoi sempre cambiare questa opzione nella
+            pagina delle impostazioni delle notifiche.</p>
+            <p>Se non selezioni la casella, potresti perdere informazioni rilevanti
+            sulle nuove opportunità di partecipazione all'interno della piattaforma.<br>
+            Se vuoi comunque evitare di ricevere le newsletter, comprendiamo perfettamente
+            la tua decisione.</p>
+            <p>Grazie per aver letto questo!</p>
+        password_fields:
+          hidden_password: La tua password è nascosta
+          hide_password: Nascondi password
+          show_password: Mostra password
+          shown_password: La tua password è mostrata
+        placeholder_email: ciao@esempio.org
+    doorkeeper:
+      authorizations:
+        new:
+          connect_your_account_html: Collega il tuo account effettuando l'accesso
+            a %{organization}.
+    download_your_data:
+      show:
+        download_data_description_html: |-
+          Un file contenente tutte le informazioni associate al tuo account verrà inviato a <strong>%{user_email}</strong>.
+          Questa e-mail conterrà un file .zip e una password per aprirlo.<br/><br/>Per decomprimere il file, avrai bisogno di <a href="https://www.7-zip.org/">7-Zip</a> (per Windows) o <a href="https://www.keka.io/">Keka</a> (per MacOS).
+          Se usi Linux, la maggior parte delle volte lo avrai installato di default. In caso contrario, puoi usare <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
+    editor_images:
+      create:
+        error: Errore durante il caricamento dell'immagine.
+        success: Immagine caricata con successo.
+    endorsement_buttons_cell:
+      already_endorsed: Non mi piace
+      endorse: Like
+    endorsers_list:
+      endorsed_by: Mi piace…
+    errors:
+      internal_server_error:
+        copied: Testo copiato!
+        copy_error_message_clarification: Copia il messaggio di errore negli appunti
+        copy_to_clipboard: Copia negli appunti
+        date_and_time: Data e ora
+        reference: Riferimento
+        request_method: Metodo di richiesta
+        try_later: Riprova più tardi. Se l'errore persiste, copia le seguenti informazioni
+          e inviale ai responsabili della piattaforma insieme a qualsiasi altra informazione
+          che desideri condividere.
+        unknown: Sconosciuto
+        url: Indirizzo URL
+        user: ID utente
+      not_found:
+        title: La pagina che stai cercando non può essere trovata
+    events:
+      gamification:
+        badge_earned:
+          email_intro: Congratulazioni! Hai ottenuto il badge <a href="%{resource_url}">%{badge_name}</a>
+            (livello %{current_level}).
+          email_subject: 'Hai guadagnato un nuovo badge: %{badge_name}!'
+          notification_title: Congratulazioni! Hai ottenuto il badge <a href="%{resource_path}">%{badge_name}</a>
+            (livello %{current_level}).
+        level_up:
+          email_intro: Congratulazioni! Hai raggiunto il livello %{current_level}
+            sul badge <a href="%{resource_url}">%{badge_name}</a>!
+          email_subject: Hai raggiunto il livello %{current_level} sul badge %{badge_name}!
+          notification_title: Congratulazioni! Hai raggiunto il livello %{current_level}
+            sul badge <a href="%{resource_path}">%{badge_name}</a>!
+      nickname_event:
+        notification_body: Abbiamo corretto il modo in cui vengono utilizzati i nickname
+          in modo che non ci siano duplicati, ed è per questo che abbiamo rimosso
+          la regola della distinzione tra maiuscole e minuscole. <br/> Il tuo nickname
+          è stato creato dopo un altro con lo stesso nome, quindi lo abbiamo rinominato
+          automaticamente. Puoi modificarlo dalle <a href="%{link_to_account_settings}">impostazioni
+          del tuo account</a>.
+      users:
+        user_officialized:
+          email_intro: Il partecipante %{name} (%{nickname}) è stato ufficializzato.
+          email_outro: Hai ricevuto questa notifica perché sei un amministratore dell'organizzazione.
+          email_subject: "%{name} è stato ufficializzato"
+          notification_title: Il partecipante %{name} (%{nickname}) è stato ufficializzato.
+      verifications:
+        verify_with_managed_user:
+          email_intro: Il partecipante <a href="%{resource_url}">%{resource_title}</a>
+            ha provato a verificare la propria identità con i dati di un altro partecipante
+            (<a href="%{managed_user_url}">%{managed_user_name}</a>).
+          email_outro: Controlla l'<a href="%{conflicts_url}">elenco dei conflitti
+            di verifica</a> e contatta il partecipante per verificare i suoi dati
+            e risolvere il problema.
+          email_subject: Tentativo di verifica non riuscito nei confronti di un altro
+            partecipante
+          notification_title: Il partecipante <a href="%{resource_path}">%{resource_title}</a>
+            ha provato a verificare la propria identità con i dati di un altro partecipante
+            (<a href="%{managed_user_path}">%{managed_user_name}</a>).
+      assemblies:
+        create_assembly_member:
+          email_outro: Hai ricevuto questa notifica perché sei stato invitato a un'assemblea.
+            Controlla la <a href="%{resource_url}">pagina dell'assemblea</a> per contribuire!
+      proposals:
+        admin:
+          proposal_note_created:
+            email_intro: Qualcuno ha lasciato una nota sulla proposta "%{resource_title}".
+              Controllala nel <a href="%{admin_proposal_info_url}">pannello di amministrazione</a>.
+            notification_title: Qualcuno ha lasciato una nota sulla proposta <a href="%{resource_path}">%{resource_title}</a>.
+              Controllala nel <a href="%{admin_proposal_info_path}">pannello di amministrazione</a>.
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} è stato accettato per accedere come collaboratore
+            della bozza collaborativa <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: Hai ricevuto questa notifica perché sei un collaboratore di
+            <a href="%{resource_url}">%{resource_title}</a>.
+        collaborative_draft_access_rejected:
+          email_intro: A %{requester_name} è stato rifiutato l'accesso come collaboratore
+            della bozza collaborativa <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Hai ricevuto questa notifica perché sei un collaboratore di
+            <a href="%{resource_url}">%{resource_title}</a>.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} ha richiesto l''accesso come collaboratore.
+            Puoi <strong>accettare o rifiutare la richiesta</strong> dalla pagina
+            di bozza collaborativa <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: Hai ricevuto questa notifica perché sei un collaboratore di
+            <a href="%{resource_url}">%{resource_title}</a>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: Sei stato accettato per accedere come collaboratore alla bozza
+            collaborativa <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Hai ricevuto questa notifica perché hai richiesto di diventare
+            un collaboratore di <a href="%{resource_url}">%{resource_title}</a>.
+        collaborative_draft_access_requester_rejected:
+          email_intro: La tua richiesta di accesso come collaboratore alla bozza collaborativa
+            <a href="%{resource_url}">%{resource_title}</a> è stata respinta.
+          email_outro: Hai ricevuto questa notifica perché hai richiesto di diventare
+            un collaboratore di <a href="%{resource_url}">%{resource_title}</a>.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a>
+            ha ritirato la bozza collaborativa <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Hai ricevuto questa notifica perché sei un collaboratore di
+            <a href="%{resource_url}">%{resource_title}</a>.
+        creation_enabled:
+          notification_title: Ora puoi presentare <a href="%{resource_path}">nuove
+            proposte</a> in <a href="%{participatory_space_url}">%{participatory_space_title</a>.
+        endorsing_enabled:
+          notification_title: Ora puoi iniziare a <a href="%{resource_path}">sostenere
+            le proposte</a> in <a href="%{participatory_space_url}">%{participatory_space_title</a>.
+        proposal_accepted:
+          follower:
+            email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}".
+              Puoi smettere di seguirlo dal link precedente.
+            email_subject: Una proposta che stai seguendo è stata accettata
+        proposal_evaluating:
+          follower:
+            email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}".
+              Puoi smettere di seguirlo dal link precedente.
+            email_subject: Una proposta che stai seguendo è in fase di valutazione
+        proposal_published_for_space:
+          notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a>
+            è stata aggiunta a %{participatory_space_title} da %{author}.
+          notification_title_official: La proposta ufficiale <a href="%{resource_path}">%{resource_title}</a>
+            è stata aggiunta a %{participatory_space_title}.
+        proposal_rejected:
+          affected_user:
+            email_subject: La tua proposta è stata rifiutata
+          follower:
+            email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}".
+              Puoi smettere di seguirlo dal link precedente.
+            email_subject: Una proposta che stai seguendo è stata rifiutata
+        proposal_update_category:
+          email_outro: Hai ricevuto questa notifica perché sei l'autore della proposta.
+        proposal_update_scope:
+          email_outro: Hai ricevuto questa notifica perché sei l'autore della proposta.
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Ciao,
+              Un nuovo dibattito "%{resource_title}" è stato creato sullo spazio partecipativo %{participatory_space_title}, dai un'occhiata e contribuisci:
+            email_outro: Hai ricevuto questa notifica perché stai seguendo lo spazio
+              partecipativo %{participatory_space_title}. Puoi smettere di ricevere
+              notifiche seguendo il link precedente.
+            email_subject: Nuovo dibattito "%{resource_title}" su %{participatory_space_title}
+            notification_title: Il dibattito <a href="%{resource_path}">%{resource_title}</a>
+              è stato creato su <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+        creation_enabled:
+          notification_title: Ora puoi avviare <a href="%{resource_path}">nuovi dibattiti</a>
+            in <a href="%{participatory_space_url}">%{participatory_space_title</a>.
+    filters:
+      linked_classes:
+        answer: Risposta
+    fingerprint:
+      explanation: Il testo seguente è una rappresentazione abbreviata e hash di questo
+        contenuto. È utile assicurarsi che il contenuto non sia stato manomesso, poiché
+        una singola modifica darebbe origine a un valore totalmente diverso.
+    following:
+      following_count:
+        one: "%{count} segui"
+        other: "%{count} segue"
+      no_followings: Non segue ancora niente e nessuno.
+      non_public_followings: Alcune delle risorse indicate di seguito non sono pubbliche.
+    forms:
+      errors:
+        error: C'è un errore in questo campo.
+        impersonate_user:
+          reason: Quando si gestisce un partecipante non gestito, è necessario specificare
+            un motivo.
+        answer:
+          body: Il corpo non può essere vuoto
+      file_help:
+        icon:
+          explanation: 'Guida per l''icona:'
+          message_1: Deve essere un'immagine quadrata.
+          message_2: La dimensione consigliata per questa immagine è 512x512.
+      file_validation:
+        max_file_dimension: 'Dimensioni massime del file: %{resolution} pixel'
+      files:
+        extension_allowlist: 'Formati accettati: %{extensions}'
+      upload:
+        labels:
+          add_attachment: Aggiungi allegato
+          add_file: Aggiungi file
+          add_image: Aggiungi immagine
+          edit_image: Modifica immagine
+          error: Errore!
+          file_size_too_large: 'La dimensione del file è troppo grande! Dimensione
+            massima del file: %{megabytes}MB'
+          filename: Nome file
+          remove: Rimuovere
+          replace: Sostituire
+          save: Salva
+          title: Titolo
+          title_required: Il titolo è obbligatorio!
+          uploaded: Caricato
+          validating: Convalida in corso...
+          validation_error: Errore di convalida! Controlla che il file abbia un'estensione
+            o una dimensione consentita.
+        select_file: Seleziona file
+      upload_help:
+        dropzone: Trascina i file qui o clicca sul pulsante per caricarli
+        explanation: Guida per %{attribute}
+      admin:
+        questionnaires:
+          answers:
+            actions:
+              next: Avanti &rsaquo;
+              previous: "&lsaquo; Prec."
+          form:
+            add_title_and_description: Aggiungi titolo e descrizione
+            add_separator: Aggiungi separatore
+            already_answered_warning: Il modulo ha già ricevuto risposta da alcuni
+              utenti, pertanto non è possibile modificarne le domande.
+            unpublished_warning: Il modulo non è pubblicato. Puoi modificarne le domande,
+              ma così facendo eliminerai le risposte correnti.
+          title_and_description:
+            collapse: Crollo
+            description: Descrizione
+            down: Giù
+            expand: Espandere
+            remove: Rimuovere
+            title: Titolo
+            title_and_description: Titolo e descrizione
+            up: Su
+      admin_log:
+        questionnaire:
+          update: "%{user_name} ha aggiornato il questionario %{resource_name}"
+      images:
+        processors:
+          resize_and_pad: Questa immagine verrà ridimensionata e riempita fino a %{dimensions}.
+          resize_to_fit: Questa immagine verrà ridimensionata per adattarsi a %{dimensions}.
+      question_types:
+        title_and_description: Titolo e descrizione
+      questionnaire_answer_presenter:
+        download_attachment: Scarica l'allegato
+      questionnaires:
+        show:
+          answer_questionnaire:
+            already_have_an_account?: Hai già un account?
+            are_you_new?: Nuovo utente?
+            sign_in_description: Accedi per partecipare al sondaggio
+            sign_up_description: Crea un account partecipante per partecipare al sondaggio
+          empty: Non è ancora stata configurata alcuna domanda per questo modulo.
+      meetings:
+        attendees_count_help_text: Non dimenticare di includere il numero totale dei
+          partecipanti alla riunione, sia essa di persona, online o ibrida.
+      step_navigation:
+        show:
+          are_you_sure: Questa azione non può essere annullata e non potrai modificare
+            le tue risposte. Sei sicuro?
+    gamification:
+      badges:
+        followers:
+          unearned_another: Questo partecipante non ha ancora follower.
+          unearned_own: Non hai ancora follower.
+        proposal_votes:
+          unearned_another: Questo partecipante non ha ancora fornito supporto ad
+            alcuna proposta.
+        proposals:
+          unearned_another: Questo partecipante non ha ancora creato alcuna proposta.
+        attended_meetings:
+          unearned_another: Questo partecipante non ha ancora partecipato ad alcuna
+            riunione.
+          unearned_own: Non hai ancora partecipato a nessuna riunione.
+        commented_debates:
+          unearned_own: Non hai ancora partecipato ad alcun dibattito.
+        test:
+          unearned_another: Questo partecipante non ha ancora creato alcun test.
+      reached_top: Hai raggiunto il livello più alto per questo badge.
+      title: Cosa sono i badge?
+    group_admins:
+      actions:
+        are_you_sure: Sei sicuro? Questo non rimuoverà il partecipante dal gruppo.
+      demote:
+        error: Si è verificato un problema durante la rimozione di questo partecipante
+          dall'elenco degli amministratori.
+        success: Partecipante rimosso con successo dall'amministrazione.
+    group_invites:
+      accept:
+        error: Si è verificato un problema durante l'accettazione di questo invito.
+        success: Invito accettato con successo.
+      invite:
+        error: Si è verificato un problema durante l'invito di questo partecipante.
+        success: Partecipante invitato con successo.
+      pending_invitations: Richieste in sospeso
+      reject:
+        error: Si è verificato un problema durante il rifiuto di questo invito.
+        success: Invito rifiutato con successo.
+    group_members:
+      accept:
+        error: Si è verificato un problema durante l'accettazione di questa richiesta
+          di partecipazione.
+        success: Richiesta di adesione accettata con successo.
+      promote:
+        error: Si è verificato un problema durante la promozione di questo partecipante.
+        success: Partecipante promosso con successo.
+      reject:
+        error: Si è verificato un problema durante il rifiuto di questa richiesta
+          di partecipazione.
+        success: Richiesta di adesione respinta con successo.
+      remove:
+        error: Si è verificato un problema durante la rimozione di questo partecipante
+          dal gruppo.
+        success: Partecipante rimosso con successo dal gruppo.
+    groups:
+      create:
+        error: Si è verificato un problema durante la creazione del gruppo.
+        success: Gruppo creato con successo.
+      form:
+        document_number_help: Non utilizzare trattini né spazi.
+        phone_help: Non utilizzare trattini né spazi.
+      join:
+        error: Si è verificato un problema durante l'adesione al gruppo.
+      leave:
+        error: Si è verificato un problema durante l'abbandono del gruppo.
+        last_admin: Non puoi rimuoverti da questo gruppo perché sei l'ultimo amministratore.
+          Rendi un altro membro amministratore per poter lasciare il gruppo.
+      no_user_groups: Non appartiene ancora a nessun gruppo.
+      roles:
+        creator: Amministratore
+      update:
+        error: Si è verificato un problema durante l'aggiornamento del gruppo.
+        success: Gruppo aggiornato con successo.
+    help:
+      main_topic:
+        description: Scopri di più su %{organization}.
+    last_activities:
+      name: Ultime attività
+      no_activities_warning: Non ci sono voci da mostrare per questo tipo di attività.
+    linked_resource_from:
+      included_in: Incluso in
+    log:
+      base_presenter:
+        publish_with_space: "%{user_name} ha pubblicato %{resource_name} in %{space_name}"
+        unpublish_with_space: "%{user_name} ha annullato la pubblicazione di %{resource_name}
+          da %{space_name}"
+        update_permissions_with_space: "%{user_name} ha aggiornato i permessi di %{resource_name}
+          in %{space_name}"
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'Il tipo di processo non è stato trovato nel database (ID: %{id}).'
+    members:
+      no_members: Questo gruppo non ha ancora membri.
+    messaging:
+      conversation_mailer:
+        comanagers_new_conversation:
+          outro: Godetevi la piattaforma!
+        comanagers_new_message:
+          outro: Godetevi la piattaforma!
+        new_conversation:
+          outro: Godetevi la piattaforma!
+        new_group_conversation:
+          outro: Godetevi la piattaforma!
+        new_group_message:
+          outro: Godetevi la piattaforma!
+        new_message:
+          outro: Godetevi la piattaforma!
+      conversations:
+        add_conversation_users:
+          participant_with_disabled_message_reception: Questo partecipante non desidera
+            ricevere messaggi privati.
+        create:
+          error: Conversazione non avviata. Riprova più tardi.
+        index:
+          no_conversations: Non hai ancora conversazioni.
+        reply_form:
+          placeholder: La tua risposta...
+          send: Inviare
+        show:
+          deleted_accounts: Non è possibile avere una conversazione con gli account
+            eliminati.
+        start:
+          placeholder: Il tuo messaggio...
+        update:
+          error: Il messaggio non è stato inviato a causa di un errore.
+    metadata:
+      progress:
+        active: Attivo
+        finished: 'Finito: %{end_date}'
+        not_started: Non ancora iniziato
+        remaining: "%{time_distance} rimanente"
+    newsletter_mailer:
+      newsletter:
+        no_reply_notice: Questa e-mail è stata inviata da un indirizzo e-mail di notifica
+          che non può accettare e-mail in arrivo. Si prega di non rispondere a questo
+          messaggio.
+        note: Hai ricevuto questa email perché sei iscritto alle newsletter su %{organization_name}.
+          Puoi modificare le tue impostazioni nella tua <a href="%{link}">pagina delle
+          notifiche</a>.
+        see_on_website: Non riesci a visualizzare correttamente questa e-mail? Visualizzala
+          sul <a href="%{link}" target="_blank" class="see-on-website">sito web</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Se vuoi modificare le tue preferenze, puoi farlo nella
+          <a href="%{link}" target="_blank">pagina di configurazione</a>.
+        error: Si è verificato un problema durante la cancellazione dell'iscrizione.
+    newsletters_opt_in:
+      unathorized: Spiacenti, questo link non è più disponibile.
+      update:
+        error: Si è verificato un problema durante il salvataggio delle impostazioni
+          della newsletter.
+        success: Impostazioni della newsletter aggiornate con successo.
+    notification_mailer:
+      event_received:
+        no_translation_available: Spiacenti, la traduzione automatica non è stata
+          recuperata quando l'email è stata inviata. Puoi controllare la traduzione
+          del testo originale sul seguente link %{link}.
+        original_text: 'Testo originale:'
+        same_language: Il contenuto è stato pubblicato nella tua lingua preferita
+          (%{language}), ecco perché in questa e-mail non viene visualizzata alcuna
+          traduzione automatica.
+    notifications:
+      show:
+        missing_event: Oops, questa notifica appartiene a un elemento che non è più
+          disponibile. Puoi eliminarla.
+        moderated: Contenuto moderato
+    notifications_digest_mailer:
+      header:
+        daily: Notifica giornaliera di Digest
+        weekly: Notifica settimanale di riepilogo
+      hello: Ciao %{name},
+      intro:
+        daily: 'Ecco le notifiche dell''ultimo giorno in base all''attività che stai
+          seguendo:'
+        weekly: 'Ecco le notifiche dell''ultima settimana in base all''attività che
+          stai seguendo:'
+      outro: Hai ricevuto queste notifiche perché stai seguendo questo contenuto o
+        i suoi autori. Puoi smettere di seguirli dalle rispettive pagine.
+      see_more: Vedi altre notifiche
+      subject: Questo è il tuo riepilogo di posta
+    notifications_settings:
+      show:
+        allow_public_contact: Consenti a chiunque di inviarmi un messaggio diretto,
+          anche se non lo seguo.
+        allow_push_notifications: Ricevi notifiche push per scoprire cosa succede
+          quando non sei sulla piattaforma. Puoi disattivarle in qualsiasi momento.
+        email_on_moderations: Voglio ricevere un'e-mail ogni volta che qualcosa o
+          qualcuno viene segnalato per moderazione.
+        notification_settings:
+          close_meeting_reminder: Voglio ricevere promemoria via email delle riunioni
+            chiuse e dei report non pubblicati
+        notifications_sending_frequencies:
+          daily: Quotidiano
+          none: Nessuno
+          real_time: Tempo reale
+          weekly: Settimanale
+        notifications_sending_frequency: Con quale frequenza desideri ricevere le
+          notifiche via email?
+        push_notifications: Notifiche push
+        push_notifications_reminder: Per ricevere le notifiche dalla piattaforma,
+          dovrai prima autorizzarle nelle impostazioni del tuo browser.
+    offline:
+      name: Fuori linea
+      show:
+        message_1: Sembra che al momento tu sia offline.
+        message_2: Riprova più tardi, per favore.
+    pad_iframe:
+      explanation: Utilizza questo blocco note per prendere appunti in modo collaborativo
+        durante la riunione, così sarà più facile annotare il minuto successivo.
+    pages:
+      home:
+        footer_sub_hero:
+          footer_sub_hero_body_html: Costruiamo una società più aperta, trasparente
+            e collaborativa.<br />Unisciti, partecipa e decidi.
+        hero:
+          participate_title: Partecipa ai processi della piattaforma
+      terms_of_service:
+        accept:
+          error: Si è verificato un problema durante l'accettazione dei termini di
+            servizio.
+          success: Ottimo! Hai accettato i termini del servizio.
+        form:
+          agreement: Accetto questi termini
+          legend: Accetta i termini del servizio
+        refuse:
+          modal_body: Se rifiuti, non potrai utilizzare la piattaforma, potrai <a
+            href="%{download_your_data_path}">scaricare i tuoi dati</a> e/o <a href="%{delete_path}">eliminare
+            il tuo account</a>.
+          modal_btn_continue: Accetta i termini e continua
+          modal_btn_exit: Lo rivedrò più tardi
+          modal_button: Rifiutare i termini
+          modal_title: Rifiuti davvero i termini di servizio aggiornati?
+        required_review:
+          alert: Abbiamo aggiornato i nostri Termini di servizio, ti preghiamo di
+            consultarli.
+          body: Ti preghiamo di prenderti un momento per rivedere gli aggiornamenti
+            dei nostri Termini di servizio. Altrimenti non sarai in grado di utilizzare
+            la piattaforma.
+          title: 'Obbligatorio: rivedere gli aggiornamenti dei nostri termini di servizio'
+      show:
+        empty: Questa pagina non contiene ancora alcun contenuto.
+    passwords:
+      update:
+        error: Si è verificato un problema durante l'aggiornamento della password.
+        success: Password aggiornata con successo.
+    profile:
+      inaccessible_message: Questo profilo non è accessibile a causa della violazione
+        dei termini di servizio!
+    profiles:
+      default_officialization_text_for_user_groups: Questo gruppo è verificato pubblicamente,
+        il suo nome è stato verificato e corrisponde al suo nome reale.
+      default_officialization_text_for_users: Questo partecipante è verificato pubblicamente,
+        il suo nome o ruolo è stato verificato per corrispondere al suo vero nome
+        e ruolo.
+      show:
+        group_admins: Gestisci gli amministratori
+        group_members: Gestisci i membri
+      user:
+        actions:
+          create_user_group: Crea gruppo
+          disabled_message: Messaggio
+          edit_profile: Modifica profilo
+          edit_user_group: Modifica il profilo del gruppo
+          invite_user: Invita partecipante
+          join_user_group: Richiesta di adesione al gruppo
+          leave_user_group: Lascia il gruppo
+          manage_user_group: Gestisci gruppo
+          manage_user_group_admins: Gestisci gli amministratori
+          manage_user_group_users: Gestisci i membri
+          message: Messaggio
+          resend_email_confirmation_instructions: Invia nuovamente le istruzioni di
+            conferma via e-mail
+        confirmation_instructions_sent: Istruzioni di conferma via e-mail inviate.
+        fill_in_email_to_confirm_it: Inserisci l'email del tuo gruppo per confermarla.
+    search:
+      name: Ricerca
+    searches:
+      filters:
+        search: Ricerca
+      filters_small_view:
+        filter_and_search: Filtra e cerca
+    shared:
+      embed:
+        title: Contenuto video incorporato
+      flag_modal:
+        does_not_belong: Contiene attività illegali, minacce di suicidio, informazioni
+          personali o altro che ritieni non appartenga a %{organization_name}.
+        hide: Nascondere
+        hide_content: Nascondi questo contenuto
+      flag_user_modal:
+        block: Blocca questo partecipante
+        does_not_belong: Contiene attività illegali, minacce di suicidio, informazioni
+          personali o altro che ritieni non appartenga a %{organization_name}.
+        hide: Nascondi tutti i loro contenuti
+      follow_button:
+        log_in_before_follow: Effettua il login prima di eseguire questa azione
+      login_modal:
+        please_log_in: Per favore effettua il login
+      mentions_modal:
+        remove_recipient: Rimuovi destinatario %{name}
+      participatory_space_filters:
+        filters:
+          area: Zona
+          scope: Ambito
+      progress: Progressi
+      share_modal:
+        share_to: Condividi su %{service}
+    user_activity:
+      index:
+        no_activities_warning: Questo partecipante non ha ancora alcuna attività.
+    user_conversations:
+      create:
+        error: Impossibile creare il messaggio. Riprova più tardi.
+    user_interests:
+      show:
+        no_scopes: Questa organizzazione non ha ancora alcun ambito!
+        select_your_interests: Seleziona gli argomenti che ti interessano per ricevere
+          gli eventi ad essi correlati nella scheda Cronologia del tuo profilo.
+    user_report_mailer:
+      notify:
+        details: Dettagli forniti dall'utente
+    user_update_mailer:
+      notify:
+        body_1: Ti inviamo questo messaggio per informarti di un aggiornamento che
+          riguarda il tuo account.
+        body_2: Nel caso in cui non avessi eseguito tu stesso tale aggiornamento,
+          accedi al tuo account per cambiare la password. Nel caso in cui non riuscissi
+          ad accedere, contatta il supporto della piattaforma.
+        greetings: Saluti,<br/>%{organization_name}{><br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Ciao %{utente}
+        main_body: 'Sono stati modificati i seguenti dettagli: %{updates}.'
+        update_fields: "%{aggiornamenti} e %{ultimo_aggiornamento}"
+      subject: Il tuo account è stato aggiornato
+    welcome_notification:
+      default_body: <p>Ciao {{name}}, grazie per esserti unito a {{organization}}
+        e benvenuto!</p><ul><li>Se vuoi farti un'idea veloce di cosa puoi fare qui,
+        dai un'occhiata alla sezione <a href="{{help_url}}">Aiuto</a>.</li><li>Dopo
+        averla letta, otterrai il tuo primo badge. Ecco un <a href="{{badges_url}}">elenco
+        di tutti i badge</a> che puoi ottenere partecipando a {{organization}}.</li><li>Ultimo
+        ma non meno importante, unisciti ad altre persone, condividi con loro l'esperienza
+        di essere impegnato e partecipare a {{organization}}. Fai proposte, commenti,
+        dibattiti, pensa a come contribuire al bene comune, fornisci argomenti per
+        convincere, ascolta e leggi per essere convinto, esprimi le tue idee in modo
+        concreto e diretto, rispondi con pazienza e decisione, difendi le tue idee
+        e mantieni una mente aperta per collaborare e unirti alle idee degli altri.</li></ul>
+    system:
+      actions:
+        new_admin: Nuovo amministratore
+        new_oauth_application: Nuova applicazione OAUTH
+        new_organization: Nuova organizzazione
+      admins:
+        create:
+          success: Amministratore creato con successo.
+        destroy:
+          success: Amministratore eliminato con successo.
+        update:
+          success: Aggiornamento eseguito correttamente dall'amministratore.
+      dashboard:
+        show:
+          admins: Amministratori
+      default_pages:
+        placeholders:
+          summary: Aggiungere un riepilogo significativo alla pagina statica %{page}
+            nella dashboard di amministrazione.
+        terms-of-service: Termini di servizio
+      devise:
+        passwords:
+          edit:
+            change_your_password: Cambia la tua password
+            minimum_characters: "(minimo %{minimum} caratteri)"
+          new:
+            forgot_your_password: Hai dimenticato la password
+            send_me_reset_password_instructions: Inviami le istruzioni per reimpostare
+              la password
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Non hai ricevuto le istruzioni
+              di conferma?
+            did_not_receive_unlock_instructions?: Non hai ricevuto le istruzioni per
+              lo sblocco?
+            forgot_your_password?: Hai dimenticato la password?
+            log_in: Login
+            sign_up: Iscrizione
+      models:
+        organization:
+          fields:
+            content_security_policy: Politica sulla sicurezza dei contenuti
+      organizations:
+        create:
+          success_html: |
+            <p>
+            Organizzazione creata correttamente.
+            </p>
+            <ol>
+            <li>Potresti dover aggiornare il codice dell'applicazione, poiché per consentire le richieste a %{host} devi aggiungere quanto segue alla configurazione dell'ambiente (ad esempio <code>config/environment/production.rb</code>) o al tuo <code>config/application.rb</code>:
+            <p> config.hosts << "%{host}" </p>
+            </li>
+            <li>
+            Dopo aver eseguito questa operazione, sarai in grado di accedere alla tua piattaforma tramite <a href="http://%{host}">http://%{host}</a>
+            </li>
+            <li>
+            Abbiamo inviato un'e-mail a <b>%{email}</b> che devi confermare.
+            </li>
+            </ol>
+        csp_settings:
+          connect_src: Connetti src
+          connect_src_hint: |-
+            La direttiva connect-src limita gli URL che possono essere caricati usando gli elementi <script>.
+            La piattaforma aggiungerà 'self', ma ti consente di aggiungerne altri. Lascialo vuoto se non sei sicuro.
+          default_src: Origine predefinita
+          default_src_hint: |-
+            La direttiva default-src è la policy predefinita per caricare contenuti come JavaScript, Immagini, CSS, Font, Richieste AJAX, Frame, Media HTML5.
+            La piattaforma aggiungerà "'self' 'unsafe-inline'", ma ti consente di aggiungerne altri. Lascialo vuoto se non sei sicuro.
+          font_src: Fonte del carattere
+          font_src_hint: |-
+            La direttiva font-src limita gli URL che possono essere caricati usando @font-face.
+            La piattaforma aggiungerà 'self', ma ti consente di aggiungerne altri. Lascialo vuoto se non sei sicuro.
+          frame_src: Origine del frame
+          frame_src_hint: |-
+            La direttiva frame-src limita gli URL che possono essere caricati usando gli elementi <frame>, <iframe> e <object>.
+            La piattaforma aggiungerà 'self', ma ti consente di aggiungerne altri. Lascialo vuoto se non sei sicuro.
+          img_src: Origine immagine
+          img_src_hint: |-
+            La direttiva img-src limita gli URL che possono essere caricati usando gli elementi <img>, <image>, <picture> e <svg>.
+            La piattaforma aggiungerà 'self', ma ti consente di aggiungerne altri. Lascialo vuoto se non sei sicuro.
+          media_src: Fonte dei media
+          media_src_hint: |-
+            La direttiva media-src limita gli URL che possono essere caricati usando gli elementi <video>, <audio> e <source>.
+            La piattaforma aggiungerà 'self', ma ti consente di aggiungerne altri. Lascialo vuoto se non sei sicuro.
+          script_src: Origine dello script
+          script_src_hint: |-
+            La direttiva script-src limita gli URL che possono essere caricati usando gli elementi <script>.
+            La piattaforma aggiungerà "'self' 'unsafe-inline' 'unsafe-eval'", ma ti consente di aggiungerne altri. Lascialo vuoto se non sei sicuro.
+          style_src: Stile origine
+          style_src_hint: |-
+            La direttiva style-src limita gli URL che possono essere caricati usando gli elementi <style>.
+            La piattaforma aggiungerà "'self' 'unsafe-inline'", ma ti consente di aggiungerne altri. Lascialo vuoto se non sei sicuro.
+        edit:
+          confirm_resend_invitation: Vuoi davvero inviare nuovamente l'invito?
+          resend_invitation: Invia nuovamente l'invito
+          title: Modifica organizzazione
+        new:
+          default: Predefinito?
+          enabled: Abilitato
+          locale: Localizzazione
+          organization_admin_email_hint: Ti invieremo un'e-mail a questo indirizzo
+            affinché tu possa confermarlo e impostare la tua password.
+          reference_prefix_hint: Il prefisso di riferimento viene utilizzato per identificare
+            in modo univoco le risorse in tutta l'organizzazione.
+          secondary_hosts_hint: Inserisci ciascuno di essi in una nuova riga.
+        resend_invitation:
+          error: Si è verificato un problema durante l'invio dell'invito.
+          success: Invito inviato con successo.
+        smtp_settings:
+          instructions:
+            from_label: 'Il mittente dell''email sarà: "nome-organizzazione <organizzazione@esempio.org>".
+              Lasciare vuoto per utilizzare lo stesso nome definito per l''organizzazione.'
+        users_registration_mode:
+          existing: Non consentire ai partecipanti di registrarsi, ma consentire ai
+            partecipanti esistenti di accedere
+      shared:
+        organizations_list:
+          confirm_resend_invitation: Vuoi davvero inviare nuovamente l'invito?
+          resend_invitation: Invia nuovamente l'invito
+      titles:
+        decidim: Decidere
+    moderations:
+      models:
+        moderation:
+          fields:
+            created_at: Segnalato a
+            deleted_resource: Risorsa eliminata
+            report_count: I report contano
+            reportable_id: ID
+            reports: Motivo
+    verifications:
+      authorizations:
+        create:
+          success: L'autorizzazione è stata effettuata con successo.
+          transferred: 'Abbiamo recuperato i seguenti dati di partecipazione in base
+            alla tua autorizzazione:'
+        destroy:
+          success: L'autorizzazione è stata eliminata correttamente.
+        index:
+          granted_verification: Verifica concessa
+          introduce_code: Introduci il codice
+          subscribe: Iscriviti
+          unauthorized_methods: Metodi di verifica
+        renew_modal:
+          info_renew: Se vuoi aggiornare i dati, procedi con il rinnovo.
+      csv_census:
+        admin:
+          census:
+            create:
+              success: Importati con successo %{count} elementi (%{errors} errori).
+            destroy_all:
+              success: Tutti i dati del censimento sono stati cancellati.
+          destroy:
+            confirm: L'eliminazione di tutti i censimenti non può essere annullata.
+              Vuoi continuare?
+          index:
+            data: Ci sono %{count} record caricati in totale. L'ultima data di caricamento
+              è stata il %{due_date}.
+          new:
+            example: |
+              john.doe@example.org
+              jane.doe@example.org
+      id_documents:
+        admin:
+          config:
+            update:
+              success: Configurazione aggiornata con successo.
+          confirmations:
+            create:
+              error: La verifica non corrisponde. Riprova o rifiuta la verifica in
+                modo che il partecipante possa modificarla.
+              success: Partecipante verificato con successo.
+          offline_confirmations:
+            create:
+              error: La verifica non corrisponde. Riprova o chiedi al partecipante
+                di modificarla.
+              success: Partecipante verificato con successo.
+          rejections:
+            create:
+              success: Verifica rifiutata. Al partecipante verrà chiesto di modificare
+                i propri documenti.
+        authorizations:
+          create:
+            error: Si è verificato un problema durante il caricamento del documento.
+            success: Documento caricato correttamente.
+          edit:
+            being_reviewed: Stiamo esaminando i tuoi documenti. Sarai verificato a
+              breve.
+            rejection_clarity: Assicurati che le informazioni siano chiaramente visibili
+              nell'immagine caricata.
+            rejection_correctness: Assicurati che le informazioni inserite siano corrette.
+            rejection_notice: Si è verificato un problema con la verifica. Riprova.
+          update:
+            error: Si è verificato un problema durante il ricaricamento del documento.
+            success: Documento ricaricato con successo.
+        identification_number: Numero di identificazione
+      postal_letter:
+        admin:
+          postages:
+            create:
+              error: Errore durante la marcatura della lettera come inviata.
+              success: Lettera contrassegnata con successo come inviata.
+        authorizations:
+          create:
+            error: Si è verificato un problema con la tua richiesta.
+            success: Grazie! Ti invieremo un codice di verifica al tuo indirizzo.
+          edit:
+            title: Inserisci il codice di verifica che hai ricevuto.
+            waiting_for_letter: A breve ti invieremo una lettera con il tuo codice
+              di verifica al tuo indirizzo.
+          update:
+            error: Il tuo codice di verifica non corrisponde al nostro. Controlla
+              attentamente la lettera che ti abbiamo inviato.
+            success: Congratulazioni. La verifica è stata eseguita correttamente.
+      sms:
+        authorizations:
+          create:
+            error: Si è verificato un problema con la tua richiesta.
+            success: Grazie! Abbiamo inviato un SMS al tuo telefono.
+          edit:
+            resend: Non hai ricevuto il codice di verifica?
+          update:
+            error: Il tuo codice di verifica non corrisponde al nostro. Controlla
+              attentamente l'SMS che ti abbiamo inviato.
+            success: Congratulazioni. La verifica è stata eseguita correttamente.
+    participatory_process_groups:
+      content_blocks:
+        extra_data:
+          developer_group: Promosso da
+          name: Metadati
+          participatory_scope: Cosa è deciso
+          participatory_structure: Come si decide?
+          target: Chi partecipa
+        html:
+          name: Blocco HTML
+        main_data:
+          name: Titolo e descrizione
+        participatory_processes:
+          active: Processi partecipativi attivi
+    participatory_processes:
+      admin:
+        content_blocks:
+          highlighted_processes:
+            active: Attivo
+            all: Tutto
+            selection_criteria: Criteri di selezione
+        participatory_process_copies:
+          form:
+            slug_help_html: 'Gli slug URL vengono utilizzati per generare gli URL
+              che puntano a questo processo. Accetta solo lettere, numeri e trattini
+              e deve iniziare con una lettera. Esempio: %{url}'
+        participatory_process_groups:
+          form:
+            title: Informazioni su questo processo
+        participatory_process_imports:
+          form:
+            slug_help_html: 'Gli slug URL vengono utilizzati per generare gli URL
+              che puntano a questo processo. Accetta solo lettere, numeri e trattini
+              e deve iniziare con una lettera. Esempio: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help_html: 'Qui usa percorsi parziali, non URL completi. Accetta
+              lettere, numeri, trattini e barre e deve iniziare con una lettera. Se
+              non è impostato, il pulsante non verrà mostrato. Esempio: %{url}'
+        participatory_processes:
+          form:
+            select_participatory_process_type: Seleziona un tipo di processo
+            slug_help_html: 'Gli slug URL vengono utilizzati per generare gli URL
+              che puntano a questo processo. Accetta solo lettere, numeri e trattini
+              e deve iniziare con una lettera. Esempio: %{url}'
+      content_blocks:
+        extra_data:
+          name: Fase e durata
+        hero:
+          name: Immagine eroe e CTA
+        related_processes:
+          name: Processi correlati
+      last_activity:
+        new_participatory_process: 'Nuovo processo partecipativo:'
+      pages:
+        home:
+          highlighted_processes:
+            active_spaces: Processi attivi
+            see_all_spaces: Vedi tutti i processi
+      participatory_processes:
+        description:
+          area_name: Zona
+          data: Dati di processo
+          developer_group: Gruppo promotore
+          local_area: Area Organizzazione
+          meta_scope: Ambito
+          participatory_scope: Cosa è deciso
+          participatory_structure: Come si decide?
+          target: Chi partecipa
+          title: Informazioni su questo processo
+        filters:
+          all_types: Tutti i tipi
+          date: Data
+          explanations:
+            no_active: Nessun processo attivo.
+            no_active_nor_upcoming: Nessun processo attivo o imminente.
+          filter_by: Spettacolo
+          type: Tipo
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            included_at_help: Seleziona la data in cui questo assembly è stato aggiunto
+              alla piattaforma. Non deve necessariamente essere la stessa della data
+              di creazione.
+            slug_help_html: 'Gli slug URL vengono utilizzati per generare gli URL
+              che puntano a questo assembly. Accetta solo lettere, numeri e trattini
+              e deve iniziare con una lettera. Esempio: %{url}'
+            visbility: Visibilità
+        assembly_copies:
+          form:
+            slug_help_html: 'Gli slug URL vengono utilizzati per generare gli URL
+              che puntano a questo assembly. Accetta solo lettere, numeri e trattini
+              e deve iniziare con una lettera. Esempio: %{url}'
+        assembly_imports:
+          form:
+            slug_help_html: 'Gli slug URL vengono utilizzati per generare gli URL
+              che puntano a questo assembly. Accetta solo lettere, numeri e trattini
+              e deve iniziare con una lettera. Esempio: %{url}'
+      assemblies:
+        description:
+          area_name: Zona
+          closing_date: Data di chiusura
+          created_by: Creato da
+          creation_date: Data di creazione
+          data: Dati di assemblaggio
+          developer_group: Gruppo promotore
+          duration: Durata
+          included_at: Incluso in
+          indefinite_duration: Indefinito
+          local_area: Area Organizzazione
+          meta_scope: Ambito
+          participatory_scope: Cosa è deciso
+          participatory_structure: Come si decide?
+          target: Chi partecipa
+          title: Informazioni su questa assemblea
+        filters:
+          type: Tipo
+      content_blocks:
+        children_assemblies:
+          name: Assemblee
+        dates_metadata:
+          name: Metadati delle date
+        extra_data:
+          name: Tipo e durata
+        related_assemblies:
+          name: Assemblee correlate
+      last_activity:
+        new_assembly: 'Nuovo assemblaggio:'
+      pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Assemblee attive
+            see_all_spaces: Vedi tutti gli assembly
+      show:
+        social_networks_title: Visita l'assemblea il
+    comments:
+      comments:
+        delete:
+          error: Il commento non può essere eliminato.
+      comments_title: Commento
+      last_activity:
+        new_comment: 'Nuovo commento:'
+    participatory_spaces:
+      highlighted_proposals:
+        last: Ultime proposte
+    proposals:
+      admin:
+        exports:
+          awesome_private_proposals: Proposte con dati privati
+        imports:
+          help:
+            answers: |-
+              Il documento di importazione deve contenere i seguenti nomi di colonna in caso di file CSV o Excel, o nomi di chiave in caso di file JSON:
+              <ul>
+              <li><b>id:</b> ID della proposta a cui rispondere</li>
+              <li><b>state:</b> Uno tra "accepted", "evaluating" o "rejected"</li>
+              <li><b>answer/en:</b> Risposta in lingua inglese. Dipenderà dalla configurazione della lingua della piattaforma.</li>
+              </ul>
+            proposals: |-
+              Il file deve avere i seguenti nomi di colonna in caso di file CSV o Excel, o nomi di chiave in caso di file JSON:
+              <ul>
+              <li><b>title/en:</b> Titolo in lingua inglese. Dipenderà dalla configurazione della lingua della tua piattaforma.</li>
+              <li><b>body/en:</b> Corpo in lingua inglese. Dipenderà dalla configurazione della lingua della tua piattaforma.</li>
+              <li><b>scope/id:</b> ID per l'ambito</li>
+              <li><b>category/id:</b> ID per la categoria</li>
+              </ul>
+          label:
+            answers: Importare le risposte da un file
+            proposals: Importare proposte da un file
+          resources:
+            answers:
+              one: proposta risposta
+              other: risposte di proposta
+            proposals:
+              one: proposta
+              other: proposte
+          title:
+            answers: Importare le risposte alle proposte da un file
+            proposals: Importare proposte da un file
+        participatory_texts:
+          new_import:
+            document_legend: 'Aggiungi un documento inferiore a 2 MB, ogni sezione
+              fino a 3 livelli di profondità verrà analizzata in proposte. I formati
+              supportati sono: %{valid_mime_types}'
+          publish:
+            invalid: Si è verificato un problema durante la pubblicazione delle proposte.
+            success: Tutte le proposte sono state pubblicate.
+        proposal_notes:
+          create:
+            error: Si è verificato un problema durante la creazione di questa nota
+              di proposta.
+            success: Nota di proposta creata correttamente.
+        proposals:
+          answer:
+            invalid: Si è verificato un problema nel rispondere a questa proposta.
+            success: Proposta accolta con successo.
+          create:
+            invalid: Si è verificato un problema durante la creazione di questa proposta.
+            success: Proposta creata con successo.
+          publish_answers:
+            number_of_proposals: Le risposte per %{number} proposte saranno pubblicate?
+            select_a_proposal: Seleziona una proposta.
+          show:
+            link: Vedi proposta
+          update_category:
+            select_a_category: Seleziona una categoria.
+            select_a_proposal: Seleziona una proposta.
+          update_scope:
+            select_a_proposal: Seleziona una proposta.
+            select_a_scope: Seleziona un ambito.
+        proposals_imports:
+          create:
+            invalid: Si è verificato un problema durante l'importazione delle proposte.
+            success: "%{number} proposte importate correttamente."
+          new:
+            title: Importa proposte da un altro componente
+        proposals_merges:
+          create:
+            invalid: 'Si è verificato un problema durante l''unione delle proposte
+              selezionate perché alcune di esse:'
+        proposals_splits:
+          create:
+            invalid: 'Si è verificato un problema nella suddivisione delle proposte
+              selezionate perché alcune di esse:'
+        valuation_assignments:
+          create:
+            invalid: Si è verificato un errore durante l'assegnazione delle proposte
+              a un valutatore.
+            success: Proposte assegnate con successo a un valutatore.
+          delete:
+            invalid: Si è verificato un errore durante l'annullamento dell'assegnazione
+              delle proposte a un valutatore.
+            success: L'assegnazione del valutatore alle proposte è stata annullata
+              correttamente.
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            irreversible_action_modal:
+              body: Dopo aver pubblicato la bozza come proposta, non sarà più modificabile.
+                La proposta non accetterà nuovi autori o contributi.
+          withdraw:
+            irreversible_action_modal:
+              body: Dopo aver chiuso la bozza, non sarà più modificabile. La bozza
+                non accetterà nuovi autori o contributi.
+        create:
+          error: Si è verificato un problema durante la creazione di questa bozza
+            collaborativa.
+        empty: Non ci sono ancora bozze collaborative
+        empty_filters: Non esiste una bozza collaborativa con questo criterio
+        name: Bozze collaborative
+        new:
+          add_file: Aggiungi file
+          edit_file: Modifica file
+        requests:
+          accepted_request:
+            success: "@%{user} è stato accettato con successo come collaboratore."
+          access_requested:
+            success: La tua richiesta di collaborazione è stata inviata con successo.
+          rejected_request:
+            success: "@%{user} è stato rifiutato con successo come collaboratore."
+        show:
+          info-message: Questa è una <strong>bozza collaborativa</strong> per una
+            proposta. Ciò significa che puoi aiutare i loro autori a dare forma alla
+            proposta utilizzando la sezione commenti qui sotto o migliorarla direttamente
+            richiedendo l'accesso per modificarla. Una volta che gli autori ti hanno
+            concesso l'accesso, sarai in grado di apportare modifiche a questa bozza.
+      content_blocks:
+        highlighted_proposals:
+          name: Proposte
+      last_activity:
+        new_proposal: 'Nuova proposta:'
+        proposal_updated: 'Proposta aggiornata:'
+      new:
+        limit_reached: Non puoi creare nuove proposte perché hai superato il limite.
+      proposals:
+        edit:
+          add_documents: Aggiungere documenti
+          edit_documents: Modificare i documenti
+        edit_draft:
+          title: Modifica bozza della proposta
+        index:
+          click_here: Vedi tutte le proposte
+          see_all: Vedi tutte le proposte
+          text_banner: Stai visualizzando l'elenco delle proposte ritirate dai rispettivi
+            autori. %{go_back_link}.
+        new:
+          title: Crea la tua proposta
+        participatory_texts:
+          view_index:
+            document_index: Indice dei documenti
+        proposals:
+          empty: Non ci sono ancora proposte.
+          empty_filters: Non ci sono proposte con questo criterio.
+        voting_rules:
+          minimum_votes_per_user:
+            given_enough_votes: Hai dato abbastanza supporto.
+          threshold_per_proposal:
+            description: Per essere convalidate, le proposte devono raggiungere %{limit}
+              supporti.
+      proposals_picker:
+        no_proposals: Nessuna proposta corrisponde ai tuoi criteri di ricerca oppure
+          non ci sono proposte.
+      withdraw:
+        errors:
+          has_supports: Questa proposta non può essere ritirata perché ha già ottenuto
+            sostegno.
+    meetings:
+      actions:
+        new_meeting: Nuovo incontro
+        confirm_destroy: Sei sicuro di voler eliminare questa riunione?
+      admin:
+        agenda:
+          create:
+            invalid: Si è verificato un problema durante la creazione di questo programma.
+            success: Agenda creata con successo.
+          update:
+            invalid: Si è verificato un problema durante l'aggiornamento di questa
+              agenda.
+            success: Agenda aggiornata con successo.
+        invites:
+          index:
+            filter:
+              accepted: Accettato
+              rejected: Respinto
+            registrations_disabled: Non puoi invitare un partecipante perché le registrazioni
+              sono disabilitate.
+        meetings:
+          close:
+            invalid: Si è verificato un problema durante la chiusura di questa riunione.
+            success: La riunione si è conclusa con successo.
+          create:
+            invalid: Si è verificato un problema durante la creazione di questa riunione.
+          destroy:
+            invalid:
+              proposals_count:
+                one: La riunione non può essere eliminata perché è associata a %{count}
+                  proposta.
+                other: La riunione non può essere eliminata perché sono associate
+                  %{count} proposte.
+          form:
+            disclaimer: 'Disclaimer: Utilizzando un sistema di registrazione esterno,
+              sei consapevole che gli organizzatori di %{organization} non sono responsabili
+              dei dati forniti dagli utenti al servizio esterno.'
+            iframe_embed_type_html: 'Solo pochi servizi consentono l''incorporamento
+              in riunioni o eventi live dai seguenti domini: %{domains}'
+            select_an_iframe_access_level: Seleziona un livello di accesso iframe
+          publish:
+            invalid: Si è verificato un problema durante la pubblicazione di questa
+              riunione.
+            success: Riunione pubblicata con successo.
+          unpublish:
+            invalid: Si è verificato un problema durante l'annullamento della pubblicazione
+              di questa riunione.
+            success: Riunione annullata con successo.
+          update:
+            invalid: Si è verificato un problema durante l'aggiornamento di questa
+              riunione.
+            success: Riunione aggiornata con successo.
+        meetings_poll:
+          update:
+            invalid: Si è verificato un problema durante l'aggiornamento del sondaggio
+              sulla riunione.
+            success: Il sondaggio sulla riunione è stato aggiornato correttamente.
+        registrations:
+          form:
+            reserved_slots_help: Lascialo su 0 se non hai slot riservati.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} ha aggiornato il questionario per la riunione %{meeting_name}"
+      application_helper:
+        filter_category_values:
+          all: Tutto
+        filter_meeting_space_values:
+          all: Tutto
+      calendar:
+        meeting_to_event:
+          read_more: Leggi di più su questo incontro
+      calendar_modal:
+        copy_calendar_url: Copia
+        copy_calendar_url_clarification: Copia l'URL del calendario negli appunti
+        copy_calendar_url_copied: Copiato!
+        copy_calendar_url_description: Puoi vedere tutti gli incontri pubblicati nella
+          tua applicazione calendario o nel tuo provider. Copia e incolla questo URL
+          nel tuo calendario usando l'opzione "Aggiungi nuovo calendario da un URL".
+        copy_calendar_url_explanation: Si prega di notare che si sta esportando una
+          selezione di riunioni, poiché ci sono filtri attivi. Se si desidera esportarli
+          tutti, reimpostare prima tutti i filtri.
+        copy_calendar_url_message: L'URL è stato copiato correttamente negli appunti.
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: La riunione <a href="%{meeting_path}">"%{meeting_title}"</a> è in
+            attesa di chiusura. Aggiungi un report della riunione utilizzando il pulsante
+            "Chiudi riunione".
+          greetings: Saluti,<br/>%{organization_name}{><br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Ciao %{username},
+          subject: Ora puoi chiudere la riunione con un report sulla piattaforma %{organization_name}
+      content_blocks:
+        upcoming_meetings:
+          name: Prossimi incontri
+      iframe_access_level:
+        all: Tutti i visitatori
+        registered: Partecipanti registrati a questo incontro
+        signed_in: Solo partecipanti registrati
+      iframe_embed_type:
+        embed_in_meeting_page: Incorpora nella pagina della riunione
+        none: Nessuno
+        open_in_live_event_page: Apri nella pagina dell'evento live (con sondaggi
+          facoltativi)
+        open_in_new_tab: Apri URL in una nuova scheda
+      last_activity:
+        meeting_updated: 'Riunione aggiornata:'
+        new_meeting: 'Nuovo incontro:'
+      layouts:
+        live_event:
+          administrate: Amministrare
+      meeting:
+        not_allowed: Non ti è consentito visualizzare questa riunione.
+      meetings:
+        filters:
+          origin_values:
+            user_group: Gruppi
+          type_values:
+            hybrid: Ibrido
+        form:
+          disclaimer: 'Disclaimer: Utilizzando un sistema di registrazione esterno,
+            sei consapevole che gli organizzatori di %{organization} non sono responsabili
+            dei dati forniti dagli utenti al servizio esterno.'
+          iframe_embed_type_html: 'Solo pochi servizi consentono l''incorporamento
+            in riunioni o eventi live dai seguenti domini: %{domains}'
+          select_an_iframe_access_level: Seleziona un livello di accesso iframe
+        index:
+          click_here: Vedi tutti gli incontri
+          see_all: Vedi tutti gli incontri
+          see_all_withdrawn: Vedi tutti gli incontri ritirati
+          text_banner: Stai visualizzando l'elenco delle riunioni ritirate dai rispettivi
+            autori. %{go_back_link}.
+        meeting:
+          close_meeting: Riunione chiusa
+          edit_close_meeting: Modifica il report della riunione
+          edit_meeting: Modifica riunione
+          join_meeting: Partecipa alla riunione
+        meetings:
+          no_meetings_warning: Nessuna riunione corrisponde ai tuoi criteri di ricerca
+            oppure non è stata programmata alcuna riunione.
+        show:
+          withdraw_btn_hint: Puoi ritirare la tua riunione se cambi idea. La riunione
+            non viene eliminata, apparirà nell'elenco delle riunioni ritirate.
+          withdraw_confirmation_html: Sei sicuro di voler ritirare questa riunione?<br><br><strong>Questa
+            azione non può essere annullata!</strong>
+          withdraw_meeting: Ritirare la riunione
+      models:
+        meeting:
+          fields:
+            id: ID
+      polls:
+        questions:
+          index_admin:
+            edit: Modifica nel pannello di amministrazione
+      public_participants_list:
+        attending_organizations: Organizzazioni
+      registrations:
+        create:
+          success: Ti sei unito alla riunione con successo. Poiché ti sei registrato
+            per questa riunione, verrai avvisato se ci saranno aggiornamenti su di
+            essa.
+      type_of_meeting:
+        hybrid: Ibrido
+      types:
+        withdraw: Ritirato
+      withdraw:
+        error: Si è verificato un errore durante il ritiro della riunione.
+        success: La riunione è stata ritirata con successo.
+    budgets:
+      actions:
+        new_budget: Nuovo bilancio
+        new_project: Nuovo progetto
+        send_voting_reminders: Invia promemoria per il voto
+        confirm_destroy: Sei sicuro di voler eliminare questo progetto?
+      admin:
+        budgets:
+          create:
+            invalid: Si è verificato un problema durante la creazione di questo budget.
+            success: Budget creato con successo.
+          destroy:
+            invalid: Si è verificato un problema durante l'eliminazione di questo
+              budget.
+            success: Budget eliminato con successo.
+          update:
+            invalid: Si è verificato un problema durante l'aggiornamento di questo
+              budget.
+            success: Budget aggiornato con successo.
+        projects:
+          create:
+            invalid: Si è verificato un problema durante la creazione di questo progetto.
+            success: Progetto creato con successo.
+          destroy:
+            success: Progetto eliminato con successo.
+          index:
+            actions: Azioni
+            cancel: Cancellare
+            change_budget: Cambia budget
+            change_category: Cambia categoria
+            change_scope: Cambia ambito
+            change_selected: Cambia stato selezionato
+            deselect_implementation: Deseleziona dall'implementazione
+            select_for_implementation: Selezionare per l'implementazione
+            selected_options:
+              'no': 'NO'
+              'yes': SÌ
+            update: Aggiornamento
+            update_budget_button: Aggiornare il budget del progetto
+            update_scope_button: Aggiorna ambito
+          update:
+            invalid: Si è verificato un problema durante l'aggiornamento di questo
+              progetto.
+            success: Progetto aggiornato con successo.
+          update_budget:
+            invalid: 'Questi progetti sono già nello stesso budget oppure i loro budget
+              sono superiori al massimo consentito: %{projects}.'
+            select_a_project: Seleziona un progetto.
+            success: 'Progetti aggiornati correttamente al budget %{subject_name}:
+              %{projects}.'
+          update_category:
+            invalid: 'Questi progetti avevano già la categoria %{subject_name}: %{projects}.'
+            select_a_category: Seleziona una categoria.
+            select_a_project: Seleziona un progetto.
+            success: 'Progetti aggiornati correttamente alla categoria %{subject_name}:
+              %{projects}.'
+          update_scope:
+            invalid: 'Questi progetti avevano già l''ambito %{subject_name}: %{projects}.'
+            select_a_project: Seleziona un progetto.
+            select_a_scope: Seleziona un ambito.
+            success: 'Progetti aggiornati correttamente all''ambito %{subject_name}:
+              %{projects}.'
+          update_selected:
+            invalid:
+              selected: 'Questi progetti sono già stati selezionati per l''implementazione:
+                %{projects}.'
+              unselected: 'Questi progetti sono già stati deselezionati dall''implementazione:
+                %{projects}.'
+            select_a_project: Seleziona un progetto.
+            select_a_selection: Seleziona uno stato di implementazione.
+            success:
+              selected: 'Questi progetti sono stati selezionati con successo per l''implementazione:
+                %{projects}.'
+              unselected: 'Questi progetti sono stati deselezionati con successo dall''implementazione:
+                %{projects}.'
+        proposals_imports:
+          create:
+            invalid: Si è verificato un problema durante l'importazione delle proposte
+              nei progetti.
+            success: "%{number} proposte importate correttamente nei progetti."
+          new:
+            default_budget: Budget predefinito
+            import_all_accepted_proposals: Importa tutte le proposte accettate
+            origin_component_id: Componente di origine
+            title: Importa proposte nei progetti
+        reminders:
+          orders:
+            description: Gli utenti riceveranno un'e-mail con i link ai budget per
+              i quali hanno ordini in sospeso.
+            title:
+              one: Stai per inviare un promemoria via email a %{count} utente
+              other: Stai per inviare un promemoria via email a %{count} utenti
+      budgets_list:
+        budgets: Bilanci
+        count:
+          one: "%{count} bilancio"
+          other: "%{count} budget"
+        empty: Non ci sono ancora budget
+        finished_message: Hai completato il processo di voto. Grazie per aver partecipato!
+        if_change_opinion: Se hai cambiato idea, puoi
+        remove_vote: Rimuovi voto
+        voted_budgets: Bilanci votati
+        voted_on: Hai votato per %{links}.
+      last_activity:
+        new_vote_at: Nuovo voto sul bilancio a
+      limit_announcement:
+        cant_vote: Non puoi votare per questo budget. <a href="%{landing_path}">Prova
+          con un altro budget</a>.
+      models:
+        project:
+          fields:
+            category: Categoria
+            id: ID
+      projects:
+        budget_excess:
+          budget_excess:
+            description: Questo progetto supera il budget massimo e non può essere
+              aggiunto. Se vuoi, puoi eliminare un progetto che hai già selezionato,
+              per poter votare di nuovo secondo le tue preferenze.
+          description: Questo progetto supera il budget massimo e non può essere aggiunto.
+            Se vuoi, puoi eliminare un progetto che hai già selezionato, per poter
+            votare di nuovo secondo le tue preferenze.
+          projects_excess:
+            description: Questo progetto supera il numero massimo di progetti e non
+              può essere aggiunto. Se vuoi, puoi eliminare un progetto che hai già
+              selezionato, per poter votare di nuovo secondo le tue preferenze.
+        budget_summary:
+          checked_out:
+            description: Hai già votato per il bilancio. Se hai cambiato idea, puoi
+              cancellare il tuo voto.
+          vote: Vota il bilancio
+        empty: Non ci sono ancora progetti
+        order_progress:
+          assigned: Assegnato
+          budget: Bilancio
+          dynamic_help:
+            keep_adding_projects: Continua ad aggiungere progetti
+            minimum_reached: Hai raggiunto il minimo per poter votare
+            start_adding_projects: Inizia ad aggiungere progetti
+          minimum: Minimo
+          minimum_projects_rule:
+            description: Seleziona almeno %{minimum_number} progetti che desideri
+              e vota in base alle tue preferenze per definire il budget.
+          projects_rule:
+            description: Seleziona almeno %{minimum_number} e fino a %{maximum_number}
+              progetti che desideri e vota in base alle tue preferenze per definire
+              il budget.
+          projects_rule_maximum_only:
+            description: Seleziona fino a %{maximum_number} progetti che desideri
+              e vota in base alle tue preferenze per definire il budget.
+          vote_threshold_percent_rule:
+            description: Assegna almeno %{minimum_budget} ai progetti che desideri
+              e vota in base alle tue preferenze per definire il budget.
+        project:
+          add: Aggiungi il progetto %{resource_name} al tuo voto.
+          remove: Rimuovi il progetto %{resource_name} dal tuo voto.
+          you_voted: Hai votato per questo
+        project_budget_button:
+          add_descriptive: Aggiungi il progetto %{resource_name} al tuo voto.
+          added_descriptive: Progetto %{resource_name} aggiunto al tuo voto.
+        project_filter:
+          added: Aggiunto
+          all: Tutto
+        select_projects: Seleziona progetti
+        filters:
+          scope: Ambito
+      prompt: Seleziona budget
+      vote_reminder_mailer:
+        vote_reminder:
+          email_budgets: 'Aree in cui hai un voto incompiuto:'
+          email_intro: Hai avviato la votazione sul bilancio partecipativo, ma non
+            l'hai completata.
+          email_link: Vai per continuare a votare
+          email_outro: Ricordati di completare il voto. Per votare, devi prima selezionare
+            la proposta o le proposte su cui vuoi votare e poi confermare il tuo voto
+            con il pulsante "Vota".
+          email_subject:
+            one: Hai un voto incompiuto nel voto sul bilancio partecipativo
+            other: Hai voti incompiuti nel voto sul bilancio partecipativo
+    orders:
+      checkout:
+        error: Si è verificato un problema durante l'elaborazione del tuo voto.
+        success_html: <p>Il tuo voto è stato accettato con successo.</p> <p class="text-sm
+          font-normal">Puoi esplorare il <a class="text-secondary underline" href="%{rest_of_budgets_link}">resto
+          dei budget</a>.</p>
+        success_no_left_budgets_html: Il tuo voto è stato accettato con successo.
+      destroy:
+        error: Si è verificato un problema durante l'annullamento del tuo voto.
+        success: Il tuo voto è stato annullato con successo.
+    surveys:
+      admin:
+        component:
+          actions:
+            answers_alert: Se pubblichi il componente, tutti i risultati verranno
+              rimossi.
+      last_activity:
+        new_survey: 'Nuovo sondaggio:'
+      survey_confirmation_mailer:
+        confirmation:
+          body: Hai risposto correttamente al sondaggio %{questionnaire_title} in
+            %{participatory_space}
+          subject: Questionario %{questionnaire_title} conferma risposta
+        export_name: Risposte al sondaggio
+      surveys:
+        answer:
+          spam_detected: C'è stato un problema nel rispondere al modulo. Forse sei
+            stato troppo veloce, puoi riprovare?
+    accountability:
+      actions:
+        import_csv: Importa i risultati dal file CSV
+        new_status: Nuovo stato
+        new_timeline_entry: Nuova voce della cronologia
+      admin:
+        import_results:
+          new:
+            download_export: Scarica l'esportazione in formato CSV
+            info: |
+              <p>Ti consigliamo di seguire questi passaggi:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Crea gli stati per i risultati</a> che vuoi aggiungere</li>
+              <li><a href='%{link_new_result}' target='_blank'>Crea manualmente almeno un risultato</a> tramite questo pannello di amministrazione prima di utilizzare Importa, per avere una migliore comprensione del formato e di ciò che dovrai compilare.</li>
+              <li>%{link_export_csv</li>
+              <li>Effettua le modifiche localmente. Puoi modificare solo le seguenti colonne del CSV:
+              <ul>
+              <li><b>category/id:</b> ID per la categoria</li>
+              <li><b>scope/id:</b> ID per l'ambito</li>
+              <li><b>parent/id:</b> ID del genitore (per i risultati correlati). Facoltativo</li>
+              <li><b>title/en:</b> Titolo in lingua inglese. Dipenderà dalla configurazione della lingua della tua piattaforma.</li>
+              <li><b>description/en:</b> Descrizione in lingua inglese. Dipenderà dalla configurazione della lingua della tua piattaforma.</li>
+              <li><b>start_date:</b> data in cui il risultato inizia l'esecuzione (formato AAAA-MM-GG)</li>
+              <li><b>end_date:</b> data in cui il risultato termina l'esecuzione (formato AAAA-MM-GG)</li>
+              <li><b>status/id:</b> ID dello stato per questo risultato</li>
+              <li><b>progress:</b> percentuale (da 0 a 100) dell'esecuzione</li>
+              <li><b>proposals_ids:</b> ID interno delle proposte correlate (separate da una virgola). Viene automaticamente convertito in <span class='attribute-name'>proposal_url</span></li>
+              </ul>
+              </li>
+              </ol>
+            title: Importa i risultati dal file CSV
+        imports:
+          create:
+            invalid: Si è verificato un problema durante l'importazione dei risultati.
+            success: Il file è stato importato. Riceverai un'email nei prossimi minuti
+              con il risultato dell'importazione.
+        projects_import:
+          create:
+            invalid: Si è verificato un problema durante l'importazione dei progetti
+              nei risultati. Segui attentamente le istruzioni e assicurati di aver
+              selezionato i progetti da implementare.
+          new:
+            create: Importare
+            import_all_selected_projects: Importa tutti i progetti selezionati per
+              l'implementazione
+            new_items:
+              one: 1 progetto selezionato verrà importato
+              other: Verranno importati %{count} progetti selezionati
+              zero: Non ci sono progetti selezionati in questo componente di origine
+            no_components: In questo spazio partecipativo non sono presenti componenti
+              di budget per importare i progetti nei risultati.
+            origin_component_id: Componente di origine
+            select_component: Seleziona un componente
+            success:
+              one: 1 progetto in coda per essere importato. Riceverai una notifica
+                via email, una volta completato.
+              other: "%{count} progetti in coda per essere importati. Riceverai una
+                notifica via email, una volta completato."
+            title: Importa progetti da un altro componente
+        results:
+          create:
+            invalid: Si è verificato un problema durante la creazione di questo risultato.
+            success: Risultato creato con successo.
+          destroy:
+            success: Risultato eliminato con successo.
+          update:
+            invalid: Si è verificato un problema durante l'aggiornamento di questo
+              risultato.
+        statuses:
+          create:
+            invalid: Si è verificato un problema durante la creazione di questo stato.
+            success: Stato creato con successo.
+          destroy:
+            success: Stato eliminato con successo.
+          update:
+            invalid: Si è verificato un problema durante l'aggiornamento di questo
+              stato.
+            success: Stato aggiornato con successo.
+        timeline_entries:
+          create:
+            invalid: Si è verificato un problema durante la creazione di questa voce.
+            success: Voce creata con successo.
+          destroy:
+            success: Voce eliminata con successo.
+          update:
+            invalid: Si è verificato un problema durante l'aggiornamento di questa
+              voce.
+            success: Voce aggiornata con successo.
+      admin_log:
+        status:
+          create: "%{user_name} ha creato lo stato %{resource_name}"
+          delete: "%{user_name} ha eliminato lo stato %{resource_name}"
+          update: "%{user_name} ha aggiornato lo stato di %{resource_name}"
+        timeline_entry:
+          create: "%{user_name} ha creato la voce della cronologia %{resource_name}"
+          delete: "%{user_name} ha eliminato la voce della cronologia %{resource_name}"
+          update: "%{user_name} ha aggiornato la voce della cronologia %{resource_name}"
+      import_mailer:
+        import:
+          errors_present: Si è verificato un problema durante l'importazione dei risultati.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Un risultato è stato importato dai progetti.
+            other: Sono stati importati %{count} risultati dai progetti.
+          subject: Importazione riuscita dei progetti
+          success: I progetti importati con successo danno risultati nel componente
+            %{component_name}. Puoi rivedere i risultati nell'interfaccia di amministrazione.
+      last_activity:
+        new_result: 'Nuovo risultato:'
+      results:
+        home:
+          empty: Non ci sono ancora risultati.
+          empty_filters: Non ci sono risultati con questo criterio.
+          categories_label: Categorie
+          subcategories_label: Sottocategorie
+        no_results: Non ci sono progetti
+    debates:
+      actions:
+        new: Nuovo dibattito
+      debates:
+        close_debate_modal:
+          cancel: Cancellare
+        debates:
+          empty: Non ci sono ancora dibattiti.
+          empty_filters: Non ci sono discussioni su questo criterio.
+        filters:
+          user_group: Gruppi
+      last_activity:
+        debate_updated: 'Dibattito aggiornato:'
+        new_debate: 'Nuovo dibattito:'
+      models:
+        debate:
+          fields:
+            end: FINE
+            start: Inizio
+      admin:
+        exports:
+          comments: Commenti
+    sortitions:
+      admin:
+        actions:
+          new_sortition: Nuova estrazione a sorte
+        sortitions:
+          create:
+            success: Sorteggio creato con successo.
+          destroy:
+            error: Impossibile annullare l'estrazione.
+            success: Estrazione annullata con successo.
+          new:
+            confirm: Premendo il pulsante successivo la piattaforma registrerà la
+              data e l'ora (con precisione al secondo) e insieme al lancio del dado,
+              queste informazioni saranno utilizzate per generare una selezione casuale.
+              L'azione sarà irreversibile, una volta cliccato il pulsante il risultato
+              di questa estrazione sarà pubblicato, insieme ai dati inseriti in questo
+              modulo e non potrà essere modificato, si prega di controllare attentamente
+              il contenuto.
+          update:
+            success: Sorteggio aggiornato con successo.
+      sortitions:
+        index:
+          empty: Non ci sono ancora sorteggi.
+    blogs:
+      admin:
+        posts:
+          create:
+            invalid: Si è verificato un problema durante la creazione di questo post.
+            success: Post creato con successo.
+          destroy:
+            success: Post eliminato con successo.
+          index:
+            not_published_yet: Non ancora pubblicato.
+          update:
+            success: Post salvato con successo.
+      admin_log:
+        post:
+          create: "%{user_name} ha creato il post del blog %{resource_name} in %{space_name}"
+          delete: "%{user_name} ha eliminato il post del blog %{resource_name} da
+            %{space_name}"
+          update: "%{user_name} ha aggiornato il post del blog %{resource_name} in
+            %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Ultima pubblicazione
+          name: Messaggi
+          see_all: Vedi tutti i post
+      last_activity:
+        new_post: 'Nuovo post:'
+      models:
+        post:
+          fields:
+            official_blog_post: Post ufficiale
+            published_at: Ora di pubblicazione
+            title: Titolo
+      posts:
+        index:
+          count:
+            one: "%{count} post"
+            other: "%{count} post"
+          empty: Non ci sono ancora post.
+      actions:
+        confirm_destroy: Sei sicuro di voler eliminare questo post?
+        destroy: Eliminare
+    decidim_awesome:
+      account:
+        timezone_select:
+          time_zone_helper: Utilizza il tuo fuso orario personale per visualizzare
+            le date nella tua ora locale quando hai effettuato l'accesso.
+      admin:
+        actions: Azioni
+        admin_authorizations:
+          authorization:
+            confirm_destroy: Vuoi davvero distruggere questa autorizzazione? Ciò potrebbe
+              influire sull'accesso dell'utente alla piattaforma.
+            destroy: Distruggere
+            granted_at: Concesso in data %{date}
+            metadata: Contiene metadati? %{metadata}
+          authorization_destroyed: Autorizzazione distrutta con successo.
+          authorization_not_destroyed: L'autorizzazione non poteva essere distrutta!
+          authorization_transferred: 'Attenzione: si è verificato un conflitto di
+            verifica e la verifica è stata trasferita a %{user}'
+          conflict: C'è un conflitto con un'autorizzazione esistente
+          conflict_help_html: |-
+            Devi risolvere il conflitto con l'utente %{user} prima di poter autorizzare l'utente con questa autorizzazione.
+            <br><br>
+            Un conflitto di verifica si verifica quando un altro utente ha gli stessi dati dell'utente che stai tentando di autorizzare.
+            Puoi risolvere questo conflitto rimuovendo l'autorizzazione in conflitto dall'altro utente o utilizzando dati diversi per questo utente.
+          edit:
+            authorize: Autorizza %{user} con %{name}
+            do_it_if_sure: Eseguire questa operazione solo se si è certi che l'utente
+              abbia questa autorizzazione.
+            force_verification: Verifica forzata con i dati correnti
+            force_verification_help: La verifica non è riuscita, ma puoi forzarla
+              se sei sicuro che l'utente abbia questa autorizzazione.
+            force_verification_reason: 'Fornisci un motivo per forzare la verifica:'
+            warning: 'Attenzione: forzando questa autorizzazione, si sovrascrive lo
+              stato di autorizzazione attuale dell''utente.'
+          user_authorized: "%{user} autorizzato con successo con %{name}"
+          user_not_authorized: "%{user} non è stato autorizzato con %{name}"
+        config:
+          form:
+            additional_proposal_sortings:
+              enable_all: Abilita tutte le opzioni di ordinamento aggiuntive
+              help: Queste opzioni di ordinamento sono aggiuntive a quelle predefinite.
+                Ricorda inoltre che puoi scegliere l'ordine predefinito nelle impostazioni
+                del componente proposte.
+              title: Personalizza le opzioni di ordinamento per l'elenco delle proposte
+            help:
+              allow_images_in_editors: Questo aggiungerà un'icona di caricamento delle
+                immagini in tutti gli editor WYSIWYG
+              allow_videos_in_editors: Questo aggiungerà un'icona di collegamento
+                video in tutti gli editor WYSIWYG
+              force_authorization_after_login: 'Se abilitato, gli utenti saranno reindirizzati
+                alla pagina di autorizzazione dopo l''accesso o la registrazione se
+                alcune delle autorizzazioni specificate non sono concesse. Ciò è utile
+                se si desidera forzare gli utenti a essere verificati con un''autorizzazione
+                specifica prima che possano effettuare l''accesso (ad esempio: per
+                prevenire lo spam).'
+              force_authorization_help_text: Aggiungi un testo personalizzato per
+                spiegare perché è richiesta l'autorizzazione. Assicurati anche di
+                aggiungere un metodo di contatto nel caso in cui gli utenti abbiano
+                bisogno di aiuto.
+              proposal_private_custom_fields: Simili ai campi pubblici, ma queste
+                informazioni non saranno divulgate pubblicamente (solo gli amministratori
+                potranno accedervi).
+              proposal_private_custom_fields_translations: |
+                I campi personalizzati privati vengono visualizzati in una casella distinta con questo testo informativo:
+                %{warning}
+                Questo testo può essere personalizzato con una traduzione personalizzata utilizzando la chiave:
+                %{key}
+              scoped_admin_styles: Tieni presente che nascondere le cose qui potrebbe
+                rendere l'amministratore inutilizzabile. Si prega di agire con cautela.
+              scoped_admin_styles_variables: 'È possibile utilizzare le seguenti variabili
+                CSS per personalizzare il colore dell''organizzazione:'
+              scoped_admin_styles_warning: "<strong>Attenzione</strong>: qui aggiungi
+                un CSS personalizzato che si applica solo a questa amministrazione."
+              user_timezone: Questo aggiungerà una casella di selezione nel profilo
+                utente per impostare il fuso orario. Questo verrà utilizzato per mostrare
+                date e orari nell'ora locale dell'utente.
+              verifications_html: |-
+                Qui puoi apportare alcune modifiche al processo di verifica.<br>
+                <b>NOTA:</b> Tieni presente che la modifica di queste impostazioni potrebbe impedire ad alcuni utenti di accedere alla piattaforma. Usala con cautela!<br><br>
+                Nota anche che queste impostazioni vengono applicate a tutti gli utenti. Tuttavia, gli amministratori avranno sempre accesso al backend di amministrazione.
+          form_proposal_private_custom_fields:
+            new: Aggiungi una nuova casella "campi personalizzati privati"
+            remove: Rimuovi questa casella "campi personalizzati privati"
+            sure_to_remove: Sei sicuro di voler distruggere questa casella dei campi
+              privati?
+          form_scoped_admin_styles:
+            delete: Eliminare
+            new: Aggiungi una nuova casella CSS "pannello di amministrazione"
+            remove: Rimuovi questa casella CSS
+            sure_to_remove: Sei sicuro di voler distruggere questa casella CSS?
+          form_scoped_styles:
+            new: Aggiungi una nuova casella CSS "frontend pubblico"
+          title:
+            proposal_custom_fields: 'Proposte Campi personalizzati: Campi pubblici'
+            proposal_private_custom_fields: 'Proposte Campi personalizzati: Campi
+              privati'
+            scoped_admin_styles: 'Stili personalizzati: pannello di amministrazione'
+            scoped_styles: 'Stili personalizzati: Frontend pubblico'
+            verifications: Verifiche/Hack di autorizzazione
+        maintenance:
+          private_data:
+            component: Spazio / Componente
+            confirm_delete: Vuoi davvero eliminare tutti i dati privati per questa
+              risorsa? Questa operazione non può essere annullata.
+            delete: Elimina tutto
+            destroying_private_data: I dati privati per %{title} sono destinati a
+              essere distrutti. Controlla di nuovo tra qualche minuto.
+            done: Fatto
+            help_html: |-
+              Questo strumento consente di eliminare tutti i dati privati per uno specifico spazio partecipativo o componente. Questa azione è irreversibile e rimuoverà tutti i dati privati dal database.
+              <br><br>
+              <strong>Cosa si intende per dati privati?</strong>
+              <br>
+              I dati privati sono tutte le informazioni che non sono disponibili al pubblico e sono accessibili solo agli amministratori. Questo, al momento, include le informazioni dei campi personalizzati privati.
+              <br><br>
+              <strong>Cosa succede quando elimino i dati privati?</strong>
+              <br>
+              Quando elimini i dati privati, tutte le informazioni private per lo spazio partecipativo o il componente selezionato verranno rimosse definitivamente dal database. Un registro di questa azione verrà archiviato nel sistema per scopi di controllo.
+              <br><br>
+              <strong>Cosa succede ai dati pubblici?</strong>
+              <br>
+              I dati pubblici non saranno interessati da questa azione. Verranno eliminati solo i dati privati. <br><br>
+              <strong>Esiste un tempo minimo di attesa prima di eliminare i dati privati?</strong>
+              <br>
+              Sì, non puoi eliminare i dati privati se l'ultimo aggiornamento è avvenuto meno di %{time_ago} fa. Puoi modificare questa configurazione nel file di inizializzazione.
+            items_count: Totale interessati
+            last_date: Ultimo aggiornamento
+            no_data: Nessun dato privato trovato più vecchio di %{time_ago} fa
+            not_destroyable: Questa risorsa non può ancora essere distrutta
+            removing: Rimozione...
+            time_ago: "%{time} fa"
+        menu:
+          maintenance:
+            maintenance: Manutenzione
+            private_data: Dati privati
+          verifications: Verifiche
+        menu_hacks:
+          index:
+            home_content_block_menu:
+              title: Blocco home del menu globale
+        officializations:
+          authorizations: Autorizzazioni
+          verification_modal:
+            authorizations_for: Autorizzazioni per %{user}
+            close: Vicino
+        proposal_custom_fields:
+          menu:
+            title: Campi pubblici
+          private_body: Ente privato
+          private_data_last_remove: Questi dati sono stati distrutti %{time_ago} fa.
+          private_data_last_update: Questi dati sono stati aggiornati l'ultima volta
+            %{time_ago} fa.
+          proposal_private_custom_fields: Campi privati
+          remove_private_data: "\U0001F449 Potresti volerlo rimuovere"
+        scoped_admin_styles:
+          menu:
+            title: Pannello di amministrazione
+        scoped_styles:
+          menu:
+            title: Frontend pubblico
+      admin_log:
+        component:
+          destroy_private_data: "%{user_name} ha distrutto %{count} elementi di dati
+            privati per %{resource_name} in %{space_name}"
+        user:
+          admin_creates_authorization: "%{user_name} ha verificato %{resource_name}
+            con %{handler_name}"
+          admin_destroys_authorization: "%{user_name} ha distrutto la verifica %{handler_name}
+            su %{resource_name}"
+          admin_forces_authorization: "%{user_name} ha forzato la verifica %{handler_name}
+            su %{resource_name}. Motivo: %{reason}"
+      amendments:
+        modal:
+          amendment_exists: Esiste già un emendamento
+          current_amendment_html: <p>È possibile <a href="%{amendment_link}">accedere
+            all'emendamento attuale qui</a>.</p>
+          dismiss: Ok, capito
+          explanation_html: |-
+            <p>Attualmente, è in fase di valutazione un altro emendamento per questa proposta. Per crearne uno nuovo, devi attendere che quello attuale venga accettato o respinto.</p>
+            <p>Puoi anche contattare l'autore di questa proposta <a href="%{proposal_link}">lasciando un commento</a> e provare ad accelerare la risoluzione dell'emendamento attuale.</p>
+        pending_limit_reached: Spiacenti, può esserci solo un emendamento in sospeso
+          alla volta. Attendi finché "%{emendation}" non viene accettato o rifiutato.
+      proposal_private_custom_fields_disclosure: Questa informazione non verrà pubblicata
+      required_authorizations:
+        index:
+          cancel: Lo farò un'altra volta, %{link}.
+          granted_title: Verifiche concesse
+          logout: lasciami disconnettere
+          missing_title: Non ancora verificato
+          resume_title: Verifiche in sospeso
+          resume_with_method: Riprendi la verifica con %{name}
+          title: Verifica la tua identità
+          verify_with_all_these_options: 'Si prega di verificare la propria identità
+            con tutti questi metodi prima di poter accedere alla piattaforma:'
+          verify_with_any_of_these_options: 'Verifica la tua identità con almeno una
+            di queste opzioni prima di poter accedere alla piattaforma:'
+          verify_with_method: Verifica con %{name}
+      session:
+        authorization_is_required: Per partecipare a questa piattaforma, è necessario
+          autorizzare il proprio account con un'autorizzazione valida (%{authorizations}).
+      system:
+        organizations:
+          admin_allowed_authoritzations_help_html: |-
+            Gli amministratori potranno verificare manualmente gli utenti con queste autorizzazioni.
+            <br>Utilizza questa funzione con cautela, poiché può causare problemi di sicurezza.
+          awesome_tweaks: Decidim Fantastici ritocchi
+    machine_translations:
+      automatic: traduzione automatica in %{locale_name}
+    cache_cleaner:
+      admin:
+        cache_manager:
+          index:
+            cache_activated: Cache attivata con %{cache_store}
+            cache_not_activated: La cache non è attivata
+            clear_cache: Ho capito, cancella la cache
+            confirm_destroy: Ho capito che questa azione rallenterà la mia applicazione
+              mentre rigenera la cache. Vuoi davvero cancellare la cache?
+            description: Il caching di Rails è una tecnica utilizzata per velocizzare
+              le applicazioni web memorizzando dati o calcoli a cui si accede di frequente
+              nella memoria, anziché ricalcolarli ogni volta che sono necessari. Questo
+              può essere particolarmente utile per ridurre la quantità di tempo necessaria
+              per caricare le pagine e migliorare le prestazioni complessive del sito
+              web. Quando la tua applicazione visualizza informazioni che sembrano
+              obsolete, puoi provare a cancellare la cache, ma fai attenzione, la
+              tua applicazione sarà un po' più lenta durante la rigenerazione.
+            not_clearable: La cache non è cancellabile
+            title: Gestore cache Decidim
+      cache_manager:
+        clear:
+          error: La cache non è stata cancellata
+          success: Cache cancellata con successo
+      menu:
+        cache_cleaner: Pulitore di cache
+  editor:
+    extensions:
+      image:
+        altLabel: Testo alternativo per l'immagine
+        nodeView:
+          resizer:
+            control:
+              resize: Ridimensiona immagine (%position%)
+            position:
+              bottomLeft: angolo in basso a sinistra
+              bottomRight: angolo in basso a destra
+              topLeft: angolo in alto a sinistra
+              topRight: angolo in alto a destra
+        uploadError: Caricamento del file non riuscito.
+      link:
+        bubbleMenu:
+          edit: Modificare
+          remove: Rimuovere
+          url: Indirizzo URL
+        hrefLabel: Collegamento URL
+        targetLabel: Bersaglio
+        targets:
+          blank: Nuova scheda
+          default: Predefinito (stessa scheda)
+      videoEmbed:
+        titleLabel: Titolo
+        urlLabel: URL del video
+    inputDialog:
+      buttons:
+        cancel: Cancellare
+        remove: Rimuovere
+        save: Salva
+      close: Chiudi modale
+    toolbar:
+      control:
+        blockquote: Citazione a blocchi
+        bold: Grassetto
+        bulletList: Elenco non ordinato
+        codeBlock: Blocco di codice
+        common:
+          eraseStyles: Cancella stili
+        hardBreak: Interruzione di riga
+        heading: Stile del testo
+        image: Immagine
+        indent:
+          indent: Rientro
+          outdent: Fuoriuscita
+        italic: Corsivo
+        link: Collegamento
+        orderedList: Elenco ordinato
+        underline: Sottolineare
+        videoEmbed: Incorporamento video
+      textStyle:
+        heading: Titolo %level%
+        normal: Normale
+    upload:
+      uploadedFile: File caricato
+  emojis:
+    button: Aggiungi emoji
+    categories:
+      activities: Attività
+      animals-nature: Animali e natura
+      custom: Costume
+      flags: Bandiere
+      food-drink: Cibo e bevande
+      objects: Oggetti
+      people-body: Persone e corpo
+      recents: Usato di recente
+      smileys-emotion: Emozioni e sorrisi
+      symbols: Simboli
+      travel-places: Viaggi e luoghi
+    error:
+      load: Impossibile caricare le emoji
+    recents:
+      clear: Cancella le emoji recenti
+      none: Non hai ancora selezionato nessun emoji.
+    retry: Riprova
+    search:
+      _: Cerca emoji...
+      clear: Cancella ricerca
+      error: Impossibile cercare emoji
+      not_found: Nessun risultato trovato
+  layouts:
+    decidim:
+      announcements:
+        view_less: Mostra meno
+        view_more: Ulteriori informazioni
+      data_consent:
+        details:
+          columns:
+            description: Descrizione
+            name: Nome
+            service: Servizio
+          items:
+            _session_id:
+              description: Consente ai siti web di ricordare l'utente all'interno
+                del sito quando si sposta tra le pagine.
+              service: Questo sito web
+            decidim-consent:
+              description: Memorizza informazioni sui cookie consentiti dall'utente
+                su questo sito web.
+              service: Questo sito web
+            pwaInstallPromptSeen:
+              description: Memorizza lo stato se la notifica di installazione dell'applicazione
+                web progressiva (PWA) è già stata visualizzata dall'utente.
+              service: Questo sito web
+          types:
+            cookie: Biscotto
+            local_storage: Archiviazione locale
+        dialog:
+          accept_all: Accetta tutto
+          accept_only_essential: Accetta solo l'essenziale
+          description: Utilizziamo i cookie sul nostro sito Web per migliorare le
+            prestazioni e il contenuto del sito. I cookie ci consentono di fornire
+            un'esperienza utente più individuale e canali social media.
+          settings: Impostazioni
+          title: Informazioni sui cookie utilizzati nel sito web
+        modal:
+          accept_all: Accetta tutto
+          accept_only_essential: Accetta solo l'essenziale
+          analytics:
+            description: Questi cookie vengono utilizzati per misurare e analizzare
+              l'audience del sito web per aiutarci a migliorare il sito stesso.
+            title: Analisi e statistiche
+          description: Utilizziamo i cookie per garantire le funzionalità di base
+            del sito Web e per migliorare la tua esperienza online. Puoi configurare
+            e accettare l'uso dei cookie e modificare le tue opzioni di consenso in
+            qualsiasi momento.
+          essential:
+            description: Questi cookie abilitano le funzionalità chiave del sito Web
+              e aiutano a mantenere i suoi utenti al sicuro. Vengono salvati automaticamente
+              nel browser e non possono essere disattivati.
+            title: Essenziale
+          marketing:
+            description: Questi cookie raccolgono informazioni su come utilizzi il
+              sito web e possono essere utilizzati per fornirti un marketing più personalizzato
+              sui diversi siti web che utilizzi.
+            title: Marketing
+          preferences:
+            description: Questi cookie consentono al sito web di ricordare le scelte
+              effettuate in passato su questo sito web, per offrire agli utenti un'esperienza
+              più personalizzata.
+            title: Preferenze
+          save_settings: Salva le impostazioni
+          title: Impostazioni dei cookie
+          toggle: Attiva/disattiva %{consent_category}
+        warning:
+          all_categories: tutti i cookie
+          change_settings: Modifica le impostazioni dei cookie
+          consent_required: Devi abilitare %{categories} per poter vedere questo contenuto.
+      footer:
+        data_consent_settings: Impostazioni dei cookie
+        decidim_title: Decidere
+        resources: Risorse
+        terms_and_conditions: Termini e Condizioni
+      offline_banner:
+        cache_version_page: Oooops! La tua rete è offline. Questa è una versione precedentemente
+          memorizzata nella cache della pagina che stai visitando, forse il contenuto
+          non è aggiornato.
+      shared:
+        layout_item:
+          next: Elemento successivo
+          prev: Elemento precedente
+      social_media_links:
+        x: "%{organization} presso X"
+      timeout_modal:
+        log_out: Esci
+      user_menu:
+        configuration: Configurazione
+        log_out: Esci
+      user_profile:
+        profile: Profilo
+      system:
+        login_items:
+          logout: Esci
+      assemblies:
+        metadata:
+          children_item:
+            one: "%{count} assemblaggio"
+            other: "%{count} assemblee"
+      decidim_awesome:
+        admin:
+          maintenance:
+            title: 'Strumenti di manutenzione: %{title}'
+            titles:
+              checks: Controlli di compatibilità del sistema
+              private_data: Pulizia dei dati privati
+      navigation:
+        aria_label: Menu di navigazione- %{title}
+  password_validator:
+    denied: è negato
+    password_repeated: non è possibile riutilizzare la vecchia password
+  social_share_button:
+    x: X
+  versions:
+    dropdown:
+      toggle: Attiva/disattiva la visualizzazione
+  hello: Ciao mondo

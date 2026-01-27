@@ -1,0 +1,286 @@
+---
+it:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Nome dell'applicazione OAuth
+        organization_logo: Logo dell'organizzazione (quadrato)
+        organization_name: Organizzazione
+        organization_url: URL dell'organizzazione
+        redirect_uri: URI di Reindirizzamento
+      organization:
+        address: Server SMTP
+        from_email: Indirizzo email
+        from_label: Etichetta
+        password: Password
+        port: Porta
+        user_name: Pseudonimo
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Tipi MIME di amministrazione
+          default: Tipi MIME predefiniti
+        allowed_file_extensions:
+          admin: Estensioni file amministratore
+          default: Estensioni di file predefinite
+          image: Estensioni file immagine
+        maximum_file_size:
+          avatar: Dimensioni dell'immagine avatar
+          default: Dimensione predefinita del file
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: L'URI di reindirizzamento deve essere un URI SSL
+        organization:
+          attributes:
+            password:
+              secret_key: È necessario definire la variabile d'ambiente SECRET_KEY_BASE per poter salvare questo campo
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Sei sicuro di voler cancellare?
+        destroy: Elimina
+        edit: Modifica
+        new_admin: Nuovo Amministratore
+        new_oauth_application: New OAUTH application
+        new_organization: Nuova Organizzazione
+        save: Salva
+        title: Azioni
+      admins:
+        create:
+          error: C'è stato un errore durante la creazione del nuovo utente con profilo Admin.
+          success: L'Amministratore è stato creato con successo.
+        destroy:
+          success: L'Amministratore é stato cancellato con successo.
+        edit:
+          title: Modifica Admin
+          update: Aggiorna
+        index:
+          title: Amministratori
+        new:
+          create: Crea
+          title: Nuovo Amministratore
+        update:
+          error: E' successo un errore durante la modifica di questo utente Admin.
+          success: Admin successfully updated.
+      dashboard:
+        show:
+          admins: Amministratori
+          current_organizations: Organizzazioni attuali
+      default_pages:
+        placeholders:
+          content: Si prega di aggiungere contenuto significativo alla pagina statica %{page} il pannello di amministrazione.
+          summary: Si prega di aggiungere contenuto significativo alla pagina statica %{page} sul pannello di amministrazione.
+          title: Titolo predefinito per %{page}
+        terms-of-service: Termini di servizio
+      devise:
+        passwords:
+          edit:
+            change_your_password: Cambia la tua password
+            minimum_characters: "(%{minimum} caratteri minimi)"
+          new:
+            forgot_your_password: Hai dimenticato la password
+            send_me_reset_password_instructions: Inviami le istruzioni per reimpostare la password
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Non hai ricevuto le istruzioni di conferma?
+            did_not_receive_unlock_instructions?: Non hai ricevuto le istruzioni di sblocco?
+            forgot_your_password?: Hai dimenticato la password?
+            log_in: Accedi
+            sign_up: Registrati
+      menu:
+        admins: Amministratori
+        dashboard: Cruscotto
+        oauth_applications: Applicazioni OAuth
+        organizations: Organizzazioni
+      models:
+        admin:
+          fields:
+            created_at: Data/ora di creazione
+            email: E-mail
+          validations:
+            email_uniqueness: Esiste già un utente Admin con l'email che hai indicato.
+        oauth_application:
+          fields:
+            created_at: Data/ora di creazione
+            name: Nome dell'applicazione OAuth
+            organization_name: Organizzazione
+        organization:
+          actions:
+            save_and_invite: Crea una nuova organizzazione e invita un utente Admin
+          fields:
+            content_security_policy: Content security policy (CSP)
+            created_at: Data/ora di creazione
+            file_upload_settings: Impostazioni di caricamento file
+            name: Nome
+            omniauth_settings: Impostazioni Omniauth
+            smtp_settings: Impostazioni SMTP
+      oauth_applications:
+        create:
+          error: Si è verificato un errore durante la creazione di questa applicazione.
+          success: Applicazione creata correttamente.
+        destroy:
+          error: C'è stato un errore nella distruzione di questa applicazione.
+          success: Applicazione eliminata correttamente.
+        edit:
+          save: Salva
+          title: Modifica l'applicazione
+        form:
+          select_organization: Seleziona un'organizzazione
+        index:
+          confirm_delete: Sei sicuro di voler cancellare questa applicazione?
+          title: Applicazioni OAuth
+        new:
+          save: Salva
+          title: Nuova applicazione
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questa applicazione.
+          success: Applicazione aggiornata correttamente.
+      organizations:
+        advanced_settings:
+          hide: Nascondi impostazioni avanzate
+          show: Mostra impostazioni avanzate
+        create:
+          error: C'è stato un errore durante la creazione di una nuova organizzazione.
+          error_invitation: Si è verificato un problema durante la creazione di una nuova organizzazione. Controlla il nome dell'amministratore dell'organizzazione.
+          success_html: |
+            <p>
+              Organization successfully created.
+            </p>
+            <ol>
+              <li>You may need to update your application code, as to allow requests to %{host} you need to add the following to your
+              environment configuration (i.e. <code>config/environment/production.rb</code>) or your <code>config/application.rb</code>:
+                <p> config.hosts << "%{host}" </p>
+              </li>
+              <li>
+                After that is done, you will be able to access to your platform through <a href="http://%{host}">http://%{host}</a>
+              </li>
+              <li>
+                We have sent an email to <b>%{email}</b> that you need to confirm.
+              </li>
+            </ol>
+        csp_settings:
+          connect_src: Connect-src
+          connect_src_hint: |
+            La direttiva connect-src limita gli URL che possono essere caricati utilizzando gli elementi <script>.
+            La piattaforma aggiungerà 'self', ma ti permette di aggiungere di più. 
+            Lascia il campo vuoto se non sei sicuro.
+          default_src: Default src
+          default_src_hint: |
+            La direttiva default-src è il criterio predefinito per caricare contenuti come JavaScript, Immagini, CSS, Caratteri, richieste AJAX, Frames, Media HTML5.
+            La piattaforma aggiungerà "'self' ''unsafe-inline'", ma ti permette di aggiungerne di più. 
+            Lascia il campo vuoto se non sei sicuro.
+          font_src: Font src
+          font_src_hint: |
+            La direttiva font-src limita gli URL che possono essere caricati usando @font-face.
+            La piattaforma aggiungerà 'self', ma ti permette di aggiungere di più. 
+            Lascialo il campo vuoto se non sei sicuro.
+          frame_src: Frame src
+          frame_src_hint: |
+            La direttiva frame-src limita gli URL che possono essere caricati utilizzando gli elementi <frame>, <iframe> e <object>.
+            La piattaforma aggiungerà 'self', ma ti permette di aggiungere di più. 
+            Lascia il campo vuoto se non sei sicuro.
+          img_src: Img src
+          img_src_hint: |
+            La direttiva img-src limita gli URL che possono essere caricati utilizzando gli elementi <img>, <image>, <picture> e <svg>.
+            La piattaforma aggiungerà 'self', ma ti permette di aggiungere di più. 
+            Lascia il campo vuoto se non sei sicuro.
+          media_src: Media src
+          media_src_hint: |
+            La direttiva media-src limita gli URL che possono essere caricati utilizzando gli elementi <video>, <audio> e <source>.
+            La piattaforma aggiungerà 'self', ma ti permette di aggiungere di più. 
+            Lascia il campo vuoto se non sei sicuro.
+          script_src: Script src
+          script_src_hint: |
+            La direttiva script-src limita gli URL che possono essere caricati usando gli elementi <script>.
+            La piattaforma aggiungerà "'self' ''unsafe-inline' 'unsafe-eval'", ma ti permette di aggiungerne di più. 
+            Lascia il campo vuoto se non sei sicuro.
+          style_src: Style src
+          style_src_hint: |
+            The style-src directive restricts the URLs which can be loaded using <style> elements.
+            The platform will add "'self' 'unsafe-inline'", but allows you to add more. leave it blank if you are unsure.
+        edit:
+          confirm_resend_invitation: Sei sicuro di voler inviare nuovamente l'invito?
+          resend_invitation: Manda di nuovo l'invito
+          secondary_hosts_hint: Inserisci ciascun elemento in una nuova linea
+          title: Modifica l'organizzazione
+        file_upload_settings:
+          content_types:
+            admin_hint: Questi tipi MIME sono consentiti per i caricamenti della sezione Admin. Gli utenti di amministrazione dovrebbero essere consapevoli dei rischi con il caricamento di alcuni formati di documento, così puoi aspettarti che siano più cauti con i file caricati.
+            default_hint: Questi tipi MIME sono consentiti per tutti gli utenti come impostazione predefinita.
+            intro_html: Si aggiungono caratteri jolly con il carattere asterisco per i tipi MIME, ad esempio <code>immagine/*</code>.
+            title: Tipi MIME consentiti
+          file_extensions:
+            admin_hint: Questi tipi MIME sono consentiti per il caricamento nella sezione Admin. Gli utenti amministratori dovrebbero essere consapevoli dei rischi nel caricamento di alcuni formati particolari di documenti, così puoi aspettarti che siano più cauti con il caricamento di file.
+            default_hint: Queste estensioni di file sono consentite per tutti gli utenti come impostazione predefinita.
+            image_hint: Queste estensioni di file sono consentite per il caricamento delle immagini.
+            title: Estensioni di file consentite
+          file_sizes:
+            avatar_hint: Megabyte (MB). Questo è il limite di dimensione del file per il caricamento dell'immagine avatar.
+            default_hint: Megabyte (MB). Questo è il limite di dimensione del file predefinito per tutti i file da caricare se non diversamente specificato.
+            title: Dimensioni massime dei file
+          intro: |
+            Modificare con cautela. Meno estensioni sono ammesse, meglio è.
+            Consentire estensioni di file o tipi MIME specifici può esporre gli utenti del sistema a rischi per la sicurezza e può anche influenzare l'accessibilità del sito web.
+        index:
+          title: Organizzazioni
+        new:
+          default: Predefinito?
+          enabled: Abilitato
+          locale: Localizzazione
+          organization_admin_email_hint: Invieremo un'email a questo indirizzo in modo da poterlo confermare e configurare la tua password.
+          reference_prefix_hint: Il prefisso di riferimento è utilizzato solamente per identificare le risorse in tutte le organizzazioni.
+          secondary_hosts_hint: Inserisci ciascun elemento in una nuova linea.
+          title: Nuova Organizzazione
+        omniauth_settings:
+          decidim:
+            client_id: Client ID
+            client_secret: Client secret
+            site_url: URL del sito
+          enabled: Abilitato
+          enabled_by_default: Questo provider è abilitato di default. Può essere modificato ma non disabilitato.
+          facebook:
+            app_id: ID App
+            app_secret: App secret
+          google_oauth2:
+            client_id: Client ID
+            client_secret: Client secret
+          icon: Icona
+          icon_path: Percorso icona
+          twitter:
+            api_key: API Key
+            api_secret: API secret
+        resend_invitation:
+          error: Si è verificato un problema durante l'invio dell'invito.
+          success: Invito inviato con successo.
+        smtp_settings:
+          fieldsets:
+            sender: Mittente
+          instructions:
+            from_label: 'Il mittente email sarà: "nome-della-tua-organizzazione <your-organization@example.org>". Lascia vuoto per usare ''Indirizzo email'' come etichetta.'
+          placeholder:
+            from_email: your-organization@example.org
+            from_label: nome-della-tua-organizzazione
+        update:
+          error: C'è stato un errore durante l'aggiornamento di questa organizzazione.
+          success: OK, l'Organizzazione è stata aggiornata.
+        users_registration_mode:
+          disabled: L'accesso può essere fatto solo con account esterni
+          enabled: Permetti agli utenti di registrarsi e accedere
+          existing: Non consentire agli utenti di registrarsi, ma consentire agli utenti esistenti di accedere
+      shared:
+        notices:
+          no_organization_warning_html: È necessario creare un'organizzazione per iniziare. Assicurati di leggere %{guide} prima di procedere.
+          our_getting_started_guide: La nostra guida iniziale
+        organizations_list:
+          confirm_resend_invitation: Sei sicuro di voler inviare nuovamente l'invito?
+          resend_invitation: Resend invitation
+      titles:
+        dashboard: Cruscotto
+        decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Logout

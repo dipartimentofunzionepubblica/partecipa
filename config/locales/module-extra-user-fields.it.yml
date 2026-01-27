@@ -1,0 +1,87 @@
+---
+it:
+  activemodel:
+    attributes:
+      user:
+        country: Paese
+        date_of_birth: Data di nascita
+        gender: Sesso
+        location: Luogo
+        phone_number: Numero di telefono
+        postal_code: Codice postale
+        personal_name: Nome
+        surname: Cognome
+  decidim:
+    admin:
+      actions:
+        export: Export
+      exports:
+        export_as: Export %{export_format}
+      extra_user_fields:
+        menu:
+          title: Gestisci campi extra
+    components:
+      extra_user_fields:
+        name: ExtraUserFields
+    extra_user_fields:
+      admin:
+        exports:
+          users: Partecipanti
+        extra_user_fields:
+          fields:
+            country:
+              description: Questo campo contiene una lista di Paesi. Se selezionato l'utente deve selezionare un Paese.
+              label: Abilita campo Paese
+            date_of_birth:
+              description: Questo campo è un campo data. Se selezionato l'utente dovrà registrarsi con la data di nascita usando un Date Picker.
+              label: Abilita il campo Data di Nascita
+            gender:
+              description: Questo campo è una lista di generi. Se selezionata l'utente dovrà selezionare un genere.
+              label: Abilita il campo Genere
+            location:
+              description: Questo campo è un campo stringa. Se selezionato l'utente dovrà inserire il luogo. 
+              label: Abilita il campo Luogo
+            phone_number:
+              description: Questo campo è un campo per inserimento del numero di telefono. Se selezionato l'utente lo dovrà inserire.
+              label: Abilita il campo numero di telefono
+              pattern: Modello di validazione del numero di telefono (regexp)
+              pattern_help_html: Copia questa espressione regolare <code class="label">^(\+34|0034|34)?[
+                -]*[6-9][ -]*([0-9][ -]*){8}$</code> per validare questo formato del numero di telefono
+                +34999111222. You can review and check the regular expression <a href="https://rubular.com/r/dJZGjlLIadxElo"
+                target="_blank">qui</a>.
+              placeholder: Segnaposto del Numero di Telefono
+            postal_code:
+              description: Questo campo è un campo stringa. Se selezionato l'utente dovrà inserire il codice postale.
+              label: Abilita il campo Codice Postale
+            personal_name:
+              description: Questo campo contiene il Nome dell'utente
+              label: Abilita il campo Nome
+            surname:
+              description: Questo campo contiene il Cognome dell'utente
+              label: Abilita il campo Cognome
+          form:
+            callout:
+              help: Abilita la funzionalità dei campi extra custom.
+            extra_user_fields:
+              extra_user_fields_enabled: Abilita campi extra custom
+              section: Campi extra custom disponibili per il form di registrazione
+            global:
+              title: Attiva / disattiva funzionalità 
+          index:
+            save: Salva la configurazione
+            title: Gestisci campi extra custom
+          update:
+            failure: C'è stato un errore durante l'aggiornamento
+            success: Campi extra custom aggiornati
+      genders:
+        female: Femmina
+        male: Maschio
+        other: Altro
+      profile_form:
+       personal_name_help: Il Nome dell'utente, non visibile per gli altri utenti.
+       surname_help: Il Cognome dell'utente, non visibile per gli altri utenti.
+      registration_form:
+        personal_name_help: Il Nome dell'utente, non visibile per gli altri utenti.
+        signup:
+          legend: Informazioni personali aggiuntive
+        surname_help: Il Cognome dell'utente, non visibile per gli altri utenti.

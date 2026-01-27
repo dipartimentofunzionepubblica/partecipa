@@ -1,0 +1,8 @@
+it:
+  decidim:
+    authorization_handlers:
+      sardegnapartecipa_identity:
+        name: "SPID"
+        explanation: "Migrazione account decidim verso account SPID"
+        title: Migrazione account
+        description: Il tuo account Decidim verrà associato al tuo account SPID. Le tue credenziali saranno disattivate e potrai continuare ad accedere con il tuo account SPID.
