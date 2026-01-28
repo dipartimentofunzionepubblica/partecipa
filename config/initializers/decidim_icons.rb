@@ -6,4 +6,11 @@ Rails.application.config.to_prepare do
     description: "Icona per login SPID", 
     engine: :core
   )
+  Decidim.icons.register(
+    name: "book", 
+    icon: "book", 
+    category: "system", 
+    description: "", 
+    engine: :core
+  )
 end

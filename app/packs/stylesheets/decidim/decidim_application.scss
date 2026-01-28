@@ -1,0 +1,137 @@
+// This is a file that can be overridden by the application in order to override styles
+// Notice that this file is included at the very end of the stylesheets packs to have
+// more priority
+//
+// To override the Tailwind CSS configuration you can do so by following the instructions
+// available at https://docs.decidim.org/en/develop/customize/styles.html#_tailwind_css
+//
+// By default this is empty.
+
+// elimina il link preferences dal menù
+
+[data-id="preferences"]{
+   display: none;
+}
+
+#dropdown-menu-profile > li:nth-child(4){
+   display: none;
+}
+
+.filter-container{
+   display: none;
+}
+
+// aumenta il font della scritta centrale in HP dentro l'immagine Hero
+
+@media (min-width: 768px) {
+    .hero__title {
+      text-align: center;
+      font-size: 90px;
+      line-height: 60px;
+      font-weight: 700;
+      --tw-text-opacity: 1;
+      color: rgb(255 255 255 / 1);
+    }
+}
+
+// dentro la modal dei cookies elimina bottoni
+
+#dc-modal-accept{
+   display: none;
+}
+
+#dc-modal-reject{
+   display: none;
+}
+
+#dc-dialog-reject{
+   display: none;
+}
+
+// dentro l'header nella main bar in alto modifica il colore usando il secondary
+
+  .header .main-bar {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    background-color: rgb(var(--secondary-rgb));
+  }
+
+// dentro l'header nella main bar modifica il colore usando il secondary
+
+  .main-bar__container {
+    position: relative;
+    width: 100%;
+    background-color: rgb(var(--secondary-rgb));
+  }
+
+// dentro l'header nella main bar a destra modifica i link 
+
+  .main-bar__links-desktop__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.25rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    --tw-text-opacity: 1;
+    color: white !important;
+  }
+
+// dentro l'header nella main bar a destra modifica i link
+  
+  .main-bar__links-desktop__item:hover {
+    color: rgb(var(--secondary-rgb)) !important;
+  }
+
+  .main-bar__links-desktop__item {
+    font-color: rgb(var(--secondary-rgb));
+  }
+
+  svg {
+    width: 1.0em;
+    height: 1.0em;
+    fill: black;
+  }
+
+  .header .main-bar__logo {
+    grid-column: span 2 / span 2;
+  }
+ 
+  .main-bar__logo > a > span {
+    color: white;
+    font-weight: 600;
+    font-size: 32px;
+    font-family: 'Titillium Web';
+    text-decoration: none;
+    box-shadow: none;
+    //background-image: url('https://partecipa.cittametropolitanaroma.it/decidim-packs/media/images/logo_tratto_contrasto-trasparente-2fc72741e9101ffd286c.png');
+    background-repeat: no-repeat;
+    padding-left: 60px !important;
+    display: block;
+    height: 100px;
+    background-size: 52px 82px;
+  }
+
+  header .main-bar__logo :where(a):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+    text-decoration: none;
+  }
+
+  .top_header {
+    background-color: #0059B3;
+    height: 48px;
+    padding-left: 110px;
+    padding-top: 10px;
+  }
+
+  .top_header_link {
+    font-family: 'Titillium Web';
+    font-size: 14px;
+    font-weight: 300;
+    //padding-top: 12px;
+    //padding-bottom: 12px;
+    color: white;
+  }
+
+
+
