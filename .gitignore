@@ -8,6 +8,7 @@
 public
 public/sw.js*
 public/sw.js.map*
+*.swp
 
 # Ignore bundler config.
 /.bundle
