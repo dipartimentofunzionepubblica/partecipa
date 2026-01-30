@@ -231,3 +231,8 @@ $color-removal: #ffeef0 !default;
     //--tw-bg-opacity: 1;
     background-color: rgb($par-light-blue-rgb...) !important;
   }
+
+// decoratore dei titoli, piccola mezzaluna che sta sotto le iniziali del titolo
+  .title-decorator {
+    display: none;
+  }
