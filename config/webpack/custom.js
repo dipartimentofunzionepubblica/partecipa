@@ -15,7 +15,8 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules\/(?!tributejs)/,
+        // Includi esplicitamente @decidim nella compilazione
+        exclude: /node_modules\/(?!(tributejs|@decidim)\/)/,
         loader: "babel-loader"
       },
       {
@@ -84,6 +85,7 @@ module.exports = {
   // https://github.com/rails/webpacker/issues/2932
   // As Decidim uses multiple packs, we need to enforce a single runtime, to prevent duplication
   optimization: {
+    minimize: false,
     minimizer: [
       new TerserPlugin({
         parallel: Number.parseInt(process.env.SHAKAPACKER_PARALLEL, 10) || true,

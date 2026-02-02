@@ -28,16 +28,6 @@ GIT
       decidim-admin (~> 0.28.0)
       decidim-core (~> 0.28.0)
 
-GIT
-  remote: https://github.com/sgruhier/foundation_rails_helper.git
-  revision: bc33600db7a2d16ce3cdc1f8369d0d7e7c4245b5
-  specs:
-    foundation_rails_helper (4.0.1)
-      actionpack (>= 4.1, < 7.1)
-      activemodel (>= 4.1, < 7.1)
-      activesupport (>= 4.1, < 7.1)
-      railties (>= 4.1, < 7.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -282,11 +272,6 @@ GEM
     decidim-debates (0.28.6)
       decidim-comments (= 0.28.6)
       decidim-core (= 0.28.6)
-    decidim-decidim_awesome (0.11.4)
-      decidim-admin (>= 0.28.0, < 0.29)
-      decidim-core (>= 0.28.0, < 0.29)
-      deface (>= 1.5)
-      sassc (~> 2.3)
     decidim-dev (0.28.6)
       bullet (~> 7.0)
       byebug (~> 11.0)
@@ -404,7 +389,6 @@ GEM
     escape_utils (1.2.2)
     excon (1.3.2)
       logger
-    execjs (2.10.0)
     extended-markdown-filter (0.7.0)
       html-pipeline (~> 2.9)
     factory_bot (6.5.6)
@@ -437,6 +421,11 @@ GEM
       fog-core (>= 1.27, < 3.0)
     formatador (1.2.3)
       reline
+    foundation_rails_helper (4.0.1)
+      actionpack (>= 4.1, < 7.1)
+      activemodel (>= 4.1, < 7.1)
+      activesupport (>= 4.1, < 7.1)
+      railties (>= 4.1, < 7.1)
     gemoji (3.0.1)
     geocoder (1.8.6)
       base64 (>= 0.1.0)
@@ -806,8 +795,6 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    sassc (2.4.0)
-      ffi (~> 1.9)
     selenium-webdriver (4.32.0)
       base64 (~> 0.2)
       logger (~> 1.4)
@@ -861,8 +848,6 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uber (0.1.0)
-    uglifier (4.2.1)
-      execjs (>= 0.3.0, < 3)
     unicode-display_width (2.6.0)
     uniform_notifier (1.18.0)
     uri (1.1.1)
@@ -911,7 +896,6 @@ GEM
       ostruct
     wisper (2.0.1)
     wisper-rspec (1.1.0)
-    wkhtmltopdf-binary (0.12.6.10)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     xray-rails (0.3.3)
@@ -929,7 +913,6 @@ DEPENDENCIES
   daemons
   decidim (= 0.28.6)
   decidim-cache_cleaner
-  decidim-decidim_awesome
   decidim-dev (= 0.28.6)
   decidim-privacy!
   decidim-pua!
@@ -939,11 +922,9 @@ DEPENDENCIES
   delayed_job_active_record
   faker (< 3.6.0)
   figaro
-  foundation_rails_helper!
   letter_opener_web
   listen
   lograge
-  mini_portile2
   parallel_tests
   pg
   puma
@@ -952,14 +933,12 @@ DEPENDENCIES
   simplecov
   spring
   spring-watcher-listen
-  uglifier
   web-console
   wicked_pdf
-  wkhtmltopdf-binary
   xray-rails
 
 RUBY VERSION
-   ruby 3.1.0p0
+   ruby 3.1.1p18
 
 BUNDLED WITH
    2.3.9

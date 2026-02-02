@@ -13,4 +13,10 @@ Rails.application.config.to_prepare do
     description: "", 
     engine: :core
   )
+  Decidim.icons.register(
+    name: "data-transfer-download", 
+    icon: "data-transfer-download", 
+    category: "system", 
+    description: "", 
+  engine: :core)
 end
