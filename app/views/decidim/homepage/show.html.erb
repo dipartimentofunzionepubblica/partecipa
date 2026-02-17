@@ -1,0 +1,40 @@
+<%#
+Copyright (C) 2026 Formez PA
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+
+This file is meant to be overriden by the app developers in order to include extra headers like tracking, error handling and such.
+
+Modificata per aggiungere un controllo sulla visualizzazione dei flash_messages che in questo modo risultano spostati sotto il menù principale in HP
+%>
+<%
+  edit_link(
+    decidim_admin.edit_organization_path,
+    :update,
+    :organization,
+    organization: current_organization
+  )
+%>
+
+<main class="home">
+  <% Decidim::ContentBlock.published.for_scope(:homepage, organization: current_organization).each do |content_block| %>
+    <% next unless content_block.manifest %>
+
+    <%= cell content_block.manifest.cell, content_block %>
+
+    <% if content_block.manifest.name.to_s == "global_menu" %>
+      <div class="row column">
+        <% if display_flash_messages.present? %>
+          <div class="container">
+            <%= display_flash_messages %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  
+  <% end %>
+</main>

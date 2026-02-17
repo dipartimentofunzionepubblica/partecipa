@@ -1,0 +1,43 @@
+<%#
+Copyright (C) 2026 Formez PA
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+
+Modificato per spostare in basso il container dei flash messages che veniva visualizzato sopra la barra dei menù vedi anche la app/views/decidim/homepage/show.html.erb
+%>
+<%
+if respond_to?(:current_component) && current_component && can_be_managed?(current_component)
+  edit_link(
+    manage_component_path(current_component),
+    :read,
+    :component,
+    component: current_component,
+    current_participatory_space:
+  )
+end
+%>
+
+<div class="layout-container">
+  <header>
+    <%= render partial: "layouts/decidim/admin_links" if current_user && allowed_to?(:read, :admin_dashboard) %>
+    <%= render partial: "layouts/decidim/header/main" %>
+    <%= render partial: "layouts/decidim/header/menu" unless controller_name == "homepage" %>
+    <% unless @skipped_flash_in_layout || current_page?(decidim.root_path) %>
+      <%= display_flash_messages %>
+    <% end %>
+  </header>
+
+  <div id="content" data-content>
+    <%= yield %>
+    
+  </div>
+
+  <footer>
+    <%= render partial: "layouts/decidim/footer/main" %>
+    <%= render partial: "layouts/decidim/footer/mini" %>
+  </footer>
+</div>

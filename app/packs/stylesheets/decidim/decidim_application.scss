@@ -165,19 +165,24 @@ $color-removal: #ffeef0 !default;
 
 // dentro l'header nella main bar a destra modifica i link
   
-  .main-bar__links-desktop__item:hover {
-    color: rgb($par-blue-rgb...) !important;
-  }
-
+  
   .main-bar__links-desktop__item {
     font-color: rgb(var(--secondary-rgb));
   }
+  
+ .main-bar__links-desktop__item:hover {
+    color: rgb($par-blue-rgb...) !important;
+  }
+
+// le icone sono nere
 
   svg {
     width: 1.0em;
     height: 1.0em;
     fill: black;
   }
+
+// la grandezza del logo
 
   .header .main-bar__logo {
     grid-column: span 2 / span 2;
@@ -187,11 +192,9 @@ $color-removal: #ffeef0 !default;
     color: white;
     font-weight: 600;
     font-size: 32px;
-    //font-family: 'Titillium Web';
     text-decoration: none;
     box-shadow: none;
     background-repeat: no-repeat;
-    //padding-left: 60px !important;
     display: block;
     height: 100px;
     background-size: 52px 82px;
@@ -214,14 +217,42 @@ $color-removal: #ffeef0 !default;
     color: white;
   }
    
-//home menu solo in HP 
+// HOME MENU SOLO IN HP 
   
   .home__menu {
-    //--tw-bg-opacity: 1;
     background-color: rgb($par-light-blue-rgb...) !important;
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
+
+  .home__menu__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding-left: 6rem;
+  }
+
+  .home__menu-element--link {
+    width: 100%;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / 1);
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+    text-transform: uppercase;
+  }
+
+// FINE HOME MENU SOLO IN HP 
+
 
 // menu con breadcrumb nelle pagine successive alla HP
 
@@ -236,3 +267,55 @@ $color-removal: #ffeef0 !default;
   .title-decorator {
     display: none;
   }
+
+// FOOTER
+
+  footer .main-footer {
+    background-color: rgb($par-blue-rgb...) !important;
+  }
+  
+  // contenitore link a siti istituzionali esterni
+  
+  .added-links-footer {
+    width: 100%;
+  }
+  
+  // immagini link a siti istituzionali esterni
+  
+  .added-links-footer-logos {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between !important;
+    gap: 1.5rem;
+
+  a {
+    display: block;
+    flex-shrink: 0;
+  }
+
+  img {
+    height: 50px;
+    width: auto;
+    display: block;
+  }
+}
+
+// FINE FOOTER
+
+// MENU CONTESTUALE A PARTIRE DAI PROCESSI E ASSEMBLEE
+  @media (min-width: 1024px) {
+    .menu-bar__main-dropdown {
+      width: 640px !important;
+    }
+  }
+
+  @media (min-width: 768px) {
+    header .menu-bar__main-dropdown__menu {
+      width: 100% !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+// FINE MENU CONTESTUALE A PARTIRE DAI PROCESSI E ASSEMBLEE
