@@ -12,20 +12,19 @@
 $par-medium-green:		#297a4d;
 $par-medium-green-rgb:  60,179,113;
 $par-white: 				#fff;
-$par-white-rgb:				255,255,255;
 $par-light-blue:			#0059B3;
 $par-light-blue-rgb:		0,89,179;
 $par-blue:					#003183;
 $par-blue-rgb:				0,49,131;
 $par-dark-grey:				#0D0D0D;
-$par-dark-grey-rgb:			96,96,96;
 $par-black:					#000000;
-$par-black-rgb:				0,0,0;
 $par-darkorange: 			#a51d2d;
 $par-darkgreen:             #006400;
+
 $light-gray: #eee;
 $medium-gray: #e8e8e8;
 $light-gray-dark: darken($light-gray, 2.5);
+
 $global-radius: 4px;
 $border-width: 1px !default;
 $border: $border-width solid $medium-gray !default;
@@ -33,20 +32,15 @@ $grid-column-gutter: (
   small: 20px,
   medium: 30px,
 );
+
 $body-font-color: #3d393c;
 
 $primary: $par-blue;
-$primary-rgb: $par-blue-rgb;
 $secondary: $par-medium-green;
-$secondary-rgb: $par-medium-green-rgb;
 $tertiary: $par-medium-green;
-$tertiary-rgb: $par-medium-green-rgb;
 $success: #57d685 !default;
-$success-rgb: 87,214,133 !default;
 $warning: #ffae00 !default;
-$warning-rgb: 255,174,0 !default;
 $alert: #ec5840 !default;
-$alert-rgb: 236,88,64 !default;
 
 $highlight: #be6400 !default;
 $highlight-rgb: 190,100,0 !default;
@@ -68,24 +62,63 @@ $color-removal: #ffeef0 !default;
 
 // Define custom properties as css color variables
 
-:root {
-  /* Colori HEX per bordi e testi pieni */
-  --primary: #{$primary} !important;
-  --secondary: #{$secondary} !important;
-  --tertiary: #{$tertiary} !important;
-  --success: #{$success} !important;
-  --warning: #{$warning} !important;
-  --error: #{$alert} !important;
+// --- DEFINE CUSTOM PROPERTIES AS CSS COLOR VARIABLES ---
+// Nota: Usiamo lo spazio invece della virgola per le variabili -rgb per compatibilità con Tailwind 3 (Decidim 0.28)
 
-  /* Colori RGB per sfondi con opacità (Senza virgole!) */
+:root {
+  /* PRIMARY (Blue) */
+  --primary: #{$primary} !important;
   --primary-rgb: #{red($primary)} #{green($primary)} #{blue($primary)} !important;
+  --primary-600: #{$primary} !important;
+  --primary-700: #{$primary} !important; //#{darken($primary, 10%)} !important;
+
+  /* SECONDARY (Green) */
+  --secondary: #{$secondary} !important;
   --secondary-rgb: #{red($secondary)} #{green($secondary)} #{blue($secondary)} !important;
+  --secondary-600: #{$secondary} !important;
+  --secondary-700: #{$secondary} !important; //#{darken($secondary, 10%)} !important;
+
+  /* TERTIARY */
+  --tertiary: #{$tertiary} !important;
   --tertiary-rgb: #{red($tertiary)} #{green($tertiary)} #{blue($tertiary)} !important;
+  --tertiary-600: #{$tertiary} !important;
+  --t: #{$tertiary} !important; // Abbreviazione usata in alcuni moduli Decidim
+
+  /* SUCCESS */
+  --success: #{$success} !important;
   --success-rgb: #{red($success)} #{green($success)} #{blue($success)} !important;
+  --success-600: #{$success} !important;
+  --success-700: #{$success} !important; //#{darken($success, 10%)} !important;
+
+  /* WARNING */
+  --warning: #{$warning} !important;
   --warning-rgb: #{red($warning)} #{green($warning)} #{blue($warning)} !important;
+  --warning-600: #{$warning} !important;
+
+  /* ERROR / ALERT (Mapping su --error per v0.28) */
+  --error: #{$alert} !important;
   --error-rgb: #{red($alert)} #{green($alert)} #{blue($alert)} !important;
+  --error-600: #{$alert} !important;
+  --error-700: #{$alert} !important; //#{darken($alert, 10%)} !important;
+  --alert: #{$alert} !important;
+
+  /* HIGHLIGHTS */
+  --highlight: #{$highlight} !important;
+  --highlight-rgb: #{red($highlight)} #{green($highlight)} #{blue($highlight)} !important;
+  --highlight-alternative: #{$highlight-alternative} !important;
+  --highlight-alternative-rgb: #{red($highlight-alternative)} #{green($highlight-alternative)} #{blue($highlight-alternative)} !important;
+
+  /* SOCIAL & COMPONENTS */
+  --proposals: #{$proposals} !important;
+  --actions: #{$actions} !important;
+  --debates: #{$debates} !important;
+  --meetings: #{$meetings} !important;
+  --twitter: #{$twitter} !important;
+  --facebook: #{$facebook} !important;
+  --google: #{$google} !important;
 }
 
+// IMMAGINE HERO
 
 // aumenta il font della scritta centrale in HP dentro l'immagine Hero
 
@@ -99,6 +132,10 @@ $color-removal: #ffeef0 !default;
       color: rgb(255 255 255 / 1);
     }
 }
+
+// FINE IMMAGINE HERO
+
+// COOKIES
 
 // dentro la modal dei cookies elimina bottoni non necessari
 
@@ -114,11 +151,85 @@ $color-removal: #ffeef0 !default;
    display: none;
 }
 
+// FINE COOKIES
+
+// BOTTONE DELLA SEARCH
+
+#form-search_topbar {
+  display: flex !important;           // Forza l'allineamento orizzontale
+  flex-direction: row !important;     // Evita che il bottone vada sotto
+  align-items: stretch !important;    // Forza la stessa altezza per entrambi
+  border: none !important;            // Rimuove il bordo bianco dal form stesso
+  box-shadow: none !important;        // Rimuove eventuali ombre (ring) del form
+  padding: 0 !important;              // Rimuove spazi interni che creano distacchi
+  margin: 0 !important;
+
+  #input-search {
+    flex-grow: 1 !important;          // L'input prende tutto lo spazio disponibile
+    border: 1px solid #d1d5db !important; // Un bordo grigio leggero (o quello che preferisci)
+    border-right: none !important;    // Toglie il bordo destro per "attaccarsi" al bottone
+    border-radius: 0.375rem 0.375rem 0.375rem 0.375rem !important; // Arrotonda solo a sinistra
+    height: 2.5rem !important;        // Altezza fissa per coerenza
+    margin: 0 !important;
+  }
+
+  button[type="submit"] {
+    appearance: none !important;
+    background-color: var(--secondary) !important;
+    color: #ffffff !important;
+    border: none !important;          // Rimuove il bordo bianco dal bottone
+    border-radius: 0 0.375rem 0.375rem 0 !important; // Arrotonda solo a destra
+    width: 3rem !important;           // Larghezza fissa del bottone
+    height: 2.5rem !important;        // Stessa altezza dell'input
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+    padding: 0 !important;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--secondary-700) !important;
+    }
+
+    svg {
+      fill: currentColor !important;
+      width: 1.25rem !important;
+      height: 1.25rem !important;
+    }
+  }
+}
+
+header .main-bar__search button[type="submit"] {
+  position: absolute;
+  top: 0rem;
+  bottom: 0rem;
+  right: 0rem;
+  --tw-text-opacity: 1;
+  color: rgb(var(--secondary-rgb) / 1);
+  color: rgb(var(--secondary-rgb) / var(--tw-text-opacity));
+}
+// BOTTONE DELLA SEARCH
+
+// HEADER
+
 // dentro l'header nella main bar in alto modifica il colore forzando il blu chiaro
 
   .header .main-bar {
     grid-template-columns: repeat(12, minmax(0, 1fr));
     background-color: rgb($par-blue-rgb...) !important;
+  }
+
+// aumenta l'altezza della main bar
+
+  .main-bar {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: center;
+    grid-gap: 1rem;
+    gap: 1rem;
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
   }
 
 // dentro l'header nella main bar modifica il colore usando il secondary
@@ -197,6 +308,8 @@ $color-removal: #ffeef0 !default;
     font-weight: 300;
     color: white;
   }
+
+// FINE HEADER
    
 // HOME MENU SOLO IN HP 
   
@@ -234,8 +347,9 @@ $color-removal: #ffeef0 !default;
 
 // FINE HOME MENU SOLO IN HP 
 
+// MENU CONTESTUALE A PARTIRE DAI PROCESSI E ASSEMBLEE
 
-// menu con breadcrumb nelle pagine successive alla HP
+// colore menu
 
   header .menu-bar__container {
     position: relative;
@@ -244,10 +358,22 @@ $color-removal: #ffeef0 !default;
     background-color: rgb($par-light-blue-rgb...) !important;
   }
 
-// decoratore dei titoli, piccola mezzaluna che sta sotto le iniziali del titolo
-  .title-decorator {
-    display: none;
+// grandezza menu
+
+  @media (min-width: 1024px) {
+    .menu-bar__main-dropdown {
+      width: 640px !important;
+    }
   }
+
+  @media (min-width: 768px) {
+    header .menu-bar__main-dropdown__menu {
+      width: 100% !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+// FINE MENU CONTESTUALE A PARTIRE DAI PROCESSI E ASSEMBLEE
 
 // FOOTER
 
@@ -318,18 +444,6 @@ $color-removal: #ffeef0 !default;
   
 // FINE FOOTER
 
-// MENU CONTESTUALE A PARTIRE DAI PROCESSI E ASSEMBLEE
-  @media (min-width: 1024px) {
-    .menu-bar__main-dropdown {
-      width: 640px !important;
-    }
-  }
-
-  @media (min-width: 768px) {
-    header .menu-bar__main-dropdown__menu {
-      width: 100% !important;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-  
-// FINE MENU CONTESTUALE A PARTIRE DAI PROCESSI E ASSEMBLEE
+.main-bar__links-desktop__item-wrapper > div:nth-child(2) > a:nth-child(1){
+  display:none;
+}
