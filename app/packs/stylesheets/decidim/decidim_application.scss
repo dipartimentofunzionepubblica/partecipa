@@ -35,10 +35,12 @@ $grid-column-gutter: (
 );
 $body-font-color: #3d393c;
 
-$primary: $par-medium-green;
-$primary-rgb: $par-medium-green-rgb;
+$primary: $par-blue;
+$primary-rgb: $par-blue-rgb;
 $secondary: $par-medium-green;
 $secondary-rgb: $par-medium-green-rgb;
+$tertiary: $par-medium-green;
+$tertiary-rgb: $par-medium-green-rgb;
 $success: #57d685 !default;
 $success-rgb: 87,214,133 !default;
 $warning: #ffae00 !default;
@@ -66,43 +68,24 @@ $color-removal: #ffeef0 !default;
 
 // Define custom properties as css color variables
 
-:root{
-  --primary: #{$primary};
-  --primary-rgb: #{$primary-rgb};
-  --secondary: #{$secondary};
-  --secondary-rgb: #{$secondary-rgb};
-  --success: #{$success};
-  --success-rgb: #{$success-rgb};
-  --warning: #{$warning};
-  --warning-rgb: #{$warning-rgb};
-  --alert: #{$alert};
-  --alert-rgb: #{$alert-rgb};
-  --highlight: #{$highlight};
-  --highlight-rgb: #{$highlight-rgb};
-  --highlight-alternative: #{$highlight-alternative};
-  --highlight-alternative-rgb: #{$highlight-alternative-rgb};
-  --proposals: #{$proposals};
-  --actions: #{$actions};
-  --debates: #{$debates};
-  --meetings: #{$meetings};
-  --twitter: #{$twitter};
-  --facebook: #{$facebook};
-  --google: #{$google};
+:root {
+  /* Colori HEX per bordi e testi pieni */
+  --primary: #{$primary} !important;
+  --secondary: #{$secondary} !important;
+  --tertiary: #{$tertiary} !important;
+  --success: #{$success} !important;
+  --warning: #{$warning} !important;
+  --error: #{$alert} !important;
+
+  /* Colori RGB per sfondi con opacità (Senza virgole!) */
+  --primary-rgb: #{red($primary)} #{green($primary)} #{blue($primary)} !important;
+  --secondary-rgb: #{red($secondary)} #{green($secondary)} #{blue($secondary)} !important;
+  --tertiary-rgb: #{red($tertiary)} #{green($tertiary)} #{blue($tertiary)} !important;
+  --success-rgb: #{red($success)} #{green($success)} #{blue($success)} !important;
+  --warning-rgb: #{red($warning)} #{green($warning)} #{blue($warning)} !important;
+  --error-rgb: #{red($alert)} #{green($alert)} #{blue($alert)} !important;
 }
 
-// elimina il link preferences dal menù
-
-[data-id="preferences"]{
-   display: none;
-}
-
-#dropdown-menu-profile > li:nth-child(4){
-   display: none;
-}
-
-.filter-container{
-   display: none;
-}
 
 // aumenta il font della scritta centrale in HP dentro l'immagine Hero
 
@@ -117,7 +100,7 @@ $color-removal: #ffeef0 !default;
     }
 }
 
-// dentro la modal dei cookies elimina bottoni
+// dentro la modal dei cookies elimina bottoni non necessari
 
 #dc-modal-accept{
    display: none;
@@ -131,11 +114,10 @@ $color-removal: #ffeef0 !default;
    display: none;
 }
 
-// dentro l'header nella main bar in alto modifica il colore usando il secondary
+// dentro l'header nella main bar in alto modifica il colore forzando il blu chiaro
 
   .header .main-bar {
     grid-template-columns: repeat(12, minmax(0, 1fr));
-    //background-color: rgb(var(--secondary-rgb));
     background-color: rgb($par-blue-rgb...) !important;
   }
 
@@ -144,7 +126,6 @@ $color-removal: #ffeef0 !default;
   .main-bar__container {
     position: relative;
     width: 100%;
-    //background-color: rgb(var(--secondary-rgb));
     background-color: rgb($par-blue-rgb...) !important;
   }
 
@@ -270,6 +251,13 @@ $color-removal: #ffeef0 !default;
 
 // FOOTER
 
+  // testo sotto il banner hero
+
+  .text-lg {
+    font-size: 25px !important;
+    line-height: 30px !important;
+  }
+
   footer .main-footer {
     background-color: rgb($par-blue-rgb...) !important;
   }
@@ -282,27 +270,52 @@ $color-removal: #ffeef0 !default;
   
   // immagini link a siti istituzionali esterni
   
-  .added-links-footer-logos {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-between !important;
-    gap: 1.5rem;
+  @media(min-width: 768px){
+    .added-links-footer-logos {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between !important;
+      gap: 1.5rem;
 
-  a {
-    display: block;
-    flex-shrink: 0;
+    a {
+       display: block;
+       flex-shrink: 0;
+    }
+
+    img {
+       height: 50px;
+       width: auto;
+       display: block;
+      }
+    }
   }
+  
+  @media(max-width: 767px){
+    .added-links-footer-logos {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: left;
+      justify-content: space-between !important;
+      gap: 1.5rem;
 
-  img {
-    height: 50px;
-    width: auto;
-    display: block;
+    a {
+       display: block;
+       flex-shrink: 0;
+    }
+
+    img {
+       height: 50px;
+       width: auto;
+       display: block;
+      }
+    }
   }
-}
-
+  
 // FINE FOOTER
 
 // MENU CONTESTUALE A PARTIRE DAI PROCESSI E ASSEMBLEE
@@ -318,4 +331,5 @@ $color-removal: #ffeef0 !default;
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
+  
 // FINE MENU CONTESTUALE A PARTIRE DAI PROCESSI E ASSEMBLEE
