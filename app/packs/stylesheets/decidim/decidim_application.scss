@@ -118,11 +118,23 @@ $color-removal: #ffeef0 !default;
   --google: #{$google} !important;
 }
 
+// GENERALE
+
+  // le icone sono nere
+
+  svg {
+    width: 1.0em;
+    height: 1.0em;
+    fill: black;
+  }
+
+// FINE GENERALE
+
 // IMMAGINE HERO
 
-// aumenta il font della scritta centrale in HP dentro l'immagine Hero
+  // aumenta il font della scritta centrale in HP dentro l'immagine Hero
 
-@media(min-width: 768px){
+  @media(min-width: 768px){
     .hero__title {
       text-align: center;
       font-size: 90px;
@@ -131,96 +143,97 @@ $color-removal: #ffeef0 !default;
       --tw-text-opacity: 1;
       color: rgb(255 255 255 / 1);
     }
-}
+  }
 
 // FINE IMMAGINE HERO
 
 // COOKIES
 
-// dentro la modal dei cookies elimina bottoni non necessari
+  // dentro la modal dei cookies elimina bottoni non necessari
 
-#dc-modal-accept{
-   display: none;
-}
+  #dc-modal-accept{
+     display: none;
+  }
 
-#dc-modal-reject{
-   display: none;
-}
+  #dc-modal-reject{
+     display: none;
+  }
 
-#dc-dialog-reject{
-   display: none;
-}
+  #dc-dialog-reject{
+     display: none;
+  }
 
 // FINE COOKIES
 
 // BOTTONE DELLA SEARCH
 
-#form-search_topbar {
-  display: flex !important;           // Forza l'allineamento orizzontale
-  flex-direction: row !important;     // Evita che il bottone vada sotto
-  align-items: stretch !important;    // Forza la stessa altezza per entrambi
-  border: none !important;            // Rimuove il bordo bianco dal form stesso
-  box-shadow: none !important;        // Rimuove eventuali ombre (ring) del form
-  padding: 0 !important;              // Rimuove spazi interni che creano distacchi
-  margin: 0 !important;
-
-  #input-search {
-    flex-grow: 1 !important;          // L'input prende tutto lo spazio disponibile
-    border: 1px solid #d1d5db !important; // Un bordo grigio leggero (o quello che preferisci)
-    border-right: none !important;    // Toglie il bordo destro per "attaccarsi" al bottone
-    border-radius: 0.375rem 0.375rem 0.375rem 0.375rem !important; // Arrotonda solo a sinistra
-    height: 2.5rem !important;        // Altezza fissa per coerenza
+  #form-search_topbar {
+    display: flex !important;           // Forza l'allineamento orizzontale
+    flex-direction: row !important;     // Evita che il bottone vada sotto
+    align-items: stretch !important;    // Forza la stessa altezza per entrambi
+    border: none !important;            // Rimuove il bordo bianco dal form stesso
+    box-shadow: none !important;        // Rimuove eventuali ombre (ring) del form
+    padding: 0 !important;              // Rimuove spazi interni che creano distacchi
     margin: 0 !important;
-  }
 
-  button[type="submit"] {
-    appearance: none !important;
-    background-color: var(--secondary) !important;
-    color: #ffffff !important;
-    border: none !important;          // Rimuove il bordo bianco dal bottone
-    border-radius: 0 0.375rem 0.375rem 0 !important; // Arrotonda solo a destra
-    width: 3rem !important;           // Larghezza fissa del bottone
-    height: 2.5rem !important;        // Stessa altezza dell'input
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    margin: 0 !important;
-    padding: 0 !important;
-    cursor: pointer;
-
-    &:hover {
-      background-color: var(--secondary-700) !important;
+    #input-search {
+      flex-grow: 1 !important;          // L'input prende tutto lo spazio disponibile
+      border: 1px solid #d1d5db !important; // Un bordo grigio leggero (o quello che preferisci)
+      border-right: none !important;    // Toglie il bordo destro per "attaccarsi" al bottone
+      border-radius: 0.375rem 0.375rem 0.375rem 0.375rem !important; // Arrotonda solo a sinistra
+      height: 2.5rem !important;        // Altezza fissa per coerenza
+      margin: 0 !important;
     }
 
-    svg {
-      fill: currentColor !important;
-      width: 1.25rem !important;
-      height: 1.25rem !important;
+    button[type="submit"] {
+      appearance: none !important;
+      background-color: var(--secondary) !important;
+      color: #ffffff !important;
+      border: none !important;          // Rimuove il bordo bianco dal bottone
+      border-radius: 0 0.375rem 0.375rem 0 !important; // Arrotonda solo a destra
+      width: 3rem !important;           // Larghezza fissa del bottone
+      height: 2.5rem !important;        // Stessa altezza dell'input
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      margin: 0 !important;
+      padding: 0 !important;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--secondary-700) !important;
+      }
+
+      svg {
+        fill: currentColor !important;
+        width: 1.25rem !important;
+        height: 1.25rem !important;
+      }
     }
   }
-}
 
-header .main-bar__search button[type="submit"] {
-  position: absolute;
-  top: 0rem;
-  bottom: 0rem;
-  right: 0rem;
-  --tw-text-opacity: 1;
-  color: rgb(var(--secondary-rgb) / 1);
-  color: rgb(var(--secondary-rgb) / var(--tw-text-opacity));
-}
+  header .main-bar__search button[type="submit"] {
+    position: absolute;
+    top: 0rem;
+    bottom: 0rem;
+    right: 0rem;
+    --tw-text-opacity: 1;
+    color: rgb(var(--secondary-rgb) / 1);
+    color: rgb(var(--secondary-rgb) / var(--tw-text-opacity));
+  }
+  
 // BOTTONE DELLA SEARCH
 
 // HEADER
 
-// dentro l'header nella main bar in alto modifica il colore forzando il blu chiaro
+  // dentro l'header nella main bar in alto modifica il colore forzando il blu chiaro
 
   .header .main-bar {
     grid-template-columns: repeat(12, minmax(0, 1fr));
     background-color: rgb($par-blue-rgb...) !important;
   }
 
-// aumenta l'altezza della main bar
+  // aumenta l'altezza della main bar
 
   .main-bar {
     display: grid;
@@ -232,7 +245,7 @@ header .main-bar__search button[type="submit"] {
     padding-bottom: 2.5rem !important;
   }
 
-// dentro l'header nella main bar modifica il colore usando il secondary
+  // dentro l'header nella main bar modifica il colore usando il secondary
 
   .main-bar__container {
     position: relative;
@@ -240,7 +253,7 @@ header .main-bar__search button[type="submit"] {
     background-color: rgb($par-blue-rgb...) !important;
   }
 
-// dentro l'header nella main bar a destra modifica i link 
+  // dentro l'header nella main bar a destra modifica i link per mantenere il contrasto
 
   .main-bar__links-desktop__item {
     display: flex;
@@ -255,26 +268,31 @@ header .main-bar__search button[type="submit"] {
     color: white !important;
   }
 
-// dentro l'header nella main bar a destra modifica i link
-  
+  // dentro l'header nella main bar a destra modifica i link per mantenere il contrasto
   
   .main-bar__links-desktop__item {
     font-color: rgb(var(--secondary-rgb));
   }
   
- .main-bar__links-desktop__item:hover {
+  .main-bar__links-desktop__item:hover {
     color: rgb($par-blue-rgb...) !important;
   }
+  
+  // nasconde le icone Incontri dal menù in alto a destra su desktop
 
-// le icone sono nere
-
-  svg {
-    width: 1.0em;
-    height: 1.0em;
-    fill: black;
+  .main-bar__links-desktop__item-wrapper > div:nth-child(1) > a:nth-child(1){
+    display:none;
   }
 
-// la grandezza del logo
+  // rimuove lo spazio in eccesso una volta rimassa l'icona Incontri
+
+  header .main-bar__links-desktop__item-wrapper {
+    display: block;
+    -moz-column-gap: 1rem;
+    column-gap: 1rem;
+  }
+
+  // la grandezza del logo
 
   .header .main-bar__logo {
     grid-column: span 2 / span 2;
@@ -358,7 +376,7 @@ header .main-bar__search button[type="submit"] {
     background-color: rgb($par-light-blue-rgb...) !important;
   }
 
-// grandezza menu
+  // grandezza menu
 
   @media (min-width: 1024px) {
     .menu-bar__main-dropdown {
@@ -442,8 +460,16 @@ header .main-bar__search button[type="submit"] {
     }
   }
   
+  // il border sopra il mini-footer è bianco
+  
+  .main-footer__down {
+    border-color: $par-white !important;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
+  
+  .mini-footer {
+    background-color: rgb($par-light-blue-rgb...) !important;
+  }
+  
+  
 // FINE FOOTER
-
-.main-bar__links-desktop__item-wrapper > div:nth-child(2) > a:nth-child(1){
-  display:none;
-}
