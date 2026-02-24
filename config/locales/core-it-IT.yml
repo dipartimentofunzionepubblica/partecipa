@@ -32,7 +32,7 @@ it:
       report:
         details: Ulteriori commenti
       user:
-        about: Di
+        about: Dettagli personali
         avatar: Immagine del profilo
         email: La tua email
         encrypted_password: Password
@@ -937,23 +937,23 @@ it:
           message_2: Il servizio ritaglia l'immagine.
       file_validation:
         allowed_file_extensions: 'Estensioni file consentite: %{extensions}'
-        max_file_dimension: 'Maximum file dimensions: %{resolution} pixels'
-        max_file_size: 'Dimensione massima file: %{megabytes}MB'
+        max_file_dimension: 'Formato massimo del file: %{resolution} pixels'
+        max_file_size: 'Dimensione massima del file: %{megabytes}MB'
       files:
-        extension_allowlist: 'Accepted formats: %{extensions}'
+        extension_allowlist: 'Formati accettati: %{extensions}'
       upload:
         labels:
-          add_attachment: Add attachment
-          add_file: Add file
-          add_image: Add image
-          edit_image: Edit image
-          error: Error!
-          file_size_too_large: 'File size is too large! Maximun file size: %{megabytes}MB'
-          filename: Filename
-          remove: Remove
-          replace: Replace
-          save: Save
-          title: Title
+          add_attachment: Aggiungi allegato
+          add_file: Aggiungi file
+          add_image: Aggiungi immagine
+          edit_image: Modifica immagine
+          error: Errore!
+          file_size_too_large: 'La dimensione del file è eccessiva! La dimensione massima è: %{megabytes}MB'
+          filename: Nome file
+          remove: Rimuovi
+          replace: Sostituisci
+          save: Salva
+          title: Titolo
           title_required: Titolo obbligatorio!
           uploaded: Caricato
           validating: Validazione in corso...
@@ -1400,13 +1400,13 @@ it:
       default_officialization_text_for_users: Questo partecipante è verificato pubblicamente, il suo nome o ruolo è stato verificato per corrispondere al suo nome e ruolo reale.
       show:
         activity: Attività
-        badges: badge
+        badges: Badge
         conversations: Conversazioni
         followers: Followers
         following: Seguiti
         group_admins: Gestisci amministratori
         group_members: Gestisci i membri
-        groups: gruppi
+        groups: Gruppi
         members: Utenti
         officialized: Partecipante ufficiale
         send_private_message: Invia messaggio privato
@@ -1976,7 +1976,7 @@ it:
         download_open_data: Scarica i file Open Data
         log_in: Accedi
         made_with_open_source: Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.
-        resources: Resources
+        resources: Risorse
         sign_up: Registrati
         terms_and_conditions: Termini e condizioni
       header:
@@ -2030,7 +2030,7 @@ it:
         notifications_settings: Impostazioni delle notifiche
         profile: Profile
         title: Impostazioni utente
-        user_groups: gruppi
+        user_groups: Gruppi
   locale:
     name: Italiano
     name_with_error: Italiano (errore!)

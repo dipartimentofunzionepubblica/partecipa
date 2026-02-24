@@ -7,7 +7,7 @@ it:
   activerecord:
     models:
       decidim/surveys/survey:
-        one: Survey
+        one: Questionario
         other: Questionari
       decidim/surveys/survey_answer:
         one: Answer

@@ -1,0 +1,37 @@
+<%#
+Copyright (C) 2026 Formez PA
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+
+
+%>
+<div class="mini-footer">
+   <div class="mini-footer__content">
+    
+    <div>
+    <a class="flex gap-1 hover:opacity-50" rel="license noopener noreferrer" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" data-external-link="text-only">
+      <span class="sr-only"><%= t("layouts.decidim.footer.cc_by_license") %></span>
+      <%= icon "creative-commons-line", class: "w-6 h-6 fill-current" %>
+      <%= icon "creative-commons-by-line", class: "w-6 h-6 fill-current" %>
+      <%= icon "creative-commons-sa-line", class: "w-6 h-6 fill-current" %>
+    </a>
+    </div>
+
+    <div class="text-xs mt-2 [&_a]:underline">
+        <%= t("layouts.decidim.footer.made_with_open_source").html_safe %>
+    </div>
+    
+    
+    <div>
+      <a rel="partecipa"
+       href="https://github.com/dipartimentofunzionepubblica/partecipa"
+       target="_blank">
+       <%= image_pack_tag("media/images/logo_partecipa.png", alt: "Logo ParteciPa", 'aria-label': "Logo ParteciPa", class: "logo_partecipa block", role: "img", 'aria-hidden': true) %></a>
+    </div>
+
+   </div>
+</div>

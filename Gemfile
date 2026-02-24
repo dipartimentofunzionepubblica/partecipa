@@ -4,7 +4,7 @@ source "http://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "decidim", "0.28.6"
+gem "decidim", git: "https://github.com/decidim/decidim", branch: "release/0.28-stable"
 
 gem "bootsnap", "~> 1.3"
 gem "puma", ">= 6.3.1"
@@ -18,7 +18,7 @@ gem 'foundation_rails_helper', git: 'https://github.com/sgruhier/foundation_rail
 gem 'decidim-term_customizer', git: 'https://github.com/mainio/decidim-module-term_customizer', branch: 'release/0.28-stable'
 gem 'decidim-privacy', branch: 'release/0.28' , git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-privacy'
 gem 'decidim-cache_cleaner'
-gem 'decidim-decidim_awesome'
+gem 'decidim-decidim_awesome', git: 'https://github.com/decidim-ice/decidim-module-decidim_awesome', branch: 'release/0.28-stable'
 
 gem 'sprockets-rails'
 
@@ -29,7 +29,7 @@ group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
   gem "brakeman", "~> 5.4"
-  gem "decidim-dev", "0.28.6"
+  gem "decidim-dev", git: "https://github.com/decidim/decidim", branch: "release/0.28-stable"
   gem "net-imap", "~> 0.2.3"
   gem "net-pop", "~> 0.1.1"
   gem "net-smtp", "~> 0.3.1"

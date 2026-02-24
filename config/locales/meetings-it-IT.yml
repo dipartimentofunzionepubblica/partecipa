@@ -83,13 +83,13 @@ it:
     models:
       decidim/meetings/meeting:
         one: Incontro
-        other: incontri
+        other: Incontri
       decidim/meetings/minutes:
         one: Minuti
         other: Minuti
       decidim/meetings/registration:
         one: Registrazione
-        other: iscrizioni
+        other: Registrazioni
   decidim:
     admin:
       filters:
@@ -122,7 +122,7 @@ it:
               online: Online
       meeting_copies:
         create:
-          error: C'era un errore en duplicazione di questo incontro.
+          error: C'é stato un errore nella duplicazione di questo incontro.
           success: Riunione duplicata con successo.
         new:
           copy: copia

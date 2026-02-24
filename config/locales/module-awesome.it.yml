@@ -1,58 +1,359 @@
 ---
 it:
+  activemodel:
+    attributes:
+      config:
+        allow_images_in_proposals: Consenti l'uso d'immagini nell'editor di proposte
+        auto_save_forms: Salva automaticamente i moduli nel LocalStorage
+        intergram_auto_no_response: Un messaggio che viene inviato un minuto dopo che l'utente invia il suo primo messaggio e che non è stata ricevuta risposta
+        intergram_auto_response: Un messaggio che viene inviato immediatamente dopo che l'utente invia il primo messaggio
+        intergram_chat_id: Chat ID
+        intergram_color: Colore del widget
+        intergram_for_admins: Abilita la chat Intergram nel backend di amministrazione
+        intergram_intro_message: Primo messaggio quando l'utente apre la chat per la prima volta
+        intergram_require_login: Solo per gli utenti registrati
+        intergram_title_closed: Titolo chat chiusa
+        intergram_title_open: Titolo della chat aperta
+        intergram_use_floating_button: Se selezionato, la chat chiusa è sempre un pulsante invece di un testo
+        proposal_custom_fields: Campi personalizzati %{id}
+        scoped_admins: Gruppo di amministratori con ambito %{id}
+        scoped_styles: Stili personalizzati %{id}
+        validate_body_max_caps_percent: Percentuale massima consentita di lettere maiuscole per il corpo
+        validate_body_max_marks_together: Numero massimo di simboli consecutivi ammessi nel corpo
+        validate_body_min_length: Caratteri minimi necessari per il corpo
+        validate_body_start_with_caps: Obbliga il corpo del testo con una lettera maiuscola
+        validate_title_max_caps_percent: Percentuale massima consentita di lettere maiuscole per il titolo
+        validate_title_max_marks_together: Numero massimo di simboli consecutivi ammessi nel titolo
+        validate_title_min_length: Caratteri minimi necessari per il titolo
+        validate_title_start_with_caps: Obbliga il titolo con una lettera maiuscola
+        additional_proposal_sortings: Opzioni di ordinamento aggiuntive abilitate
+        allow_images_in_editors: Consenti immagini nell'editor HTML
+        allow_videos_in_editors: Consenti video nell'editor HTML
+        force_authorization_after_login: Forza l'autorizzazione dopo l'accesso o la registrazione
+        force_authorization_help_text: Testo di aiuto per la pagina di autorizzazione
+        force_authorization_with_any_method: Consenti l'accesso se viene concessa una qualsiasi delle autorizzazioni (per impostazione predefinita, sono tutte richieste)
+        proposal_private_custom_fields: Campi personalizzati privati %{id}
+        scoped_admin_styles: Stili personalizzati %{id}
+        user_timezone: Consenti agli utenti di impostare il proprio fuso orario nel profilo
+      constraint:
+        component_id: o specificatamente in
+        component_manifest: Solo in componenti di tipo
+        participatory_space_manifest: Applicare a spazi partecipativi di tipo
+        participatory_space_slug: Solo in
+      custom_redirect:
+        active: Attivo
+        destination: Destinazione
+        origin: Origine
+        pass_query: Passa la query string alla destinazione
+        status: Stato
+      menu:
+        position: Posizione
+        raw_label: Etichetta
+        target: Apri in
+        url: URL
+        visibility: Visibilità
+      organization:
+        awesome_admins_available_authorizations: Consenti agli amministratori di verificare manualmente gli utenti con queste autorizzazioni
+      user:
+        user_time_zone: Fuso orario dell'utente
+  decidim:
+    admin:
+      filters:
+        admin_accountability:
+          admin_role_type:
+            label: Tipo di ruolo
+          participatory_space_type_eq:
+            label: Tipo di spazio partecipativo
+          role:
+            label: Ruolo
+          role_type_eq:
+            label: Tipo di ruolo
+        label:
+          search_field_end_date: 'Alla data:'
+          search_field_start_date: 'Dalla data:'
+        search_placeholder:
+          user_name_or_user_email_cont: Cerca per utente o per email
+      menu:
+        admin_accountability: Responsabilità amministrativa
+        decidim_awesome: Decidim awesome
+      actions:
+        manage: Gestisci
+    components:
+      awesome_iframe:
+        name: Iframe a schermo intero
+        settings:
+          global:
+            announcement: Annuncio
+            iframe: Codice iframe
+            iframe_help: 'Metti il tuo codice come html: <iframe width="100%" height="700" frameBorder="0" allowFullscreen src="..."></iframe>. Il contenuto sarà sanificato da altri tag HTML. Assicurati di utilizzare il 100% come larghezza per riempire lo schermo.'
+            viewport_width: Limita la larghezza massima alla vista dell'applicazione
+          step:
+            announcement: Annuncio
+            iframe: Codice iframe
+      awesome_map:
+        name: Mappa Awesome
+        settings:
+          global:
+            announcement: Annuncio
+            collapse: Inizia con il menu ridotto
+            map_center: Centro della mappa (Latitudine, Longitudine)
+            map_center_help: 'Usa i punti decimali (es: 41.38879, 2.15899). Lascialo vuoto affinché tutti i marcatori vengano adattati automaticamente'
+            map_height: Altezza mappa (px)
+            map_zoom: Zoom (qualsiasi numero tra 0 e 18)
+            map_zoom_help: Si applica solo se è stato definito il centro della mappa
+            menu_amendments: Mostra le correzioni
+            menu_categories: Mostra Categoria nel menu di ricerca
+            menu_hashtags: Mostra menu di ricerca Hashtag
+            menu_meetings: Mostra meeting
+            menu_merge_components: Fondi tutti i componenti dello stesso tipo nel menu
+            truncate: Numero massimo di caratteri per le descrizioni nei popup
+          step:
+            announcement: Annuncio
+            show_accepted: Mostra le proposte accettate
+            show_evaluating: Mostra le proposte in valutazione
+            show_not_answered: Mostra le proposte senza risposta
+            show_rejected: Mostra le proposte respinte
+            show_withdrawn: Mostra le proposte ritirate
+    proposals:
+      settings:
+        global:
+          awesome_voting_manifest: Tipo di sostegno
+          limit_pending_amendments: Consenti solo una modifica in sospeso per ogni proposta.
+          sort_orders_enabled: Tipi di ordinamento abilitati
+    decidim_awesome:
+      admin:
+        menu:
+          decidim_awesome: Decidim Awesome
+        maintenance:
+          private_data:
+            component: Spazio / Componente
+            confirm_delete: "Sei sicuro di voler eliminare tutti i dati privati per questa risorsa? L'azione è irreversibile."
+            delete: Elimina tutto
+            destroying_private_data: "L'eliminazione dei dati privati per %{title} è stata avviata. Controlla di nuovo tra pochi minuti."
+            done: Completato
+            help_html: |
+              Questo strumento consente di eliminare tutti i dati privati per uno specifico spazio partecipativo o componente. Questa azione è irreversibile e rimuoverà tutti i dati privati dal database.
+              <br><br>
+              <strong>Cosa sono considerati dati privati?</strong>
+              <br>
+              I dati privati sono tutte le informazioni che non sono disponibili pubblicamente e sono accessibili solo agli amministratori. Al momento, ciò include le informazioni dei campi personalizzati privati.
+              <br><br>
+              <strong>Cosa succede quando elimino i dati privati?</strong>
+              <br>
+              Quando elimini i dati privati, tutte le informazioni private per lo spazio partecipativo o il componente selezionato verranno rimosse permanentemente dal database. Un registro di questa azione verrà memorizzato nel sistema a fini di audit.
+              <br><br>
+              <strong>Cosa succede ai dati pubblici?</strong>
+              <br>
+              I dati pubblici non saranno influenzati da questa azione. Verranno eliminati solo i dati privati.
+              <br><br>
+              <strong>C'è un tempo minimo di attesa prima di eliminare i dati privati?</strong>
+              <br>
+              Sì, non è possibile eliminare i dati privati se l'ultimo aggiornamento è avvenuto meno di %{time_ago} fa. È possibile modificare questa configurazione nel file di inizializzazione.
+            items_count: Totale interessati
+            last_date: Ultimo aggiornamento
+            no_data: "Nessun dato privato trovato più vecchio di %{time_ago}"
+            not_destroyable: Questa risorsa non può ancora essere eliminata
+            removing: Eliminazione in corso...
+            time_ago: "%{time} fa"
+          items_count: Totale interessati
+          last_date: Ultimo aggiornamento
+          no_data: "Nessun dato privato trovato più vecchio di %{time_ago}"
+          not_destroyable: Questa risorsa non può ancora essere eliminata
+          removing: Eliminazione in corso...
+          time_ago: "%{time} fa"
+        config:
+          form_scoped_styles: 
+              new: Nuovo
+          title:
+            additional_proposal_sortings: Opzioni di ordinamento aggiuntive
+            allow_images_in_editors: Immagini nell'editor
+            allow_videos_in_editors: Video nell'editor
+            allow_images_in_proposals: Immagini nelle proposte
+            auto_save_forms: Salvataggio automatico moduli
+            force_authorization_after_login: Autorizzazione forzata
+            proposal_custom_fields: Campi personalizzati proposte
+            proposal_private_custom_fields: Campi personalizzati privati
+            scoped_admins: Amministratori con ambito
+            scoped_styles: 
+              new: Nuovo
+
+            scoped_admin_styles: Stili personalizzati (Admin)
+            user_timezone: Fuso orario utente
+            intergram: Integrazione Intergram
+            input_validation: Validazione testi (Titolo e Corpo)
+      officializations:
+        authorizations: Autorizzazioni
+        verification_modal:
+          authorizations_for: "Autorizzazioni per %{user}"
+          close: Chiudi
+      proposal_custom_fields:
+        menu:
+          title: Campi pubblici
+        private_body: Corpo privato
+        private_data_last_remove: "Questi dati sono stati eliminati %{time_ago} fa."
+        private_data_last_update: "Ultimo aggiornamento dei dati: %{time_ago} fa."
+        proposal_private_custom_fields: Campi privati
+        remove_private_data: "\U0001F449 Potresti volerli rimuovere"
+      scoped_admin_styles:
+        menu:
+          title: Pannello di controllo
+      scoped_styles:
+        menu:
+          title: Frontend pubblico
+      config:
+        title:
+          scoped_style: Stili d'ambito
+        intergram:
+          auto_no_response: Sembra che nessuno sia a disposizione per rispondere in questo momento. Vi prego di dirci come possiamo contattarvi e torneremo a voi il prima possibile.
+          auto_response: Alla ricerca del primo admin disponibile (potrebbe richiedere un minuto)
+          intro_message: Ciao! Come possiamo aiutarti?
+          title_closed: Clicca per chattare!
+          title_open: Chattiamo!
+      content_blocks:
+        map:
+          collapse: Inizia con il menu ridotto
+          map_center: Centro della mappa (Latitudine, Longitudine)
+          map_center_help: 'Usa i punti decimali (es: 41.38879, 2.15899). Lascialo vuoto affinché tutti i marcatori vengano adattati automaticamente'
+          map_height: Altezza mappa (px)
+          map_settings: Impostazioni Mappa
+          map_zoom: Zoom (qualsiasi numero tra 0 e 18)
+          map_zoom_help: Si applica solo se è stato definito il centro della mappa
+          menu_amendments: Mostra le correzioni
+          menu_meetings: Mostra meeting
+          menu_merge_components: Fondi tutti i componenti dello stesso tipo nel menu
+          name: Mappa Awesome
+          show_accepted: Mostra le proposte accettate
+          show_evaluating: Mostra le proposte in valutazione
+          show_not_answered: Mostra le proposte senza risposta
+          show_rejected: Mostra le proposte respinte
+          show_withdrawn: Mostra le proposte ritirate
+          text_settings: Impostazioni Testo
+          title: Titolo
+          truncate: Numero massimo di caratteri per le descrizioni nei popup
+      credits: Decidim Awesome %{version} · Mantenuto con ♥️ di %{company}
+      custom_fields:
+        errors:
+          invalid_fields: Il contenuto non può essere analizzato ma è stato assegnato al campo '%{field}'
+          invalid_xml: 'Impossibile analizzare il contenuto: elementi DL/DD non trovati nell''XML'
+      editor_images:
+        create:
+          error: Errore nel caricamento dell'immagine!
+          success: Immagine caricata correttamente
+      map_component:
+        map:
+          api_not_ready: |
+            <b>Attenzione:</b> Questa installazione di Decidim ha configurato l'API ad una complessità massima di <b>%{current_complexity}</b>.
+            Questo componente probabilmente non funzionerà con questa configurazione, Si consiglia di impostare in un initializer
+            (per esempio alla fine del <code>config/initializers/decidim.rb</code>) con il seguente contenuti:<br>
+            <br>
+            <pre># Configurazione API
+            Rails.application.config.to_prepare do
+              Decidim::Api::Schema.max_complexity = 5000
+              Decidim::Api::Schema.max_depth = 50
+            end</pre>
+          error:
+            unavailable: La mappa non è disponibile. Configura la geocodifica per abilitare questo componente.
+          show:
+            view_meeting: Visualizza meeting
+            view_proposal: Visualizza proposta
+      validators:
+        too_much_caps: Sta usando troppe lettere maiuscole (oltre %{percent}% del testo)
+      voting:
+        voting_cards:
+          abstained: "✔️ Astenuti"
+          change_vote: Cambia il mio voto
+          default_box_title: Vota la proposta
+          default_instructions_html: "<p>Si prega di leggere attentamente le regole elettorali per capire come il tuo voto sarà utilizzato da %{organization}\"</p>"
+          modal:
+            cancel: Annulla
+            message: Il tuo voto sarà considerato definitivo il %{date}. Fino ad allora puoi cambiarlo
+            proceed: Procedi
+            skip: Seleziona qui per ignorare questa finestra in futuro
+          vote_button: Clicca per votare
+          voted: Votato
+          voting_for: Il mio voto su "%{proposal}" è "%{type}"
+          weights:
+            weight_0: Astensione
+            weight_0_short: 'A:'
+            weight_1: Rosso
+            weight_1_short: 'R:'
+            weight_2: Giallo
+            weight_2_short: 'G:'
+            weight_3: Verde
+            weight_3_short: 'V:'
+      account:
+        timezone_select:
+          time_zone_helper: "Usa il tuo fuso orario personale per visualizzare le date nella tua ora locale quando sei autenticato."
+      admin_log:
+        component:
+          destroy_private_data: "%{user_name} ha eliminato %{count} elementi di dati privati per %{resource_name} in %{space_name}"
+        user:
+          admin_creates_authorization: "%{user_name} ha verificato %{resource_name} con %{handler_name}"
+          admin_destroys_authorization: "%{user_name} ha eliminato la verifica %{handler_name} su %{resource_name}"
+          admin_forces_authorization: "%{user_name} ha forzato la verifica %{handler_name} su %{resource_name}. Motivo: %{reason}"
+      amendments:
+        modal:
+          amendment_exists: Esiste già una modifica in corso
+          current_amendment_html: <p>Puoi <a href="%{amendment_link}">accedere alla modifica attuale qui</a>.</p>
+          dismiss: Ok, capito
+          explanation_html: |
+            <p>Attualmente è in fase di valutazione un'altra modifica per questa proposta. Per crearne una nuova, devi attendere che quella attuale venga accettata o rifiutata.</p>
+            <p>Puoi anche contattare l'autore di questa proposta <a href="%{proposal_link}">lasciando un commento</a> per cercare di velocizzare la risoluzione della modifica attuale.</p>
+        pending_limit_reached: "Spiacenti, può esserci solo una modifica in sospeso alla volta. Attendi che \"%{emendation}\" venga accettata o rifiutata."
+      proposal_private_custom_fields_disclosure: Queste informazioni non saranno pubblicate
+      required_authorizations:
+        index:
+          cancel: "Lo farò in un altro momento, %{link}."
+          granted_title: Verifiche concesse
+          logout: fammi uscire (logout)
+          missing_title: Non ancora verificato
+          resume_title: Verifiche in sospeso
+          resume_with_method: Riprendi la verifica con %{name}
+          title: Verifica la tua identità
+          verify_with_all_these_options: "Ti preghiamo di verificarti con tutti questi metodi prima di poter accedere alla piattaforma:"
+          verify_with_any_of_these_options: "Ti preghiamo di verificarti con almeno una di queste opzioni prima di poter accedere alla piattaforma:"
+          verify_with_method: Verifica con %{name}
+      session:
+        authorization_is_required: "Per partecipare a questa piattaforma, è necessario autorizzare il proprio account con un'autorizzazione valida (%{authorizations})."
+      system:
+        organizations:
+          admin_allowed_authoritzations_help_html: |
+            Gli amministratori potranno verificare manualmente gli utenti con queste autorizzazioni.
+            <br>Usa questa funzione con cautela, poiché può causare problemi di sicurezza.
+          awesome_tweaks: Modifiche (Tweaks) Decidim Awesome
+    meetings:
+      meetings_map:
+        view_meeting: Visualizza meeting
+    proposals:
+      proposals:
+        orders:
+          az: A-Z (alfabetico)
+          supported_first: Prima i sostegni
+          supported_last: Sostegni al fondo
+          za: Z-A (Alfabetico inverso)
+        proposal:
+          view_proposal: Visualizza proposta
+      admin:
+        exports:
+          awesome_private_proposals: Proposals with private data
   layouts:
     decidim:
       decidim_awesome:
         admin:
           maintenance:
-            title: 'Strumenti di Manutenzione: %{title}'
             titles:
-              private_data: Pulizia Dati privati
-              checks: System Compatibility Checks
-  decidim:
-    decidim_awesome:
-      admin:
-        actions: Azioni
-        maintenance:
-          private_data:
-            help_html: Questo strumento consente di eliminare tutti i dati privatiper uno specifico spazio partecipativo o componente. Questa azione è irreversibile e rimuoverà tutti i dati privatidal database.
-                <br><br>
-                <strong>Cosa si intende per dati privati?</strong>
-                <br>
-                I dati privatisono tutte le informazioni non disponibili al pubblico e accessibili solo agli amministratori. Al momento, questo include le informazioni sui campi personalizzati privati.
-                <br><br>
-                <strong>Cosa succede quando elimino i dati privati?</strong>
-                <br>
-                Quando elimini i dati privati, tutte le informazioni private per lo spazio partecipativo o il componente selezionato verranno rimosse definitivamente dal database. Un registro di questa azione verrà archiviato nel sistema a scopo di audit.
-                <br><br>
-                <strong>Cosa succede ai dati pubblici?</strong>
-                <br>
-                I dati pubblici non saranno interessati da questa azione. Verranno eliminati solo i dati privati. <br><br>
-                <strong>Esiste un tempo minimo di attesa prima di eliminare i dati privati?</strong>
-                <br>
-                Sì, non è possibile eliminare i dati privatise l'ultimo aggiornamento è avvenuto meno di %{time_ago} fa. È possibile modificare questa configurazione nel file di inizializzazione.
-            items_count: Totale elementi interessati
-            no_data: Nessun dato privato trovato più vecchio di %{time_ago} fa
-        menu:
-          maintenance:
-            maintenance: Manutenzione
-            private_data: Dati Privati
-        proposal_custom_fields:
-          menu:
-            title: Campi custom per Proposte
-          proposal_private_custom_fields: Campi custom privati per Proposte
-        config:
-          form_proposal_private_custom_fields:
-            new: Nuovo
-          title:
-            proposal_custom_fields: Campi custom per le Proposte
-            proposal_private_custom_fields: Campi custom privati per Proposte
-          form:
-            help:
-              proposal_private_custom_fields: Campi custom privati per Proposte
-              proposal_private_custom_fields_translations: Traduzioni dei campi custom privati per Proposte
-            additional_proposal_sortings:
-              title: Personalizza le opzioni di ordinamento per l'elenco delle proposte
-              help: Queste opzioni di ordinamento si aggiungono a quelle predefinite. Ricorda inoltre che puoi scegliere l'ordine predefinito nelle impostazioni del componente Proposte.
-              enable_all: Abilita tutte le opzioni di ordinamento aggiuntive
-      proposal_private_custom_fields_disclosure: Divulgazione dei campi custom delle Proposte
+              checks: Checks
+              private_data: Private Data Clean-Up
+            title: 'Titolo'
+        awesome_config:
+          amendments: Emendamenti
+          autosaved_error: LocalStorage non è supportato nel browser, il modulo non può essere salvato automaticamente.
+          autosaved_retrieved: I dati per questo modulo sono stati recuperati da una sessione precedente
+          autosaved_success: Dati salvati nella memoria locale
+          categories: Categorie
+          drag_and_drop_image: Aggiungi immagini trascinandole o incollandole.
+          hashtags: Hashtag
+          items: elementi
+          meetings: Meetings
+          proposals: Proposte
+          select_deselect_all: Seleziona/deseleziona tutto
