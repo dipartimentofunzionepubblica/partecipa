@@ -135,6 +135,17 @@ GIT
       deface (= 1.9.0)
 
 GIT
+  remote: https://github.com/dipartimentofunzionepubblica/decidim-module-pua
+  revision: fd60caa3ebddf18e806bc3fcc48ec2b7d79b298a
+  branch: bump_to_0.28
+  specs:
+    decidim-pua (0.28.6)
+      decidim-core (= 0.28.6)
+      deface (= 1.9.0)
+      omniauth_openid_connect (= 0.5.0)
+      openid_connect
+
+GIT
   remote: https://github.com/mainio/decidim-module-term_customizer
   revision: aae3e1b34df13f3f97e2450903f5482dc6b09778
   branch: release/0.28-stable
@@ -223,7 +234,9 @@ GEM
       activesupport (>= 6.1)
     addressable (2.8.8)
       public_suffix (>= 2.0.2, < 8.0)
+    aes_key_wrap (1.1.0)
     ast (2.4.3)
+    attr_required (1.0.2)
     base64 (0.3.0)
     batch-loader (1.5.0)
     bcrypt (3.1.21)
@@ -236,6 +249,7 @@ GEM
       parser (>= 2.4)
       smart_properties
     bigdecimal (4.0.1)
+    bindata (2.5.1)
     bindex (0.8.1)
     bootsnap (1.22.0)
       msgpack (~> 1.2)
@@ -411,6 +425,8 @@ GEM
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
+    faraday-follow_redirects (0.5.0)
+      faraday (>= 1, < 3)
     faraday-net_http (3.4.2)
       net-http (~> 0.5)
     ffi (1.17.3)
@@ -453,6 +469,8 @@ GEM
       activesupport (>= 2)
       nokogiri (>= 1.4)
     htmlentities (4.4.2)
+    httpclient (2.9.0)
+      mutex_m
     i18n (1.14.8)
       concurrent-ruby (~> 1.0)
     i18n-tasks (1.1.2)
@@ -480,6 +498,13 @@ GEM
       rails (>= 3.2.0)
     io-console (0.8.2)
     json (2.18.1)
+    json-jwt (1.17.0)
+      activesupport (>= 4.2)
+      aes_key_wrap
+      base64
+      bindata
+      faraday (~> 2.0)
+      faraday-follow_redirects
     jwt (3.1.2)
       base64
     kaminari (1.2.2)
@@ -537,6 +562,7 @@ GEM
     minitest (5.27.0)
     msgpack (1.8.0)
     multi_xml (0.6.0)
+    mutex_m (0.3.0)
     net-http (0.9.1)
       uri (>= 0.11.1)
     net-imap (0.2.5)
@@ -593,6 +619,20 @@ GEM
     omniauth-twitter (1.4.0)
       omniauth-oauth (~> 1.1)
       rack
+    omniauth_openid_connect (0.5.0)
+      omniauth (>= 1.9, < 3)
+      openid_connect (~> 1.1)
+    openid_connect (1.4.2)
+      activemodel
+      attr_required (>= 1.0.0)
+      json-jwt (>= 1.15.0)
+      net-smtp
+      rack-oauth2 (~> 1.21)
+      swd (~> 1.3)
+      tzinfo
+      validate_email
+      validate_url
+      webfinger (~> 1.2)
     openssl (4.0.0)
     orm_adapter (0.5.0)
     ostruct (0.6.3)
@@ -630,6 +670,12 @@ GEM
       rack (>= 1.0, < 4)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
+    rack-oauth2 (1.21.3)
+      activesupport
+      attr_required
+      httpclient
+      json-jwt (>= 1.11.0)
+      rack (>= 2.1.0)
     rack-protection (3.2.0)
       base64 (>= 0.1.0)
       rack (~> 2.2, >= 2.2.4)
@@ -810,6 +856,10 @@ GEM
     ssrf_filter (1.3.0)
     stringio (3.2.0)
     strscan (3.1.7)
+    swd (1.3.0)
+      activesupport (>= 3)
+      attr_required (>= 0.0.5)
+      httpclient (>= 2.4)
     temple (0.10.4)
     terminal-table (4.0.0)
       unicode-display_width (>= 1.1.1, < 4)
@@ -826,6 +876,12 @@ GEM
     valid_email2 (4.0.6)
       activemodel (>= 3.2)
       mail (~> 2.5)
+    validate_email (0.1.6)
+      activemodel (>= 3.0)
+      mail (>= 2.2.5)
+    validate_url (1.0.15)
+      activemodel (>= 3.0.0)
+      public_suffix
     version_gem (1.1.9)
     w3c_rspec_validators (0.3.0)
       rails
@@ -845,6 +901,9 @@ GEM
     web-push (3.1.0)
       jwt (~> 3.0)
       openssl (>= 3.0)
+    webfinger (1.2.0)
+      activesupport
+      httpclient (>= 2.4)
     webmock (3.26.1)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
@@ -878,6 +937,7 @@ DEPENDENCIES
   decidim-decidim_awesome!
   decidim-dev!
   decidim-privacy!
+  decidim-pua!
   decidim-term_customizer!
   delayed_job_active_record
   figaro

@@ -14,7 +14,7 @@ gem "figaro"
 gem "daemons"
 gem "delayed_job_active_record"
 gem 'foundation_rails_helper', git: 'https://github.com/sgruhier/foundation_rails_helper.git'
-
+gem 'decidim-pua', git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-pua', branch: 'bump_to_0.28'
 gem 'decidim-term_customizer', git: 'https://github.com/mainio/decidim-module-term_customizer', branch: 'release/0.28-stable'
 gem 'decidim-privacy', branch: 'release/0.28' , git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-privacy'
 gem 'decidim-cache_cleaner'
