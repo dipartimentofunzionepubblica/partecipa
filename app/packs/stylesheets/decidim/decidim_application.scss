@@ -280,11 +280,10 @@ $par-highlight: #FFFF00;
     padding-bottom: 0.25rem;
     --tw-text-opacity: 1;
     color: white !important;
-	font-color: rgb(var(--secondary));
   }
   
   .main-bar__links-desktop__item:hover {
-    font-color: rgb(var(--primary)) !important;
+    color: rgb(var(--primary)) !important;
   }
   
   // nasconde le icone Incontri dal menù in alto a destra su desktop
@@ -378,7 +377,7 @@ $par-highlight: #FFFF00;
 
 // colore menu
 
-  header .menu-bar__container {
+  .menu-bar__container {
     position: relative;
     height: 3.5rem;
     //--tw-bg-opacity: 1;
@@ -400,16 +399,18 @@ $par-highlight: #FFFF00;
     }
   }
   
-  // la parte sinistra del menù secondario con titolo e attività viene nascosta
-  /*
-  .menu-bar__secondary-dropdown__left {
-    display: none !important;
-    width: 75%;
-    padding: 2rem;
-    font-size: 16px;
-    line-height: 20px;
+  // imposta il menù secondario con larghezza 300px
+  
+  .menu-bar__secondary-dropdown {
+    position: relative;
+    width: 300px !important;
   }
-  */
+  
+  // imposta il menù secondario con larghezza 100%
+  
+  .menu-bar__secondary-dropdown nav {
+    width: 100% !important;
+  }
   
 // FINE MENU CONTESTUALE A PARTIRE DAI PROCESSI E ASSEMBLEE
 
