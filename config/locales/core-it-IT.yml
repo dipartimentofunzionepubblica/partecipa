@@ -2021,6 +2021,7 @@ it:
         profile: Il mio account
         public_profile: Il mio profilo
         title: Link del profilo
+        unread_notifications: Notifiche non lette
       user_profile:
         account: Account
         authorizations: Autorizzazioni

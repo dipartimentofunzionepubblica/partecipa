@@ -280,31 +280,26 @@ $par-highlight: #FFFF00;
     padding-bottom: 0.25rem;
     --tw-text-opacity: 1;
     color: white !important;
-  }
-
-  // dentro l'header nella main bar a destra modifica i link per mantenere il contrasto
-  
-  .main-bar__links-desktop__item {
-    font-color: rgb(var(--secondary-rgb));
+	font-color: rgb(var(--secondary));
   }
   
   .main-bar__links-desktop__item:hover {
-    color: rgb(to-rgb-scss(white)...) !important;
+    font-color: rgb(var(--primary)) !important;
   }
   
   // nasconde le icone Incontri dal menù in alto a destra su desktop
 
-  .main-bar__links-desktop__item-wrapper > div:nth-child(1) > a:nth-child(1){
-    display:none;
-  }
+  //.main-bar__links-desktop__item-wrapper > div:nth-child(1) > a:nth-child(1){
+  //  display:none;
+  //}
 
   // rimuove lo spazio in eccesso una volta rimassa l'icona Incontri
 
-  header .main-bar__links-desktop__item-wrapper {
-    display: block;
-    -moz-column-gap: 1rem;
-    column-gap: 1rem;
-  }
+  //header .main-bar__links-desktop__item-wrapper {
+  //  display: block;
+  //  -moz-column-gap: 1rem;
+  //  column-gap: 1rem;
+  //}
 
   // la grandezza del logo
 
@@ -404,6 +399,17 @@ $par-highlight: #FFFF00;
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
+  
+  // la parte sinistra del menù secondario con titolo e attività viene nascosta
+  /*
+  .menu-bar__secondary-dropdown__left {
+    display: none !important;
+    width: 75%;
+    padding: 2rem;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  */
   
 // FINE MENU CONTESTUALE A PARTIRE DAI PROCESSI E ASSEMBLEE
 

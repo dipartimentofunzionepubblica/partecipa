@@ -1,0 +1,23 @@
+<%#
+Copyright (C) 2026 Formez PA
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+
+Modificato per eliminare il claim a sinistra e per eliminare il riquadro dell'ultima attività
+%>
+<div id="breadcrumb-secondary-dropdown-<%= id %>" class="menu-bar__secondary-dropdown">
+  <!--div class="menu-bar__secondary-dropdown__left"-->
+    <!--%= render :metadata %-->
+    <!--%= cell "decidim/content_blocks/menu_breadcrumb_last_activity", model, hide_participatory_space: true %-->
+  <!--/div-->
+  
+  <nav role="navigation" aria-label="<%= t("decidim.accessibility.secondary_menu") %>">
+    <ul class="menu-bar__secondary-dropdown__menu">
+      <%= render :links %>
+    </ul>
+  </nav>
+</div>
