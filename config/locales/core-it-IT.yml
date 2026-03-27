@@ -709,205 +709,87 @@ it:
         copy_to_clipboard: Copia negli appunti
         date_and_time: Data e Ora
         reference: Riferimento
-        request_method: Request method
-        title: C'era un problema con il nostro server
-        try_later: Please try again later. If the error persists, please copy the following info and send it to platform maintainers with any other information you may want to share.
-        unknown: Unknown
+        request_method: Metodo della richiesta
+        title: Si è verificato un problema con il nostro server
+        try_later: Riprova più tardi. Se l'errore persiste, copia le seguenti informazioni e inviale ai manutentori della piattaforma insieme a qualsiasi altra informazione che desideri condividere.
+        unknown: Sconosciuto
         url: URL
-        user: User ID
+        user: ID utente
       not_found:
         back_home: Torna alla homepage
         content_doesnt_exist: Questo indirizzo non è corretto oppure è stato rimosso.
-        title: The page you are looking for cannot be found
+        title: La pagina che stai cercando non è stata trovata
     events:
       amendments:
         amendment_accepted:
           affected_user:
-            email_intro: 'Un''emendamento è stato accettato per %{amendable_title}. Puoi vederlo da questa pagina:'
-            email_outro: Hai ricevuto questa notifica perché sei un autore di %{amendable_title}.
-            email_subject: Un emendamento accettato per %{amendable_title} %{emendation_author_nickname}
-            notification_title: Il <a href="%{emendation_path}">modifica</a> creato da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> è stato accettato per <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_intro: 'Un emendamento è stato accettato per %{amendable_title}. Puoi vederlo da questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché sei l''autore di %{amendable_title}.
+            email_subject: Un emendamento accettato per %{amendable_title} da %{emendation_author_nickname}
+            notification_title: L'' <a href="%{emendation_path}">emendamento</a> creato da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> è stato accettato per <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Un''emendamento è stato accettato per %{amendable_title}. Puoi vederlo da questa pagina:'
-            email_outro: Hai ricevuto questa notifica perché stai seguendo %{amendable_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo o del contenuto che stai seguendo.
-            email_subject: Un emendamento accettato per %{amendable_title} %{emendation_author_nickname}
-            notification_title: Il <a href="%{emendation_path}">modifica</a> creato da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> è stato accettato per <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_intro: 'Un emendamento è stato accettato per %{amendable_title}. Puoi vederlo da questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché stai seguendo %{amendable_title}. È possibile interrompere la ricezione di notifiche facendo clic sul pulsante "Smetti di seguire" nella pagina del contenuto che stai seguendo.
+            email_subject: Un emendamento accettato per %{amendable_title} da %{emendation_author_nickname}
+            notification_title: L'' <a href="%{emendation_path}">emendamento</a> creato da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> è stato accettato per <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
-            email_intro: 'Una nuova emendazione è stata creata per %{amendable_title}. Puoi vederlo da questa pagina:'
-            email_outro: Hai ricevuto questa notifica perché sei un autore di %{amendable_title}.
+            email_intro: 'Un nuovo emendamento è stato creato per %{amendable_title}. Puoi vederlo da questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché sei l''autore di %{amendable_title}.
             email_subject: Nuovo emendamento per %{amendable_title}
             notification_title: È stato creato un nuovo emendamento per <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Una nuova emendazione è stata creata per %{amendable_title}. Puoi vederlo da questa pagina:'
-            email_outro: Hai ricevuto questa notifica perché stai seguendo %{amendable_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo o del contenuto che stai seguendo.
+            email_intro: 'Un nuovo emendamento è stato creato per %{amendable_title}. Puoi vederlo da questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché stai seguendo %{amendable_title}. È possibile interrompere la ricezione di notifiche facendo clic sul pulsante "Smetti di seguire" nella pagina del contenuto che stai seguendo.
             email_subject: Nuovo emendamento per %{amendable_title}
             notification_title: È stato creato un nuovo emendamento per <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
-            email_intro: 'Un emendamento respinto per %{amendable_title} è stato promosso a un indipendente %{amendable_type}. Puoi vederlo da questa pagina:'
-            email_outro: Hai ricevuto questa notifica perché sei un autore di %{amendable_title}.
-            email_subject: Un emendamento da %{emendation_author_nickname} è stato pubblicato come nuovo %{amendable_type}
-            notification_title: A <a href="%{emendation_path}">respinto modifica</a> per <a href="%{amendable_path}">%{amendable_title}</a> è stato pubblicato come nuovo %{amendable_type} da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_intro: 'Un emendamento respinto per %{amendable_title} è stato promosso a %{amendable_type} indipendente. Puoi vederlo da questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché sei l''autore di %{amendable_title}.
+            email_subject: Un emendamento di %{emendation_author_nickname} è stato pubblicato come nuovo %{amendable_type}
+            notification_title: Un <a href="%{emendation_path}">emendamento rifiutato</a> per <a href="%{amendable_path}">%{amendable_title}</a> è stato pubblicato come nuovo %{amendable_type} da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
-            email_intro: 'Un emendamento respinto per %{amendable_title} è stato promosso a un indipendente %{amendable_type}. Puoi vederlo da questa pagina:'
-            email_outro: Hai ricevuto questa notifica perché stai seguendo %{amendable_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo o del contenuto che stai seguendo.
-            email_subject: Un emendamento da %{emendation_author_nickname} è stato pubblicato come nuovo %{amendable_type}
-            notification_title: A <a href="%{emendation_path}">respinto modifica</a> per <a href="%{amendable_path}">%{amendable_title}</a> è stato pubblicato come nuovo %{amendable_type} da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
-        amendment_rejected:
-          affected_user:
-            email_intro: 'Un''emissione è stata rifiutata per %{amendable_title}. Puoi vederlo da questa pagina:'
-            email_outro: Hai ricevuto questa notifica perché sei un autore di %{amendable_title}.
-            email_subject: Un emendamento respinto per %{amendable_title} %{emendation_author_nickname}
-            notification_title: Il <a href="%{emendation_path}">modifica</a> creato da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> è stata rifiutata per <a href="%{amendable_path}">%{amendable_title}</a>.
-          follower:
-            email_intro: 'Un''emissione è stata rifiutata per %{amendable_title}. Puoi vederlo da questa pagina:'
-            email_outro: Hai ricevuto questa notifica perché stai seguendo %{amendable_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo o del contenuto che stai seguendo.
-            email_subject: Un emendamento respinto per %{amendable_title} %{emendation_author_nickname}
-            notification_title: Il <a href="%{emendation_path}">modifica</a> creato da <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> è stata rifiutata per <a href="%{amendable_path}">%{amendable_title}</a>.
-        emendation_promoted:
-          follower:
-            email_intro: 'An emendation has been published for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: An emendation from %{emendation_author_nickname} has been published as a new %{amendable_type}
-      attachments:
-        attachment_created:
-          email_intro: 'Un nuovo documento è stato aggiunto a %{resource_title}. Puoi vederlo da questa pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo o del contenuto che stai seguendo.
-          email_subject: Un aggiornamento a %{resource_title}
-          notification_title: È stato aggiunto un <a href="%{resource_path}">nuovo documento</a> a <a href="%{attached_to_url}">%{resource_title}</a>
-      components:
-        component_published:
-          email_intro: 'Il componente %{resource_title} è ora attivo per %{participatory_space_title}. Puoi vederlo da questa pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo o del contenuto che stai seguendo.
-          email_subject: Un aggiornamento a %{participatory_space_title}
-          notification_title: Il componente %{resource_title} è ora attivo per <a href="%{resource_path}">%{participatory_space_title}</a>
-      email_event:
-        email_greeting: Ciao %{user_name},
-        email_intro: 'C''è stato un aggiornamento a "%{resource_title}". Si può vedere da questa pagina:'
-        email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo cliccando sul link precedente.
-        email_subject: Un aggiornamento per %{resource_title}
-      gamification:
-        badge_earned:
-          email_intro: Congratulations! You have earned the <a href="%{resource_url}">%{badge_name} badge</a> (level %{current_level}).
-          email_outro: Hai ricevuto questa notifica perché hai fatto attività sul nostro sito web.
-          email_subject: 'You have earned a new badge: %{badge_name}!'
-          notification_title: Congratulations! You have earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
-        level_up:
-          email_intro: Congratulations! You have reached level %{current_level} on the <a href="%{resource_url}">%{badge_name} badge</a>!
-          email_outro: Hai ricevuto questa notifica perché hai fatto attività sul nostro sito web.
-          email_subject: You have reached level %{current_level} on the %{badge_name} badge!
-          notification_title: Congratulations! You have reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
-      groups:
-        demoted_membership:
-          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ha rimosso i tuoi diritti di amministratore per quel gruppo.
-          email_outro: Hai ricevuto questa notifica perché sei un membro di quel gruppo.
-          email_subject: Non sei più un amministratore del gruppo %{user_group_name}!
-          notification_title: Non sei più un amministratore del gruppo <a href="%{resource_path}">%{user_group_name}</a>.
-        invited_to_group:
-          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ti ha invitato a parteciparvi.
-          email_outro: Hai ricevuto questa notifica perché sei stato invitato a un gruppo. Controlla la scheda Gruppi nel tuo profilo per approvarla.
-          email_subject: Sei stato invitato a far parte del gruppo %{user_group_name}!
-          notification_title: Sei stato invitato a far parte del gruppo <a href="%{resource_path}">%{user_group_name}</a> . Controlla la pagina <a href="%{groups_profile_tab_path}">Gruppi</a> nel tuo profilo per approvarla!
-        join_request_accepted:
-          email_intro: Congratulazioni! Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ha accettato la tua richiesta di adesione.
-          email_outro: Hai ricevuto questa notifica perché la tua richiesta di adesione è stata aggiornata.
-          email_subject: Sei stato accettato nel gruppo %{user_group_name}!
-          notification_title: Sei stato accettato nel gruppo <a href="%{resource_path}">%{user_group_name}</a>.
-        join_request_created:
-          email_intro: Qualcuno ha richiesto di unirsi al gruppo %{user_group_name} . Puoi accettarlo o rifiutarlo dalla <a href="%{resource_url}">pagina dei membri del gruppo</a>.
-          email_outro: Hai ricevuto questa notifica perché puoi gestire il gruppo %{user_group_name}.
-          email_subject: Qualcuno ha richiesto di unirsi al gruppo %{user_group_name}!
-          notification_title: Qualcuno ha richiesto di unirsi al gruppo %{user_group_name} . Puoi accettarlo o rifiutarlo dalla <a href="%{resource_path}">pagina dei membri del gruppo</a>.
-        join_request_rejected:
-          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ha respinto la tua richiesta di adesione.
-          email_outro: Hai ricevuto questa notifica perché la tua richiesta di partecipazione è stata aggiornata.
-          email_subject: La tua richiesta di aderire al gruppo %{user_group_name} è stata respinta!
-          notification_title: La tua richiesta di aderire al gruppo <a href="%{resource_path}">%{user_group_name}</a> è stata respinta.
-        promoted_to_admin:
-          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ti ha concesso i diritti di amministratore quel gruppo.
-          email_outro: Hai ricevuto questa notifica perché sei un membro di quel gruppo.
-          email_subject: Ora sei un amministratore del gruppo %{user_group_name}!
-          notification_title: Ora sei un amministratore del gruppo <a href="%{resource_path}">%{user_group_name}</a>.
-        removed_from_group:
-          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ti ha rimosso da esso.
-          email_outro: Hai ricevuto questa notifica perché eri un membro di quel gruppo.
-          email_subject: Sei stato rimosso dal gruppo %{user_group_name}!
-          notification_title: Sei stato rimosso dal gruppo <a href="%{resource_path}">%{user_group_name}</a>.
-        user_group_created:
-          email_intro: Un nuovo gruppo di utenti è stato creato con il nome %{user_group_name}. Ora puoi verificarlo nel <a href="%{groups_admin_url}">pannello di amministrazione</a>.
-          email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
-          email_subject: È stato creato un nuovo gruppo di utenti
-          notification_title: Il gruppo di utenti %{user_group_name} è stato creato. Ora puoi verificarlo nel <a href="%{groups_admin_path}">pannello di amministratore</a>.
-        user_group_updated:
-          email_intro: Un gruppo di utenti con il nome %{user_group_name} ha aggiornato il suo profilo, lasciandolo non verificato. Ora puoi verificarlo nel <a href="%{groups_admin_url}">pannello di amministrazione</a>.
-          email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
-          email_subject: Un gruppo di utenti ha aggiornato il suo profilo
-          notification_title: Il gruppo utenti %{user_group_name} ha aggiornato il suo profilo, lasciandolo non verificato. Ora puoi verificarlo nel <a href="%{groups_admin_path}">pannello di amministratore</a>.
-      nickname_event:
-        notification_body: Abbiamo corretto il modo in cui vengono usati i nickname in modo che non ci siano duplicati, ed è per questo che abbiamo rimosso la regola del sensitive case. <br/> Il tuo nickname è stato creato dopo un altro identico, quindi lo abbiamo rinominato automaticamente. Puoi cambiarlo da <a href="%{link_to_account_settings}">le impostazioni del tuo account</a>.
-      notification_event:
-        notification_title: Si è verificato un evento di <a href="%{resource_path}">%{resource_title}</a>.
-      reports:
-        resource_hidden:
-          email_intro: Un amministratore ha rimosso il tuo %{resource_type} perché è stato segnalato come %{report_reasons}.
-          email_outro: Hai ricevuto questa notifica perché sei tra gli autori di "%{resource_title}".
-          email_subject: Il tuo %{resource_type} è stato rimosso
-          notification_title: |-
-            Un amministratore ha rimosso il tuo %{resource_type} perché è stato segnalato come %{report_reasons}.</br>
-            <i>%{resource_content}</i>
-      resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, chi stai seguendo, ha appena appoggiato la proposta "%{resource_title}" e pensiamo che potrebbe essere interessante per te. Dai un''occhiata e partecipa:'
-        email_outro: Hai ricevuto questa notifica perché stai seguendo %{endorser_nickname}. Puoi smettere di ricevere notifiche seguendo il link precedente.
-        email_subject: "%{endorser_nickname} ha eseguito un nuovo appoggio"
-        notification_title: Il <a href="%{resource_path}">%{resource_title}</a> %{resource_type} è stato approvato da <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
-      users:
-        profile_updated:
-          email_intro: La pagina <a href="%{resource_url}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
-          email_subject: "%{nickname} ha aggiornato il proprio profilo"
-          notification_title: La pagina <a href="%{resource_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
-        user_officialized:
-          email_intro: Participant %{name} (%{nickname}) has been officialized.
-          email_outro: You have received this notification because you are an administrator of the organization.
-          email_subject: ""
-          notification_title: Participant %{name} (%{nickname}) has been officialized.
+            email_intro: 'Un emendamento respinto per %{amendable_title} è stato promosso a %{amendable_type} indipendente. Puoi vederlo da questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché stai seguendo %{amendable_title}. È possibile interrompere la ricezione di notifiche facendo clic sul pulsante "Smetti di seguire" nella pagina del contenuto che stai seguendo.
+            email_subject: Un emendamento di %{emendation_author_nickname} è stato pubblicato come nuovo %{amendable_type}
+            notification_title: Un <a href="%{emendation_path}">emendamento rifiutato</a> per <a href="%{amendable_path}">%{amendable_title}</a> è stato pubblicato come nuovo %{amendable_type} da <a href="%{emendation_author_path}">%{emendation_author_nickname}
     export_mailer:
       download_your_data_export:
         click_button: 'Clicca sul link per scaricare i tuoi dati.<br/>Il file sarà disponibile fino a %{date}.<br/>Avrai bisogno di <a href="https://www.7-zip.org/">7-Zip</a> (per Windows), <a href="https://www.keka.io/en/">Keka</a> (per MacOS) o <a href="https://peazip.github.io">PeaZip</a> (per Linux) per aprirlo. Password: %{password}'
-        download: Scaricare
+        download: Scarica
       export:
-        ready: In allegato una versione zippata (Zip) dei dati esportati.
+        ready: In allegato una versione compressa (Zip) dei dati esportati.
       subject: Ecco i dati che hai chiesto di esportare per "%{name}"
     filters:
       linked_classes:
         all: Tutto
-        answer: Answer
+        answer: Risposta
         collaborative_draft: Bozza collaborativa
-        dummy_resource: Risorse fittizie
+        dummy_resource: Risorsa fittizia
         meeting: Incontri
         project: Progetti
         proposal: Proposte
-        result: Votazioni
+        result: Risultati
     fingerprint:
       check: Controlla l'impronta digitale
-      explanation: The piece of text below is a shortened, hashed representation of this content. It is useful to ensure the content has not been tampered with, as a single modification would result in a totally different value.
-      online_calculator_name: Calcolatrice MD5 online
+      explanation: Il testo qui sotto è una rappresentazione abbreviata (hash) di questo contenuto. È utile per garantire che il contenuto non sia stato manomesso, poiché una singola modifica risulterebbe in un valore totalmente diverso.
+      online_calculator_name: Calcolatore MD5 online
       replicate_help: Questa impronta digitale viene calcolata utilizzando un algoritmo di hash SHA256. Per replicare tu stesso, puoi usare uno %{online_calculator_link} e copiare e incollare i dati di origine.
       source: fonte
-      title: impronta digitale
+      title: Impronta digitale
       value: Valore
     followers:
       followers_count:
-        one: "%{count} sostenitori"
+        one: "%{count} sostenitore"
         other: "%{count} sostenitori"
-      no_followers: Nessun follower ancora.
+      no_followers: Nessun sostenitore ancora.
     following:
       following_count:
-        one: "%{count} follow"
-        other: "%{count} follows"
-      no_followings: Does not follow anyone or anything yet.
-      non_public_followings: Some of the resources followed are not public.
+        one: "%{count} seguito"
+        other: "%{count} seguiti"
+      no_followings: Non segue ancora nessuno o nulla.
+      non_public_followings: Alcune delle risorse seguite non sono pubbliche.
     follows:
       create:
         button: Segui
@@ -920,25 +802,25 @@ it:
       errors:
         decidim/user:
           password: La password è troppo breve.
-          password_confirmation: La conferma password deve corrispondere alla password.
-        error: There is an error in this field.
+          password_confirmation: La conferma della password deve corrispondere alla password.
+        error: C'è un errore in questo campo.
       file_help:
         file:
           explanation: 'Orientamenti per il file:'
           message_1: Deve essere un'immagine o un documento.
-          message_2: Per le immagini, utilizzare preferibilmente immagini orizzontali, il servizio ritaglia l'immagine.
+          message_2: Per le immagini, utilizzare preferibilmente formati orizzontali; il servizio ritaglierà l'immagine.
         icon:
-          explanation: 'Guidance for icon:'
-          message_1: Has to be a square image.
-          message_2: The recommended size for this image is 512x512.
+          explanation: 'Guida per l''icona:'
+          message_1: Deve essere un'immagine quadrata.
+          message_2: La dimensione consigliata per questa immagine è 512x512 pixel.
         image:
-          explanation: 'Orientamenti per il file:'
-          message_1: Preferibilmente un'immagine orizzontale che non ha alcun testo.
-          message_2: Il servizio ritaglia l'immagine.
+          explanation: 'Orientamenti per l''immagine:'
+          message_1: Preferibilmente un'immagine orizzontale che non contenga testo.
+          message_2: Il servizio ritaglierà l'immagine.
       file_validation:
         allowed_file_extensions: 'Estensioni file consentite: %{extensions}'
-        max_file_dimension: 'Formato massimo del file: %{resolution} pixels'
-        max_file_size: 'Dimensione massima del file: %{megabytes}MB'
+        max_file_dimension: 'Risoluzione massima del file: %{resolution} pixel'
+        max_file_size: 'Dimensione massima del file: %{megabytes} MB'
       files:
         extension_allowlist: 'Formati accettati: %{extensions}'
       upload:
@@ -948,7 +830,7 @@ it:
           add_image: Aggiungi immagine
           edit_image: Modifica immagine
           error: Errore!
-          file_size_too_large: 'La dimensione del file è eccessiva! La dimensione massima è: %{megabytes}MB'
+          file_size_too_large: 'La dimensione del file è eccessiva! Il limite massimo è: %{megabytes} MB'
           filename: Nome file
           remove: Rimuovi
           replace: Sostituisci
@@ -960,7 +842,7 @@ it:
           validation_error: Errore di validazione! Controlla che il file abbia un'estensione o una dimensione consentite.
         select_file: Seleziona file
       upload_help:
-        dropzone: Trascina i file qui o fai clic sul pulsante per caricare
+        dropzone: Trascina i file qui o fai clic sul pulsante per caricarli
         explanation: Guida per %{attribute}
     gamification:
       all_badges_link: Vedi tutti i badge disponibili.
@@ -1695,8 +1577,8 @@ it:
         subject: Istruzioni di conferma
       email_changed:
         greeting: Ciao %{recipient}!
-        message: We are contacting you to notify you that your email is being changed to %{email}.
-        subject: Email cambiata
+        message: Ti stiamo contattando per notificarti che la tua email è stata cambiata in %{email}.
+        subject: Email modificata
       invitation_instructions:
         accept: Accetta l'invito
         accept_until: Questo invito scade il %{due_date}.
@@ -1709,16 +1591,16 @@ it:
         invited_you_as_private_user: "%{invited_by} ti ha invitato come utente privato di %{application}. Puoi accettarlo tramite il link sottostante."
         someone_invited_you: Qualcuno ti ha invitato a %{application}. Puoi accettare l'invito facendo clic sul link sottostante.
         someone_invited_you_as_admin: Qualcuno ti ha invitato come amministratore di %{application}. Puoi accettare l'invito facendo clic sul link sottostante.
-        someone_invited_you_as_private_user: Qualcuno ti ha invitato come private_user di %{application}, puoi accettarlo tramite il link sottostante.
+        someone_invited_you_as_private_user: Qualcuno ti ha invitato come utente privato di %{application}. Puoi accettarlo tramite il link sottostante.
         subject: Istruzioni di invito
       invite_admin:
-        subject: You have been invited to manage %{organization}
+        subject: Sei stato invitato a gestire %{organization}
       invite_collaborator:
-        subject: You have been invited to collaborate on %{organization}
+        subject: Sei stato invitato a collaborare su %{organization}
       invite_private_user:
-        subject: You have been invited to a private participatory process on %{organization}
+        subject: Sei stato invitato a un processo partecipativo privato su %{organization}
       organization_admin_invitation_instructions:
-        subject: You have been invited to manage %{organization}
+        subject: Sei stato invitato a gestire %{organization}
       password_change:
         greeting: Ciao %{recipient}!
         message: Ti stiamo contattando per informarti che la tua password è stata modificata.
@@ -1726,8 +1608,8 @@ it:
       reset_password_instructions:
         action: Cambia la mia password
         greeting: Ciao %{recipient}!
-        instruction: Qualcuno ha richiesto un link per cambiare la tua password, e puoi farlo attraverso il link qui sotto.
-        instruction_2: Se non hai richiesto questa operazione, ignora questa email.
+        instruction: È stata richiesta la modifica della tua password; puoi procedere attraverso il link qui sotto.
+        instruction_2: Se non hai richiesto tu questa operazione, ignora questa email.
         instruction_3: La tua password non cambierà finché non accederai al link sopra e ne creerai una nuova.
         subject: Istruzioni per reimpostare la password
       unlock_instructions:
@@ -1877,100 +1759,100 @@ it:
       not_found: Nessun risultato trovato
   errors:
     messages:
-      allowed_file_content_types: 'solo i files con le seguenti estensioni sono permessi: %{types}'
-      already_confirmed: è stato già confermato, prova ad effettuare l'accesso
+      allowed_file_content_types: 'sono consentiti solo i file con le seguenti estensioni: %{types}'
+      already_confirmed: è stato già confermato, prova a effettuare l'accesso
       blank: non può essere vuoto
       cannot_be_blank: non può essere vuoto
       confirmation: non corrisponde a %{attribute}
-      confirmation_period_expired: deve essere confermato entro %{period}, si prega di richiederne uno nuovo
+      confirmation_period_expired: deve essere confermato entro %{period}, richiedine uno nuovo
       content_type_allowlist_error: il tipo di file non è valido
-      cycle_detected: a scope's parent cannot be one of its descendants
+      cycle_detected: il genitore di un ambito non può essere uno dei suoi discendenti
       empty: non può essere vuoto
-      expired: è scaduto, si prega di richiederne uno nuovo
+      expired: è scaduto, richiedine uno nuovo
       file_size_is_less_than_or_equal_to: la dimensione del file deve essere inferiore o uguale a %{count}
       invalid_time_zone: non è un fuso orario valido
       long_words: contiene parole troppo lunghe (oltre 35 caratteri)
       must_start_with_caps: deve iniziare con una lettera maiuscola
-      nesting_too_deep: cannot be inside of a subcategory
+      nesting_too_deep: non può trovarsi all'interno di una sottocategoria
       not_found: non è stato trovato. Ti sei iscritto in precedenza?
       not_locked: non era bloccato
       not_saved:
         one: 'Si è verificato un errore durante l''elaborazione della tua richiesta:'
-        other: 'Ci sono stati molteplici errori durante l''elaborazione della tua richiesta:'
-      too_many_marks: sta usando troppi segni di punteggiatura consecutivi (ad esempio! e?)
-      too_much_caps: usa troppe lettere maiuscole (oltre il 25% del testo)
-      too_short: is too short (under %{count} characters)
-      url_format: This URL is in the incorrect format
+        other: 'Si sono verificati %{count} errori durante l''elaborazione della tua richiesta:'
+      too_many_marks: contiene troppi segni di punteggiatura consecutivi (ad esempio "!!" o "??")
+      too_much_caps: contiene troppe lettere maiuscole (oltre il 25% del testo)
+      too_short: è troppo breve (minimo %{count} caratteri)
+      url_format: Il formato di questo URL non è corretto
   forms:
-    correct_errors: Ci sono errori nel modulo, correggerli per continuare.
+    correct_errors: Ci sono errori nel modulo, correggili per continuare.
     length_validator:
       minimum:
         one: Almeno %{count} carattere
         other: Almeno %{count} caratteri
-    required: Richiesto
+    required: Obbligatorio
     required_explanation: "* I campi obbligatori sono contrassegnati con un asterisco"
   invisible_captcha:
-    sentence_for_humans: Se sei una persona e non un computer, ignora questo campo
-    timestamp_error_message: Mi dispiace, troppo veloce! Per favore, invia di nuovo.
+    sentence_for_humans: Se sei un essere umano e non un computer, ignora questo campo
+    timestamp_error_message: Errore di invio (troppo veloce)! Per favore, riprova.
   layouts:
     decidim:
       announcements:
-        view_less: Show less
-        view_more: More information
+        view_less: Mostra meno
+        view_more: Più informazioni
       data_consent:
         details:
           columns:
-            description: Description
-            name: Name
-            service: Service
-            type: genere
+            description: Descrizione
+            name: Nome
+            service: Servizio
+            type: Tipo
           items:
             _session_id:
-              description: Allows websites to remember user within a website when they move between web pages.
-              service: This website
+              description: Consente al sito web di ricordare l'utente all'interno del sito mentre si sposta tra le diverse pagine web.
+              service: Questo sito web
             decidim-consent:
-              description: Stores information about the cookies allowed by the user on this website.
-              service: This website
+              description: Memorizza informazioni sui cookie autorizzati dall'utente su questo sito web.
+              service: Questo sito web
             pwaInstallPromptSeen:
-              description: Stores status if the progressive web application (PWA) install notification has been already seen by the user.
-              service: This website
+              description: Memorizza lo stato della notifica di installazione dell'applicazione web progressiva (PWA), indicando se è già stata visualizzata dall'utente.
+              service: Questo sito web
           types:
             cookie: Cookie
-            local_storage: Local storage
+            local_storage: Memoria locale (Local storage)
         dialog:
-          accept_all: Accept all
-          accept_only_essential: Accept only essential
-          description: We use cookies on our website to improve the performance and content of the site. The cookies enable us to provide a more individual user experience and social media channels.
-          settings: Settings
-          title: Information about the cookies used on the website
+          accept_all: Accetta tutti
+          accept_only_essential: Accetta solo essenziali
+          description: Utilizziamo i cookie sul nostro sito web per migliorare le prestazioni e i contenuti del sito. I cookie ci consentono di fornire un'esperienza utente più personalizzata e l'integrazione con i canali social.
+          settings: Impostazioni
+          title: Informazioni sui cookie utilizzati sul sito web
         modal:
-          accept_all: Accept all
-          accept_only_essential: Accept only essential
+          accept_all: Accetta tutti
+          accept_only_essential: Accetta solo essenziali
           analytics:
-            description: These cookies are used to measure and analyse the website audience to help improve the website.
-            title: Analytics and statistics
-          description: We use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can configure and accept the use of the cookies, and modify your consent options, at any time.
+            description: Questi cookie sono utilizzati per misurare e analizzare l'audience del sito web al fine di migliorarne le funzionalità.
+            title: Analisi e statistiche
+          description: Utilizziamo i cookie per garantire le funzionalità di base del sito web e per migliorare la tua esperienza online. Puoi configurare e accettare l'uso dei cookie, o modificare le tue opzioni di consenso, in qualsiasi momento.
           essential:
-            description: These cookies enable key functionality of the website and help to keep its users secured. They are automatically saved in the browser and cannot be disabled.
-            title: Essential
+            description: Questi cookie abilitano le funzionalità chiave del sito web e aiutano a mantenere sicura la navigazione. Vengono salvati automaticamente nel browser e non possono essere disattivati.
+            title: Essenziali
           marketing:
-            description: These cookies collect information about how you use the website and they can be utilized to provide you more personalized marketing across the different websites you use.
+            description: Questi cookie raccolgono informazioni su come utilizzi il sito web e possono essere utilizzati per fornirti marketing personalizzato su diversi siti web.
             title: Marketing
           preferences:
-            description: These cookies allow the website to remember the choices you have made in the past on this website to provide a more personalized experience for the website users.
-            title: Preferences
-          save_settings: Save settings
-          title: Cookie settings
-          toggle: Toggle %{consent_category}
+            description: Questi cookie permettono al sito web di ricordare le scelte fatte in passato per fornire un'esperienza più personalizzata.
+            title: Preferenze
+          save_settings: Salva impostazioni
+          title: Impostazioni cookie
+          toggle: Attiva/disattiva %{consent_category}
         warning:
-          all_categories: all cookies
-          change_settings: Change cookie settings
-          consent_required: You need to enable %{categories} in order to see this content.
+          all_categories: tutti i cookie
+          change_settings: Cambia impostazioni cookie
+          consent_required: È necessario abilitare %{categories} per visualizzare questo contenuto.
       edit_link:
         edit: Modifica
       footer:
         cc_by_license: Licenza Creative Commons
-        data_consent_settings: Cookie settings
+        data_consent_settings: Impostazioni cookie
         decidim_logo: Logo Decidim
         decidim_title: ParteciPa
         download_open_data: Scarica i file Open Data
@@ -2014,7 +1896,7 @@ it:
       user_menu:
         account: 'Account utente: %{name}'
         admin_dashboard: Cruscotto per gli amministratori (Admin dashboard)
-        configuration: Configuration
+        configuration: Configurazione
         conversations: Conversazioni
         log_out: Log out
         notifications: Notifiche
