@@ -1478,14 +1478,14 @@ it:
       scopes_picker_input:
         select_scope: 'Seleziona un ambito (attualmente: %{current})'
     search:
-      name: Search
+      name: Cerca
       results: Risultato della ricerca
       results_found_for_term: '%{count} Risultati per la ricerca: "%{term}"'
       term_input_placeholder: Ricerca
     searches:
       filters:
         jump_to: 'Filtra per:'
-        search: Search
+        search: Cerca
         state:
           active: Attivo
           all: Tutti
@@ -1519,9 +1519,9 @@ it:
         already_reported: Questo contenuto è già stato riportato e sarà revisionato da un amministratore.
         close: Chiudi
         description: Questo contenuto è inappropriato?
-        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.
-        hide: Hide
-        hide_content: Hide this content
+        does_not_belong: Contiene attività illegali, minacce di suicidio, informazioni personali o qualcos'altro che ritieni non sia pertinente su %{organization_name}.
+        hide: Nascondi
+        hide_content: Nascondi questo contenuto
         offensive: Contiene contenuti razzisti, diffamatori, sessisti, insulti o attacchi personali, minacce di morte, istigazioni al suicidio o altre forme di odio verbale.
         reason: Motivazione
         report: Rapporto
@@ -1532,8 +1532,8 @@ it:
         block: Block this participant
         close: Chiudi
         description: Che cosa è inappropriato riguardo all'utente?
-        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.
-        hide: Hide all their contents
+        does_not_belong: Contiene attività illegali, minacce di suicidio, informazioni personali o qualcos'altro che ritieni non sia pertinente su %{organization_name}.
+        hide: Nascondi tutti i loro contenuti
         offensive: Vi sono contenuti razzisti, sessisti, offensivi, attacchi di carattere personale, minacce di morte o altro tipo di minacci, istigazioni al suicidio o altre forme d'odio verbale.
         report: Segnala
         spam: Contiene pubblicità, truffe, clickbait ("esca da click") o altro contenuto mirato ad attrarre traffico internet.
@@ -1571,7 +1571,7 @@ it:
         copy_share_link_message: Il link è stato copiato con successo negli appunti.
         share: Condividi
         share_link: Condividi link
-        share_to: Share to %{service}
+        share_to: Condividi a %{service}
     statistics:
       comments_count: Commenti
       endorsements_count: Approvazioni
@@ -1619,19 +1619,19 @@ it:
       notify:
         body_1: L'utente %{user} è stato segnalato da %{token}
         body_2: 'Motivo: %{reason}'
-        details: User provided details
+        details: Dettagli forniti dall'utente 
         greetings: Salve,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Ciao %{admin},
         subject: Un nuovo utente è stato segnalato in %{organization_name}
     user_update_mailer:
       notify:
-        body_1: We are sending you this message to inform you about an update to your account.
-        body_2: In case you have not performed such update yourself, please log in to your account to change your password. In case you cannot log in, please contact the platform support.
-        greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
-        hello: Hello %{user}
-        main_body: 'The following details have been changed: %{updates}.'
-        update_fields: "%{updates} and %{last_update}"
-      subject: Your account was updated
+        body_1: Ti inviamo questo messaggio per informarti di un aggiornamento del tuo account.
+        body_2: Nel caso in cui non avessi effettuato tu stesso tale aggiornamento, ti preghiamo di accedere al tuo account per cambiare la password. Nel caso in cui non riuscissi ad accedere, ti preghiamo di contattare il supporto della piattaforma.
+        greetings: Cordiali saluti,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Ciao %{user}
+        main_body: 'I seguenti dettagli sono stati modificati: %{updates}.'
+        update_fields: "%{updates} e %{last_update}"
+      subject: Il tuo account è stato aggiornato
     version:
       show:
         back_to_resource: Torna indietro
@@ -1670,15 +1670,15 @@ it:
       last_attempt: Hai ancora un tentativo prima che il tuo account sia bloccato.
       locked: Il tuo account è bloccato.
       not_found_in_database: '%{authentication_keys} o password non validi.'
-      timeout: Your session expired. Please log in again to continue.
-      unauthenticated: Devi accedere o registrarti, per continuare.
+      timeout: La sessione è scaduta. Accedi di nuovo per continuare.
+      unauthenticated: Devi accedere o registrarti per continuare.
     invitations:
       edit:
         header: Completa la creazione del tuo account
-        nickname_help: Your nickname in %{organization}. Can only contain letters, numbers, '-' and '_'.
+        nickname_help: Il tuo nickname in %{organization}. Può contenere solo lettere, numeri, '-' e '_'.
         submit_button: Salva
         subtitle: Se accetti l'invito, imposta il tuo nickname e password.
-      invitation_removed: Il tuo invito è stato rimosso
+      invitation_removed: Il tuo invito è stato rimosso.
       invitation_token_invalid: Il token di invito fornito non è valido!
       new:
         header: Spedire un invito
@@ -1703,8 +1703,8 @@ it:
         decline: Rifiuta l'invito
         hello: Ciao %{email},
         ignore: |-
-          If you do not want to accept the invitation, please ignore this email.<br />
-          Your account will not be created until you access the link above and set your nickname and password.
+          Se non desideri accettare l'invito, ignora questa email.<br />
+          Il tuo account non verrà creato finché non accederai al link sopra e avrai impostato il tuo nickname e la tua password.
         invited_you_as_admin: "%{invited_by} ti ha invitato come amministratore di %{application}. Puoi accettare l'invito facendo clic sul link sottostante."
         invited_you_as_private_user: "%{invited_by} ti ha invitato come utente privato di %{application}. Puoi accettarlo tramite il link sottostante."
         someone_invited_you: Qualcuno ti ha invitato a %{application}. Puoi accettare l'invito facendo clic sul link sottostante.
@@ -1721,21 +1721,21 @@ it:
         subject: You have been invited to manage %{organization}
       password_change:
         greeting: Ciao %{recipient}!
-        message: We are contacting you to notify you that your password has been changed.
+        message: Ti stiamo contattando per informarti che la tua password è stata modificata.
         subject: Password modificata
       reset_password_instructions:
         action: Cambia la mia password
         greeting: Ciao %{recipient}!
         instruction: Qualcuno ha richiesto un link per cambiare la tua password, e puoi farlo attraverso il link qui sotto.
-        instruction_2: If you did not request this, please ignore this email.
-        instruction_3: Your password will not change until you access the link above and create a new one.
-        subject: Reimposta le istruzioni della password
+        instruction_2: Se non hai richiesto questa operazione, ignora questa email.
+        instruction_3: La tua password non cambierà finché non accederai al link sopra e ne creerai una nuova.
+        subject: Istruzioni per reimpostare la password
       unlock_instructions:
         action: Sblocca il mio account
         greeting: Ciao %{recipient}!
         instruction: 'Clicca sul link sottostante per sbloccare il tuo account:'
-        message: Your account has been locked due to an excessive amount of unsuccessful log in attempts.
-        subject: Sblocca le istruzioni
+        message: Il tuo account è stato bloccato a causa di un numero eccessivo di tentativi di accesso non riusciti.
+        subject: Istruzioni per lo sblocco
     omniauth_callbacks:
       failure: Impossibile autenticare da %{kind}, ri effettuare l'accesso.
       success: Autenticato con successo da account %{kind}.
@@ -1744,10 +1744,10 @@ it:
         change_my_password: Cambia la mia password
         confirm_new_password: Conferma la nuova password
         new_password: Nuova password
-        old_password_help: In order to confirm the changes to your account, please provide your current password.
-        password_help: "%{minimum_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
-        password_help_admin: "%{minimum_characters} characters minimum, must not be too common (e.g. 123456), must be different from your nickname and your email and must be different from your old passwords."
-        title: Password change
+        old_password_help: Per confermare le modifiche al tuo account, inserisci la tua password attuale.
+        password_help: "Minimo %{minimum_characters} caratteri, non deve essere troppo comune (es. 123456) e deve essere diversa dal tuo nickname e dalla tua email."
+        password_help_admin: "Minimo %{minimum_characters} caratteri, non deve essere troppo comune (es. 123456), deve essere diversa dal tuo nickname e dalla tua email e deve essere diversa dalle tue password precedenti."
+        title: Cambia password
       new:
         forgot_your_password: Hai dimenticato la password?
         send_me_reset_password_instructions: Inviami le istruzioni per reimpostare la password
@@ -1816,7 +1816,7 @@ it:
         targetLabel: Target
         targets:
           blank: Nuova scheda
-          default: Default (same tab)
+          default: Default (stesso tab)
       videoEmbed:
         titleLabel: Titolo
         urlLabel: URL Video
@@ -1972,7 +1972,7 @@ it:
         cc_by_license: Licenza Creative Commons
         data_consent_settings: Cookie settings
         decidim_logo: Logo Decidim
-        decidim_title: Decidim
+        decidim_title: ParteciPa
         download_open_data: Scarica i file Open Data
         log_in: Accedi
         made_with_open_source: Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.

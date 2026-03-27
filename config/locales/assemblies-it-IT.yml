@@ -344,6 +344,8 @@ it:
           names:
             all: Tutti
           type: Tipo
+        help:
+          description: "<p>Un'<strong>assemblea</strong> è un gruppo di membri di un'organizzazione che si riuniscono periodicamente per prendere decisioni su una zona o un ambito specifici dell'organizzazione.</p> <p>Le assemblee svolgono riunioni private o aperte. Una riunione aperta è una riunione alla quale è possibile partecipare (ad esempio di persona se la capacità lo consente, aggiungendo punti all'ordine del giorno oppure commentando le proposte e le decisioni adottate dall'organo).</p> <p>Esempi: Un'assemblea generale (che si riunisce una volta all'anno per definire le principali linee di azione dell'organizzazione e i suoi organi esecutivi mediante votazione), un consiglio consultivo per la parità (che si riunisce ogni due mesi per formulare proposte su come migliorare le relazioni di genere all'interno dell'organizzazione), una commissione di valutazione (che si riunisce ogni mese per monitorare un processo) o un organismo di garanzia (che raccoglie segnalazioni di incidenti e abusi o acquisisce proposte al fine di migliorare le procedure decisionali) sono tutti esempi di assemblee.</p>\n"
         show:
           title: Su questa assemblea
       assembly_members:
@@ -382,6 +384,8 @@ it:
         others: Altri
         participatory: Partecipativo
         working_group: Gruppo di lavoro
+      help:
+        description: "<p>Un'<strong>assemblea</strong> è un gruppo di membri di un'organizzazione che si riuniscono periodicamente per prendere decisioni su una zona o un ambito specifici dell'organizzazione.</p> <p>Le assemblee svolgono riunioni private o aperte. Una riunione aperta è una riunione alla quale è possibile partecipare (ad esempio di persona se la capacità lo consente, aggiungendo punti all'ordine del giorno oppure commentando le proposte e le decisioni adottate dall'organo).</p> <p>Esempi: Un'assemblea generale (che si riunisce una volta all'anno per definire le principali linee di azione dell'organizzazione e i suoi organi esecutivi mediante votazione), un consiglio consultivo per la parità (che si riunisce ogni due mesi per formulare proposte su come migliorare le relazioni di genere all'interno dell'organizzazione), una commissione di valutazione (che si riunisce ogni mese per monitorare un processo) o un organismo di garanzia (che raccoglie segnalazioni di incidenti e abusi o acquisisce proposte al fine di migliorare le procedure decisionali) sono tutti esempi di assemblee.</p>\n"
       index:
         title: assemblee
       last_activity:
