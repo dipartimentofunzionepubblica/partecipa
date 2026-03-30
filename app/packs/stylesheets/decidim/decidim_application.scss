@@ -361,7 +361,7 @@ $par-highlight: #FFFF00;
   }
   
   .main-bar__links-desktop__item:hover {
-    color: rgb(var(--primary)) !important;
+    color: var(--primary) !important;
   }
   
   // nasconde le icone Incontri dal menù in alto a destra su desktop
@@ -412,7 +412,19 @@ $par-highlight: #FFFF00;
     font-weight: 300;
     color: white;
   }
-
+  
+  // hamburger icon
+  
+  #main-dropdown-summary-mobile > svg {
+    height: 2.5rem !important;
+    width: 2.5rem !important;
+    flex: none;
+    fill: currentColor;
+    --tw-text-opacity: 1;
+    color: rgb(var(--secondary-rgb) / 1);
+    color: white;
+  }
+  
 // FINE HEADER
    
 // HOME MENU SOLO IN HP 
