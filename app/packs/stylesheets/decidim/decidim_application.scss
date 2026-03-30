@@ -118,6 +118,24 @@ $par-highlight: #FFFF00;
     height: 1.0em;
     fill: black;
   }
+  
+  // bottone per l'accesso a PUA
+  
+  .button--l .button--pua {
+    background-color: var(--tertiary);
+    border-color: #06c;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .button--l button {
+    margin: 0 auto;
+    width: 300px;
+    min-width: 0;
+    color: white;
+  }
 
 // FINE GENERALE
 
@@ -138,7 +156,7 @@ $par-highlight: #FFFF00;
   
   // testo sotto il banner hero
 
-  #footer_sub_hero .text-lg {
+  #footer_sub_hero > .text-lg, #sub_hero > .editor-content {
     font-size: 25px !important;
     line-height: 30px !important;
   }

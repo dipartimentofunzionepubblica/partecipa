@@ -352,18 +352,10 @@ Decidim.configure do |config|
          }
        ]
      },
-  #   {
-  #     slug: "preferences",
-  #     mandatory: false
-  #   },
      {
        slug: "analytics",
        mandatory: false
      }
-  #   {
-  #     slug: "marketing",
-  #     mandatory: false
-  #   }
    ]
 
   # Admin admin password configurations
@@ -483,3 +475,6 @@ Rails.application.config.i18n.default_locale = Decidim.default_locale
 
 # Inform Decidim about the assets folder
 Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)
+
+# Scandenza link allegati
+Rails.application.config.active_storage.service_urls_expire_in = 10.years
