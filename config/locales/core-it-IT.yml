@@ -1243,7 +1243,7 @@ it:
           register: Registrati
           register_title: Registrati e crea un account
       index:
-        standalone_pages: pagine
+        standalone_pages: Pagine
         subheading: Naviga attraverso le pagine di aiuto di %{name}
         title: Aiuto
         topics: Temi
@@ -1259,7 +1259,7 @@ it:
           agreement: Accetto le condizioni
           legend: Accetta i termini di servizio
         refuse:
-          modal_body: In caso di rifiuto, non sarai in grado di utilizzare la piattaforma, ma potrai <a href="%{data_portability_path}">scaricare i tuoi dati</a> e/o <a href="%{delete_path}">eliminare il tuo account</a>.
+          modal_body: In caso di rifiuto, non sarai in grado di utilizzare la piattaforma, ma potrai <a href="%{download_your_data_path}">scaricare i tuoi dati</a> e/o <a href="%{delete_path}">eliminare il tuo account</a>.
           modal_btn_continue: Accetta le condizioni e continua
           modal_btn_exit: Lo rivederò più tardi
           modal_button: Rifiuta le condizioni
