@@ -125,7 +125,7 @@ it:
         one: circa 1 ora
         other: circa %{count} ore
       about_x_months:
-        one: about 1 month
+        one: circa 1 mese
         other: circa %{count} mesi
       half_a_minute: mezzo minuto
       less_than_x_minutes:
@@ -767,7 +767,7 @@ it:
         answer: Risposta
         collaborative_draft: Bozza collaborativa
         dummy_resource: Risorsa fittizia
-        meeting: Incontri
+        meeting: Meeting
         project: Progetti
         proposal: Proposte
         result: Risultati
@@ -1223,7 +1223,7 @@ it:
           debates: Dibattiti
           debates_explanation: Dibattere e discutere, condividere le tue opinioni e arricchire gli argomenti pertinenti.
           how_to_participate: Come posso partecipare ad un processo?
-          meetings: Incontri
+          meetings: Meeting
           meetings_explanation: Scopri dove e quando puoi partecipare a incontri pubblici.
           more_info: Maggiori informazioni
           proposals: Proposte
