@@ -148,8 +148,6 @@ Di seguito una breve spiegazione per ciascuna costante:
 	PUA_RELYING_PARTY: #Stringa indicante il servizio del Service Provider corrente, nel nostro caso "https://partecipa.gov.it"
 	PUA_APP_ID: #Stringa indicante l'app_id univoco che identifica il Service Provider, comunicato da DFP in fase di accreditamento
 	PUA_APP_SECRET: #Stringa indicante il secret che serve all'autenticazione del Service Provider, comunicato da DFP in fase di accreditamento
-
-	COMPONENT_TABS: #Intero indicante il numero massimo di tabs Componenti che appaiono a fianco al nome Processo/Assemblea
 	
 	DECIDIM_APPLICATION_NAME: #Stringa che identifica il nome dell'applicativo
 	DECIDIM_MAILER_SENDER: #Stringa che indica l'indirizzo email mittente delle comunicazioni e notifiche

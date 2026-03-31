@@ -1,5 +1,5 @@
 {
-  "name": "comune-chieri",
+  "name": "partecipa",
   "private": true,
   "dependencies": {
     "@decidim/browserslist-config": "^0.28.6",
