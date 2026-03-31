@@ -313,7 +313,12 @@ it:
           email_subject:
             one: Hai un voto incompiuto nel voto partecipativo
             other: Hai voti incompiuti nel voto del bilancio partecipativo
+    comments:
+      comments_title: Commenta
     components:
+      add_comment_form:
+        form:
+          submit_root_comment: Commenta
       budgets:
         actions:
           comment: Commenta

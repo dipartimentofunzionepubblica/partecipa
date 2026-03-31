@@ -109,11 +109,11 @@ it:
         preview: Anteprima
         publish: Pubblica
         resend_invitation: Manda di nuovo l'invito
-        see_process: See process
+        see_process: Vedi processo
         unpublish: Non pubblicarlo
       filters:
         decidim_participatory_process_group_id_eq:
-          label: By process group
+          label: Per gruppo di processi
       menu:
         participatory_process_groups: Gruppo di processi
         participatory_process_groups_submenu:
@@ -127,7 +127,7 @@ it:
           attachments: Allegati
           categories: Categorie
           components: Componenti
-          info: About this process
+          info: Su questo processo
           landing_page: Pagina di destinazione
           moderations: Moderazione
           private_users: Utenti privati
@@ -136,7 +136,7 @@ it:
       models:
         participatory_process:
           fields:
-            actions: Actions
+            actions: Azioni
             created_at: Data/ora di creazione
             private: Privato
             published: Pubblicato
@@ -174,9 +174,9 @@ it:
             invitation_sent_at: Invito inviato a
       participatory_process_copies:
         new:
-          copy: Copia
-          select: Select which data you would like to duplicate
-          title: Duplicate participatory process
+          copy: "Copia"
+          select: "Seleziona quali dati desideri duplicare"
+          title: "Duplica processo partecipativo"
       participatory_process_groups:
         destroy:
           error: Si è verificato un errore durante la cancellazione del gruppo di processi partecipativi.
@@ -216,9 +216,9 @@ it:
         default_title: Introduzione
         destroy:
           error:
-            active_step: Cannot delete the active phase.
-            last_step: Cannot delete the last phase of a process.
-          success: Fase del processo partecipativo cancellata con successo.
+            active_step: "Impossibile eliminare la fase attiva."
+            last_step: "Impossibile eliminare l'ultima fase di un processo."
+          success: "Fase del processo partecipativo cancellata con successo."
         edit:
           cta_deprecated:
             body_html: |-
@@ -281,7 +281,7 @@ it:
           private: Privato
           public: Pubblico
           published: Pubblicato
-          unpublished: Unpublished
+          unpublished: Non pubblicato
         new:
           create: Crea
           title: Nuovo processo partecipativo.
@@ -290,8 +290,8 @@ it:
           success: OK, il processo partecipativo è stato aggiornato.
       participatory_processes_copies:
         create:
-          error: There was a problem duplicating this participatory process.
-          success: Participatory process successfully duplicated.
+          error: "Si è verificato un problema durante la duplicazione di questo processo partecipativo."
+          success: "Processo partecipativo duplicato con successo."
       participatory_processes_group:
         create:
           error: Si è verificato un errore cercando di creare il nuovo gruppo di processi partecipativi.
@@ -356,7 +356,7 @@ it:
     log:
       value_types:
         participatory_process_type_presenter:
-          not_found: 'The process type was not found on the database (ID: %{id}).'
+          not_found: "Il tipo di processo non è stato trovato nel database (ID: %{id})."
     menu:
       processes: Processi
     metrics:
@@ -367,11 +367,11 @@ it:
     participatory_process_groups:
       content_blocks:
         extra_data:
-          developer_group: Promoted by
-          name: Metadata
-          participatory_scope: What is decided
-          participatory_structure: How is it decided
-          target: Who participates
+          developer_group: "Promosso da"
+          name: "Metadati"
+          participatory_scope: "Cosa si decide"
+          participatory_structure: "Come si decide"
+          target: "Chi partecipa"
         html:
           name: HTML block
         html_1:
@@ -381,9 +381,9 @@ it:
         html_3:
           name: Terzo blocco HTML
         main_data:
-          name: Title and description
+          name: "Titolo e descrizione"
         participatory_processes:
-          active: Active participatory processes
+          active: "Processi partecipativi attivi"
           name: Processi partecipativi
         stats:
           name: Attività
@@ -401,29 +401,29 @@ it:
       admin:
         content_blocks:
           highlighted_processes:
-            active: Active
-            all: All
-            max_results: Quantità massima di elementi da mostrare
-            selection_criteria: Selection criteria
+            active: "Attivi"
+            all: "Tutti"
+            max_results: "Quantità massima di elementi da mostrare"
+            selection_criteria: "Criteri di selezione"
         new_import:
           accepted_types:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: "Gli slug URL vengono utilizzati per generare gli indirizzi (URL) che puntano a questo processo. Sono accettati solo lettere, numeri e trattini, e devono iniziare con una lettera. Esempio: %{url}"
         participatory_process_groups:
           form:
-            metadata: Metadati
-            title: About this process
-            visibility: Visibilità
+            metadata: "Metadati"
+            title: "Informazioni su questo processo"
+            visibility: "Visibilità"
         participatory_process_imports:
           form:
-            document_legend: Aggiungi documento
-            slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            document_legend: "Aggiungi documento"
+            slug_help_html: "Gli slug URL vengono utilizzati per generare gli indirizzi (URL) che puntano a questo processo. Sono accettati solo lettere, numeri e trattini, e devono iniziare con una lettera. Esempio: %{url}"
         participatory_process_steps:
           form:
-            cta_path_help_html: 'Use partial paths, not full URLs here. Accepts letters, numbers, dashes and slashes, and must start with a letter. If not set, the button will not be shown. Example: %{url}'
-            cta_text_help: Se non impostato, il pulsante non verrà mostrato.
+            cta_path_help_html: "Utilizza percorsi parziali, non URL completi. Sono accettati lettere, numeri, trattini e barre (slash), e devono iniziare con una lettera. Se non impostato, il pulsante non verrà visualizzato. Esempio: %{url}"
+            cta_text_help: "Se non impostato, il pulsante non verrà mostrato."
         participatory_processes:
           form:
             announcement_help: Il testo che inserisci qui verrà mostrato all'utente sotto le informazioni di processo.
@@ -437,18 +437,18 @@ it:
             select_an_area: Seleziona un'area
             select_participatory_process_type: Seleziona un tipo di processo
             select_process_group: Seleziona un gruppo di processi
-            slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: "Gli slug URL vengono utilizzati per generare gli indirizzi (URL) che puntano a questo processo. Sono accettati solo lettere, numeri e trattini, e devono iniziare con una lettera. Esempio: %{url}"
             title: Informazioni generali
             visbility: Visibilità
       content_blocks:
         extra_data:
-          name: Phase & duration
+          name: "Fase e durata"
         hero:
-          name: Hero image and CTA
+          name: "Immagine di copertina (Hero) e CTA"
         highlighted_processes:
-          name: Processi evidenziati
+          name: "Processi evidenziati"
         related_processes:
-          name: Related processes
+          name: "Processi correlati"
       index:
         title: Processi partecipativi
       last_activity:
@@ -489,17 +489,17 @@ it:
               other: "%{count} processi imminenti"
           date: Date
           explanations:
-            no_active: No active processes.
-            no_active_nor_upcoming: No active nor upcoming processes.
-            no_active_nor_upcoming_callout: Non ci sono processi attivi o imminenti. Ecco una lista di quelli passati.
-          filter_by: Show
+            no_active: "Nessun processo attivo."
+            no_active_nor_upcoming: "Nessun processo attivo o imminente."
+            no_active_nor_upcoming_callout: "Non ci sono processi attivi o imminenti. Ecco una lista di quelli passati."
+          filter_by: "Mostra"
           names:
-            active: Attivo
-            all: Tutti
-            past: Conclusi
-            upcoming: Imminenti
-          see: Vedi tutto
-          type: Type
+            active: "Attivi"
+            all: "Tutti"
+            past: "Conclusi"
+            upcoming: "Imminenti"
+          see: "Vedi tutto"
+          type: "Tipo"
         show:
           title: Informazioni su questo processo
       show:

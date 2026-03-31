@@ -31,7 +31,7 @@ it:
         online_meeting_url: Url riunione online
         organizer_gid: Crea come
         organizer_id: Organizzatore
-        private_meeting: Incontro privato
+        private_meeting: Meeting privato
         registration_email_custom_content: E-mail di registrazione contenuto personalizzato
         registration_form_enabled: Modulo di registrazione abilitato
         registration_terms: Termini di registrazione
@@ -73,17 +73,17 @@ it:
             email:
               already_invited: Questa email è relativa ad un utente già invitato.
     models:
-      decidim/meetings/close_meeting_event: Riunione chiusa
+      decidim/meetings/close_meeting_event: Meeting chiusa
       decidim/meetings/create_meeting_event: Evento
       decidim/meetings/meeting_registrations_enabled_event: Registrazioni abilitate
       decidim/meetings/meeting_registrations_over_percentage_event: Iscrizioni oltre il limite
       decidim/meetings/upcoming_meeting_event: Prossimo incontro
-      decidim/meetings/update_meeting_event: Riunione aggiornata
+      decidim/meetings/update_meeting_event: Meeting aggiornata
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Incontro
-        other: Incontri
+        one: Meeting
+        other: Meeting
       decidim/meetings/minutes:
         one: Minuti
         other: Minuti
@@ -123,16 +123,16 @@ it:
       meeting_copies:
         create:
           error: C'é stato un errore nella duplicazione di questo incontro.
-          success: Riunione duplicata con successo.
+          success: Meeting duplicata con successo.
         new:
           copy: copia
-          title: Riunione duplicata
+          title: Meeting duplicata
     components:
       meetings:
         actions:
           comment: Commenta
           join: Iscriviti
-        name: Incontri
+        name: Meeting
         settings:
           global:
             announcement: Annuncio
@@ -209,7 +209,7 @@ it:
           description: Questo badge è concesso quando si partecipano a numerosi incontri in presenza.
           description_another: Questo utente ha partecipato a %{score} riunioni.
           description_own: Hai partecipato a %{score} riunioni.
-          name: Riunioni frequentate
+          name: Meeting frequentate
           next_level_in: Partecipa a %{score} altri incontri per raggiungere il livello successivo!
           unearned_another: Questo utente non ha ancora partecipato a nessuna riunione.
           unearned_own: Non hai ancora presenziato a nessuna riunione.
@@ -265,7 +265,7 @@ it:
         exports:
           answers: Risposte
           meeting_comments: Commenti
-          meetings: Incontri
+          meetings: Meeting
           registrations: Iscrizioni
         invite_join_meeting_mailer:
           invite:
@@ -303,7 +303,7 @@ it:
             success: La riunione è stato chiusa.
           create:
             invalid: Si è verificato un errore durante la creazione di questa riunione.
-            success: Riunione creata con successo. Nota che non è ancora pubblicata, devi pubblicarla manualmente.
+            success: Meeting creata con successo. Nota che non è ancora pubblicata, devi pubblicarla manualmente.
           destroy:
             invalid:
               proposals_count:
@@ -325,13 +325,13 @@ it:
             select_a_registration_type: Seleziona un tipo di registrazione
             select_an_iframe_access_level: Seleziona un livello di accesso iframe
           index:
-            title: Incontri
+            title: Meeting
           new:
             create: Crea
             title: Crea meeting
           publish:
             invalid: Si è verificato un errore durante la pubblicazione di questa riunione.
-            success: Riunione pubblicata con successo.
+            success: Meeting pubblicata con successo.
           service:
             description: Descrizione
             down: Giù
@@ -423,7 +423,7 @@ it:
       directory:
         meetings:
           index:
-            meetings: Incontri
+            meetings: Meeting
             space_type: Spazio partecipativo
       iframe_access_level:
         all: Tutti i visitatori
@@ -512,18 +512,18 @@ it:
           select_a_registration_type: Seleziona un tipo di registrazione
           select_an_iframe_access_level: Please select an iframe access level
         index:
-          click_here: See all meetings
-          new_meeting: Nuova riunione
-          see_all: See all meetings
-          see_all_withdrawn: See all withdrawn meetings
-          text_banner: You are viewing the list of meetings withdrawn by their authors. %{go_back_link}.
+          click_here: Vedi tutti i meeting
+          new_meeting: Nuovo meeting
+          see_all: Vedi tutti i meeting
+          see_all_withdrawn: Vedi tutti i meeting ritirati
+          text_banner: Stai visualizzando l'elenco dei meeting ritirati dai rispettivi autori. %{go_back_link}.
         meeting:
           close_meeting: Chiusura meeting
-          edit_close_meeting: Edit meeting report
+          edit_close_meeting: Modifica il verbale del meeting
           edit_meeting: Modifica la riunione
-          join_meeting: Join meeting
+          join_meeting: Partecipa al meeting
         meetings:
-          no_meetings_warning: No meetings match your search criteria or there is not any meeting scheduled.
+          no_meetings_warning: Nessun meeting corrisponde ai criteri di ricerca o non ci sono meeting in programma.
           upcoming_meetings_warning: Attualmente non vi sono meeting in programma, ma qui puoi trovare elencati tutti i meeting effettuati in passato.
         new:
           back: Indietro
@@ -541,7 +541,7 @@ it:
           link_available_soon: Link disponibile a breve
           link_closed: Il link per partecipare alla riunione sarà disponibile alcuni minuti prima dell'inizio
           live_event: Questa riunione è in corso
-          meeting_minutes: Riunione dei verbali
+          meeting_minutes: Meeting dei verbali
           micro_camera_permissions_warning: Quando fai clic sul pulsante qui sotto, ti verrà chiesto il permesso del microfono e/o della fotocamera, per unirti alla videoconferenza
           no_slots_available: Nessuna slot disponibile
           organizations: Organizzazioni partecipanti.
@@ -576,7 +576,7 @@ it:
             end_time: Data di fine
             id: ID
             map: Mappa
-            official_meeting: Riunione ufficiale
+            official_meeting: Meeting ufficiale
             start_time: Data di inizio
             title: Titolo
       polls:
@@ -630,7 +630,7 @@ it:
         in_person: Di persona
         online: Online
       types:
-        private_meeting: Incontro privato
+        private_meeting: Meeting privato
         transparent: Trasparente
         withdraw: Withdrawn
       withdraw:
@@ -640,10 +640,10 @@ it:
       meetings:
         description: Numero di riunioni create
         object: incontri
-        title: Incontri
+        title: Meeting
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Incontri passati
+        past_meetings: Meeting passati
         see_all: Vedi tutto (%{count})
         upcoming_meetings: Prossimi incontri
     resource_links:
@@ -654,7 +654,7 @@ it:
         meeting_proposal: 'Proposte correlate:'
         proposal_meeting: 'Meeting correlati:'
     statistics:
-      meetings_count: Riunioni
+      meetings_count: Meeting
   devise:
     mailer:
       join_meeting:
