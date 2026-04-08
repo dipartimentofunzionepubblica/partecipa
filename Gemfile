@@ -5,7 +5,6 @@ source "http://rubygems.org"
 ruby RUBY_VERSION
 
 gem "decidim", git: "https://github.com/decidim/decidim", branch: "release/0.28-stable"
-
 gem "bootsnap", "~> 1.3"
 gem "puma", ">= 6.3.1"
 gem "wicked_pdf", "~> 2.1"
@@ -19,11 +18,8 @@ gem 'decidim-term_customizer', git: 'https://github.com/mainio/decidim-module-te
 gem 'decidim-privacy', branch: 'release/0.28' , git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-privacy'
 gem 'decidim-cache_cleaner'
 gem 'decidim-decidim_awesome', git: 'https://github.com/decidim-ice/decidim-module-decidim_awesome', branch: 'release/0.28-stable'
-
 gem 'sprockets-rails'
-
 gem 'lograge'
-
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
