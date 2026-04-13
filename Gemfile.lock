@@ -939,6 +939,7 @@ DEPENDENCIES
   decidim-privacy!
   decidim-pua!
   decidim-term_customizer!
+  deface
   delayed_job_active_record
   figaro
   foundation_rails_helper!

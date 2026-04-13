@@ -20,6 +20,7 @@ gem 'decidim-cache_cleaner'
 gem 'decidim-decidim_awesome', git: 'https://github.com/decidim-ice/decidim-module-decidim_awesome', branch: 'release/0.28-stable'
 gem 'sprockets-rails'
 gem 'lograge'
+gem 'deface'
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri

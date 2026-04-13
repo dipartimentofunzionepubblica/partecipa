@@ -74,6 +74,8 @@ it:
         search_placeholder:
           user_name_or_user_email_cont: Cerca per utente o per email
       menu:
+        authorization_revocation:
+          no_data: Nessun dato
         admin_accountability: Responsabilità amministrativa
         decidim_awesome: Decidim awesome
       actions:
@@ -181,11 +183,11 @@ it:
             user_timezone: Fuso orario utente
             intergram: Integrazione Intergram
             input_validation: Validazione testi (Titolo e Corpo)
-      officializations:
-        authorizations: Autorizzazioni
-        verification_modal:
-          authorizations_for: "Autorizzazioni per %{user}"
-          close: Chiudi
+        officializations:
+          authorizations: Autorizzazioni
+          verification_modal:
+            authorizations_for: "Autorizzazioni per %{user}"
+            close: Chiudi
       proposal_custom_fields:
         menu:
           title: Campi pubblici
