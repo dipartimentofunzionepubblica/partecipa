@@ -1423,9 +1423,9 @@ it:
       floating_help:
         help: Aiuto
       follow_button:
-        log_in_before_follow: Please log in before performing this action
+        log_in_before_follow: Per favore, fai login alla piattaforma per fare questa azione
       login_modal:
-        please_log_in: Please log in
+        please_log_in: Per favore, fai login alla piattaforma
         sign_up: Registrazione
       mentions_modal:
         remove_recipient: Remove recipient %{name}
