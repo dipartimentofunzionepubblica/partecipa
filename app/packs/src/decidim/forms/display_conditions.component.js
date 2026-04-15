@@ -213,8 +213,8 @@ class DisplayConditionsComponent {
     this.wrapperField.find("textarea, input[type='text']:not([name$=\\[custom_body\\]])").change();
   }
       
-  if (this.wrapperField.find(".radio-button-collection, .check-box-collection").find(".collection-input")) {
-    this.wrapperField.find(".radio-button-collection, .check-box-collection").find(".collection-input").each((idx, el) => {
+  if (this.wrapperField.find(".js-radio-button-collection, .check-box-collection").find(".collection-input")) {
+    this.wrapperField.find(".js-radio-button-collection, .check-box-collection").find(".collection-input").each((idx, el) => {
       
       if($(el).find("input[type=radio][name$=\\[body\\]]").is(":checked")){          
         $(el).find("input[type=radio][name$=\\[body\\]]").prop('checked', false); 
