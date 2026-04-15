@@ -92,7 +92,7 @@ it:
         other: Bozze collaborative
       decidim/proposals/proposal:
         one: Proposta
-        other: proposte
+        other: Proposte
       decidim/proposals/proposal_note:
         one: Nota
         other: Gli appunti
@@ -724,7 +724,7 @@ it:
           title: Crea la tua bozza collaborativa
       content_blocks:
         highlighted_proposals:
-          name: Proposals
+          name: Proposte
       create:
         error: C'è stato un errore durante il salvataggio di questa proposta.
         success: Proposta creata con successo. Salvato come bozza.
@@ -732,8 +732,8 @@ it:
         error: Si sono verificati errori durante l'eliminazione della bozza della proposta.
         success: La bozza della proposta è stata cancellata con successo.
       last_activity:
-        new_proposal: 'New proposal:'
-        proposal_updated: 'Proposal updated:'
+        new_proposal: 'Nuova proposta:'
+        proposal_updated: 'Proposta aggiornata:'
       models:
         proposal:
           fields:
@@ -751,7 +751,7 @@ it:
             valuators: Valutatori
             votes: Voti
       new:
-        limit_reached: You cannot create new proposals since you have exceeded the limit.
+        limit_reached: Non puoi creare nuove proposte perché sei andato oltre il limite previsto.
       participatory_text_proposal:
         alternative_title: Al momento non ci sono testi di partecipazione
         buttons:

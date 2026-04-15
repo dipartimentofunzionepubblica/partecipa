@@ -14,14 +14,3 @@
 //= require activestorage
 //= require_tree .
 //= require decidim
-
-$(document).on("ready page:load", function() {
-  // Aspetta un micro-secondo che il componente DisplayConditions sia inizializzato
-  setTimeout(function() {
-    // Cerca tutte le domande condizionali e forza il check
-    $("[data-condition]").each(function() {
-      const questionId = $(this).data("condition");
-      $(`.question[data-question-id='${questionId}']`).find("input, select, textarea").first().trigger("change");
-    });
-  }, 100);
-});

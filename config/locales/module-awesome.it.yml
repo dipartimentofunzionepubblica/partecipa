@@ -3,6 +3,7 @@ it:
   activemodel:
     attributes:
       config:
+        force_authorizations: Forza autorizzazioni
         allow_images_in_proposals: Consenti l'uso d'immagini nell'editor di proposte
         auto_save_forms: Salva automaticamente i moduli nel LocalStorage
         intergram_auto_no_response: Un messaggio che viene inviato un minuto dopo che l'utente invia il suo primo messaggio e che non è stata ricevuta risposta
@@ -74,8 +75,6 @@ it:
         search_placeholder:
           user_name_or_user_email_cont: Cerca per utente o per email
       menu:
-        authorization_revocation:
-          no_data: Nessun dato
         admin_accountability: Responsabilità amministrativa
         decidim_awesome: Decidim awesome
       actions:
@@ -124,9 +123,21 @@ it:
           sort_orders_enabled: Tipi di ordinamento abilitati
     decidim_awesome:
       admin:
+        actions: Azioni
+        checks:
+          index:
+            decidim-assemblies: Assemblee
+            decidim-participatory_processes: Processi partecipativi
         menu:
+          maintenance:
+            maintenance: Manutenzione
+            private_data: Dati Privati
+            hashcash: Timbri Hashcash
+          verifications: Verifiche
           decidim_awesome: Decidim Awesome
         maintenance:
+          titles:
+            hashcash: Timbri Hashcash
           private_data:
             component: Spazio / Componente
             confirm_delete: "Sei sicuro di voler eliminare tutti i dati privati per questa risorsa? L'azione è irreversibile."
@@ -164,6 +175,34 @@ it:
           removing: Eliminazione in corso...
           time_ago: "%{time} fa"
         config:
+          form_force_authorizations:
+            new: Aggiungi un nuovo gruppo di autorizzazione
+            remove: Rimuovi questo gruppo di autorizzazione
+            sure_to_remove: Se sicuro di voler rimuoverlo?
+            delete: Cancella
+            title: "Limita l'accesso con:"
+          form_scoped_admin_styles:
+            new: Nuovo stile d'ambito per Amministratori
+          form_proposal_private_custom_fields:
+            new: Nuovo campo privato custom per proposte
+          form:
+            additional_proposal_sortings: 
+              enable_all: Abilita tutte le opzioni di ordinamento aggiuntive
+              title: Opzioni di ordinamento aggiuntive abilitate
+              help: Queste opzioni di ordinamento sono aggiuntive rispetto a quelle predefinite. Inoltre, ricorda che puoi scegliere l'ordine predefinito nelle impostazioni del componente proposte.
+            force_authorization_help_text: Testo d'aiuto per la pagina d'autorizzazione
+            help:
+              force_authorization_help_text: Aggiungi un testo personalizzato per spiegare perché è richiesta l'autorizzazione. Assicurati inoltre di inserire un metodo di contatto nel caso in cui gli utenti abbiano bisogno di assistenza.
+              proposal_private_custom_fields_translations: Traduzioni per campi privati custom per proposte
+              proposal_private_custom_fields: Campi privati custom per proposte
+              allow_images_in_editors: Permetti immagini nell'editor
+              allow_videos_in_editors: Permetti video nell'editor
+              scoped_admin_styles_warning: "Attenzione: questi stili verranno applicati solo agli ambiti selezionati. Assicurati che le classi CSS utilizzate non vadano in conflitto con gli stili globali dell'amministrazione."
+              scoped_admin_styles: Stili d'ambito per Amministratori
+              scoped_admin_styles_variables: Variabili per stili admin d'ambito
+              verifications_html: |
+                Qui puoi inserire ulteriori restrizioni di accesso agli spazi partecipativi o ai componenti per obbligare gli utenti a essere verificati prima di accedere a determinate sezioni (ad esempio per prevenire lo spam).
+                Le restrizioni si applicano a tutti gli utenti, ma gli amministratori avranno sempre accesso al pannello /admin.
           form_scoped_styles: 
               new: Nuovo
           title:
@@ -178,16 +217,68 @@ it:
             scoped_admins: Amministratori con ambito
             scoped_styles: 
               new: Nuovo
-
             scoped_admin_styles: Stili personalizzati (Admin)
             user_timezone: Fuso orario utente
             intergram: Integrazione Intergram
             input_validation: Validazione testi (Titolo e Corpo)
-        officializations:
-          authorizations: Autorizzazioni
-          verification_modal:
-            authorizations_for: "Autorizzazioni per %{user}"
-            close: Chiudi
+            verifications: Verifiche
+        hashcash:
+          filters:
+            ip_addresses: Indirizzi IP
+          index:
+            bits: Bits
+            created_at: Creato a 
+            help_html: |
+              Questa pagina mostra i timbri Hashcash che sono stati rilevati nel sistema. Hashcash è un sistema di proof-of-work (prova di lavoro) che richiede agli utenti di risolvere un puzzle computazionale (eseguito automaticamente dal browser) prima di potersi registrare.
+              <br><br>
+              Ogni voce in questo elenco rappresenta un timbro Hashcash che è stato generato da un utente ogni volta che si è registrato o ha effettuato l'accesso.
+            ip_address: Indirizzo IP
+            no_data: "Nessun timbro Hashcash trovato"
+            request_path: Percorso della richiesta
+        private_data:
+          private_data:
+            help_html: |
+              Questo strumento ti permette di eliminare tutti i dati privati di uno specifico spazio partecipativo o componente. Questa azione è irreversibile e rimuoverà tutti i dati privati dal database.
+              <br><br>
+              <strong>Cosa si intende per dati privati?</strong>
+              <br>
+              I dati privati sono tutte le informazioni non disponibili pubblicamente e accessibili solo agli amministratori. Al momento, questo include le informazioni dei campi personalizzati privati.
+              <br><br>
+              <strong>Cosa succede quando elimino i dati privati?</strong>
+              <br>
+              Quando elimini i dati privati, tutte le informazioni private per lo spazio partecipativo o il componente selezionato verranno rimosse permanentemente dal database. Un registro di questa azione verrà memorizzato nel sistema a fini di audit.
+              <br><br>
+              <strong>Cosa succede ai dati pubblici?</strong>
+              <br>
+              I dati pubblici non saranno influenzati da questa azione. Verranno eliminati solo i dati privati.
+              <br><br>
+              <strong>C’è un tempo minimo di attesa prima di poter eliminare i dati privati?</strong>
+              <br>
+              Sì, non puoi eliminare i dati privati se l'ultimo aggiornamento è avvenuto meno di %{time_ago} fa. Puoi modificare questa configurazione nel file initializer.
+            no_data: Non sono stati trovati dati privati più vecchi di %{time_ago}
+        visibility: 
+          info_html: Informazioni
+        scoped_styles:
+          menu:
+            title: Stili d'ambito
+        scoped_admin_styles:
+          menu:
+            title: Stili admin d'ambito
+        proposal_custom_fields:
+          menu:
+            title: Campi personalizzati per le proposte
+          proposal_private_custom_fields: Campi personalizzati per le proposte private
+        menu_hacks:
+          index:
+            mobile_menu:
+              title: Menù mobile
+            home_content_block_menu:
+              title: Contenuto del menù home
+      officializations:
+        authorizations: Autorizzazioni
+        verification_modal:
+          authorizations_for: "Autorizzazioni per %{user}"
+          close: Chiudi
       proposal_custom_fields:
         menu:
           title: Campi pubblici
@@ -346,6 +437,7 @@ it:
             titles:
               checks: Checks
               private_data: Private Data Clean-Up
+              hashcash: Timbri Hashcash
             title: 'Titolo'
         awesome_config:
           amendments: Emendamenti

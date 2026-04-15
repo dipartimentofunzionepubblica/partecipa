@@ -504,6 +504,22 @@ $par-highlight: #FFFF00;
   
 // FINE MENU CONTESTUALE A PARTIRE DAI PROCESSI E ASSEMBLEE
 
+// HEADER PROCESSI
+
+   .participatory-space__hero {
+     /* Verde scuro istituzionale (Foresta/Pino) */
+     background-color: rgba(20, 60, 40, 0.85) !important;
+     
+     /* Reset dei filtri che rendevano tutto grigio */
+     --tw-backdrop-brightness: brightness(100%);
+     backdrop-filter: blur(4px); /* Opzionale: sfoca leggermente l'immagine dietro */
+     
+     /* Miscela il colore con l'immagine di fondo per profondità */
+     background-blend-mode: multiply;
+   }
+
+// FINE HEADER PROCESSI
+
 // FOOTER
 
   footer .main-footer {
@@ -579,6 +595,12 @@ $par-highlight: #FFFF00;
      height: 50px;
      width: auto;
      float: right;
+  }
+  
+  // colora di bianco il quadratino dentro il footer relativo ai link esterni
+  
+  .footer-logo + span svg.fill-current {
+    fill: white !important;
   }
   
 // FINE FOOTER
