@@ -571,9 +571,13 @@ $par-highlight: #FFFF00;
 
 // FILTRI PAGINA PROCESSI/ASSEMBLEE
 
-  .filter-container:has(#trigger-menu-area, #trigger-menu-scope){
+  // elimina i fitri non necessari
+
+  .filter-container:has(#trigger-menu-area, #trigger-menu-scope, #trigger-menu-type){
     display: none;
   }
+  
+  // solo da assemblee elimino anche l'aiuto relativo al filtro
   
   html:has(link[href*="/assemblies"]) {
    .filter-help {
