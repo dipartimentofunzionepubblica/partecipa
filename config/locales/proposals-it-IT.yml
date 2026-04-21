@@ -608,7 +608,7 @@ it:
       application_helper:
         filter_origin_values:
           all: Tutti
-          meetings: Meeting
+          meetings: Incontri
           official: Ufficiale
           participants: Utenti
           user_groups: Gruppi di utenti

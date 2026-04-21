@@ -767,7 +767,7 @@ it:
         answer: Risposta
         collaborative_draft: Bozza collaborativa
         dummy_resource: Risorsa fittizia
-        meeting: Meeting
+        meeting: Incontri
         project: Progetti
         proposal: Proposte
         result: Risultati
@@ -1223,7 +1223,7 @@ it:
           debates: Dibattiti
           debates_explanation: Dibattere e discutere, condividere le tue opinioni e arricchire gli argomenti pertinenti.
           how_to_participate: Come posso partecipare ad un processo?
-          meetings: Meeting
+          meetings: Incontri
           meetings_explanation: Scopri dove e quando puoi partecipare a incontri pubblici.
           more_info: Maggiori informazioni
           proposals: Proposte

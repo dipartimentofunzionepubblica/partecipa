@@ -8,7 +8,7 @@ it:
         decidim_scope_id: Obiettivi
         description: Descrizione
         end_date: Data di fine
-        meetings_ids: Meetings correlati
+        meetings_ids: Incontri correlati
         progress: Progresso
         project_ids: Progetti inclusi
         proposals: Proposte incluse
