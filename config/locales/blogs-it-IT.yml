@@ -27,15 +27,15 @@ it:
         posts:
           create:
             invalid: Si è verificato un problema durante la creazione di questo post.
-            success: Post successfully created.
+            success: Post creato con successo.
           destroy:
             success: Post eliminato correttamente.
           edit:
             save: Aggiorna
             title: Modifica post
           index:
-            not_published_yet: Not published yet.
-            title: Messaggi
+            not_published_yet: Non ancora pubblicato.
+            title: Post
           new:
             create: Crea
             title: Crea un post
@@ -67,7 +67,7 @@ it:
           count:
             one: "%{count} post"
             other: "%{count} posts"
-          empty: There are no posts yet.
+          empty: Non ci sono ancora post.
     components:
       blogs:
         actions:
@@ -76,7 +76,7 @@ it:
           destroy: Cancella
           endorse: Appoggia
           update: Modifica
-        name: blog
+        name: Blog
         settings:
           global:
             announcement: Annuncio
