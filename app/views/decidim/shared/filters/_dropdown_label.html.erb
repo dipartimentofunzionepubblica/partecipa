@@ -1,0 +1,60 @@
+<%#
+Copyright (C) 2026 Formez PA
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>
+
+Modificato per limitare la lunghezza delle stringhe nel filtro 
+%>
+
+<% leaf = item.tree_node? ? item.leaf : item %>
+<% data_checkboxes_tree_id = [check_boxes_tree_id, leaf.value].join("_") %>
+<% is_blank_root = leaf.value.blank? %>
+<% data = item.tree_node? && item.node.present? ? { checkboxes_tree: data_checkboxes_tree_id } : {} %>
+<% check_box_label = capture do %>
+  <%= filter_text_for(leaf.label&.truncate(40), id: "dropdown-title-#{data_checkboxes_tree_id}") %>
+<% end %>
+
+<% if leaf.value == "" %>
+  <%= hidden_field_tag "#{form.object_name}[#{method}][]", "", id: "#{form.options[:namespace] rescue "default"}_filter_#{method}_all" %>
+<% end %>
+
+<div class="filter">
+  <%= form.check_box(
+        method,
+        check_boxes_tree_options(
+          leaf.value.to_s,
+          check_box_label,
+          class: "reset-defaults",
+          data:,
+          is_root_check_box: is_blank_root,
+          parent_id:
+        ),
+        leaf.value.to_s,
+        nil
+      ) %>
+  <% if !is_blank_root && item.tree_node? && item.node.present? %>
+    <button id="dropdown-trigger-<%= data_checkboxes_tree_id %>" data-controls="panel-dropdown-menu-<%= data_checkboxes_tree_id %>" aria-labelledby="dropdown-title-<%= data_checkboxes_tree_id %>">
+      <%= icon "arrow-down-s-fill" %>
+      <%= icon "arrow-up-s-fill" %>
+    </button>
+  <% end %>
+</div>
+
+<% if item.tree_node? && item.node.present? %>
+  <% subitems_content = capture do %>
+    <% item.node.each do |subitem| %>
+      <%= form.dropdown_label(subitem, method, check_boxes_tree_id:, parent_id: data_checkboxes_tree_id || "") %>
+    <% end %>
+  <% end %>
+
+  <%# Put the depending elements at the same level if the leaf is blank root (all) %>
+  <% if is_blank_root %>
+    <%= subitems_content %>
+  <% else %>
+    <%= content_tag :div, subitems_content, id: "panel-dropdown-menu-#{data_checkboxes_tree_id}" %>
+  <% end %>
+<% end %>

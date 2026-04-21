@@ -49,8 +49,8 @@ $par-highlight: #FFFF00;
   --secondary-600: #{darken($par-medium-green, 5%)} !important;
   --secondary-700: #{darken($par-medium-green, 10%)} !important;
   
-  --tertiary: #{$par-medium-green} !important;
-  --tertiary-rgb: #{to-rgb-tailwind($par-medium-green)} !important;
+  --tertiary: #{$par-light-blue} !important;
+  --tertiary-rgb: #{to-rgb-tailwind($par-light-blue)} !important;
 
   // --- ERROR / ALERT (Il rosso che ti dava problemi) ---
   --error: #{$par-alert} !important;
@@ -135,6 +135,30 @@ $par-highlight: #FFFF00;
     width: 300px;
     min-width: 0;
     color: white;
+  }
+  
+  // mezzaluna verde che appare sotto le iniziali dei titoli 
+  
+  .decorator::after {
+    position: absolute;
+    top: calc(100% + 0.25rem);
+    left: 0px;
+    height: 0.25rem;
+    width: 2.5rem;
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(var(--secondary-rgb) / 1);
+    background-color: rgb(var(--secondary-rgb) / var(--tw-bg-opacity));
+    --tw-content: "";
+    content: "";
+    content: var(--tw-content);
+  }
+  
+  // il colore di sfondo delle notifiche flash è bianco
+  
+  .flash {
+    background-color: white !important;
   }
 
 // FINE GENERALE
@@ -262,7 +286,7 @@ $par-highlight: #FFFF00;
   // dentro l'header e nella la barra in alto per l'edit da amministratore il pulsante ha border verde
 
   .admin-bar__button {
-    border: solid 1px rgb(var(--tertiary-rgb) / 1) !important;
+    border: solid 1px rgb(var(--secondary-rgb) / 1) !important;
   }
   
   // dentro l'header e nella la barra in alto per l'edit da amministratore il testo dentro il pulsante é verde su bianco
@@ -270,7 +294,7 @@ $par-highlight: #FFFF00;
   .admin-bar__button > span {
     overflow-wrap: break-word;
     text-align: center;
-    color: var(--tertiary) !important;
+    color: var(--secondary) !important;
   }
   
   // dentro l'header e nella la barra in alto per l'edit da amministratore il testo dentro il pulsante é bianco su verde all'hover
@@ -285,7 +309,7 @@ $par-highlight: #FFFF00;
   
   .admin-bar__button > svg {
     flex: none;
-    fill: var(--tertiary) !important;
+    fill: var(--secondary) !important;
   }
   
   // dentro l'header e nella la barra in alto per l'edit da amministratore l'icona dentro il pulsante é bianca all'hover
@@ -300,8 +324,8 @@ $par-highlight: #FFFF00;
   .admin-bar__container {
     --tw-bg-opacity: 1;
     background-color: rgb(to-rgb-scss(white)...) !important;
-    background-color: #{"rgb(#{to-rgb-tailwind(white)} / var(--tw-bg-opacity))"} !important;
-    padding-top: 0.5rem;
+	background-color: #{"rgb(#{to-rgb-tailwind(white)} / var(--tw-bg-opacity))"} !important;
+	padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
 
@@ -362,12 +386,6 @@ $par-highlight: #FFFF00;
   
   .main-bar__links-desktop__item:hover {
     color: var(--primary) !important;
-  }
-  
-  // nasconde le icone Incontri dal menù in alto a destra su desktop
-
-  .main-bar__links-desktop__item-wrapper > div:nth-child(1) > a:nth-child(1){
-    display:none;
   }
 
   // rimuove lo spazio in eccesso una volta rimossa l'icona Incontri
@@ -465,16 +483,14 @@ $par-highlight: #FFFF00;
 
 // MENU CONTESTUALE A PARTIRE DAI PROCESSI E ASSEMBLEE
 
-// colore menu
-
-  .menu-bar__container {
-    position: relative;
-    height: 3.5rem;
-    //--tw-bg-opacity: 1;
-    background-color: rgb(to-rgb-scss($par-light-blue)...) !important;
+  // colore menu
+  
+  .menu-bar, .menu-bar__container, .home__menu{
+    background-color: rgb(var(--tertiary-rgb)) !important;
   }
+  
 
-  // grandezza menu
+  // grandezza menù
 
   @media (min-width: 1024px) {
     .menu-bar__main-dropdown {
@@ -483,7 +499,7 @@ $par-highlight: #FFFF00;
   }
 
   @media (min-width: 768px) {
-    header .menu-bar__main-dropdown__menu {
+    .menu-bar__main-dropdown__menu {
       width: 100% !important;
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -494,6 +510,38 @@ $par-highlight: #FFFF00;
   .menu-bar__secondary-dropdown {
     position: relative;
     width: 300px !important;
+  }
+  
+  // il menù secondario ha sfondo bianco
+  
+  .menu-bar__secondary-dropdown__menu {
+    --tw-bg-opacity: 1;
+    background-color: white !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0px;
+    padding-bottom: 0.75rem;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / 1);
+  }
+  
+  // il menù secondario ha carattere verde
+
+  .menu-bar__secondary-dropdown__menu a {
+    color: var(--secondary) !important;
+  }
+  
+  // il menù in pagina ha colore verde
+  
+  .participatory-space__nav-container {
+    margin-left: 0px;
+    width: 100%;
+    align-self: flex-start;
+    border-radius: 0.25rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(var(--secondary-rgb) / 1);
+    background-color: rgb(var(--secondary-rgb) / var(--tw-bg-opacity));
+    padding: 0.75rem;
   }
   
   // imposta il menù secondario con larghezza 100%
@@ -507,22 +555,65 @@ $par-highlight: #FFFF00;
 // HEADER PROCESSI
 
    .participatory-space__hero {
-     /* Verde scuro istituzionale (Foresta/Pino) */
-     background-color: rgba(20, 60, 40, 0.85) !important;
      
-     /* Reset dei filtri che rendevano tutto grigio */
+     // usa il colore primario ossia il blu scuro
+	 background-color: var(--primary) !important;
+     
+     /* reset dei filtri che rendevano tutto grigio */
      --tw-backdrop-brightness: brightness(100%);
      backdrop-filter: blur(4px); /* Opzionale: sfoca leggermente l'immagine dietro */
      
-     /* Miscela il colore con l'immagine di fondo per profondità */
+     /* miscela il colore con l'immagine di fondo per profondità */
      background-blend-mode: multiply;
    }
 
 // FINE HEADER PROCESSI
 
+// FILTRI PAGINA PROCESSI/ASSEMBLEE
+
+  .filter-container:has(#trigger-menu-area, #trigger-menu-scope){
+    display: none;
+  }
+  
+  html:has(link[href*="/assemblies"]) {
+   .filter-help {
+    display: none; 
+   }
+  }
+  
+// FINE FILTRI PAGINA PROCESSI/ASSEMBLEE
+
+// METADATI PROCESSO
+
+	.participatory-space__metadata-item {
+	  border-width: 0px;
+	  --tw-border-opacity: 1;
+	  border-color: rgb(239 239 239 / 1);
+	  font-size: 16px;
+	  line-height: 20px;
+	  font-weight: 600;
+	  --tw-text-opacity: 1;
+	  color: rgb(62 76 92 / 1);
+	  background-color: rgb(243 244 247 / var(--tw-bg-opacity, 1)); //imposta il colore azzurrino
+	}
+
+	.participatory-space__metadata-item-title span {
+	  font-weight: 700 !important;
+	}
+	
+	@media (min-width: 768px) {
+      .participatory-space__metadata-item {
+        border-left-width: 0px;
+        padding-left: 5px !important;
+        margin-right: 5px;
+      }
+    }
+
+// FINE METADATI PROCESSO
+
 // FOOTER
 
-  footer .main-footer {
+  .main-footer {
     background-color: rgb(to-rgb-scss($par-blue)...) !important;
   }
   
