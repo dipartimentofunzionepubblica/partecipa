@@ -25,20 +25,20 @@ it:
         id: ID
         iframe_access_level: Livello di accesso Iframe
         iframe_embed_type: Embed di tipo Iframe
-        iframe_embed_type_html: Solo pochi servizi consentono la pagina "Incorpora nella pagina della riunione " o "Apri nella pagina degli eventi dal vivo". Si noti che con l'opzione "Incorpora nella pagina della riunione" sui cellulari, come lo schermo eredita diverse dimensioni, funzionerà effettivamente come "Apri nella pagina degli eventi dal vivo".
+        iframe_embed_type_html: Solo pochi servizi consentono la pagina "Incorpora nella pagina dell'incontro " o "Apri nella pagina degli eventi dal vivo". Si noti che con l'opzione "Incorpora nella pagina dell'incontro" sui cellulari, come lo schermo eredita diverse dimensioni, funzionerà effettivamente come "Apri nella pagina degli eventi dal vivo".
         location: Luogo
         location_hints: Informazione sul luogo
-        online_meeting_url: Url riunione online
+        online_meeting_url: Url dell'incontro online
         organizer_gid: Crea come
         organizer_id: Organizzatore
-        private_meeting: Meeting privato
+        private_meeting: Incontro privato
         registration_email_custom_content: E-mail di registrazione contenuto personalizzato
         registration_form_enabled: Modulo di registrazione abilitato
         registration_terms: Termini di registrazione
         registration_type: Tipo di registrazione
         registration_url: URL di iscrizione
         registrations_enabled: Registrazioni abilitate
-        reserved_slots: Slot riservati per questa riunione
+        reserved_slots: Slot riservati per questo incontro
         start_time: Ora di inizio
         title: Titolo
         transparent: Trasparente
@@ -73,17 +73,17 @@ it:
             email:
               already_invited: Questa email è relativa ad un utente già invitato.
     models:
-      decidim/meetings/close_meeting_event: Meeting chiusa
+      decidim/meetings/close_meeting_event: Incontro chiuso
       decidim/meetings/create_meeting_event: Evento
       decidim/meetings/meeting_registrations_enabled_event: Registrazioni abilitate
       decidim/meetings/meeting_registrations_over_percentage_event: Iscrizioni oltre il limite
       decidim/meetings/upcoming_meeting_event: Prossimo incontro
-      decidim/meetings/update_meeting_event: Meeting aggiornata
+      decidim/meetings/update_meeting_event: Incontro aggiornato
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Meeting
-        other: Meeting
+        one: Incontro
+        other: Incontri
       decidim/meetings/minutes:
         one: Minuti
         other: Minuti
@@ -123,81 +123,81 @@ it:
       meeting_copies:
         create:
           error: C'é stato un errore nella duplicazione di questo incontro.
-          success: Meeting duplicata con successo.
+          success: Incontro duplicato con successo.
         new:
           copy: copia
-          title: Meeting duplicata
+          title: Incontro duplicato
     components:
       meetings:
         actions:
           comment: Commenta
           join: Iscriviti
-        name: Meeting
+        name: Incontro
         settings:
           global:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
             comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
-            creation_enabled_for_participants: I partecipanti possono creare riunioni
+            creation_enabled_for_participants: I partecipanti possono creare incontri
             default_registration_terms: Termini di registrazione predefiniti
             enable_pads_creation: Abilita la creazione di pad
             maps_enabled: Mappe abilitate
             registration_code_enabled: Codice di registrazione abilitato
-            resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni riunione
+            resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni incontro
             scope_id: Visibilità
             scopes_enabled: Ambiti abilitati
-            terms_and_conditions_url_for_meeting_creators: Termini e condizioni URL per i creatori di riunione
+            terms_and_conditions_url_for_meeting_creators: Termini e condizioni URL per i creatori di un incontro
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
-            creation_enabled_for_participants: Creazione delle riunioni da parte dei partecipanti abilitata
-            creation_enabled_for_user_groups: Creazione delle riunioni da parte dei partecipanti abilitata
+            creation_enabled_for_participants: Creazione delle incontri da parte dei partecipanti abilitata
+            creation_enabled_for_user_groups: Creazione delle incontri da parte dei partecipanti abilitata
     events:
       meetings:
         meeting_closed:
           affected_user:
             email_intro: 'Il tuo incontro "%{resource_title}" è stato chiuso. Puoi leggere le conclusioni dalla sua pagina:'
-            email_outro: Hai ricevuto questa notifica perché hai organizzato la riunione "%{resource_title}".
-            email_subject: La riunione "%{resource_title}" è stata chiusa
-            notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> è stata chiusa.
+            email_outro: Hai ricevuto questa notifica perché hai organizzato l'incontro "%{resource_title}".
+            email_subject: La incontro "%{resource_title}" è stata chiusa
+            notification_title: La incontro <a href="%{resource_path}">%{resource_title}</a> è stata chiusa.
           follower:
-            email_intro: 'La riunione "%{resource_title}" è stata chiusa. Puoi leggere le conclusioni dalla sua pagina:'
-            email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
-            email_subject: La riunione "%{resource_title}" è stata chiusa
-            notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> è stata chiusa.
+            email_intro: 'La incontro "%{resource_title}" è stata chiusa. Puoi leggere le conclusioni dalla sua pagina:'
+            email_outro: Hai ricevuto questa notifica perché stai seguendo l'incontro "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
+            email_subject: La incontro "%{resource_title}" è stata chiusa
+            notification_title: La incontro <a href="%{resource_path}">%{resource_title}</a> è stata chiusa.
         meeting_created:
-          button_text: Registrati alla riunione
+          button_text: Registrati alla incontro
           email_intro: L'incontro "%{resource_title}" è stato aggiunto a "%{participatory_space_title}" che stai seguendo.
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{participatory_space_title}". È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo.
-          email_subject: Nuova riunione aggiunta a %{participatory_space_title}
+          email_subject: Nuova incontro aggiunta a %{participatory_space_title}
           notification_title: L'incontro <a href="%{resource_path}">%{resource_title}</a> è stato aggiunto a %{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: La tua registrazione per la riunione <a href="%{resource_url}">%{resource_title}</a> è stata confermata. Il tuo codice di registrazione è %{registration_code}.
+          notification_title: La tua registrazione per l'incontro <a href="%{resource_url}">%{resource_title}</a> è stata confermata. Il tuo codice di registrazione è %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: Gli spazi occupati della riunione "%{resource_title}" sono superiori a %{percentage}%.
-          email_outro: Hai ricevuto questa notifica perché sei un amministratore dello spazio partecipativo della riunione.
-          email_subject: Gli spazi occupati della riunione "%{resource_title}" sono superiori a %{percentage}%
-          notification_title: Gli spazi occupati della riunione <a href="%{resource_path}">%{resource_title}</a> sono oltre %{percentage}%.
+          email_intro: Gli spazi occupati dell'incontro "%{resource_title}" sono superiori a %{percentage}%.
+          email_outro: Hai ricevuto questa notifica perché sei un amministratore dello spazio partecipativo dell'incontro.
+          email_subject: Gli spazi occupati dell'incontro "%{resource_title}" sono superiori a %{percentage}%
+          notification_title: Gli spazi occupati dell'incontro <a href="%{resource_path}">%{resource_title}</a> sono oltre %{percentage}%.
         meeting_updated:
-          email_intro: 'La riunione "%{resource_title}" è stata aggiornata. Puoi leggere la nuova versione dalla sua pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
-          email_subject: La riunione "%{resource_title}" è stata aggiornata
-          notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> è stata aggiornata.
+          email_intro: 'La incontro "%{resource_title}" è stata aggiornata. Puoi leggere la nuova versione dalla sua pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo l'incontro "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
+          email_subject: La incontro "%{resource_title}" è stata aggiornata
+          notification_title: La incontro <a href="%{resource_path}">%{resource_title}</a> è stata aggiornata.
         registration_code_validated:
-          email_intro: Il tuo codice di registrazione "%{registration_code}" per la riunione "%{resource_title}" è stato convalidato.
-          email_outro: Hai ricevuto questa notifica perché il codice di registrazione per la riunione "%{resource_title}" è stato convalidato.
-          email_subject: Il tuo codice di registrazione "%{registration_code}" per la riunione "%{resource_title}" è stato convalidato
-          notification_title: Il tuo codice di registrazione "%{registration_code}" per la riunione <a href="%{resource_path}">%{resource_title}</a> è stato convalidato.
+          email_intro: Il tuo codice di registrazione "%{registration_code}" per l'incontro "%{resource_title}" è stato convalidato.
+          email_outro: Hai ricevuto questa notifica perché il codice di registrazione per l'incontro "%{resource_title}" è stato convalidato.
+          email_subject: Il tuo codice di registrazione "%{registration_code}" per l'incontro "%{resource_title}" è stato convalidato
+          notification_title: Il tuo codice di registrazione "%{registration_code}" per l'incontro <a href="%{resource_path}">%{resource_title}</a> è stato convalidato.
         registrations_enabled:
-          email_intro: 'La riunione "%{resource_title}" ha abilitato le registrazioni. Puoi registrarti sulla sua pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
-          email_subject: La riunione "%{resource_title}" ha abilitato le registrazioni.
-          notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> ha abilitato le registrazioni.
+          email_intro: 'La incontro "%{resource_title}" ha abilitato le registrazioni. Puoi registrarti sulla sua pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo l'incontro "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
+          email_subject: La incontro "%{resource_title}" ha abilitato le registrazioni.
+          notification_title: La incontro <a href="%{resource_path}">%{resource_title}</a> ha abilitato le registrazioni.
         upcoming_meeting:
-          email_intro: La riunione "%{resource_title}" inizierà tra meno di 48 ore.
-          email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
-          email_subject: La riunione "%{resource_title}" inizierà tra meno di 48 ore.
-          notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> inizierà tra meno di 48 ore.
+          email_intro: La incontro "%{resource_title}" inizierà tra meno di 48 ore.
+          email_outro: Hai ricevuto questa notifica perché stai seguendo l'incontro "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
+          email_subject: La incontro "%{resource_title}" inizierà tra meno di 48 ore.
+          notification_title: La incontro <a href="%{resource_path}">%{resource_title}</a> inizierà tra meno di 48 ore.
     forms:
       meetings:
         attendees_count_help_text: Non dimenticate di includere il numero totale di partecipanti al vostro meeting, sia di persona, online o ibrido.
@@ -207,27 +207,27 @@ it:
           conditions:
             - Registrati agli incontri a cui vuoi partecipare
           description: Questo badge è concesso quando si partecipano a numerosi incontri in presenza.
-          description_another: Questo utente ha partecipato a %{score} riunioni.
-          description_own: Hai partecipato a %{score} riunioni.
-          name: Meeting frequentate
+          description_another: Questo utente ha partecipato a %{score} incontri.
+          description_own: Hai partecipato a %{score} incontri.
+          name: Incontri frequentati
           next_level_in: Partecipa a %{score} altri incontri per raggiungere il livello successivo!
-          unearned_another: Questo utente non ha ancora partecipato a nessuna riunione.
-          unearned_own: Non hai ancora presenziato a nessuna riunione.
+          unearned_another: Questo utente non ha ancora partecipato a nessuna incontro.
+          unearned_own: Non hai ancora presenziato a nessuna incontro.
     meetings:
       actions:
         agenda: ordine del giorno
         attachment_collections: Cartelle
         attachments: Allegati
         close: Chiuso
-        confirm_destroy: Sei certo di voler cancellare questo meeting?
+        confirm_destroy: Sei certo di voler cancellare questo incontro?
         destroy: Cancella
         edit: Modifica
         invalid_destroy:
           proposals_count:
-            one: 'La riunione non può essere annullata perché ha %{count} proposta ad essa associata:'
-            other: 'La riunione non può essere annullata perché ha %{count} proposte associate:'
+            one: 'La incontro non può essere annullata perché ha %{count} proposta ad essa associata:'
+            other: 'La incontro non può essere annullata perché ha %{count} proposte associate:'
         manage_poll: Gestisci sondaggio
-        new_meeting: Nuova riunione
+        new_meeting: Nuova incontro
         preview: Anteprima
         registrations: Iscrizioni
         title: Azioni
@@ -265,22 +265,22 @@ it:
         exports:
           answers: Risposte
           meeting_comments: Commenti
-          meetings: Meeting
+          meetings: Incontro
           registrations: Iscrizioni
         invite_join_meeting_mailer:
           invite:
             decline: Rifiuta l'invito
-            invited_you_to_join_a_meeting: "%{invited_by} ti ha invitato a partecipare a una riunione al %{application}. Puoi accettarla tramite il link sottostante."
+            invited_you_to_join_a_meeting: "%{invited_by} ti ha invitato a partecipare a un incontro al %{application}. Puoi accettarla tramite il link sottostante."
             join: Partecipa all'evento '%{meeting_title}'
         invites:
           create:
-            error: C'è stato un problema durante l'invito all'utente di partecipare alla riunione.
-            success: L'utente è stato invitato a partecipare alla riunione.
+            error: C'è stato un problema durante l'invito all'utente di partecipare alla incontro.
+            success: L'utente è stato invitato a partecipare alla incontro.
           form:
             attendee_type: Tipo di partecipante
             existing_user: Utente esistente
             invite: Invita
-            invite_explanation: L'utente sarà invitato a partecipare alla riunione e all'organizzazione.
+            invite_explanation: L'utente sarà invitato a partecipare alla incontro e all'organizzazione.
             non_user: Utente non esistente
             select_user: Seleziona utente
           index:
@@ -291,47 +291,47 @@ it:
               sent: Inviato
             invite_attendee: Invita il partecipante
             invites: Inviti
-            registrations_disabled: Non puoi invitare una persona a presenziare alla riunione perché le registrazioni sono disabilitate.
+            registrations_disabled: Non puoi invitare una persona a presenziare alla incontro perché le registrazioni sono disabilitate.
             search: Cerca
         meeting_closes:
           edit:
             close: Chiudi
-            title: Chiusura meeting
+            title: Chiusura incontro
         meetings:
           close:
-            invalid: C'è stato un problema durante la chiusura di questo meeting.
-            success: La riunione è stato chiusa.
+            invalid: C'è stato un problema durante la chiusura di questo incontro.
+            success: La incontro è stato chiusa.
           create:
-            invalid: Si è verificato un errore durante la creazione di questa riunione.
-            success: Meeting creata con successo. Nota che non è ancora pubblicata, devi pubblicarla manualmente.
+            invalid: Si è verificato un errore durante la creazione di questa incontro.
+            success: Incontro creato con successo. Nota che non è ancora pubblicata, devi pubblicarla manualmente.
           destroy:
             invalid:
               proposals_count:
-                one: La riunione non può essere annullata perché ha %{count} proposta ad essa associata.
-                other: La riunione non può essere annullata perché ha %{count} proposte associate.
-            success: OK, il meeting è stato cancellato.
+                one: La incontro non può essere annullata perché ha %{count} proposta ad essa associata.
+                other: La incontro non può essere annullata perché ha %{count} proposte associate.
+            success: OK, il incontro è stato cancellato.
           edit:
-            title: Modifica la riunione
+            title: Modifica l'incontro
             update: Modifica
           form:
             address_help: 'Indirizzo: usato da Geocoder per trovare la posizione'
             disclaimer: 'Disclaimer: Utilizzando un sistema di registrazione esterno, sei consapevole che gli organizzatori di %{organization} non sono responsabili per i dati forniti dagli utenti al servizio esterno.'
-            iframe_embed_type_html: 'Solo pochi servizi consentono di incorporare in meeting o live event dai seguenti domini: %{domains}'
+            iframe_embed_type_html: 'Solo pochi servizi consentono di incorporare in incontro o live event dai seguenti domini: %{domains}'
             location_help: 'Posizione: messaggio diretto agli utenti che riporta il luogo dell''incontro'
-            location_hints_help: 'Suggerimenti: informazioni aggiuntive. Esempio: il pavimento dell''edificio se si tratta di una riunione di persona o la password di riunione se si tratta di una riunione online con accesso ristretto.'
-            online_meeting_url_help: 'Link: permette ai partecipanti di connettersi direttamente alla tua riunione'
+            location_hints_help: 'Suggerimenti: informazioni aggiuntive. Esempio: il pavimento dell''edificio se si tratta di un incontro di persona o la password di incontro se si tratta di un incontro online con accesso ristretto.'
+            online_meeting_url_help: 'Link: permette ai partecipanti di connettersi direttamente alla tua incontro'
             registration_url_help: 'Link: consentire ai partecipanti di accedere al servizio esterno che stai utilizzando per le iscrizioni'
-            select_a_meeting_type: Seleziona un tipo di riunione
+            select_a_meeting_type: Seleziona un tipo di incontro
             select_a_registration_type: Seleziona un tipo di registrazione
             select_an_iframe_access_level: Seleziona un livello di accesso iframe
           index:
-            title: Meeting
+            title: Incontro
           new:
             create: Crea
-            title: Crea meeting
+            title: Crea incontro
           publish:
-            invalid: Si è verificato un errore durante la pubblicazione di questa riunione.
-            success: Meeting pubblicata con successo.
+            invalid: Si è verificato un errore durante la pubblicazione di questa incontro.
+            success: Incontro pubblicato con successo.
           service:
             description: Descrizione
             down: Giù
@@ -343,17 +343,17 @@ it:
             add_service: Aggiungi servizio
             services: Servizi
           unpublish:
-            invalid: Si è verificato un problema durante l'annullamento della pubblicazione di questa riunione.
-            success: Pubblicazione del meeting annullata con successo.
+            invalid: Si è verificato un problema durante l'annullamento della pubblicazione di questa incontro.
+            success: Pubblicazione dell'incontro annullata con successo.
           update:
-            invalid: C'è stato un problema durante l'aggiornamento di questo meeting.
-            success: Il meeting è stato aggiornato con successo.
+            invalid: C'è stato un problema durante l'aggiornamento di questo incontro.
+            success: L'incontro è stato aggiornato con successo.
         meetings_poll:
           form:
             title: Modifica questionario per %{questionnaire_for}
           update:
-            invalid: C'è stato un problema durante l'aggiornamento di questo meeting.
-            success: Sondaggio del meeting aggiornato correttamente.
+            invalid: C'è stato un problema durante l'aggiornamento di questo incontro.
+            success: Sondaggio dell'incontro aggiornato correttamente.
         registrations:
           edit:
             save: Salva
@@ -362,7 +362,7 @@ it:
           form:
             available_slots_help: Lasciare a 0 se disponi di slot illimitati.
             invites: Inviti
-            recommendation_message: Per motivi di privacy, ti consigliamo di eliminare questo modulo di iscrizione quando non ne hai più bisogno. Per impostazione predefinita, questo avverrà 3 mesi dopo la fine della riunione.
+            recommendation_message: Per motivi di privacy, ti consigliamo di eliminare questo modulo di iscrizione quando non ne hai più bisogno. Per impostazione predefinita, questo avverrà 3 mesi dopo la fine dell'incontro.
             registration_email_help: Questo testo apparirà nel mezzo dell'email di conferma della registrazione. Subito dopo il codice di registrazione.
             registration_form: Formulario di registrazione
             registrations_count:
@@ -373,26 +373,26 @@ it:
             title: Registrazioni
           update:
             invalid: Si è verificato un problema salvando le impostazioni di registrazione.
-            success: Le impostazioni di registrazione delle riunioni sono state salvate correttamente.
+            success: Le impostazioni di registrazione delle incontri sono state salvate correttamente.
           validate_registration_code:
             invalid: This registration code is invalid.
             success: Codice di iscrizione convalidato correttamente.
       admin_log:
         invite:
-          create: "%{user_name} invitato %{attendee_name} a partecipare a %{resource_name} riunioni nello spazio %{space_name}"
+          create: "%{user_name} invitato %{attendee_name} a partecipare a %{resource_name} incontri nello spazio %{space_name}"
           deleted: "%{user_name} non invitato %{attendee_name} dall'unire %{resource_name} incontri nello spazio %{space_name}"
-          update: "%{user_name} invitato %{attendee_name} a partecipare a %{resource_name} riunioni nello spazio %{space_name}"
+          update: "%{user_name} invitato %{attendee_name} a partecipare a %{resource_name} incontri nello spazio %{space_name}"
         meeting:
-          close: "%{user_name} ha chiuso la riunione %{resource_name} sullo spazio %{space_name}"
-          create: "%{user_name} ha creato la riunione %{resource_name} nello spazio %{space_name}"
-          delete: "%{user_name} ha eliminato la riunione %{resource_name} nello spazio %{space_name}"
-          export_registrations: "%{user_name} esportate le registrazioni della riunione %{resource_name} nello spazio %{space_name}"
-          update: "%{user_name} ha aggiornato la riunione %{resource_name} sullo spazio %{space_name}"
+          close: "%{user_name} ha chiuso l'incontro %{resource_name} sullo spazio %{space_name}"
+          create: "%{user_name} ha creato l'incontro %{resource_name} nello spazio %{space_name}"
+          delete: "%{user_name} ha eliminato l'incontro %{resource_name} nello spazio %{space_name}"
+          export_registrations: "%{user_name} esportate le registrazioni dell'incontro %{resource_name} nello spazio %{space_name}"
+          update: "%{user_name} ha aggiornato l'incontro %{resource_name} sullo spazio %{space_name}"
           value_types:
             organizer_presenter:
               not_found: 'L''organizzatore non è stato trovato nel database (ID: %{id})'
         questionnaire:
-          update: "%{user_name} ha aggiornato il questionario per il meeting %{meeting_name}"
+          update: "%{user_name} ha aggiornato il questionario per l'incontro %{meeting_name}"
       application_helper:
         filter_category_values:
           all: Tutte
@@ -406,37 +406,37 @@ it:
         copy_calendar_url: Copia
         copy_calendar_url_clarification: Copia l'URL del calendario negli appunti
         copy_calendar_url_copied: Copiato!
-        copy_calendar_url_description: Puoi vedere tutte le riunioni pubblicate nella tua applicazione o nel tuo provider. Copia e incolla questo URL nel tuo calendario usando l'opzione "Aggiungi nuovo calendario da un URL".
+        copy_calendar_url_description: Puoi vedere tutte gli incontri pubblicate nella tua applicazione o nel tuo provider. Copia e incolla questo URL nel tuo calendario usando l'opzione "Aggiungi nuovo calendario da un URL".
         copy_calendar_url_explanation: Please note that you are exporting a selection of meetings, as there are active filters. If you wish to export them all, reset all filters first.
         copy_calendar_url_message: Il link è stato copiato con successo negli appunti.
         export_calendar: Esporta il calendario
       close_meeting_reminder_mailer:
         close_meeting_reminder:
-          body: Il meeting <a href="%{meeting_path}">"%{meeting_title}"</a> è in attesa di essere chiuso. Si prega di aggiungere un rapporto della riunione utilizzando il pulsante "Chiudi meeting".
+          body: Il incontro <a href="%{meeting_path}">"%{meeting_title}"</a> è in attesa di essere chiuso. Si prega di aggiungere un rapporto dell'incontro utilizzando il pulsante "Chiudi incontro".
           greetings: Salve,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Ciao %{username},
           subject: Ora puoi chiudere il tuo incontro con un report sulla organizzazione %{organization_name}
       conference_venues: Sale per conferenze
       content_blocks:
         upcoming_meetings:
-          name: Prossimi meeting
+          name: Prossimi incontri
       directory:
         meetings:
           index:
-            meetings: Meeting
+            meetings: Incontri
             space_type: Spazio partecipativo
       iframe_access_level:
         all: Tutti i visitatori
-        registered: Partecipanti registrati a questa riunione
+        registered: Partecipanti registrati a questa incontro
         signed_in:
       iframe_embed_type:
-        embed_in_meeting_page: Incorpora nella pagina della riunione
+        embed_in_meeting_page: Incorpora nella pagina dell'incontro
         none: Nessuna
         open_in_live_event_page: Apri nella pagina dell'evento in diretta (con sondaggi opzionali)
         open_in_new_tab: Apri URL in una nuova scheda
       last_activity:
-        meeting_updated: 'Meeting aggiornato:'
-        new_meeting: 'Nuovo meeting:'
+        meeting_updated: 'Incontro aggiornato:'
+        new_meeting: 'Nuovo incontro:'
       layouts:
         live_event:
           administrate: Administrate
@@ -445,17 +445,17 @@ it:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Invito a partecipare a una riunione
+            subject: Invito a partecipare a un incontro
         registration_mailer:
           confirmation:
-            subject: La tua registrazione alla riunione è stata confermata
+            subject: La tua registrazione alla incontro è stata confermata
       meeting:
-        not_allowed: You are not allowed to view this meeting.
+        not_allowed: Non ti è permesso vedere questo incontro.
       meeting_closes:
         edit:
           back: Indietro
-          close: Chiusura meeting
-          title: Chiudi riunione
+          close: Chiusura incontro
+          title: Chiudi incontro
       meetings:
         calendar_modal:
           add_to_calendar: Aggiungi al calendario
@@ -465,14 +465,14 @@ it:
           outlook: Aggiungi al calendario di Outlook
         count:
           meetings_count:
-            one: "%{count} riunione"
-            other: "%{count} riunioni"
+            one: "%{count} incontro"
+            other: "%{count} incontri"
         create:
-          invalid: Si è verificato un errore durante la creazione di questa riunione.
-          success: Hai creato la riunione con successo.
+          invalid: Si è verificato un errore durante la creazione di questa incontro.
+          success: Hai creato l'incontro con successo.
         edit:
           back: Indietro
-          title: Modifica riunione
+          title: Modifica incontro
           update: Aggiorna
         filters:
           activity: La mia attività
@@ -483,7 +483,7 @@ it:
             all: Tutte
             past: Passata
             upcoming: Imminente
-          my_meetings: I miei meeting
+          my_meetings: I miei incontri
           origin: Origine
           origin_values:
             all: Tutte
@@ -494,56 +494,56 @@ it:
           type: Tipo
           type_values:
             all: Tutti
-            hybrid: Hybrid
+            hybrid: Ibridi
             in_person: Faccia a faccia
             online: Online
         form:
           address_help: 'Indirizzo: usato da Geocoder per trovare la posizione'
           available_slots_help: Lasciare a 0 se disponi di slot illimitati
-          create_as: Crea riunione come
-          disclaimer: 'Disclaimer: By using an external registration system, you are aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
-          iframe_embed_type_html: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
+          create_as: Crea incontro come
+          disclaimer: 'Disclaimer: Utilizzando un sistema di registrazione esterno, l’utente è consapevole che gli organizzatori di %{organization} non sono responsabili per i dati forniti dagli utenti al servizio esterno.'
+          iframe_embed_type_html: 'Solo alcuni servizi consentono l’incorporamento in incontri o eventi dal vivo dai seguenti domini: %{domains}'
           location_help: 'Posizione: messaggio diretto agli utenti che riporta il luogo dell''incontro'
-          location_hints_help: 'Suggerimenti: informazioni aggiuntive. Esempio: il pavimento dell''edificio se si tratta di una riunione di persona o la password di riunione se si tratta di una riunione online con accesso ristretto.'
-          online_meeting_url_help: 'Link: permette ai partecipanti di connettersi direttamente alla tua riunione'
+          location_hints_help: 'Suggerimenti: informazioni aggiuntive. Esempio: il pavimento dell''edificio se si tratta di un incontro di persona o la password di incontro se si tratta di un incontro online con accesso ristretto.'
+          online_meeting_url_help: 'Link: permette ai partecipanti di connettersi direttamente alla tua incontro'
           registration_url_help: 'Link: consentire ai partecipanti di accedere al servizio esterno che stai utilizzando per le iscrizioni'
           select_a_category: Scegli una categoria
-          select_a_meeting_type: Seleziona un tipo di riunione
+          select_a_meeting_type: Seleziona un tipo di incontro
           select_a_registration_type: Seleziona un tipo di registrazione
-          select_an_iframe_access_level: Please select an iframe access level
+          select_an_iframe_access_level: Seleziona un livello di accesso all'iframe
         index:
-          click_here: Vedi tutti i meeting
-          new_meeting: Nuovo meeting
-          see_all: Vedi tutti i meeting
-          see_all_withdrawn: Vedi tutti i meeting ritirati
-          text_banner: Stai visualizzando l'elenco dei meeting ritirati dai rispettivi autori. %{go_back_link}.
+          click_here: Vedi tutti gli incontri
+          new_meeting: Nuovo incontro
+          see_all: Vedi tutti gli incontri
+          see_all_withdrawn: Vedi tutti i incontri ritirati
+          text_banner: Stai visualizzando l'elenco degli incontri ritirati dai rispettivi autori. %{go_back_link}.
         meeting:
-          close_meeting: Chiusura meeting
-          edit_close_meeting: Modifica il verbale del meeting
-          edit_meeting: Modifica la riunione
-          join_meeting: Partecipa al meeting
+          close_meeting: Chiusura incontro
+          edit_close_meeting: Modifica il verbale dell'incontro
+          edit_meeting: Modifica l'incontro
+          join_meeting: Partecipa all'incontro
         meetings:
-          no_meetings_warning: Nessun meeting corrisponde ai criteri di ricerca o non ci sono meeting in programma.
-          upcoming_meetings_warning: Attualmente non vi sono meeting in programma, ma qui puoi trovare elencati tutti i meeting effettuati in passato.
+          no_meetings_warning: Nessun incontro corrisponde ai criteri di ricerca o non ci sono incontri in programma.
+          upcoming_meetings_warning: Attualmente non vi sono incontri in programma, ma qui puoi trovare elencati tutti i incontri effettuati in passato.
         new:
           back: Indietro
           create: Crea
-          title: Create new meeting
+          title: Crea un nuovo incontro
         registration_confirm:
           cancel: Annulla
           confirm: Conferma
         show:
           attendees: Conteggio dei partecipanti
           contributions: Conteggio dei contributi
-          join: Partecipa alla riunione
+          join: Partecipa alla incontro
           leave: Annulla la tua registrazione
-          leave_confirmation: Sei sicuro di voler annullare la tua registrazione per questa riunione?
+          leave_confirmation: Sei sicuro di voler annullare la tua registrazione per questa incontro?
           link_available_soon: Link disponibile a breve
-          link_closed: Il link per partecipare alla riunione sarà disponibile alcuni minuti prima dell'inizio
-          live_event: Questa riunione è in corso
-          meeting_minutes: Meeting dei verbali
+          link_closed: Il link per partecipare alla incontro sarà disponibile alcuni minuti prima dell'inizio
+          live_event: Questo incontro è in corso
+          meeting_minutes: Incontri dei verbali
           micro_camera_permissions_warning: Quando fai clic sul pulsante qui sotto, ti verrà chiesto il permesso del microfono e/o della fotocamera, per unirti alla videoconferenza
-          no_slots_available: Nessuna slot disponibile
+          no_slots_available: Nessuno slot disponibile
           organizations: Organizzazioni partecipanti.
           registration_code_help_text: Il tuo codice di registrazione
           registration_state:
@@ -552,13 +552,13 @@ it:
           remaining_slots:
             one: "%{count} slot rimanenti"
             other: "%{count} slot rimanenti"
-          visit_finished: Visualizza la riunione passata
-          withdraw_btn_hint: You can withdraw your meeting if you change your mind. The meeting is not deleted, it will appear in the list of withdrawn meetings.
-          withdraw_confirmation_html: Are you sure you want to withdraw this meeting?<br><br><strong>This action cannot be cancelled!</strong>
-          withdraw_meeting: Ritira meeting
+          visit_finished: Visualizza l'incontro passato
+          withdraw_btn_hint: Puoi ritirare il tuo incontro se cambi idea. L'incontro non verrà eliminato, ma apparirà nell'elenco degli incontri ritirati.
+          withdraw_confirmation_html: Sei sicuro di voler ritirare questo incontro?<br><br><strong>Questa azione non può essere annullata!</strong>     
+          withdraw_meeting: Ritira incontro
         update:
-          invalid: Si è verificato un errore durante l'aggiornamento della riunione.
-          success: Hai aggiornato la riunione con successo.
+          invalid: Si è verificato un errore durante l'aggiornamento dell'incontro.
+          success: Hai aggiornato l'incontro con successo.
       models:
         invite:
           fields:
@@ -576,7 +576,7 @@ it:
             end_time: Data di fine
             id: ID
             map: Mappa
-            official_meeting: Meeting ufficiale
+            official_meeting: Incontro ufficiale
             start_time: Data di inizio
             title: Titolo
       polls:
@@ -584,10 +584,10 @@ it:
           closed_question:
             question_results: Risultati della domanda
           index:
-            empty_questions: Durante questa riunione, alcune domande saranno inviate e sarete in grado di rispondere. Verranno visualizzate qui.
+            empty_questions: Durante questa incontro, alcune domande saranno inviate e sarete in grado di rispondere. Verranno visualizzate qui.
           index_admin:
             admin_dashboard: Pannello di amministrazione
-            edit: Edit in the admin panel
+            edit: Modifica nella dashboard
             question: Domanda
             received_answer: risposta ricevuta
             received_answers: risposte ricevute
@@ -608,8 +608,8 @@ it:
       read_more: "(leggi di più)"
       registration_mailer:
         confirmation:
-          confirmed_html: La registrazione per il <a href="%{url}">%{title}</a> di riunione è stata confermata.
-          details: Puoi trovare i dettagli della riunione in allegato.
+          confirmed_html: La registrazione per il <a href="%{url}">%{title}</a> di incontro è stata confermata.
+          details: Puoi trovare i dettagli dell'incontro in allegato.
           registration_code: Il tuo codice di registrazione è %{code}.
       registration_type:
         on_different_platform: Su una piattaforma diversa
@@ -617,45 +617,45 @@ it:
         registration_disabled: Registrazione disattivata
       registrations:
         create:
-          invalid: C'è stato un problema a partecipare a questa riunione.
-          success: You have joined the meeting successfully. Because you have registered for this meeting, you will be notified if there are updates on it.
+          invalid: C'è stato un problema a partecipare a questa incontro.
+          success: Hai partecipato all'incontro con successo. Poiché ti sei registrato per questo incontro, riceverai una notifica in caso di aggiornamenti.
         decline_invitation:
           invalid: C'è stato un problema a rifiutare l'invito.
           success: Hai rifiutato l'invito con successo.
         destroy:
-          invalid: C'è stato un problema lasciare questa riunione.
+          invalid: C'è stato un problema lasciare questa incontro.
           success: Hai lasciato l'incontro con successo.
       type_of_meeting:
-        hybrid: Hybrid
+        hybrid: Ibrido
         in_person: Di persona
         online: Online
       types:
-        private_meeting: Meeting privato
+        private_meeting: Incontro privato
         transparent: Trasparente
         withdraw: Withdrawn
       withdraw:
-        error: Si è verificato un errore durante il ritiro della riunione.
-        success: The meeting has been withdrawn successfully.
+        error: Si è verificato un errore durante il ritiro dell'incontro.
+        success: L'incontro è stato ritirato con successo.
     metrics:
       meetings:
-        description: Numero di riunioni create
+        description: Numero di incontri creati
         object: incontri
-        title: Meeting
+        title: Incontri
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Meeting passati
+        past_meetings: Incontri passati
         see_all: Vedi tutto (%{count})
         upcoming_meetings: Prossimi incontri
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Risultati correlati:'
-        result_meeting: 'Meeting correlati:'
+        result_meeting: 'Incontri correlati:'
       proposals_from_meeting:
         meeting_proposal: 'Proposte correlate:'
-        proposal_meeting: 'Meeting correlati:'
+        proposal_meeting: 'Incontri correlati:'
     statistics:
-      meetings_count: Meeting
+      meetings_count: Incontri
   devise:
     mailer:
       join_meeting:
-        subject: Invito a partecipare a una riunione
+        subject: Invito a partecipare a un incontro
