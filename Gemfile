@@ -7,7 +7,6 @@ DECIDIM_VERSION = 'release/0.28-stable'
 
 gem 'decidim', git: 'https://github.com/decidim/decidim', tag: DECIDIM_VERSION
 gem 'decidim-decidim_awesome'
-#, git: 'https://github.com/decidim-ice/decidim-module-decidim_awesome', branch: 'release/0.28-stable'
 gem 'decidim-privacy', branch: 'release/0.28' , git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-privacy'
 gem 'decidim-pua', git: 'https://github.com/dipartimentofunzionepubblica/decidim-module-pua', branch: 'bump_to_0.28'
 gem 'decidim-term_customizer', git: 'https://github.com/mainio/decidim-module-term_customizer', branch: 'release/0.28-stable'
