@@ -1,18 +1,7 @@
 GIT
-  remote: https://github.com/decidim-ice/decidim-module-decidim_awesome
-  revision: ef6b21bb7f42de1f6a9d78fdbc5ad2ce759bc752
-  branch: release/0.28-stable
-  specs:
-    decidim-decidim_awesome (0.11.5)
-      decidim-admin (>= 0.28.0, < 0.29)
-      decidim-core (>= 0.28.0, < 0.29)
-      deface (>= 1.5)
-      sassc (~> 2.3)
-
-GIT
   remote: https://github.com/decidim/decidim
   revision: 164535e5b5c44d7ef5b99c4c4013960c7e4d2d4d
-  branch: release/0.28-stable
+  tag: release/0.28-stable
   specs:
     decidim (0.28.6)
       decidim-accountability (= 0.28.6)
@@ -37,6 +26,12 @@ GIT
     decidim-accountability (0.28.6)
       decidim-comments (= 0.28.6)
       decidim-core (= 0.28.6)
+    decidim-admin (0.28.6)
+      active_link_to (~> 1.0)
+      decidim-core (= 0.28.6)
+      devise (~> 4.7)
+      devise-i18n (~> 1.2)
+      devise_invitable (~> 2.0, >= 2.0.9)
     decidim-api (0.28.6)
       commonmarker (~> 0.23.0, >= 0.23.9)
       decidim-core (= 0.28.6)
@@ -186,7 +181,7 @@ GIT
 
 GIT
   remote: https://github.com/dipartimentofunzionepubblica/decidim-module-pua
-  revision: 15810909b55d45aeb8b110c00d471f6c10c052fc
+  revision: a773486c2e64edc4791920dc94545932fea4a06a
   branch: bump_to_0.28
   specs:
     decidim-pua (0.28.6)
@@ -298,10 +293,10 @@ GEM
       erubi (~> 1.4)
       parser (>= 2.4)
       smart_properties
-    bigdecimal (4.0.1)
+    bigdecimal (4.1.2)
     bindata (2.5.1)
     bindex (0.8.1)
-    bootsnap (1.22.0)
+    bootsnap (1.24.3)
       msgpack (~> 1.2)
     brakeman (5.4.1)
     browser (2.7.1)
@@ -354,14 +349,13 @@ GEM
     date_validator (0.12.0)
       activemodel (>= 3)
       activesupport (>= 3)
-    decidim-admin (0.28.6)
-      active_link_to (~> 1.0)
-      decidim-core (= 0.28.6)
-      devise (~> 4.7)
-      devise-i18n (~> 1.2)
-      devise_invitable (~> 2.0, >= 2.0.9)
     decidim-cache_cleaner (1.0.4)
       decidim-core (~> 0.26)
+    decidim-decidim_awesome (0.11.4)
+      decidim-admin (>= 0.28.0, < 0.29)
+      decidim-core (>= 0.28.0, < 0.29)
+      deface (>= 1.5)
+      sassc (~> 2.3)
     declarative-builder (0.2.0)
       trailblazer-option (~> 0.1.0)
     declarative-option (0.1.0)
@@ -414,12 +408,12 @@ GEM
       logger
     extended-markdown-filter (0.7.0)
       html-pipeline (~> 2.9)
-    factory_bot (6.5.6)
+    factory_bot (6.6.0)
       activesupport (>= 6.1.0)
     factory_bot_rails (6.5.1)
       factory_bot (~> 6.5)
       railties (>= 6.1.0)
-    faker (3.6.0)
+    faker (3.6.1)
       i18n (>= 1.8.11, < 2)
     faraday (2.14.1)
       faraday-net_http (>= 2.0, < 3.5)
@@ -485,7 +479,7 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.8, >= 1.8.1)
       terminal-table (>= 1.5.1)
-    icalendar (2.12.1)
+    icalendar (2.12.2)
       base64
       ice_cube (~> 0.16)
       logger
@@ -497,7 +491,7 @@ GEM
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
     io-console (0.8.2)
-    json (2.19.3)
+    json (2.19.5)
     json-jwt (1.17.0)
       activesupport (>= 4.2)
       aes_key_wrap
@@ -555,7 +549,7 @@ GEM
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2026.0407)
+    mime-types-data (3.2026.0414)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
@@ -639,10 +633,10 @@ GEM
     paper_trail (12.3.0)
       activerecord (>= 5.2)
       request_store (~> 1.1)
-    parallel (1.27.0)
+    parallel (1.28.0)
     parallel_tests (4.10.1)
       parallel
-    parser (3.3.10.2)
+    parser (3.3.11.1)
       ast (~> 2.4.1)
       racc
     pg (1.4.6)
@@ -719,7 +713,7 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0)
     rainbow (3.1.1)
-    rake (13.3.1)
+    rake (13.4.2)
     ransack (3.2.1)
       activerecord (>= 6.1.5)
       activesupport (>= 6.1.5)
@@ -729,7 +723,7 @@ GEM
       ffi (~> 1.0)
     redcarpet (3.6.1)
     redis (4.8.1)
-    regexp_parser (2.11.3)
+    regexp_parser (2.12.0)
     reline (0.6.3)
       io-console (~> 0.5)
     request_store (1.5.1)
@@ -753,7 +747,7 @@ GEM
     rspec-html-matchers (0.10.0)
       nokogiri (~> 1)
       rspec (>= 3.0.0.a)
-    rspec-mocks (3.13.7)
+    rspec-mocks (3.13.8)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-rails (6.1.5)
@@ -779,7 +773,7 @@ GEM
       rubocop-ast (>= 1.28.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.49.0)
+    rubocop-ast (1.49.1)
       parser (>= 3.3.7.2)
       prism (~> 1.7)
     rubocop-capybara (2.21.0)
@@ -904,7 +898,7 @@ GEM
     webfinger (1.2.0)
       activesupport
       httpclient (>= 2.4)
-    webmock (3.26.1)
+    webmock (3.26.2)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -934,7 +928,7 @@ DEPENDENCIES
   daemons
   decidim!
   decidim-cache_cleaner
-  decidim-decidim_awesome!
+  decidim-decidim_awesome
   decidim-dev!
   decidim-privacy!
   decidim-pua!
