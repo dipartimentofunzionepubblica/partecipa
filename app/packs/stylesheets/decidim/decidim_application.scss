@@ -168,7 +168,7 @@ $par-highlight: #FFFF00;
   
 
   .content-block__description :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-    color: green;
+    color: var(--secondary);
     text-decoration: underline;
     font-weight: 500;
   }
