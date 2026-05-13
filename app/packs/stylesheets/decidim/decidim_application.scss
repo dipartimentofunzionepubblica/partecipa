@@ -166,7 +166,6 @@ $par-highlight: #FFFF00;
       color: white !important;
   }
   
-
   .content-block__description :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     color: var(--secondary);
     text-decoration: underline;
@@ -176,14 +175,14 @@ $par-highlight: #FFFF00;
   @media (min-width: 1280px) {
     .hero {
       max-width: 1280px;
-	  height: 65vh;
+	  height: 45vh;
     }
   }
   
   @media (min-width: 1024px) {
     .hero {
       max-width: 1024px;
-      height: 65vh;
+      height: 45vh;
 	  padding-right: 4rem;
       padding-left: 4rem;
     }
