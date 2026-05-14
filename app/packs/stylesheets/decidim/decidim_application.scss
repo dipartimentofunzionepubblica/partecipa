@@ -161,6 +161,17 @@ $par-highlight: #FFFF00;
     background-color: white !important;
   }
   
+  .answer-questionnaire__step-counter {
+    display: inline-block;
+    --tw-bg-opacity: 1;
+    background-color: rgb(var(--secondary-rgb) / 1);
+    background-color: rgb(var(--secondary-rgb) / var(--tw-bg-opacity));
+    font-size: 18px;
+    line-height: 23px;
+    font-weight: 600;
+    --tw-text-opacity: 1;
+    color: rgb(2 2 3 / 1);
+  }
   
   .answer-questionnaire__step-counter {
       color: white !important;
@@ -175,14 +186,14 @@ $par-highlight: #FFFF00;
   @media (min-width: 1280px) {
     .hero {
       max-width: 1280px;
-	  height: 45vh;
+	  height: 55vh;
     }
   }
   
   @media (min-width: 1024px) {
     .hero {
       max-width: 1024px;
-      height: 45vh;
+      height: 55vh;
 	  padding-right: 4rem;
       padding-left: 4rem;
     }
